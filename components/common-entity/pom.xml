@@ -10,9 +10,9 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>task-producer</artifactId>
+  <artifactId>common-entity</artifactId>
 
-  <name>task-producer</name>
+  <name>common-entity</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

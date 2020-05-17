@@ -3,7 +3,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.mikufancx</groupId>
+  <groupId>org.mikufan.cx</groupId>
   <artifactId>vocal-character-video-downloader</artifactId>
   <packaging>pom</packaging> <!-- in intellij "pom" won't let this module contains source code, IDEA-221071 -->
   <version>4.0.0-SNAPSHOT</version>
@@ -13,20 +13,226 @@
   </prerequisites>
   <modules>
     <module>../components/task-producer</module>
+    <module>../components/common-entity</module>
   </modules>
 
   <name>Vocal Character Video Downloader</name>
+  <url>https://github.com/CXwudi/vocal-character-video-downloader</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>11</java.version>
+    <!-- variables for ci/cd -->
+    <build.library.dir>libs</build.library.dir>
+    <!-- some shared version numbers -->
     <module.version>4.0.0-SNAPSHOT</module.version>  <!-- stay same with project version, but don't replace project version -->
+    <log4j.version>2.13.2</log4j.version>
+    <eclipse-collections.version>10.2.0</eclipse-collections.version>
+    <jackson.version>2.11.0</jackson.version>
+
   </properties>
 
+  <dependencyManagement> <!-- declear dependencies that is useful in this project -->
+    <dependencies>
+      <!-- all my modules -->
+      <dependency>
+        <groupId>org.mikufan.cx</groupId>
+        <artifactId>task-producer</artifactId>
+        <version>${module.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mikufan.cx</groupId>
+        <artifactId>common-entity</artifactId>
+        <version>${module.version}</version>
+      </dependency>
+
+      <!-- honor utils -->
+      <dependency> <!-- guava, provides useful utils -->
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>28.2-jre</version>
+      </dependency>
+      <dependency> <!-- common-lang, provides useful utils -->
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.10</version>
+      </dependency>
+
+      <!-- application framework -->
+      <dependency><!-- http-client5 -->
+        <groupId>org.apache.httpcomponents.client5</groupId>
+        <artifactId>httpclient5</artifactId>
+        <version>5.0</version>
+      </dependency>
+      <dependency> <!-- commons-configuration, read .property files -->
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-configuration2</artifactId>
+        <version>2.6</version>
+      </dependency>
+      <dependency> <!-- support for common configuration -->
+        <groupId>commons-beanutils</groupId>
+        <artifactId>commons-beanutils</artifactId>
+        <version>1.9.4</version>
+      </dependency>
+
+      <dependency> <!-- jackson -->
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency> <!-- and its standalone annotation, children import this to avoid jackson-databind -->
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency> <!-- and its standalone object mapper -->
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency> <!-- and supports for eclipse collection -->
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-eclipse-collections</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+<!--      enable them if needed -->
+<!--      <dependency> &lt;!&ndash; and supports for java 8 Data api&ndash;&gt;-->
+<!--        <groupId>com.fasterxml.jackson.datatype</groupId>-->
+<!--        <artifactId>jackson-datatype-jsr310</artifactId>-->
+<!--        <version>${jackson.version}</version>-->
+<!--      </dependency>-->
+<!--      <dependency> &lt;!&ndash; and supports for java 8 Optional type&ndash;&gt;-->
+<!--        <groupId>com.fasterxml.jackson.datatype</groupId>-->
+<!--        <artifactId>jackson-datatype-jdk8</artifactId>-->
+<!--        <version>${jackson.version}</version>-->
+<!--      </dependency>-->
 
 
+
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies> <!-- enabled by default dependencies that are shared across the whole project -->
+    <!-- current enabled dep: junit, slf4j+log4j2+disruptor, lombok, eclipse-collection -->
+    <!-- test cases -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.6.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- logging -->
+    <dependency> <!-- slf4j -->
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.28</version>
+    </dependency>
+    <dependency> <!-- log4j2 -->
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>${log4j.version}</version>
+      <exclusions> <!-- exclude the included slf4j, which uses older version -->
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency> <!-- async logging support-->
+      <groupId>com.lmax</groupId>
+      <artifactId>disruptor</artifactId>
+      <version>3.4.2</version>
+    </dependency>
+
+    <!-- injecting cheat -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.12</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- honor utils -->
+    <dependency>
+      <groupId>org.eclipse.collections</groupId>
+      <artifactId>eclipse-collections-api</artifactId>
+      <version>${eclipse-collections.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.collections</groupId>
+      <artifactId>eclipse-collections</artifactId>
+      <version>${eclipse-collections.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+      <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+      <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+      <plugins>
+        <!-- only need this to compiling high version java like 11 or higher -->
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version> <!-- higher version support higher java -->
+          <configuration>
+            <release>${java.version}</release>
+          </configuration>
+        </plugin>
+
+        <!-- zip file build setup -->
+        <!-- jar + assembly to produce a fat zip, recommended way to publish releases -->
+        <!-- should never build a fat jar file as library jars have signatures, fail to preserve signatures will get exception -->
+        <plugin> <!-- add dependencies to the jar-->
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.2.0</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <addClasspath>true</addClasspath>
+                <classpathPrefix>${build.library.dir}</classpathPrefix>
+                <!-- children plz indicate your main class -->
+                <!--                <mainClass>com.sample.Main</mainClass>-->
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.2.0</version>
+          <executions>
+            <execution>
+              <id>make-assembly</id> <!-- this is used for inheritance merges -->
+              <phase>package</phase> <!-- bind to the packaging phase -->
+              <goals>
+                <goal>single</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <appendAssemblyId>false</appendAssemblyId>
+            <outputDirectory>${project.basedir}/release</outputDirectory>
+            <descriptors>
+              <!-- children plz specify your location of configuration file -->
+              <descriptor>src/main/resources/assembly/zip.xml</descriptor> <!-- default path -->
+            </descriptors>
+          </configuration>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+  </build>
 
   <description>
     The remastered Niconico Video Downloader to support more sites and more features.
     origin project --> https://github.com/CXwudi/Niconico-Video-Downloader
   </description>
+
 </project>
