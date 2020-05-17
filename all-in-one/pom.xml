@@ -177,13 +177,19 @@
       <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
       <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
       <plugins>
-        <!-- only need this to compiling high version java like 11 or higher -->
-        <plugin>
+
+        <plugin> <!-- only need this to compiling high version java like 11 or higher -->
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.1</version> <!-- higher version support higher java -->
           <configuration>
             <release>${java.version}</release>
           </configuration>
+        </plugin>
+
+        <plugin> <!-- run junit test-->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M3</version>
         </plugin>
 
         <!-- zip file build setup -->

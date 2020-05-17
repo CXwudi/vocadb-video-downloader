@@ -17,7 +17,7 @@ class ResponseSongListTest {
 
 
   @Test
-  void canParseModel() throws IOException {
+  void testParseModel() throws IOException {
     var jsonFile = new File("src/test/resources/vocadb/songListModelSchema.json");
     var response = objectMapper.readValue(jsonFile,ResponseSongList.class);
     System.out.println(response);
@@ -25,10 +25,10 @@ class ResponseSongListTest {
   }
 
   @Test
-  void canParseSampleResponse() throws IOException {
+  void testParseSampleResponse() throws IOException {
     var jsonFile = new File("src/test/resources/vocadb/sampleSongListResponse.json");
     var response = objectMapper.readValue(jsonFile,ResponseSongList.class);
     System.out.println(response);
-    assertTrue(true);
+    fail();
   }
 }
