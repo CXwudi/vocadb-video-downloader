@@ -2,7 +2,7 @@
 
 ![alt text](https://ec.crypton.co.jp/img/vocaloid/mikuv4x_img2.jpg "初音ミクv4x")
 
-![alt text](https://upload.wikimedia.org/wikipedia/de/c/ce/NicoNicoDouga-Logo-Vector.svg "ニコニコ動画"")
+![alt text](https://upload.wikimedia.org/wikipedia/de/c/ce/NicoNicoDouga-Logo-Vector.svg "ニコニコ動画")
 
 # Project Motivation
 
