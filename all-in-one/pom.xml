@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.mikufancx</groupId>
+  <artifactId>vocal-character-video-downloader</artifactId>
+  <packaging>pom</packaging> <!-- in intellij "pom" won't let this module contains source code, IDEA-221071 -->
+  <version>4.0.0-SNAPSHOT</version>
+
+  <prerequisites>
+    <maven>3.5.0</maven> <!-- not required but better to add this, good for updating and solving maven problems-->
+  </prerequisites>
+  <modules>
+    <module>../components/task-producer</module>
+  </modules>
+
+  <name>Vocal Character Video Downloader</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <module.version>4.0.0-SNAPSHOT</module.version>  <!-- stay same with project version, but don't replace project version -->
+  </properties>
+
+
+
+
+  <description>
+    The remastered Niconico Video Downloader to support more sites and more features.
+    origin project --> https://github.com/CXwudi/Niconico-Video-Downloader
+  </description>
+</project>
