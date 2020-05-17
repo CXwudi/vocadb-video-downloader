@@ -15,9 +15,9 @@ the successor of my previous project [Niconico Video Downloader](https://github.
 
 Aim to provide the following features:
 
-* Support youtube, niconico, bilibili and any future website support
-* Able to download vocaloid PV from sites mentioned above
-* Able to extract audio from vocaloid PV and imbed thumbnail and tags information from VocaDB
+* Support Youtube, Niconico, Bilibili and any future website support
+* Able to download Vocaloid PV from sites mentioned above
+* Able to extract audio from Vocaloid PV and embed thumbnail and tags information from VocaDB
 
 The project is currently under the developing stage...
 
