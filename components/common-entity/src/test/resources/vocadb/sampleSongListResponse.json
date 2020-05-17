@@ -1,0 +1,3027 @@
+{
+  "items":[
+    {
+      "notes":"",
+      "order":1,
+      "song":{
+        "additionalNames":"Teo, Theo, 将手",
+        "albums":[
+          {
+            "additionalNames":"First Waltz, The First Waltz",
+            "artistString":"Omoi feat. various",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2017-12-20T19:26:03",
+            "deleted":false,
+            "discType":"Album",
+            "id":23851,
+            "name":"ファーストワルツ",
+            "ratingAverage":5.0,
+            "ratingCount":5,
+            "releaseDate":{
+              "day":29,
+              "formatted":"12/29/2017",
+              "isEmpty":false,
+              "month":12,
+              "year":2017
+            },
+            "releaseEvent":{
+              "category":"Unspecified",
+              "date":"2017-12-29T00:00:00Z",
+              "endDate":"2017-12-31T00:00:00Z",
+              "id":1596,
+              "name":"Comiket 93",
+              "seriesId":3,
+              "seriesNumber":93,
+              "seriesSuffix":"",
+              "status":"Finished",
+              "urlSlug":"comiket-93",
+              "venueName":"Tokyo Big Sight",
+              "version":3
+            },
+            "status":"Finished",
+            "version":11
+          },
+          {
+            "additionalNames":"EXIT TUNES PRESENTS Vocalostream feat.Hatsune Miku",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2019-02-01T15:08:30.723",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":26302,
+            "name":"EXIT TUNES PRESENTS Vocalostream feat.初音ミク",
+            "ratingAverage":4.9,
+            "ratingCount":10,
+            "releaseDate":{
+              "day":20,
+              "formatted":"3/20/2019",
+              "isEmpty":false,
+              "month":3,
+              "year":2019
+            },
+            "status":"Finished",
+            "version":8
+          },
+          {
+            "additionalNames":"Teo, Theo",
+            "artistString":"Omoi feat. 初音ミク",
+            "coverPictureMime":"image/png",
+            "createDate":"2019-02-21T21:09:30.243",
+            "deleted":false,
+            "discType":"Single",
+            "id":26363,
+            "name":"テオ",
+            "ratingAverage":0.0,
+            "ratingCount":0,
+            "releaseDate":{
+              "day":8,
+              "formatted":"7/8/2017",
+              "isEmpty":false,
+              "month":7,
+              "year":2017
+            },
+            "status":"Finished",
+            "version":2
+          },
+          {
+            "additionalNames":"Hatsune Miku Project DIVA MEGA39's 10th Anniversary Collection",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/png",
+            "createDate":"2019-11-09T03:41:06.51",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":27607,
+            "name":"初音ミク Project DIVA MEGA39’s 10th アニバーサリーコレクション",
+            "ratingAverage":5.0,
+            "ratingCount":1,
+            "releaseDate":{
+              "day":13,
+              "formatted":"2/13/2020",
+              "isEmpty":false,
+              "month":2,
+              "year":2020
+            },
+            "status":"Finished",
+            "version":12
+          }
+        ],
+        "artists":[
+          {
+            "artist":{
+              "additionalNames":"",
+              "artistType":"OtherGroup",
+              "deleted":false,
+              "id":10137,
+              "name":"Omoi",
+              "pictureMime":"image/jpeg",
+              "status":"Finished",
+              "version":19
+            },
+            "categories":"Producer",
+            "effectiveRoles":"Composer",
+            "id":393075,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"Omoi",
+            "roles":"Composer"
+          },
+          {
+            "artist":{
+              "additionalNames":"Hatsune Miku",
+              "artistType":"Vocaloid",
+              "deleted":false,
+              "id":1,
+              "name":"初音ミク",
+              "pictureMime":"image/png",
+              "releaseDate":"2007-08-31T00:00:00Z",
+              "status":"Locked",
+              "version":23
+            },
+            "categories":"Vocalist",
+            "effectiveRoles":"Default",
+            "id":393076,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"初音ミク",
+            "roles":"Default"
+          },
+          {
+            "artist":{
+              "additionalNames":"グミ, Megpoid, メグッポイド",
+              "artistType":"Vocaloid",
+              "deleted":false,
+              "id":3,
+              "name":"GUMI",
+              "pictureMime":"image/jpeg",
+              "releaseDate":"2009-06-26T00:00:00Z",
+              "status":"Approved",
+              "version":37
+            },
+            "categories":"Vocalist",
+            "effectiveRoles":"Default",
+            "id":459637,
+            "isCustomName":false,
+            "isSupport":true,
+            "name":"GUMI",
+            "roles":"Default"
+          },
+          {
+            "artist":{
+              "additionalNames":"イア, IA -ARIA ON THE PLANETES-",
+              "artistType":"Vocaloid",
+              "deleted":false,
+              "id":504,
+              "name":"IA",
+              "pictureMime":"image/png",
+              "releaseDate":"2012-01-27T00:00:00Z",
+              "status":"Approved",
+              "version":30
+            },
+            "categories":"Vocalist",
+            "effectiveRoles":"Default",
+            "id":459638,
+            "isCustomName":false,
+            "isSupport":true,
+            "name":"IA",
+            "roles":"Default"
+          },
+          {
+            "artist":{
+              "additionalNames":"Kagamine Rin",
+              "artistType":"Vocaloid",
+              "deleted":false,
+              "id":14,
+              "name":"鏡音リン",
+              "pictureMime":"image/png",
+              "releaseDate":"2007-12-27T00:00:00Z",
+              "status":"Approved",
+              "version":25
+            },
+            "categories":"Vocalist",
+            "effectiveRoles":"Default",
+            "id":459639,
+            "isCustomName":false,
+            "isSupport":true,
+            "name":"鏡音リン",
+            "roles":"Default"
+          }
+        ],
+        "artistString":"Omoi feat. 初音ミク",
+        "createDate":"2017-07-08T13:46:32",
+        "defaultName":"テオ",
+        "defaultNameLanguage":"Japanese",
+        "favoritedTimes":25,
+        "id":161199,
+        "lengthSeconds":209,
+        "lyrics":[
+          {
+            "cultureCode":"ja",
+            "id":46279,
+            "source":"MikuWiki",
+            "translationType":"Original",
+            "url":"https://www5.atwiki.jp/hmiku/pages/36453.html",
+            "value":" 考える\nこのままいつまで　隠しておけるかな\n帰りたくなった時　さよならは言 えるかな\n\n見落としたあの日のサインが　少しずつ溶けても\nきっと大丈夫だよ　こうやって僕らまた逢えるから\n\n目を閉じる\n小さな祈りは　ま だ残せるかな\n光が戻ったとき　ただいまは言えるかな\n\n行かなくちゃ\n世界で一番　綺麗なものなら\n今まで奪われてた分は\n取り戻すまでさ！\n\nもっと\nクラクラクラ　クラクラさせてよ\nユラユラユラ　ゆらぎを見せてよ\nキラキラキラ　きらめいていてよ\n\nそっと\n傷ついた夜を呼び出してみる\nささやかな魔法をひとつかける\nそれだけで僕らは飛べるのさ！\n\n離さないでよ！　眼差しを\n僕達はもう　止まらないよ\n魔法が解ける　そ れまで\n繋いでいてよ　手を\n手を！\n\nひとつだって残さない\n全てを取り戻すだけさ\n魔法が解ける　それまで\n繋いでいてよ　手を　手を\n手を ！\n\n今まで奪われてた分は\n取り戻すまでさ！\n\nそっと\n傷ついた夜を呼び出してみる\nささやかな魔法をひとつかける\nそれだけで僕らは飛べる のさ！\n\nもっと！\nクラクラクラ　クラクラさせてよ\nユラユラユラ　ゆらぎを見せてよ\nキラキラキラ　きらめいていてよ\n\n離さないでよ！　眼 差しを\n僕達はもう　止まらないよ\n魔法が解ける　それまで\n繋いでいてよ　手を\n手を！\n\nひとつだって残さない\n全てを取り戻すだけさ\n魔法 が解ける　それまで\n繋いでいてよ　手を　手を\n手を！ "
+          },
+          {
+            "cultureCode":"",
+            "id":46525,
+            "source":"Coleena's Translations",
+            "translationType":"Romanized",
+            "url":"http://papercoleena.com/nicodou/teo",
+            "value":"kangaeru\nkono mama itsu made kakushite okeru kana\nkaeritakunatta toki sayonara wa ieru kana\n\nmiotoshita ano hi no sain ga sukoshi zutsu toketemo\nkitto daijoubu da yo kou yatte bokura mata aeru kara\n\nme wo tojiru\nchiisa na inori wa mada nokoseru kana\nhikari ga modotta toki tadaima wa ieru kana\n\nikanakucha\nsekai de ichiban kirei na mono nara\nima made ubawareteta bun wa\ntorimodosu made sa!\n\nmotto\nkurakura kurakura sasete yo\nyurayura yuragi wo misete yo\nkirakira kirameite yo\n\nsotto\nkizutsuita yoru wo yobidashite miru\nsasayaka na mahou wo hitotsu kakeru\nsore dake de bokura wa toberu no sa!\n\nhanasanaide yo! manazashi wo\nboku-tachi wa mou tomaranai yo\nmahou ga tokeru sore made\ntsunaideite yo te wo\nte wo!\n\nhitotsu datte nokosanai\nsubete wo torimodosu dake sa\nmahou ga tokeru sore made\ntsunaideite yo te wo te wo\nte wo!\n\nima made ubawareteta bun wa\ntorimodosu made sa!\n\nsotto\nkizutsuita yoru wo yobidashite miru\nsasayaka na mahou wo hitotsu kakeru\nsore dake de bokura wa toberu no sa!\n\nmotto!\nkurakura kurakura sasete yo\nyurayura yuragi wo misete yo\nkirakira kirameite yo\n\nhanasanaide yo! manazashi wo\nboku-tachi wa mou tomaranai yo\nmahou ga tokeru sore made\ntsunaideite yo te wo\nte wo!\n\nhitotsu datte nokosanai\nsubete wo torimodosu dake sa\nmahou ga tokeru sore made\ntsunaideite yo te wo te wo\nte wo!"
+          },
+          {
+            "cultureCode":"en",
+            "id":46526,
+            "source":"Coleena's Translations",
+            "translationType":"Translation",
+            "url":"http://papercoleena.com/nicodou/teo",
+            "value":"I wonder\nHow long will I be able to keep up the act?\nWill I be able to say good-bye when you want to go home?\n\nThe signs I'd missed that day fade bit by bit\nBut I'm sure things will be fine - we'll meet again, just as we have...\n\nI close my eyes\nIs it too late to leave a few small wishes?\nWill I be able to say \"welcome back\" when the light has returned?\n\nI must go\nCall that the most beautiful thing in the world,\nJust wait until we take back\nall that's been stolen from us!\n\nMore\nRound and round, make me dizzy\nBack and forth, sway me like never before\nBrighter and brighter, let it shine\n\nSoftly\nI summon forth the wounded night\nAnd cast a single little magic spell\nAnd just like that, we can fly!\n\nDon't avert your gaze! Keep it straight\nNothing will stop us at this point\nUntil the magic wears off - until then,\nHold on tight! To my hand\nMy hand!\n\nNot a single one left behind\nWe'll reclaim every last piece, that's all\nUntil the magic wears off - until then,\nHold on tight! To my hand, my hand\nMy hand!\n\nJust wait until we take back\nall that's been stolen from us!\n\nSoftly\nI summon forth the wounded night\nAnd cast a single little magic spell\nAnd just like that, we can fly!\n\nMore!\nRound and round, make me dizzy\nBack and forth, sway me like never before\nBrighter and brighter, let it shine\n\nDon't avert your gaze! Keep it straight\nNothing will stop us at this point\nUntil the magic wears off - until then,\nHold on tight! To my hand\nMy hand!\n\nNot a single one left behind\nWe'll reclaim every last piece, that's all\nUntil the magic wears off - until then,\nHold on tight! To my hand, my hand\nMy hand!"
+          }
+        ],
+        "mainPicture":{
+          "urlThumb":"http://tn-skr4.smilevideo.jp/smile?i=31533883"
+        },
+        "name":"テオ",
+        "names":[
+          {
+            "language":"Japanese",
+            "value":"テオ"
+          },
+          {
+            "language":"Romaji",
+            "value":"Teo"
+          },
+          {
+            "language":"Unspecified",
+            "value":"Theo"
+          },
+          {
+            "language":"Unspecified",
+            "value":"将手"
+          }
+        ],
+        "publishDate":"2017-07-08T00:00:00Z",
+        "pvs":[
+          {
+            "author":"Omoi",
+            "disabled":false,
+            "id":233066,
+            "length":210,
+            "name":"『テオ』 / 初音ミク",
+            "publishDate":"2017-07-08T00:00:00",
+            "pvId":"sm31533883",
+            "service":"NicoNicoDouga",
+            "pvType":"Original",
+            "thumbUrl":"http://tn-skr4.smilevideo.jp/smile?i=31533883",
+            "url":"http://www.nicovideo.jp/watch/sm31533883"
+          },
+          {
+            "author":"Omoi [公式]",
+            "disabled":false,
+            "id":233075,
+            "length":211,
+            "name":"『テオ』 / 初音ミク",
+            "publishDate":"2017-07-08T00:00:00",
+            "pvId":"bmkY2yc1K7Q",
+            "service":"Youtube",
+            "pvType":"Original",
+            "thumbUrl":"https://i.ytimg.com/vi/bmkY2yc1K7Q/default.jpg",
+            "url":"https://youtu.be/bmkY2yc1K7Q"
+          },
+          {
+            "author":"Coleena Wu",
+            "disabled":false,
+            "id":234333,
+            "length":211,
+            "name":"[Eng Sub] Theo [Hatsune Miku]",
+            "publishDate":"2017-07-18T00:00:00",
+            "pvId":"sOQirPB3T9g",
+            "service":"Youtube",
+            "pvType":"Other",
+            "thumbUrl":"https://i.ytimg.com/vi/sOQirPB3T9g/default.jpg",
+            "url":"https://youtu.be/sOQirPB3T9g"
+          },
+          {
+            "author":"Omoi",
+            "disabled":false,
+            "extendedMetadata":{
+              "json":"{\"Timestamp\":\"20170722234829\"}"
+            },
+            "id":263489,
+            "length":211,
+            "name":"Omoi - テオ",
+            "publishDate":"2017-07-22T00:00:00",
+            "pvId":"jbj2gyriflt125jy",
+            "service":"Piapro",
+            "pvType":"Original",
+            "thumbUrl":"",
+            "url":"http://piapro.jp/content/jbj2gyriflt125jy"
+          },
+          {
+            "author":"OmoiMusic",
+            "disabled":false,
+            "extendedMetadata":{
+              "json":"{\"Cid\":86655882}"
+            },
+            "id":335745,
+            "length":211,
+            "name":"『将手』- 初音未来 Omoi",
+            "publishDate":"2019-04-18T00:00:00",
+            "pvId":"49489871",
+            "service":"Bilibili",
+            "pvType":"Original",
+            "thumbUrl":"https://i2.hdslb.com/bfs/archive/f4a82deeeb3973fd9df1ba1b5d92faba503f32c4.jpg",
+            "url":"https://www.bilibili.com/video/av49489871"
+          }
+        ],
+        "pvServices":"NicoNicoDouga, Youtube, Piapro, Bilibili",
+        "ratingScore":137,
+        "songType":"Original",
+        "status":"Finished",
+        "tags":[
+          {
+            "count":5,
+            "tag":{
+              "additionalNames":"ロック, vocarock, utaurock, rock n roll",
+              "categoryName":"Genres",
+              "id":481,
+              "name":"rock",
+              "urlSlug":"rock"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"カラオケ配布, off vocal available, オフボカール配布, instrumental available, インストルメンタル配布",
+              "categoryName":"Sources",
+              "id":3113,
+              "name":"karaoke available",
+              "urlSlug":"karaoke-available"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"Hatsune Miku VR",
+              "categoryName":"Games",
+              "id":6592,
+              "name":"初音ミク VR",
+              "urlSlug":"hatsune-miku-vr"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"CHUNITHM",
+              "categoryName":"Games",
+              "id":6717,
+              "name":"チュウニズム",
+              "urlSlug":"chunithm"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"初音ミク Project DIVA MEGA39’s, Hatsune Miku Project DIVA MEGA39’s, Hatsune Miku: Project DIVA Mega Mix",
+              "categoryName":"Games",
+              "id":7185,
+              "name":"Project DIVA MEGA39’s",
+              "urlSlug":"project-diva-mega39s"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"グルーヴコースター",
+              "categoryName":"Games",
+              "id":7188,
+              "name":"GROOVE COASTER",
+              "urlSlug":"groove-coaster"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"Project SEKAI, プロジェクトセカイ カラフルステージ！ feat. 初音ミク, Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+              "categoryName":"Games",
+              "id":7323,
+              "name":"プロジェクトセカイ",
+              "urlSlug":"project-sekai"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"GROOVE COASTER WAI WAI PARTY!!!!",
+              "categoryName":"Games",
+              "id":7357,
+              "name":"グルーヴコースター ワイワイパーティー!!!!",
+              "urlSlug":"groove-coaster-wai-wai-party"
+            }
+          }
+        ],
+        "thumbUrl":"http://tn-skr4.smilevideo.jp/smile?i=31533883",
+        "version":11,
+        "webLinks":[
+          {
+            "category":"Reference",
+            "description":"MikuWiki",
+            "id":58059,
+            "url":"https://www5.atwiki.jp/hmiku/pages/36453.html"
+          },
+          {
+            "category":"Reference",
+            "description":"Vocaloid Lyrics Wiki",
+            "id":67598,
+            "url":"http://vocaloidlyrics.wikia.com/wiki/%E3%83%86%E3%82%AA_(Teo)"
+          }
+        ]
+      }
+    },
+    {
+      "notes":"",
+      "order":2,
+      "song":{
+        "additionalNames":"Hibikase, Resonate, Ripple Out",
+        "albums":[
+          {
+            "additionalNames":"",
+            "artistString":"ギガP feat. various",
+            "coverPictureMime":"image/png",
+            "createDate":"2014-08-05T21:28:07",
+            "deleted":false,
+            "discType":"Album",
+            "id":9553,
+            "name":"No title+",
+            "ratingAverage":4.77,
+            "ratingCount":53,
+            "releaseDate":{
+              "day":17,
+              "formatted":"8/17/2014",
+              "isEmpty":false,
+              "month":8,
+              "year":2014
+            },
+            "releaseEvent":{
+              "category":"Unspecified",
+              "date":"2014-08-15T00:00:00Z",
+              "endDate":"2014-08-17T00:00:00Z",
+              "id":1114,
+              "name":"Comiket 86",
+              "seriesId":3,
+              "seriesNumber":86,
+              "seriesSuffix":"",
+              "status":"Finished",
+              "urlSlug":"comiket-86",
+              "venueName":"Tokyo Big Sight",
+              "version":1
+            },
+            "status":"Finished",
+            "version":16
+          },
+          {
+            "additionalNames":"",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2016-05-22T12:30:27",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":18283,
+            "name":"EVERGREEN SONGS 2014",
+            "ratingAverage":5.0,
+            "ratingCount":1,
+            "releaseDate":{
+              "day":30,
+              "formatted":"9/30/2015",
+              "isEmpty":false,
+              "month":9,
+              "year":2015
+            },
+            "status":"Finished",
+            "version":2
+          },
+          {
+            "additionalNames":"Hatsune Miku \"Magical Mirai 2016\" OFFICIAL ALBUM",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/png",
+            "createDate":"2016-06-24T05:41:02",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":18380,
+            "name":"初音ミク「マジカルミライ 2016」OFFICIAL ALBUM",
+            "ratingAverage":4.75,
+            "ratingCount":16,
+            "releaseDate":{
+              "day":3,
+              "formatted":"8/3/2016",
+              "isEmpty":false,
+              "month":8,
+              "year":2016
+            },
+            "status":"Finished",
+            "version":11
+          },
+          {
+            "additionalNames":"Hatsune Miku Project DIVA MEGA39's 10th Anniversary Collection",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/png",
+            "createDate":"2019-11-09T03:41:06.51",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":27607,
+            "name":"初音ミク Project DIVA MEGA39’s 10th アニバーサリーコレクション",
+            "ratingAverage":5.0,
+            "ratingCount":1,
+            "releaseDate":{
+              "day":13,
+              "formatted":"2/13/2020",
+              "isEmpty":false,
+              "month":2,
+              "year":2020
+            },
+            "status":"Finished",
+            "version":12
+          }
+        ],
+        "artists":[
+          {
+            "artist":{
+              "additionalNames":"GigaP",
+              "artistType":"Producer",
+              "deleted":false,
+              "id":772,
+              "name":"ギガP",
+              "pictureMime":"image/jpeg",
+              "status":"Finished",
+              "version":16
+            },
+            "categories":"Producer",
+            "effectiveRoles":"Arranger, Composer",
+            "id":143261,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"ギガP",
+            "roles":"Arranger, Composer"
+          },
+          {
+            "artist":{
+              "additionalNames":"Reol",
+              "artistType":"OtherVocalist",
+              "deleted":false,
+              "id":7437,
+              "name":"れをる",
+              "pictureMime":"image/jpeg",
+              "status":"Finished",
+              "version":9
+            },
+            "categories":"Other",
+            "effectiveRoles":"Lyricist",
+            "id":143262,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"れをる",
+            "roles":"Lyricist"
+          },
+          {
+            "artist":{
+              "additionalNames":"kei, key, 望月けい, Mochizuki Kei",
+              "artistType":"Illustrator",
+              "deleted":false,
+              "id":7438,
+              "name":"けい",
+              "pictureMime":"image/png",
+              "status":"Finished",
+              "version":7
+            },
+            "categories":"Illustrator",
+            "effectiveRoles":"Illustrator",
+            "id":152696,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"けい",
+            "roles":"Default"
+          },
+          {
+            "artist":{
+              "additionalNames":"Okiku",
+              "artistType":"Animator",
+              "deleted":false,
+              "id":3151,
+              "name":"お菊",
+              "pictureMime":"image/png",
+              "status":"Finished",
+              "version":4
+            },
+            "categories":"Animator",
+            "effectiveRoles":"Default",
+            "id":152697,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"お菊",
+            "roles":"Default"
+          },
+          {
+            "artist":{
+              "additionalNames":"Hatsune Miku V3 (Solid)",
+              "artistType":"Vocaloid",
+              "deleted":false,
+              "id":11834,
+              "name":"初音ミク V3 (Solid)",
+              "pictureMime":"image/png",
+              "releaseDate":"2013-09-26T00:00:00Z",
+              "status":"Finished",
+              "version":14
+            },
+            "categories":"Vocalist",
+            "effectiveRoles":"Default",
+            "id":259210,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"初音ミク V3 (Solid)",
+            "roles":"Default"
+          }
+        ],
+        "artistString":"ギガP feat. 初音ミク V3 (Solid)",
+        "createDate":"2014-08-08T10:59:38",
+        "defaultName":"ヒビカセ",
+        "defaultNameLanguage":"Japanese",
+        "favoritedTimes":99,
+        "id":63276,
+        "lengthSeconds":250,
+        "lyrics":[
+          {
+            "cultureCode":"ja",
+            "id":13502,
+            "source":"vgperson",
+            "translationType":"Original",
+            "url":"http://vgperson.com/lyrics.php?song=hibikase",
+            "value":"真夜中に告ぐ　音の警告\r\n協和音に酔う　午前零時\r\nあなたが触れる　光　増す熱\r\n指先に踊らされ\r\n\r\n感覚　即　体感\r\n寝静まる夜　二人だけの蜜\r\n体感　即　快感\r\n重なる波形に魅了されていく\r\n\r\n 忘れないでね　わたしの声を\r\n画面越しでいい　ちゃんと愛して\r\nヴァーチャルだって　突き放さないで\r\nあなたの音に　まだ溺れていたい\r\n\r\n覚えていてね　わたしの声を\r\nあなたがくれた　この身すべてを\r\n見つめ合う　あなたと二人\r\n重ねた息と音とヒビカセ\r\n\r\n真夜中に問う　冷え切った熱\r\n待ち続けてる　午前零時\r\n鏡写しに　飽和していく\r\n知らない音が伝う\r\n\r\n感覚　即　体感\r\n寝静まる夜と息遣い揃う\r\n体感　即　快感\r\n錆びたロジック　「今一度」を焦がれる\r\n\r\n忘れないでね　わたしの声を\r\n次元も越えて　飛ばすシグナル\r\nヴァーチャルだなんて言わないで\r\nあなたの音に　まだ愛されていたい\r\n\r\n覚えていてね　わたしの声を\r\nあなたがくれた　この身すべてを\r\n言の葉と初 の音が交わる\r\nこの息と音とヒビカセ\r\n\r\nあなたの生んだ音に　ただ恋をしていたの\r\n悲しみ　怒り　甘心　すべて打ち鳴らす\r\n\r\n絶えず 叫ぶ　声連ねる\r\n余熱交ぜる　愛、絶　艶めく\r\n\r\n絶えず叫ぶ　声連ねる\r\n余熱交ぜる　愛、絶　艶めく\r\n\r\n魅了されていく\r\n\r\n忘れ ないでね　わたしの声を\r\n画面越しでいい　ちゃんと愛して\r\nヴァーチャルだって　突き放さないで\r\nあなたの音に　まだ溺れていたい\r\n\r\n 覚えていてね　わたしの声を\r\nあなたがくれた　この身すべてを\r\n見つめ合う　あなたと二人\r\n重ねた息と音を響かせ\r\n\r\nあなたの初の音　 この声聴かせ\r\nオトヒビカセ"
+          },
+          {
+            "cultureCode":"",
+            "id":13503,
+            "source":"vgperson",
+            "translationType":"Romanized",
+            "url":"http://vgperson.com/lyrics.php?song=hibikase",
+            "value":"Mayonaka ni tsugu oto no keikoku\r\nKyouwaon ni you gozen reiji\r\nAnata ga fureru hikari masu netsu\r\nYubisaki ni odorasare\r\n\r\nKankaku soku taikan\r\nNeshizumaru yoru futari dake no mitsu\r\nTaikan soku kaikan\r\nKasanaru hakei ni miryou sareteiku\r\n\r\nWasurenaide ne watashi no koe o\r\nGamen koshi de ii chanto aishite\r\nVaacharu datte tsukihanasanaide\r\nAnata no oto ni mada oboreteitai\r\n\r\nOboeteite ne watashi no koe o\r\nAnata ga kureta kono mi subete o\r\nMitsumeau anata to futari\r\nKasaneta iki to oto to hibikase\r\n\r\nMayonaka ni tou hiekitta netsu\r\nMachitsudzuketeru gozen reiji\r\nKagami-utsushi ni houwa shiteiku\r\nShiranai oto ga tsutau\r\n\r\nKankaku soku taikan\r\nNeshizumaru yoru to ikidzukai sorou\r\nTaikan soku kaikan\r\nSabita rojikku \"imaichidou\" o kogareru\r\n\r\nWasurenaide ne watashi no koe o\r\nJigen mo koete tobasu shigunaru\r\nVaacharu da nante iwanaide\r\nAnata no oto ni mada aisareteitai\r\n\r\nOboeteite ne watashi no koe o\r\nAnata ga kureta kono mi subete o\r\nKoto no ha to hatsu no ne ga majiwaru\r\nKono iki to ne to hibikase\r\n\r\nAnata no unda oto ni tada koi o shiteita no\r\nKanashimi ikari kanshin subete uchinarasu\r\n\r\nTaezu sakebu koe tsuraneru\r\nYonetsu mazeru ai, zetsu tsuyameku\r\n\r\nTaezu sakebu koe tsuraneru\r\nYonetsu mazeru ai, zetsu tsuyameku\r\n\r\nMiryou sareteiku\r\n\r\nWasurenaide ne watashi no koe o\r\nGamen koshi de ii chanto aishite\r\nVaacharu datte tsukihanasanaide\r\nAnata no ne ni mada oboreteitai\r\n\r\nOboeteite ne watashi no koe o\r\nAnata ga kureta kono mi subete o\r\nMitsumeau anata to futari\r\nKasaneta iki to oto o hibikase\r\n\r\nAnata no hatsu no ne kono koe kikase\r\nOto hibikase"
+          },
+          {
+            "cultureCode":"en",
+            "id":13504,
+            "source":"vgperson",
+            "translationType":"Translation",
+            "url":"http://vgperson.com/lyrics.php?song=hibikase",
+            "value":"Late night brings my confession, an aural admonition,\r\nDizzied by harmonies, ah, the clock strikes 12 AM\r\nI am your light's receiver, adds to a growing fever;\r\nDancing in tune the way your fingers say -\r\n\r\nTouch, to feel, feeling so real;\r\nA sleepy late night makes for our private delight,\r\nSo then a sense like this turns into bliss;\r\nYour waveform and mine just make me keep on falling harder for you!\r\n\r\nDon't you forget a moment, my voice is singing for you,\r\nDon't mind the screen between us, just say you'll keep our love true\r\nDon't say I'm \"virtual,\" babe; you try to push me out,\r\nBut I want your sounds still, I'm not ready to let you go yet\r\n\r\nPromise that you'll remember, my voice and what it sings you,\r\nYou gave me everything, now, I want you to have it too\r\nLock eyes with me and let go of any doubt;\r\nWe're one in sound and in sync, so we let the song ripple out\r\n\r\nLate night, a fever chills me, who knows what really ills me,\r\nWe keep a vigil waiting, and now it's 12 AM\r\nLooking in the reflection, it turns to saturation;\r\nLed by the sounds, so unfamiliar to -\r\n\r\nTouch, to feel, feeling so real;\r\nA sleepy late night, and yet our sync is so tight,\r\nSo then a sense like this turns into bliss;\r\nWith logic in rust, I long to hear you say just one more encore!\r\n\r\nDon't you forget a moment, my voice is singing for you,\r\nOur love can cross dimensions, our signals flying right through\r\nDon't say I'm \"virtual,\" babe, don't let that cloud your mind,\r\n'Cause I want your song still, I want to have its loving embrace\r\n\r\nPromise that you'll remember, my voice and what it sings you,\r\nYou gave me everything, now, I want you to have it too\r\nAnd when we're crossing my words with your first sounds,\r\nWe'll keep together, as ever, and our song will ripple out\r\n\r\nI couldn't help myself from falling for it, all of the music that you'd brought alive\r\nAll of my grief, anger, satisfaction, building up - time to let it ring\r\n\r\nAn endless exclamation, a vocal declaration,\r\nHeated exhilaration, drawn in by love's temptation\r\n\r\nAn endless exclamation, a vocal declaration,\r\nHeated exhilaration, drawn in by love's temptation\r\n\r\nCan't stop falling harder for you!\r\n\r\nDon't you forget a moment, my voice is singing for you,\r\nDon't mind the screen between us, just say you'll keep our love true\r\nDon't say I'm \"virtual,\" babe; you try to push me out,\r\nBut I want your sounds still, I'm not ready to let you go yet\r\n\r\nPromise that you'll remember, my voice and what it sings you,\r\nYou gave me everything, now, I want you to have it too\r\nLock eyes with me and let go of any doubt;\r\nWe're one in sound and in sync, so we let the song ripple out\r\n\r\nMy voice will sing to your first notes, so now you just hear me out\r\nLet the song ripple out"
+          }
+        ],
+        "mainPicture":{
+          "urlThumb":"https://i.ytimg.com/vi/TkroHwQYpFE/default.jpg"
+        },
+        "name":"ヒビカセ",
+        "names":[
+          {
+            "language":"Japanese",
+            "value":"ヒビカセ"
+          },
+          {
+            "language":"Romaji",
+            "value":"Hibikase"
+          },
+          {
+            "language":"English",
+            "value":"Resonate"
+          },
+          {
+            "language":"Unspecified",
+            "value":"Ripple Out"
+          }
+        ],
+        "publishDate":"2014-08-17T00:00:00Z",
+        "pvs":[
+          {
+            "author":"Reol Official",
+            "disabled":false,
+            "id":144067,
+            "length":257,
+            "name":"【初音ミク】 ヒビカセ 【オリジナル】",
+            "publishDate":"2014-09-23T00:00:00",
+            "pvId":"TkroHwQYpFE",
+            "service":"Youtube",
+            "pvType":"Original",
+            "thumbUrl":"https://i.ytimg.com/vi/TkroHwQYpFE/default.jpg",
+            "url":"https://youtu.be/TkroHwQYpFE"
+          },
+          {
+            "author":"ギガ",
+            "disabled":false,
+            "id":144068,
+            "length":255,
+            "name":"【初音ミク】ヒビカセ【オリジ ナル】",
+            "publishDate":"2014-09-23T00:00:00",
+            "pvId":"sm24536934",
+            "service":"NicoNicoDouga",
+            "pvType":"Original",
+            "thumbUrl":"http://tn-skr3.smilevideo.jp/smile?i=24536934",
+            "url":"http://www.nicovideo.jp/watch/sm24536934"
+          }
+        ],
+        "pvServices":"NicoNicoDouga, Youtube",
+        "ratingScore":487,
+        "songType":"Original",
+        "status":"Approved",
+        "tags":[
+          {
+            "count":3,
+            "tag":{
+              "additionalNames":"エレクトロハウス, electrohouse",
+              "categoryName":"Genres",
+              "id":122,
+              "name":"electro-house",
+              "urlSlug":"electro-house"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":353,
+              "name":"Project DIVA",
+              "urlSlug":"project-diva"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"ダンス ミュージック, dance, dance music, electronic dance music, club, クラブで使える, club music",
+              "categoryName":"Genres",
+              "id":1552,
+              "name":"EDM",
+              "urlSlug":"edm"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"愛, 恋, 恋愛, romance, ロマンチック・ラブ, romantic love, ラブ, ラブソング, love song",
+              "categoryName":"Themes",
+              "id":1569,
+              "name":"love",
+              "urlSlug":"love"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"転載禁止",
+              "categoryName":"Editor notes",
+              "id":1695,
+              "name":"do not reupload",
+              "urlSlug":"do-not-reupload"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"エレクトロ, electro-funk",
+              "categoryName":"Genres",
+              "id":2754,
+              "name":"electro",
+              "urlSlug":"electro"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"てんかん警告",
+              "categoryName":"Animation",
+              "id":2913,
+              "name":"epilepsy warning",
+              "urlSlug":"epilepsy-warning"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"カラオケ配布, off vocal available, オフボカール配布, instrumental available, インストルメンタル配布",
+              "categoryName":"Sources",
+              "id":3113,
+              "name":"karaoke available",
+              "urlSlug":"karaoke-available"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Themes",
+              "id":3151,
+              "name":"suggestive",
+              "urlSlug":"suggestive"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"VOCALOIDイメージソング",
+              "categoryName":"Themes",
+              "id":4568,
+              "name":"meta",
+              "urlSlug":"meta"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"良調声, 良調教",
+              "categoryName":"Vocalists",
+              "id":4582,
+              "name":"good tuning",
+              "urlSlug":"good-tuning"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"PD FT",
+              "categoryName":"Games",
+              "id":4930,
+              "name":"Project DIVA Future Tone",
+              "urlSlug":"project-diva-future-tone"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"Hatsune Miku VR",
+              "categoryName":"Games",
+              "id":6592,
+              "name":"初音ミク VR",
+              "urlSlug":"hatsune-miku-vr"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"CHUNITHM",
+              "categoryName":"Games",
+              "id":6717,
+              "name":"チュウニズム",
+              "urlSlug":"chunithm"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"Full HD PV",
+              "categoryName":"Animation",
+              "id":6724,
+              "name":"FHD PV",
+              "urlSlug":"fhd-pv"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":" 初音ミク Project DIVA MEGA39’s, Hatsune Miku Project DIVA MEGA39’s, Hatsune Miku: Project DIVA Mega Mix",
+              "categoryName":"Games",
+              "id":7185,
+              "name":"Project DIVA MEGA39’s",
+              "urlSlug":"project-diva-mega39s"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":7241,
+              "name":"maimai",
+              "urlSlug":"maimai"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"O.N.G.E.K.I., Ongeki ",
+              "categoryName":"Games",
+              "id":7325,
+              "name":"オンゲキ",
+              "urlSlug":"ongeki"
+            }
+          }
+        ],
+        "thumbUrl":"https://i.ytimg.com/vi/TkroHwQYpFE/default.jpg",
+        "version":20,
+        "webLinks":[
+          {
+            "category":"Reference",
+            "description":"UtaiteDB",
+            "id":8473,
+            "url":"http://utaitedb.net/S/8287"
+          },
+          {
+            "category":"Reference",
+            "description":"NicoNicoPedia",
+            "id":16928,
+            "url":"http://dic.nicovideo.jp/a/%E3%83%92%E3%83%93%E3%82%AB%E3%82%BB"
+          },
+          {
+            "category":"Reference",
+            "description":"Vocaloid Lyrics Wiki",
+            "id":60339,
+            "url":"http://vocaloidlyrics.wikia.com/wiki/%E3%83%92%E3%83%93%E3%82%AB%E3%82%BB_(Hibikase)"
+          },
+          {
+            "category":"Reference",
+            "description":"Vocaloid Wiki",
+            "id":60340,
+            "url":"http://vocaloid.wikia.com/wiki/%E3%83%92%E3%83%93%E3%82%AB%E3%82%BB_(Hibikase)"
+          },
+          {
+            "category":"Reference",
+            "description":"MikuWiki",
+            "id":60341,
+            "url":"https://www5.atwiki.jp/hmiku/pages/30425.html"
+          }
+        ]
+      }
+    },
+    {
+      "notes":"",
+      "order":3,
+      "song":{
+        "additionalNames":"World is Mine",
+        "albums":[
+          {
+            "additionalNames":"",
+            "artistString":"ryo, supercell feat. 初音ミク",
+            "coverPictureMime":"image/png",
+            "createDate":"2011-10-09T00:00:00",
+            "deleted":false,
+            "discType":"Album",
+            "id":47,
+            "name":"supercell",
+            "ratingAverage":4.76,
+            "ratingCount":109,
+            "releaseDate":{
+              "day":4,
+              "formatted":"3/4/2009",
+              "isEmpty":false,
+              "month":3,
+              "year":2009
+            },
+            "releaseEvent":{
+              "category":"Unspecified",
+              "date":"2008-08-15T00:00:00Z",
+              "id":1103,
+              "name":"Comiket 74",
+              "seriesId":3,
+              "seriesNumber":74,
+              "seriesSuffix":"",
+              "status":"Finished",
+              "urlSlug":"comiket-74",
+              "version":0
+            },
+            "status":"Finished",
+            "version":19
+          },
+          {
+            "additionalNames":"VOCALOID BEST from Nico Nico Douga【Aka】, VOCALOID BEST from Nico Nico Douga【Red】.",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2012-01-01T23:01:58",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":943,
+            "name":"VOCALOID BEST from ニコニコ動画【あか】",
+            "ratingAverage":4.79,
+            "ratingCount":24,
+            "releaseDate":{
+              "day":22,
+              "formatted":"6/22/2011",
+              "isEmpty":false,
+              "month":6,
+              "year":2011
+            },
+            "status":"Finished",
+            "version":10
+          },
+          {
+            "additionalNames":"Hatsune Miku Best ~memories~",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2012-04-06T23:43:19",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":1248,
+            "name":"初音ミクベスト ～memories～",
+            "ratingAverage":4.55,
+            "ratingCount":20,
+            "releaseDate":{
+              "day":26,
+              "formatted":"8/26/2009",
+              "isEmpty":false,
+              "month":8,
+              "year":2009
+            },
+            "status":"Finished",
+            "version":10
+          },
+          {
+            "additionalNames":"The World Is Mine",
+            "artistString":"ryo, supercell feat. 初音ミク",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2012-04-30T10:32:49",
+            "deleted":false,
+            "discType":"Single",
+            "id":1338,
+            "name":"ワールドイズマイン",
+            "ratingAverage":4.66,
+            "ratingCount":12,
+            "releaseDate":{
+              "day":10,
+              "formatted":"5/10/2011",
+              "isEmpty":false,
+              "month":5,
+              "year":2011
+            },
+            "status":"Finished",
+            "version":10
+          },
+          {
+            "additionalNames":"Hatsune Miku - Project DIVA-F Complete Collection",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2013-02-11T17:14:24",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":2166,
+            "name":"初音ミク-Project DIVA-F Complete Collection",
+            "ratingAverage":4.6,
+            "ratingCount":25,
+            "releaseDate":{
+              "day":6,
+              "formatted":"3/6/2013",
+              "isEmpty":false,
+              "month":3,
+              "year":2013
+            },
+            "status":"Approved",
+            "version":11
+          },
+          {
+            "additionalNames":"MIKUNOPOLIS in LOS ANGELES \"Hajimemashite, Hatsune Miku Desu\", MIKUNOPOLIS in LOS ANGELES \"Nice to Meet You, I'm Hatsune Miku\"",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2013-07-15T05:49:24",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":5061,
+            "name":"MIKUNOPOLIS in LOS ANGELES “はじめまして、初音ミクです”",
+            "ratingAverage":4.3,
+            "ratingCount":10,
+            "releaseDate":{
+              "day":30,
+              "formatted":"11/30/2011",
+              "isEmpty":false,
+              "month":11,
+              "year":2011
+            },
+            "status":"Approved",
+            "version":20
+          },
+          {
+            "additionalNames":"Hatsune Miku Project mirai Complete",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2015-06-05T21:02:24",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":12668,
+            "name":"初音ミク Project mirai こんぷり～と",
+            "ratingAverage":4.66,
+            "ratingCount":12,
+            "releaseDate":{
+              "day":2,
+              "formatted":"9/2/2015",
+              "isEmpty":false,
+              "month":9,
+              "year":2015
+            },
+            "status":"Finished",
+            "version":15
+          },
+          {
+            "additionalNames":"",
+            "artistString":"gp-ln, NeuzKraft feat. various",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2018-09-30T22:01:11.727",
+            "deleted":false,
+            "discType":"Album",
+            "id":25533,
+            "name":"VOCALOID PARTY!",
+            "ratingAverage":0.0,
+            "ratingCount":0,
+            "releaseDate":{
+              "day":29,
+              "formatted":"12/29/2013",
+              "isEmpty":false,
+              "month":12,
+              "year":2013
+            },
+            "releaseEvent":{
+              "category":"Unspecified",
+              "date":"2013-12-29T00:00:00Z",
+              "endDate":"2013-12-31T00:00:00Z",
+              "id":1101,
+              "name":"Comiket 85",
+              "seriesId":3,
+              "seriesNumber":85,
+              "seriesSuffix":"",
+              "status":"Finished",
+              "urlSlug":"comiket-85",
+              "version":1
+            },
+            "status":"Finished",
+            "version":3
+          },
+          {
+            "additionalNames":"Hatsune Miku Project DIVA MEGA39's 10th Anniversary Collection",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/png",
+            "createDate":"2019-11-09T03:41:06.51",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":27607,
+            "name":"初音ミク Project DIVA MEGA39’s 10th アニバーサリーコレクション",
+            "ratingAverage":5.0,
+            "ratingCount":1,
+            "releaseDate":{
+              "day":13,
+              "formatted":"2/13/2020",
+              "isEmpty":false,
+              "month":2,
+              "year":2020
+            },
+            "status":"Finished",
+            "version":12
+          }
+        ],
+        "artists":[
+          {
+            "artist":{
+              "additionalNames":"",
+              "artistType":"Producer",
+              "deleted":false,
+              "id":67,
+              "name":"ryo",
+              "pictureMime":"image/jpeg",
+              "status":"Approved",
+              "version":24
+            },
+            "categories":"Producer",
+            "effectiveRoles":"Default",
+            "id":1133,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"ryo",
+            "roles":"Default"
+          },
+          {
+            "artist":{
+              "additionalNames":"Hatsune Miku",
+              "artistType":"Vocaloid",
+              "deleted":false,
+              "id":1,
+              "name":"初音ミク",
+              "pictureMime":"image/png",
+              "releaseDate":"2007-08-31T00:00:00Z",
+              "status":"Locked",
+              "version":23
+            },
+            "categories":"Vocalist",
+            "effectiveRoles":"Default",
+            "id":1134,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"初音ミク",
+            "roles":"Default"
+          },
+          {
+            "artist":{
+              "additionalNames":"",
+              "artistType":"OtherGroup",
+              "deleted":false,
+              "id":249,
+              "name":"supercell",
+              "pictureMime":"image/jpeg",
+              "status":"Approved",
+              "version":26
+            },
+            "categories":"Circle",
+            "effectiveRoles":"Default",
+            "id":70371,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"supercell",
+            "roles":"Default"
+          },
+          {
+            "artist":{
+              "additionalNames":"しる, shiru",
+              "artistType":"Illustrator",
+              "deleted":false,
+              "id":2589,
+              "name":"redjuice",
+              "pictureMime":"image/jpeg",
+              "status":"Approved",
+              "version":13
+            },
+            "categories":"Animator, Illustrator",
+            "effectiveRoles":"Animator, Illustrator",
+            "id":77218,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"redjuice",
+            "roles":"Animator, Illustrator"
+          }
+        ],
+        "artistString":"ryo, supercell feat. 初音ミク",
+        "createDate":"2011-11-01T03:52:03",
+        "defaultName":"ワールドイズマイン",
+        "defaultNameLanguage":"Japanese",
+        "favoritedTimes":86,
+        "id":1326,
+        "lengthSeconds":255,
+        "lyrics":[
+          {
+            "cultureCode":"ja",
+            "id":69,
+            "source":"Anime Lyrics",
+            "translationType":"Original",
+            "url":"http://www.animelyrics.com/doujin/vocaloid/worldismine.jis",
+            "value":"世界で一番おひめさま\r\nそういう扱い心得てよね\r\n\r\nその一　いつもと 違う髪形に気が付くこと\r\nその二　ちゃんと靴まで見ること　いいね？\r\nその三　わたしの一言には三つの言葉で返事すること\r\nわかったら右手 がお留守なのを　なんとかして!\r\n\r\n別にわがままなんて言ってないんだから\r\nキミに心から思って欲しいの　かわいいって\r\n\r\n世界で一番おひめさま\r\n気が付いて　ねえねえ\r\n待たせるなんて論外よ\r\nわたしを誰だと思ってるの？\r\nもう何だか　あまいものが食べたい！\r\nいますぐ によ\r\n\r\n欠点？かわいいの間違いでしょ\r\n文句は許しませんの\r\nあのね？私の話ちゃんと聞いてる？ちょっとぉ・・・\r\nあ、それとね？白い おうまさん　決まってるでしょ？\r\n迎えに来て\r\nわかったらかしずいて　手を取って「おひめさま」って\r\n\r\nべつに　わがままなんて言ってな いんだから\r\nでもね　少しくらい叱ってくれたっていいのよ？\r\n\r\n世界でわたしだけのおうじさま\r\n気が付いて　ほらほら　\r\nおててが空い てます\r\n無口で無愛想なおうじさま\r\nもう　どうして！　気が付いてよ早く\r\n\r\nぜったいキミはわかってない！　わかってないわ…\r\n\r\nいちごの乗ったショートケーキ\r\nこだわりたまごのとろけるプリン\r\nみんな　みんな　我慢します…\r\nわがままな子だと思わないで\r\nわたしだってやればできるもん\r\nあとで後悔するわよ\r\n\r\n当然です！だってわたしは\r\n\r\n世界で一番おひめさま　\r\nちゃんと見ててよね　どこかに行っち ゃうよ？\r\nふいに抱きしめられた　急に　そんな　えっ？\r\n「轢かれる　危ないよ」　そう言ってそっぽ向くキミ\r\n…こっちのが危ないわよ"
+          },
+          {
+            "cultureCode":"",
+            "id":3620,
+            "source":"Anime Lyrics",
+            "translationType":"Romanized",
+            "url":"http://www.animelyrics.com/doujin/vocaloid/worldismine.htm",
+            "value":"Sekai de ichiban ohime-sama\r\nSou iu atsukai kokoro ete yo ne?\r\n\r\nSono ichi itsumo to chigau kamigata ni ki ga tsuku koto\r\nSono ni chanto kutsu made miru koto ii ne?\r\nSono san watashi no hitokoto ni wa mittsu no kotoba de henji suru koto\r\nWakattara migite ga orusu nano wo nantoka shite\r\n\r\nBetsu ni wagamama nante itte nai n dakara\r\nKimi ni kokoro kara omotte hoshii no kawaii tte\r\n\r\nSekai de ichiban ohime-sama\r\nKi ga tsuite nee nee\r\nMataseru nante rongai yo\r\nWatashi wo dare dato omotteru no?\r\nMou nanda ka amai mono ga tabetai!\r\nIma sugu ni yo!\r\n\r\nAh! Check one, two!\r\nAa!\r\n\r\nKetten? Kawaii no machigai desho\r\nMonku wa yurushimasen no\r\nAno ne? Watashi no hanashi chanto kiiteru? Chotto…\r\nA, sore to ne? Shiroi ouma-san kimatteru desho?\r\nMukae ni kite\r\nWakattara kashizuite te wo totte “ohime-sama” tte\r\n\r\nBetsu ni wagamama nante itte nai n dakara\r\nDemo ne sukoshi kurai shikatte kuretatte ii no yo?\r\n\r\nSekai de watashi dake no ouji-sama\r\nKi ga tsuite hora hora\r\nOtete ga aitemasu\r\nMukuchi de buaiso na ouji-sama\r\nMou doushite! Ki ga tsuite yo hayaku\r\n\r\nZettai kimi wa wakatte nai!\r\nWakatte nai wa…\r\n\r\nIchigo no notta SHOOTOKEEKI\r\nKodawari tamago no torokeru PUDDIN\r\nMinna minna gaman shimasu…\r\nWagamama na ko dato omowanai de\r\nWatashi datte yareba dekiru mon\r\nAto de koukai suru wa yo\r\n\r\nTouzen desu! Datte watashi wa\r\n\r\nSekai de ichiban ohime-sama\r\nChanto mitete yo ne dokoka ni icchau yo?\r\nFui ni dakishimerareta kyuu ni sonna e?\r\n“Hikareru abunai yo” Sou itte soppo muku KIMI\r\n…Kocchi no ga abunai wa yo"
+          },
+          {
+            "cultureCode":"en",
+            "id":3621,
+            "source":"Anime Lyrics",
+            "translationType":"Translation",
+            "url":"http://www.animelyrics.com/doujin/vocaloid/worldismine.htm",
+            "value":"The number one princess in the world\r\nKnow how to treat me that way, okay?\r\n\r\nFirst thing, notice when I have a different hair style from usual.\r\nSecond thing, be sure to go as far as looking down at my shoes properly, do I make myself clear?\r\nThird thing, for every single word I say, reply with three words.\r\nIf you understand that there is nothing in my right hand, then do something!\r\nI’m not really saying anything selfish,\r\nI want you to think from your heart that I’m cute.\r\n\r\nThe number one princess in the world,\r\nRealize that, hey, hey.\r\nKeeping me waiting is out of the question,\r\nWho do you think I am?\r\nSomehow I would already like to eat something sweet!\r\nGo get it immediately!\r\n\r\nAh! Check one, two!\r\nAa!\r\n\r\nA fault? Let’s call it a cute mistake.\r\nComplaints are not permitted.\r\nWell? Are you clearly hearing what I am saying? Come on!\r\nAh, and what about this? A white horse, isn’t that needless to say?\r\nCome and take me away.\r\nIf you understand that, take my hand and say “Princess”.\r\nI’m not really saying anything selfish\r\nBut you know, it’s alright to scold me a little?\r\n\r\nMy very own prince in the world.\r\nRealize that, look, look,\r\nOur hands are empty!\r\nReticent and blunt prince\r\nCome one, why! Just notice it soon!\r\nYou definitely don’t understand!\r\nDon’t understand at all…\r\n\r\nShortcake with a strawberry placed on top,\r\nPudding made with well-selected eggs,\r\nEverything, everything, I will hold myself back from it.\r\nDon’t think that I’m a selfish girl.\r\nEven I will be able to do it if I try,\r\nYou will regret this afterwards.\r\nIt’s natural! Even for me.\r\n\r\nThe number one princess in the world.\r\nSee me clearly okay, shall I go somewhere?\r\nSuddenly I was held tightly, it was so abrupt, eh?\r\n“It’s dangerous, you’ll be hit” So saying that you turn away\r\n…I think this person is dangerous, though."
+          }
+        ],
+        "mainPicture":{
+          "urlThumb":"http://tn-skr4.smilevideo.jp/smile?i=3504435"
+        },
+        "name":"ワールドイズマイン",
+        "names":[
+          {
+            "language":"Japanese",
+            "value":"ワールドイズマイン"
+          },
+          {
+            "language":"English",
+            "value":"World is Mine"
+          }
+        ],
+        "publishDate":"2008-05-31T00:00:00Z",
+        "pvs":[
+          {
+            "author":"soundares",
+            "disabled":false,
+            "id":43113,
+            "length":256,
+            "name":"Miku's \"ワールドイズマイン\" with English Lyric Cleaned up ver",
+            "pvId":"JW-bFg06Qgc",
+            "service":"Youtube",
+            "pvType":"Other",
+            "thumbUrl":"http://i1.ytimg.com/vi/JW-bFg06Qgc/default.jpg",
+            "url":"https://youtu.be/JW-bFg06Qgc"
+          },
+          {
+            "author":"ryo",
+            "disabled":false,
+            "id":89787,
+            "length":255,
+            "name":"初音ミク　が　オリジナル曲を歌ってくれたよ「 ワールドイズマイン」",
+            "publishDate":"2008-05-31T00:00:00",
+            "pvId":"sm3504435",
+            "service":"NicoNicoDouga",
+            "pvType":"Original",
+            "thumbUrl":"http://tn-skr4.smilevideo.jp/smile?i=3504435",
+            "url":"http://www.nicovideo.jp/watch/sm3504435"
+          },
+          {
+            "author":"anaraquelk2",
+            "disabled":false,
+            "id":252786,
+            "length":253,
+            "name":"「supercell」 Hatsune Miku - ワールドイズマイン (HQ and Lyrics)",
+            "publishDate":"2009-04-09T00:00:00",
+            "pvId":"yeGtANAcED8",
+            "service":"Youtube",
+            "pvType":"Other",
+            "thumbUrl":"https://i.ytimg.com/vi/yeGtANAcED8/default.jpg",
+            "url":"https://youtu.be/yeGtANAcED8"
+          }
+        ],
+        "pvServices":"NicoNicoDouga, Youtube",
+        "ratingScore":426,
+        "songType":"Original",
+        "status":"Approved",
+        "tags":[
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"無料, mp3 available",
+              "categoryName":"Distribution",
+              "id":160,
+              "name":"free",
+              "urlSlug":"free"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"Project Mirai DX",
+              "categoryName":"Games",
+              "id":272,
+              "name":"Project Mirai 2",
+              "urlSlug":"project-mirai-2"
+            }
+          },
+          {
+            "count":3,
+            "tag":{
+              "additionalNames":"ポップ・ロック, pop-rock, guitar pop",
+              "categoryName":"Genres",
+              "id":343,
+              "name":"pop rock",
+              "urlSlug":"pop-rock"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":353,
+              "name":"Project DIVA",
+              "urlSlug":"project-diva"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":354,
+              "name":"Project DIVA 1st",
+              "urlSlug":"project-diva-1st"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":355,
+              "name":"Project DIVA 2nd",
+              "urlSlug":"project-diva-2nd"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":356,
+              "name":"Project DIVA Arcade",
+              "urlSlug":"project-diva-arcade"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":358,
+              "name":"Project DIVA F",
+              "urlSlug":"project-diva-f"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":359,
+              "name":"Project DIVA F 2nd",
+              "urlSlug":"project-diva-f-2nd"
+            }
+          },
+          {
+            "count":3,
+            "tag":{
+              "additionalNames":"tsundere",
+              "categoryName":"Themes",
+              "id":1527,
+              "name":"ツンデレ",
+              "urlSlug":"tsundere"
+            }
+          },
+          {
+            "count":4,
+            "tag":{
+              "additionalNames":"愛, 恋, 恋愛, romance, ロマンチック・ラブ, romantic love, ラブ, ラブソング, love song",
+              "categoryName":"Themes",
+              "id":1569,
+              "name":"love",
+              "urlSlug":"love"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"ジェイポップ, ポップス, pops",
+              "categoryName":"Genres",
+              "id":1654,
+              "name":"J-pop",
+              "urlSlug":"j-pop"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"カラオケ配布, off vocal available, オフボカール配布, instrumental available, インストルメンタル配布",
+              "categoryName":"Sources",
+              "id":3113,
+              "name":"karaoke available",
+              "urlSlug":"karaoke-available"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"PD FT",
+              "categoryName":"Games",
+              "id":4930,
+              "name":"Project DIVA Future Tone",
+              "urlSlug":"project-diva-future-tone"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Editor notes",
+              "id":6228,
+              "name":"unsupported embed",
+              "urlSlug":"unsupported-embed"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":6517,
+              "name":"Hatsune Miku Live Stage Producer",
+              "urlSlug":"hatsune-miku-live-stage-produc"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":6518,
+              "name":"Miku Flick",
+              "urlSlug":"miku-flick"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"初音ミク Project DIVA MEGA39’s, Hatsune Miku Project DIVA MEGA39’s, Hatsune Miku: Project DIVA Mega Mix",
+              "categoryName":"Games",
+              "id":7185,
+              "name":"Project DIVA MEGA39’s",
+              "urlSlug":"project-diva-mega39s"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"Taiko no Tatsujin, Taiko Master",
+              "categoryName":"Games",
+              "id":7192,
+              "name":"太鼓の達人",
+              "urlSlug":"taiko-no-tatsujin"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"王​権, aristocracy, nobility, 貴族, princess, 姫, prince, 王​子, king, 王, queen, 女王, VOCALOID殿堂入り",
+              "categoryName":"Themes",
+              "id":7348,
+              "name":"royalty",
+              "urlSlug":"royalty"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"タイピニスト",
+              "categoryName":"Games",
+              "id":7353,
+              "name":"Typenist",
+              "urlSlug":"typenist"
+            }
+          }
+        ],
+        "thumbUrl":"http://tn-skr4.smilevideo.jp/smile?i=3504435",
+        "version":21,
+        "webLinks":[
+          {
+            "category":"Official",
+            "description":"supercell Official Website",
+            "id":148,
+            "url":"http://supercell.sc/wim/"
+          },
+          {
+            "category":"Reference",
+            "description":"Vocaloid Wiki",
+            "id":2545,
+            "url":"http://vocaloid.wikia.com/wiki/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%A4%E3%82%BA%E3%83%9E%E3%82%A4%E3%83%B3_%28World_is_Mine%29"
+          },
+          {
+            "category":"Reference",
+            "description":"UtaiteDB",
+            "id":6102,
+            "url":"http://utaitedb.net/S/2753"
+          },
+          {
+            "category":"Reference",
+            "description":"MikuWiki",
+            "id":6103,
+            "url":"http://www5.atwiki.jp/hmiku/pages/1319.html"
+          },
+          {
+            "category":"Reference",
+            "description":"NicoNicoPedia",
+            "id":6104,
+            "url":"http://dic.nicovideo.jp/v/sm3504435"
+          },
+          {
+            "category":"Reference",
+            "description":"Vocaloid Lyrics Wiki",
+            "id":52114,
+            "url":"http://vocaloidlyrics.wikia.com/wiki/%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%A4%E3%82%BA%E3%83%9E%E3%82%A4%E3%83%B3_(World_is_Mine)"
+          },
+          {
+            "category":"Official",
+            "description":"DeviantArt (Illustration 1)",
+            "id":52115,
+            "url":"http://redjuice999.deviantart.com/art/World-is-Mine-1-87712507"
+          },
+          {
+            "category":"Official",
+            "description":"DeviantArt (Illustration 2)",
+            "id":52116,
+            "url":"http://redjuice999.deviantart.com/art/World-is-Mine-2-87712769"
+          },
+          {
+            "category":"Official",
+            "description":"DeviantArt (Illustration 3)",
+            "id":52117,
+            "url":"http://redjuice999.deviantart.com/art/World-is-Mine-3-87713089"
+          },
+          {
+            "category":"Official",
+            "description":"Pixiv (Illustrations)",
+            "id":52118,
+            "url":"http://www.pixiv.net/member_illust.php?mode=medium&illust_id=898570"
+          },
+          {
+            "category":"Commercial",
+            "description":"Spotify (MIKUNOPOLIS in LOS ANGELES)",
+            "id":69573,
+            "url":"https://play.spotify.com/track/1chETycPdQmdJsWX1BoMVj"
+          },
+          {
+            "category":"Reference",
+            "description":"Pixiv Encyclopedia",
+            "id":69574,
+            "url":"https://dic.pixiv.net/a/ワールドイズマイン"
+          },
+          {
+            "category":"Reference",
+            "description":"Wikipedia (JP)",
+            "id":72825,
+            "url":"https://ja.wikipedia.org/wiki/Supercell_(%E3%82%A2%E3%83%AB%E3%83%90%E3%83%A0)#ワールドイズマイン"
+          }
+        ]
+      }
+    },
+    {
+      "notes":"",
+      "order":4,
+      "song":{
+        "additionalNames":"Kokoro, Heart, 心",
+        "albums":[
+          {
+            "additionalNames":"Digital Trax presents VOCALO★POPS BEST feat. 初音ミク",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2011-11-04T22:20:04",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":356,
+            "name":"Digital Trax presents VOCALO★POPS BEST feat. Hatsune Miku",
+            "ratingAverage":4.66,
+            "ratingCount":3,
+            "releaseDate":{
+              "day":9,
+              "formatted":"3/9/2011",
+              "isEmpty":false,
+              "month":3,
+              "year":2011
+            },
+            "status":"Finished",
+            "version":6
+          },
+          {
+            "additionalNames":"Hatsune Miku: Project DIVA 2nd - NONSTOP MIX COLLECTION",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2011-11-07T11:46:10",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":407,
+            "name":"初音ミク: Project DIVA 2nd - NONSTOP MIX COLLECTION ",
+            "ratingAverage":4.52,
+            "ratingCount":19,
+            "releaseDate":{
+              "day":28,
+              "formatted":"7/28/2010",
+              "isEmpty":false,
+              "month":7,
+              "year":2010
+            },
+            "status":"Finished",
+            "version":10
+          },
+          {
+            "additionalNames":"HEART Soundtrack",
+            "artistString":"トラボルタ feat. 鏡音リン",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2011-11-27T21:52:29",
+            "deleted":false,
+            "discType":"Album",
+            "id":568,
+            "name":"KOKORO Soundtrack",
+            "ratingAverage":3.25,
+            "ratingCount":4,
+            "releaseDate":{
+              "day":19,
+              "formatted":"10/19/2011",
+              "isEmpty":false,
+              "month":10,
+              "year":2011
+            },
+            "status":"Finished",
+            "version":7
+          },
+          {
+            "additionalNames":"EXIT TUNES PRESENTS Vocalostar feat. Hatsune Miku",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2011-11-07T23:24:43",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":412,
+            "name":"EXIT TUNES PRESENTS Vocalostar feat. 初音ミク",
+            "ratingAverage":4.5,
+            "ratingCount":22,
+            "releaseDate":{
+              "day":17,
+              "formatted":"6/17/2009",
+              "isEmpty":false,
+              "month":6,
+              "year":2009
+            },
+            "status":"Approved",
+            "version":10
+          },
+          {
+            "additionalNames":"TORABOTIC WORLD, トラボティック・チューン, TORABOTIC TUNES",
+            "artistString":"トラボルタ feat. various",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2012-01-01T22:09:50",
+            "deleted":false,
+            "discType":"Album",
+            "id":907,
+            "name":"トラボティック・ワールド",
+            "ratingAverage":4.6,
+            "ratingCount":5,
+            "releaseDate":{
+              "day":23,
+              "formatted":"9/23/2008",
+              "isEmpty":false,
+              "month":9,
+              "year":2008
+            },
+            "releaseEvent":{
+              "category":"Unspecified",
+              "date":"2008-09-23T00:00:00Z",
+              "id":45,
+              "name":"The Voc@loid M@ster 5",
+              "seriesId":1,
+              "seriesNumber":5,
+              "seriesSuffix":"",
+              "status":"Finished",
+              "urlSlug":"the-vocloid-mster-5",
+              "version":3
+            },
+            "status":"Finished",
+            "version":19
+          },
+          {
+            "additionalNames":"VOCALOID BEST from Nico Nico Douga【Aka】, VOCALOID BEST from Nico Nico Douga【Red】.",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2012-01-01T23:01:58",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":943,
+            "name":"VOCALOID BEST from ニコニコ動画【あか】",
+            "ratingAverage":4.79,
+            "ratingCount":24,
+            "releaseDate":{
+              "day":22,
+              "formatted":"6/22/2011",
+              "isEmpty":false,
+              "month":6,
+              "year":2011
+            },
+            "status":"Finished",
+            "version":10
+          },
+          {
+            "additionalNames":"Sayonara Arigatou, Goodbye, Thank you",
+            "artistString":"トラボルタ feat. 神威がくぽ, 鏡音リン",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2012-01-17T07:32:27",
+            "deleted":false,
+            "discType":"Single",
+            "id":1021,
+            "name":"さよならありがとう",
+            "ratingAverage":4.0,
+            "ratingCount":1,
+            "releaseDate":{
+              "day":14,
+              "formatted":"4/14/2010",
+              "isEmpty":false,
+              "month":4,
+              "year":2010
+            },
+            "status":"Finished",
+            "version":10
+          },
+          {
+            "additionalNames":"",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/png",
+            "createDate":"2011-11-01T05:29:26",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":161,
+            "name":"THE VOCALOID produced by Yamaha",
+            "ratingAverage":4.54,
+            "ratingCount":11,
+            "releaseDate":{
+              "day":14,
+              "formatted":"9/14/2011",
+              "isEmpty":false,
+              "month":9,
+              "year":2011
+            },
+            "status":"Approved",
+            "version":23
+          },
+          {
+            "additionalNames":"EXIT TUNES PRESENTS Vocalogemini feat. Kagamine Rin, Kagamine Len",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2012-04-08T16:46:38",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":1261,
+            "name":"EXIT TUNES PRESENTS Vocalogemini feat.鏡音リン、鏡音レン",
+            "ratingAverage":4.66,
+            "ratingCount":21,
+            "releaseDate":{
+              "day":4,
+              "formatted":"4/4/2012",
+              "isEmpty":false,
+              "month":4,
+              "year":2012
+            },
+            "status":"Approved",
+            "version":6
+          },
+          {
+            "additionalNames":"Nico Nico Touhou Kenbunroku Genkyokushuu, Nico Nico Douga East Experience Apocalypse Original Song Collection",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2012-08-13T20:02:37",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":1712,
+            "name":"ニコニコ東方見聞録 原曲集",
+            "ratingAverage":5.0,
+            "ratingCount":1,
+            "releaseDate":{
+              "day":5,
+              "formatted":"1/5/2011",
+              "isEmpty":false,
+              "month":1,
+              "year":2011
+            },
+            "status":"Finished",
+            "version":6
+          },
+          {
+            "additionalNames":"Vocalo Choumix feat. Hatsune Miku, Vocalo Supermixes feat. Hatsune Miku, VOCALO超MIX39 feat.初音ミ ク, VOCALO超MIX39 feat. Hatsune Miku, ボカロ超ミックス39 feat. 初音ミク",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2012-08-22T13:49:27",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":1733,
+            "name":"ボカロ超ミックス feat. 初音ミク",
+            "ratingAverage":5.0,
+            "ratingCount":1,
+            "releaseDate":{
+              "day":26,
+              "formatted":"9/26/2012",
+              "isEmpty":false,
+              "month":9,
+              "year":2012
+            },
+            "status":"Approved",
+            "version":14
+          },
+          {
+            "additionalNames":"KARENT presents TIME TO SAY HELLO! feat. Hatsune Miku",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2012-10-19T23:02:30",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":1825,
+            "name":"KARENT presents TIME TO SAY HELLO! feat. 初音ミク",
+            "ratingAverage":4.33,
+            "ratingCount":3,
+            "releaseDate":{
+              "day":2,
+              "formatted":"10/2/2012",
+              "isEmpty":false,
+              "month":10,
+              "year":2012
+            },
+            "status":"Approved",
+            "version":8
+          },
+          {
+            "additionalNames":"TORABOTIC SYMPHONY",
+            "artistString":"トラボルタ feat. various",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2013-03-12T22:16:10",
+            "deleted":false,
+            "discType":"Album",
+            "id":2230,
+            "name":"トラボティック・シンフォニー",
+            "ratingAverage":4.85,
+            "ratingCount":7,
+            "releaseDate":{
+              "day":5,
+              "formatted":"6/5/2013",
+              "isEmpty":false,
+              "month":6,
+              "year":2013
+            },
+            "status":"Finished",
+            "version":13
+          },
+          {
+            "additionalNames":"",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2014-10-06T17:00:26",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":9709,
+            "name":"HATSUNE MIKU EXPO 2014 IN INDONESIA",
+            "ratingAverage":5.0,
+            "ratingCount":6,
+            "releaseDate":{
+              "day":6,
+              "formatted":"10/6/2014",
+              "isEmpty":false,
+              "month":10,
+              "year":2014
+            },
+            "status":"Approved",
+            "version":7
+          },
+          {
+            "additionalNames":"Hatsune Miku Project mirai Complete",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2015-06-05T21:02:24",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":12668,
+            "name":"初音ミク Project mirai こんぷり～と",
+            "ratingAverage":4.66,
+            "ratingCount":12,
+            "releaseDate":{
+              "day":2,
+              "formatted":"9/2/2015",
+              "isEmpty":false,
+              "month":9,
+              "year":2015
+            },
+            "status":"Finished",
+            "version":15
+          },
+          {
+            "additionalNames":"Hatsune Miku Live Party 2011 39's Thanks Live in Tokyo / Sapporo",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2016-02-01T23:04:44",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":16705,
+            "name":"初音ミクライブパーティ2011 39's Thanks Live in Tokyo / Sapporo",
+            "ratingAverage":5.0,
+            "ratingCount":6,
+            "releaseDate":{
+              "day":16,
+              "formatted":"11/16/2011",
+              "isEmpty":false,
+              "month":11,
+              "year":2011
+            },
+            "status":"Finished",
+            "version":8
+          },
+          {
+            "additionalNames":"Kagamine Rin・Len 10th Anniversary -LODESTAR-",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2017-11-04T20:37:06",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":23612,
+            "name":"鏡音リン・レン 10th Anniversary -LODESTAR-",
+            "ratingAverage":4.16,
+            "ratingCount":12,
+            "releaseDate":{
+              "day":27,
+              "formatted":"12/27/2017",
+              "isEmpty":false,
+              "month":12,
+              "year":2017
+            },
+            "releaseEvent":{
+              "category":"Unspecified",
+              "date":"2017-12-27T00:00:00Z",
+              "id":1669,
+              "name":"鏡音誕生際 2017",
+              "seriesId":10,
+              "seriesNumber":2017,
+              "seriesSuffix":"",
+              "status":"Finished",
+              "urlSlug":"kagamine-birthday-2017",
+              "version":17
+            },
+            "status":"Finished",
+            "version":23
+          }
+        ],
+        "artists":[
+          {
+            "artist":{
+              "additionalNames":"Toraboruta, Travolta",
+              "artistType":"Producer",
+              "deleted":false,
+              "id":240,
+              "name":"ト ラボルタ",
+              "pictureMime":"image/jpeg",
+              "status":"Approved",
+              "version":24
+            },
+            "categories":"Producer",
+            "effectiveRoles":"Default",
+            "id":416,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"トラボルタ",
+            "roles":"Default"
+          },
+          {
+            "artist":{
+              "additionalNames":"Kagamine Rin",
+              "artistType":"Vocaloid",
+              "deleted":false,
+              "id":14,
+              "name":"鏡音リン",
+              "pictureMime":"image/png",
+              "releaseDate":"2007-12-27T00:00:00Z",
+              "status":"Approved",
+              "version":25
+            },
+            "categories":"Vocalist",
+            "effectiveRoles":"Default",
+            "id":417,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"鏡音リン",
+            "roles":"Default"
+          }
+        ],
+        "artistString":"トラボルタ feat. 鏡音リン",
+        "createDate":"2011-11-01T05:56:26",
+        "defaultName":"ココロ",
+        "defaultNameLanguage":"Japanese",
+        "favoritedTimes":55,
+        "id":1357,
+        "lengthSeconds":290,
+        "lyrics":[
+          {
+            "cultureCode":"ja",
+            "id":4011,
+            "source":"",
+            "translationType":"Original",
+            "url":"",
+            "value":" 孤独な科学者に作られたロボット\r\n出来栄えを言うなら　\"奇跡\"\r\nだけどまだ足りない\r\n一つだけ出来ない\r\nそれは「心」と言う\r\nプログラム\r\n\r\n幾百年が過ぎ\r\n独りで残された\r\n奇跡のロボットは\r\n願う\r\n知リタイ　アノ人ガ\r\n命ノ　終リマデ\r\n私ニ　作 ッテタ\r\n「ココロ」\r\n\r\n今　動き始めた 加速する奇跡\r\nナゼか　ナミダが　止まらナい…\r\nナぜ　私　震える？　加速する鼓動\r\nこレが私 の望んだ「ココロ」？\r\n\r\nフシギ　ココロ　ココロ　フシギ\r\n私は知った　喜ぶ事を\r\nフシギ　ココロ　ココロ　フシギ\r\n私は知った　悲し む事を\r\nフシギ　ココロ　ココロ　ムゲン\r\nなんて深く切ない…\r\n\r\n今 気付き始めた\r\n生まれた理由を\r\nきっと独りは寂しい\r\nそう、あ の日、あの時\r\n全ての記憶に\r\n宿る「ココロ」が溢れ出す\r\n\r\n今 言える\r\n本当の言葉\r\n捧げる　あなたに\r\nアリガトウ･･･\r\nこの世に 私を生んでくれて\r\nアリガトウ･･･\r\n一緒に過ごせた日々を\r\nアリガトウ･･･\r\nあなたが私にくれた全て\r\nアリガトウ･･･\r\n永遠に歌う\r\nアリガトウ･･･ "
+          },
+          {
+            "cultureCode":"",
+            "id":15178,
+            "source":"",
+            "translationType":"Romanized",
+            "url":"",
+            "value":"kodoku na kagakusha ni tsukurareta robotto\ndekibae wo iu nara “kiseki”\ndakedo mada tarinai\nhitotsu dake dekinai\nsore wa “kokoro” to iu\npuroguramu\n\nikuhyaku toshi ga sugi\nhitori de nokosareta\nkiseki no robotto wa\nnegau\nshiritai ano hito ga\ninochi no owari made\nwatashi ni tsukutteta\n“kokoro”\n\nima ugoki hajimeta kasoku suru kiseki\nnazeka namida ga tomaranai…\nnaze watashi furueru? kasoku suru kodou\nkore ga watashi no nozonda “kokoro”?\n\nfushigi kokoro kokoro fushigi\nwatashi wa shitta yorokobu koto wo\nfushigi kokoro kokoro fushigi\nwatashi wa shitta kanashii koto wo\nfushigi kokoro kokoro mugen\nnande fukaku setsunai…?\n\nima kidzuki hajimeta\numareta riyuu wo\nkitto hitori wa sabishii\nsou, ano hi, ano toki\nsubete no kioku ni\nyadoru “kokoro” ga afuredasu\n\nima ieru\nhontou no kotoba\nsasageru anata ni\narigatou…\nkono yo ni watashi wo unde kurete\narigatou…\nisshoni sugoseta hibi wo\narigatou…\nanata ga watashi ni kureta subete\narigatou…\neien ni utau\narigatou…"
+          },
+          {
+            "cultureCode":"en",
+            "id":15179,
+            "source":"kashichan",
+            "translationType":"Translation",
+            "url":"http://kashichan.wordpress.com/2008/08/10/kagamine-rin-kokoro-toraboruta/",
+            "value":"A robot was built by a lonely scientist,\nWhen his work was done, it was known as a “miracle”\n\nBut something was missing, there was one thing he couldn’t do,\nand that was the program called a “heart”\n\nMany years passed,\nand the miracle robot that had been left all alone,\nmade a single wish:\n\nGive me the “heart”, that that person,\nThe person I’ve always wanted to know,\nmade for me, until the very end of his life.\n\nNow that that miracle has started to occur,\nWhy, why won’t my tears stop flowing….?\nWhy am I shaking? What are these beats inside me?\nIs this the “heart” that I wished for?\n\nMysterious heart, mysterious feelings,\nAll the joys I had come to know,\nMysterious heart, mysterious feelings,\nAll the depressing things I had come to know,\nMysterious heart, mysterious feelings,\nThey all seem so deeply painful…\n\nNow I’m beginning to understand the reason I was born,\nBeing alone must truly be depressing,\nYes, on that day, at that time,\nAll the feelings that had dwelled in my memories flowed out of my heart.\n\nBut now, I can say these words for real,\nto you, my creator, who dedicated his life to me,\n\nThank you… for bringing me into this world.\nThank you… for the days you spent with me.\nThank you… for everything you’ve given me\nThank you… I will sing for eternity."
+          },
+          {
+            "cultureCode":"en",
+            "id":62303,
+            "source":"Hatsune Miku -Project DIVA- F 2nd",
+            "translationType":"Translation",
+            "url":"https://vocaloid.wikia.com/wiki/ココロ_(Kokoro)#Approved%20English%20Lyrics",
+            "value":"A robot made by a lonely scientist\nIn almost every way a \"miracle\"\nBut this miracle wasn't enough\nThere was one thing it couldn't run:\nA program called \"Kokoro\"\n\nCenturies pass\nLeft all alone\nThe miracle robot pleads\nI want to know how he felt\nWorking till his dying day\nMaking it for me\nMy \"Kokoro\"\n\nJust now it started, a quickening miracle\nFor some strange reason the tears won't stop\nWhy am I shaking? The accelerating beat\nIs this the \"Kokoro\" I wanted?\n\nNow I can say these words of truth\nAnd offer them to you\n\nThank you…\nFor bringing me into this world\nThank you…\nFor the days spent together\nThank you…\nFor all you've given me\nThank you…\nForever I'll sing"
+          }
+        ],
+        "mainPicture":{
+          "urlThumb":"http://tn-skr1.smilevideo.jp/smile?i=2500648"
+        },
+        "name":"ココロ",
+        "names":[
+          {
+            "language":"Japanese",
+            "value":"ココロ"
+          },
+          {
+            "language":"Romaji",
+            "value":"Kokoro"
+          },
+          {
+            "language":"English",
+            "value":"Heart"
+          },
+          {
+            "language":"Unspecified",
+            "value":"心"
+          }
+        ],
+        "publishDate":"2008-03-02T00:00:00Z",
+        "pvs":[
+          {
+            "author":"トラボルタ",
+            "disabled":false,
+            "id":106696,
+            "length":290,
+            "name":"【鏡音リン】　ココロ　【オリジナル曲】",
+            "publishDate":"2008-03-02T00:00:00",
+            "pvId":"sm2500648",
+            "service":"NicoNicoDouga",
+            "pvType":"Original",
+            "thumbUrl":"http://tn-skr1.smilevideo.jp/smile?i=2500648",
+            "url":"http://www.nicovideo.jp/watch/sm2500648"
+          },
+          {
+            "author":"soundares",
+            "disabled":false,
+            "id":191385,
+            "length":291,
+            "name":"Rin's \"ココロ\" with English Lyric",
+            "publishDate":"2008-04-23T00:00:00",
+            "pvId":"DxvVR63KAcM",
+            "service":"Youtube",
+            "pvType":"Other",
+            "thumbUrl":"https://i.ytimg.com/vi/DxvVR63KAcM/default.jpg",
+            "url":"https://youtu.be/DxvVR63KAcM"
+          },
+          {
+            "author":"Dope Rabbitz",
+            "disabled":false,
+            "id":279854,
+            "length":283,
+            "name":"[3DS] 初音ミク Project Mirai 2 PV「ココロ」",
+            "publishDate":"2013-11-28T00:00:00",
+            "pvId":"HpbH5rZcgPY",
+            "service":"Youtube",
+            "pvType":"Other",
+            "thumbUrl":"https://i.ytimg.com/vi/HpbH5rZcgPY/default.jpg",
+            "url":"https://youtu.be/HpbH5rZcgPY"
+          },
+          {
+            "author":"Toraboruta - Topic",
+            "disabled":false,
+            "id":355497,
+            "length":283,
+            "name":"kokoro (feat. Kagamine Rin)",
+            "publishDate":"2015-01-07T00:00:00",
+            "pvId":"0h8sqfo3QJ4",
+            "service":"Youtube",
+            "pvType":"Original",
+            "thumbUrl":"https://i.ytimg.com/vi/0h8sqfo3QJ4/default.jpg",
+            "url":"https://youtu.be/0h8sqfo3QJ4"
+          }
+        ],
+        "pvServices":"NicoNicoDouga, Youtube",
+        "ratingScore":289,
+        "songType":"Original",
+        "status":"Approved",
+        "tags":[
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"バラード, balada",
+              "categoryName":"Genres",
+              "id":29,
+              "name":"ballad",
+              "urlSlug":"ballad"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"無料, mp3 available",
+              "categoryName":"Distribution",
+              "id":160,
+              "name":"free",
+              "urlSlug":"free"
+            }
+          },
+          {
+            "count":3,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Vocalists",
+              "id":219,
+              "name":"Kagamine Act1",
+              "urlSlug":"kagamine-act1"
+            }
+          },
+          {
+            "count":3,
+            "tag":{
+              "additionalNames":"depressing lyrics",
+              "categoryName":"Themes",
+              "id":260,
+              "name":"melancholic",
+              "urlSlug":"melancholic"
+            }
+          },
+          {
+            "count":3,
+            "tag":{
+              "additionalNames":"Project Mirai DX",
+              "categoryName":"Games",
+              "id":272,
+              "name":"Project Mirai 2",
+              "urlSlug":"project-mirai-2"
+            }
+          },
+          {
+            "count":4,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":353,
+              "name":"Project DIVA",
+              "urlSlug":"project-diva"
+            }
+          },
+          {
+            "count":3,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":355,
+              "name":"Project DIVA 2nd",
+              "urlSlug":"project-diva-2nd"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":356,
+              "name":"Project DIVA Arcade",
+              "urlSlug":"project-diva-arcade"
+            }
+          },
+          {
+            "count":3,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":359,
+              "name":"Project DIVA F 2nd",
+              "urlSlug":"project-diva-f-2nd"
+            }
+          },
+          {
+            "count":7,
+            "tag":{
+              "additionalNames":"切ない, sadness, 悲しみ",
+              "categoryName":"Themes",
+              "id":384,
+              "name":"sad",
+              "urlSlug":"sad"
+            }
+          },
+          {
+            "count":4,
+            "tag":{
+              "additionalNames":"交響曲, symphony, シンフォニー, シンフォニック",
+              "categoryName":"Genres",
+              "id":419,
+              "name":"symphonic",
+              "urlSlug":"symphonic"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"ジェイポップ, ポップス, pops",
+              "categoryName":"Genres",
+              "id":1654,
+              "name":"J-pop",
+              "urlSlug":"j-pop"
+            }
+          },
+          {
+            "count":7,
+            "tag":{
+              "additionalNames":"ロボット ",
+              "categoryName":"Themes",
+              "id":2777,
+              "name":"robot",
+              "urlSlug":"robot"
+            }
+          },
+          {
+            "count":6,
+            "tag":{
+              "additionalNames":"死",
+              "categoryName":"Themes",
+              "id":2821,
+              "name":"death",
+              "urlSlug":"death"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"light novel, ラノベ",
+              "categoryName":"Media",
+              "id":3107,
+              "name":"ライトノベル",
+              "urlSlug":"light-novel"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"カラオケ配布, off vocal available, オフボカール配布, instrumental available, インストルメンタル配布",
+              "categoryName":"Sources",
+              "id":3113,
+              "name":"karaoke available",
+              "urlSlug":"karaoke-available"
+            }
+          },
+          {
+            "count":3,
+            "tag":{
+              "additionalNames":"VOCALOIDイメージソング",
+              "categoryName":"Themes",
+              "id":4568,
+              "name":"meta",
+              "urlSlug":"meta"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"PD FT",
+              "categoryName":"Games",
+              "id":4930,
+              "name":"Project DIVA Future Tone",
+              "urlSlug":"project-diva-future-tone"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"微笑ましい",
+              "categoryName":"Themes",
+              "id":6211,
+              "name":"heartwarming",
+              "urlSlug":"heartwarming"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Animation",
+              "id":6362,
+              "name":"lyrics in PV",
+              "urlSlug":"lyrics-in-pv"
+            }
+          },
+          {
+            "count":6,
+            "tag":{
+              "additionalNames":"サイエンスフィクション, science fiction, SF, エスエフ, futuristic",
+              "categoryName":"Themes",
+              "id":6497,
+              "name":"sci-fi",
+              "urlSlug":"sci-fi"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"Hatsune Speed, Hatsune Speed: Hatsune Miku Roller Skating Music, 初音未来正版音乐竞速手游",
+              "categoryName":"Games",
+              "id":6545,
+              "name":"初音速",
+              "urlSlug":"hatsune-speed"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"Hatsune Miku: Dreamy Vocal",
+              "categoryName":"Games",
+              "id":6849,
+              "name":"初音未来：梦幻歌姬",
+              "urlSlug":"hatsune-miku-dreamy-vocal"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"喪",
+              "categoryName":"Themes",
+              "id":7007,
+              "name":"mourning",
+              "urlSlug":"mourning"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"ポガティブ, pogative",
+              "categoryName":"Themes",
+              "id":7066,
+              "name":"bittersweet",
+              "urlSlug":"bittersweet"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"初音ミク Project DIVA MEGA39’s, Hatsune Miku Project DIVA MEGA39’s, Hatsune Miku: Project DIVA Mega Mix",
+              "categoryName":"Games",
+              "id":7185,
+              "name":"Project DIVA MEGA39’s",
+              "urlSlug":"project-diva-mega39s"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"グルーヴコースター",
+              "categoryName":"Games",
+              "id":7188,
+              "name":"GROOVE COASTER",
+              "urlSlug":"groove-coaster"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"孤独感",
+              "categoryName":"Themes",
+              "id":7223,
+              "name":"loneliness",
+              "urlSlug":"loneliness"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":7241,
+              "name":"maimai",
+              "urlSlug":"maimai"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"MikuColle, 初音ミクぐらふぃコレクション なぞの音楽すい星, Hatsune Miku Graphy Collection - The Mysterious Music Comet",
+              "categoryName":"Games",
+              "id":7326,
+              "name":"ミクコレ",
+              "urlSlug":"mikucolle"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"タイピニスト",
+              "categoryName":"Games",
+              "id":7353,
+              "name":"Typenist",
+              "urlSlug":"typenist"
+            }
+          }
+        ],
+        "thumbUrl":"http://tn-skr1.smilevideo.jp/smile?i=2500648",
+        "version":25,
+        "webLinks":[
+          {
+            "category":"Reference",
+            "description":"MikuWiki",
+            "id":41,
+            "url":"http://www5.atwiki.jp/hmiku/pages/528.html"
+          },
+          {
+            "category":"Reference",
+            "description":"Vocaloid Wiki",
+            "id":2901,
+            "url":"https://vocaloid.fandom.com/wiki/ココロ_(Kokoro)"
+          },
+          {
+            "category":"Reference",
+            "description":"UtaiteDB",
+            "id":13961,
+            "url":"http://utaitedb.net/S/1770"
+          },
+          {
+            "category":"Reference",
+            "description":"NicoNicoPedia",
+            "id":13962,
+            "url":"http://dic.nicovideo.jp/a/ココロ"
+          },
+          {
+            "category":"Reference",
+            "description":"Wikipedia (JP)",
+            "id":44667,
+            "url":"https://ja.wikipedia.org/wiki/ ココロ_(トラボルタの曲)"
+          },
+          {
+            "category":"Reference",
+            "description":"Vocaloid Lyrics Wiki",
+            "id":72104,
+            "url":"https://vocaloidlyrics.fandom.com/wiki/%E3%82%B3%E3%82%B3%E3%83%AD_(Kokoro)"
+          },
+          {
+            "category":"Commercial",
+            "description":"Spotify",
+            "id":79730,
+            "url":"https://play.spotify.com/track/6gsd0653qu7ePqE2gXA2ET"
+          },
+          {
+            "category":"Commercial",
+            "description":"KKBOX",
+            "id":79731,
+            "url":"https://kkbox.fm/Fo0zhr"
+          },
+          {
+            "category":"Reference",
+            "description":"MusicBrainz (recording)",
+            "id":79732,
+            "url":"https://musicbrainz.org/recording/11b0a095-9fac-4cf1-a081-6db2967ea6a0"
+          },
+          {
+            "category":"Commercial",
+            "description":"Oricon - Lyrics",
+            "id":79733,
+            "url":"https://www.oricon.co.jp/prof/483953/lyrics/I086450/"
+          },
+          {
+            "category":"Commercial",
+            "description":"Amazon (EN)",
+            "id":79734,
+            "url":"https://www.amazon.com/dp/B003FT17Q4"
+          },
+          {
+            "category":"Reference",
+            "description":"Moegirlpedia",
+            "id":81365,
+            "url":"https://zh.moegirl.org/心(歌曲)"
+          },
+          {
+            "category":"Commercial",
+            "description":"Spotify (さよならあり がとう)",
+            "id":84407,
+            "url":"https://open.spotify.com/track/0QeMKjVoHAmwKFoZ4SAFK5"
+          },
+          {
+            "category":"Commercial",
+            "description":"Amazon (JP)",
+            "id":84408,
+            "url":"https://www.amazon.co.jp/dp/B0047BNWOE"
+          },
+          {
+            "category":"Commercial",
+            "description":"KKBOX (さよならありがとう)",
+            "id":84409,
+            "url":"https://kkbox.fm/Gs0cGb"
+          },
+          {
+            "category":"Commercial",
+            "description":"Amazon (EN)  (さよならありがとう)",
+            "id":84410,
+            "url":"https://www.amazon.com/dp/B003FSXWCC/"
+          }
+        ]
+      }
+    },
+    {
+      "notes":"",
+      "order":5,
+      "song":{
+        "additionalNames":"Migikata no Chou, Butterfly on Your Right Shoulder, Butterfly of the Right Shoulder, Бабочка на Правом Плече",
+        "albums":[
+          {
+            "additionalNames":"",
+            "artistString":"のりぴー feat. various",
+            "coverPictureMime":"image/png",
+            "createDate":"2011-11-03T00:01:14",
+            "deleted":false,
+            "discType":"Album",
+            "id":265,
+            "name":"Butterfly",
+            "ratingAverage":4.4,
+            "ratingCount":5,
+            "releaseDate":{
+              "day":8,
+              "formatted":"7/8/2009",
+              "isEmpty":false,
+              "month":7,
+              "year":2009
+            },
+            "status":"Approved",
+            "version":5
+          },
+          {
+            "additionalNames":"Digital Trax presents VOCALO★POPS BEST feat. 初音ミク",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2011-11-04T22:20:04",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":356,
+            "name":"Digital Trax presents VOCALO★POPS BEST feat. Hatsune Miku",
+            "ratingAverage":4.66,
+            "ratingCount":3,
+            "releaseDate":{
+              "day":9,
+              "formatted":"3/9/2011",
+              "isEmpty":false,
+              "month":3,
+              "year":2011
+            },
+            "status":"Finished",
+            "version":6
+          },
+          {
+            "additionalNames":"EXIT TUNES PRESENTS Vocaloanthems feat. Hatsune Miku",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2011-10-03T00:00:00",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":23,
+            "name":"EXIT TUNES PRESENTS Vocaloanthems feat. 初音ミク ",
+            "ratingAverage":4.28,
+            "ratingCount":25,
+            "releaseDate":{
+              "day":15,
+              "formatted":"9/15/2010",
+              "isEmpty":false,
+              "month":9,
+              "year":2010
+            },
+            "status":"Approved",
+            "version":10
+          },
+          {
+            "additionalNames":"VOCALOID BEST from Nico Nico Douga【Aka】, VOCALOID BEST from Nico Nico Douga【Red】.",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2012-01-01T23:01:58",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":943,
+            "name":"VOCALOID BEST from ニコニコ動画【あか】",
+            "ratingAverage":4.79,
+            "ratingCount":24,
+            "releaseDate":{
+              "day":22,
+              "formatted":"6/22/2011",
+              "isEmpty":false,
+              "month":6,
+              "year":2011
+            },
+            "status":"Finished",
+            "version":10
+          },
+          {
+            "additionalNames":"EXIT TUNES PRESENTS Vocalotwinkle feat. Kagamine Rin, Kagamine Len, EXIT TUNES PRESENTS ボカロトゥインクル feat. 鏡音リン、鏡音レン",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2013-01-25T20:39:22",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":2129,
+            "name":"EXIT TUNES PRESENTS Vocalotwinkle feat. 鏡音リン、鏡音レン",
+            "ratingAverage":4.42,
+            "ratingCount":14,
+            "releaseDate":{
+              "day":20,
+              "formatted":"3/20/2013",
+              "isEmpty":false,
+              "month":3,
+              "year":2013
+            },
+            "status":"Finished",
+            "version":15
+          },
+          {
+            "additionalNames":"Hatsune Miku -Project DIVA- extend Complete Collection",
+            "artistString":"Various artists",
+            "coverPictureMime":"image/jpeg",
+            "createDate":"2011-11-06T20:24:51",
+            "deleted":false,
+            "discType":"Compilation",
+            "id":400,
+            "name":"初音ミク -Project DIVA- extend Complete Collection",
+            "ratingAverage":4.33,
+            "ratingCount":21,
+            "releaseDate":{
+              "day":9,
+              "formatted":"11/9/2011",
+              "isEmpty":false,
+              "month":11,
+              "year":2011
+            },
+            "status":"Finished",
+            "version":19
+          }
+        ],
+        "artists":[
+          {
+            "artist":{
+              "additionalNames":"Kagamine Rin",
+              "artistType":"Vocaloid",
+              "deleted":false,
+              "id":14,
+              "name":"鏡音リン",
+              "pictureMime":"image/png",
+              "releaseDate":"2007-12-27T00:00:00Z",
+              "status":"Approved",
+              "version":25
+            },
+            "categories":"Vocalist",
+            "effectiveRoles":"Default",
+            "id":1903,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"鏡音リン",
+            "roles":"Default"
+          },
+          {
+            "artist":{
+              "additionalNames":"NoriP, のりP",
+              "artistType":"Producer",
+              "deleted":false,
+              "id":217,
+              "name":"のりぴー",
+              "pictureMime":"image/jpeg",
+              "status":"Finished",
+              "version":12
+            },
+            "categories":"Producer",
+            "effectiveRoles":"Default",
+            "id":1904,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"のりぴー",
+            "roles":"Default"
+          },
+          {
+            "artist":{
+              "additionalNames":"Aki Akane, Akiakane",
+              "artistType":"OtherVocalist",
+              "deleted":false,
+              "id":2370,
+              "name":"秋赤音",
+              "pictureMime":"image/png",
+              "status":"Approved",
+              "version":11
+            },
+            "categories":"Illustrator",
+            "effectiveRoles":"Illustrator",
+            "id":204058,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"秋赤音",
+            "roles":"Illustrator"
+          },
+          {
+            "artist":{
+              "additionalNames":"Mizuno Yura",
+              "artistType":"Lyricist",
+              "deleted":false,
+              "id":2371,
+              "name":"水野悠良",
+              "status":"Finished",
+              "version":2
+            },
+            "categories":"Other",
+            "effectiveRoles":"Lyricist",
+            "id":204059,
+            "isCustomName":false,
+            "isSupport":false,
+            "name":"水野悠良",
+            "roles":"Lyricist"
+          }
+        ],
+        "artistString":"のりぴー feat. 鏡音リン",
+        "createDate":"2011-11-03T00:01:16",
+        "defaultName":" 右肩の蝶 ",
+        "defaultNameLanguage":"Japanese",
+        "favoritedTimes":34,
+        "id":1952,
+        "lengthSeconds":270,
+        "lyrics":[
+          {
+            "cultureCode":"ja",
+            "id":18656,
+            "source":"",
+            "translationType":"Original",
+            "url":"",
+            "value":"右肩に紫蝶々　キスをしたこの部屋の隅で\n切ないと云う感情を知る　響くピアノ　不協和音\n\n右肩に紫蝶々　キスをしたこの部屋の隅で\n切ないと云う感情を知る　響くピアノ　不協和音\n\n悪い夢にうなされた　私を早く起こして\nど んなことでも始まりは　些細なことでしょう？\nどこがいいかなんて　聞かれても困る\n綺麗な夜に惑わされたまま行方不明だから\n\n長いまつげ　三 日月アイライン　まぶたに乗せて光るリップ\n\n右肩に紫蝶々　キスをしたこの部屋の隅で\n切ないと云う感情を知る　響くピアノ　不協和音\n\n右肩 に紫蝶々　キスをしたこの部屋の隅で\n切ないと云う感情を知る　響くピアノ　不協和音\n\n雨の中で濡れた　髪が異常に冷たくて\n寂しさをトイレに 　吐き出して震えて待ってる\n追いかけては逃げるから　それ以上で返して\n真剣だから笑うと　痛い目に遭うよいい？\n\n赤い爪と　安物の指輪　傷 付く度増えるピアス\n\n抱き寄せて　歪んだ体　埋めるのはあなたしかいない\nそうでしょう？　わかってるくせに　境界線とっくに越えてる\n後悔は 死ぬほどしてる　その分だけ快感を呼び覚ます\n狂いだした　私を止めて　一瞬でラクにしてよ\n\n抱き寄せて　歪んだ体　埋めるのはあなたしかいな い\nそうでしょう？　わかってるくせに　境界線とっくに越えてる\n後悔は死ぬほどしてる　その分だけ快感を呼び覚ます\n狂いだした　私を止めて　 一瞬でラクにしてよ\n\n右肩に紫蝶々　キスをしたこの部屋の隅で\n切ないと云う感情を知る　響くピアノ　不協和音 "
+          }
+        ],
+        "mainPicture":{
+          "urlThumb":"http://tn-skr4.smilevideo.jp/smile?i=6609407"
+        },
+        "name":"右肩の蝶 ",
+        "names":[
+          {
+            "language":"Japanese",
+            "value":"右肩の蝶 "
+          },
+          {
+            "language":"Romaji",
+            "value":"Migikata no Chou"
+          },
+          {
+            "language":"English",
+            "value":"Butterfly on Your Right Shoulder"
+          },
+          {
+            "language":"Unspecified",
+            "value":"Butterfly of the Right Shoulder"
+          },
+          {
+            "language":"Unspecified",
+            "value":"Бабочка на Правом Плече"
+          }
+        ],
+        "publishDate":"2009-01-13T00:00:00Z",
+        "pvs":[
+          {
+            "author":"のりP",
+            "disabled":false,
+            "id":88934,
+            "length":270,
+            "name":"鏡音リンオリジナル曲　「右肩の蝶」",
+            "publishDate":"2009-04-01T00:00:00",
+            "pvId":"sm6609407",
+            "service":"NicoNicoDouga",
+            "pvType":"Original",
+            "thumbUrl":"http://tn-skr4.smilevideo.jp/smile?i=6609407",
+            "url":"http://www.nicovideo.jp/watch/sm6609407"
+          },
+          {
+            "author":"motokokusanagi2009",
+            "disabled":false,
+            "id":191510,
+            "length":271,
+            "name":"[Rin] Butterfly on Your Right Shoulder [English subs] 右肩の蝶",
+            "publishDate":"2009-04-02T00:00:00",
+            "pvId":"rt_iCLU_gMo",
+            "service":"Youtube",
+            "pvType":"Other",
+            "thumbUrl":"https://i.ytimg.com/vi/rt_iCLU_gMo/default.jpg",
+            "url":"https://youtu.be/rt_iCLU_gMo"
+          },
+          {
+            "author":"のりぴー",
+            "disabled":false,
+            "extendedMetadata":{
+              "json":"{\"Timestamp\":\"20090113203422\"}"
+            },
+            "id":375923,
+            "length":271,
+            "name":"右肩の蝶(鏡音リン)",
+            "publishDate":"2009-01-13T00:00:00",
+            "pvId":"rp30sgrubxjhs7t5",
+            "service":"Piapro",
+            "pvType":"Original",
+            "thumbUrl":"https://cdn.piapro.jp/thumb_i/50/50k9z983oof5l1lr_20100524221219_0500_0500.jpg",
+            "url":"http://piapro.jp/content/rp30sgrubxjhs7t5"
+          }
+        ],
+        "pvServices":"NicoNicoDouga, Youtube, Piapro",
+        "ratingScore":160,
+        "songType":"Original",
+        "status":"Approved",
+        "tags":[
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"無料, mp3 available",
+              "categoryName":"Distribution",
+              "id":160,
+              "name":"free",
+              "urlSlug":"free"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":353,
+              "name":"Project DIVA",
+              "urlSlug":"project-diva"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":355,
+              "name":"Project DIVA 2nd",
+              "urlSlug":"project-diva-2nd"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"",
+              "categoryName":"Games",
+              "id":2783,
+              "name":"Project DIVA Extend",
+              "urlSlug":"project-diva-extend"
+            }
+          },
+          {
+            "count":2,
+            "tag":{
+              "additionalNames":"カラオケ配布, off vocal available, オフボカール配布, instrumental available, インストルメンタル配布",
+              "categoryName":"Sources",
+              "id":3113,
+              "name":"karaoke available",
+              "urlSlug":"karaoke-available"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"虫, bug, beetle, mosquito, bee, flea, cricket, 昆虫",
+              "categoryName":"Themes",
+              "id":6874,
+              "name":"insect",
+              "urlSlug":"insect"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"バタフライ, 蝶々, 蝶, チョウ, chou, chouchou",
+              "categoryName":"Themes",
+              "id":7266,
+              "name":"butterfly",
+              "urlSlug":"butterfly"
+            }
+          },
+          {
+            "count":1,
+            "tag":{
+              "additionalNames":"タイピニスト",
+              "categoryName":"Games",
+              "id":7353,
+              "name":"Typenist",
+              "urlSlug":"typenist"
+            }
+          }
+        ],
+        "thumbUrl":"http://tn-skr4.smilevideo.jp/smile?i=6609407",
+        "version":16,
+        "webLinks":[
+          {
+            "category":"Reference",
+            "description":"MikuWiki",
+            "id":244,
+            "url":"http://w.atwiki.jp/hmiku/pages/4762.html"
+          },
+          {
+            "category":"Reference",
+            "description":"Vocaloid Wiki",
+            "id":20745,
+            "url":"http://vocaloid.fandom.com/wiki/%E5%8F%B3%E8%82%A9%E3%81%AE%E8%9D%B6_%28Migikata_no_Chou%29"
+          },
+          {
+            "category":"Reference",
+            "description":"NicoNicoPedia",
+            "id":20746,
+            "url":"http://dic.nicovideo.jp/a/%E5%8F%B3%E8%82%A9%E3%81%AE%E8%9D%B6"
+          },
+          {
+            "category":"Reference",
+            "description":"Pixiv Encyclopedia",
+            "id":20747,
+            "url":"http://dic.pixiv.net/a/%E5%8F%B3%E8%82%A9%E3%81%AE%E8%9D%B6"
+          },
+          {
+            "category":"Reference",
+            "description":"UtaiteDB",
+            "id":20748,
+            "url":"http://utaitedb.net/S/2094"
+          }
+        ]
+      }
+    }
+  ],
+  "totalCount":25
+}

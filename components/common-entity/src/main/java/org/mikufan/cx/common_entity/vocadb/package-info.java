@@ -1,5 +1,5 @@
 /**
- * Auto-generated POJOs from vocadb songlist api model json using
+ * Auto-generated POJOs from vocadb songlist api model json using RoboPojoGenerator
  *
  * @author CX无敌
  */

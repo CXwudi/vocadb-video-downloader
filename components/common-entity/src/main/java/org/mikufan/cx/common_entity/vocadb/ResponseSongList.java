@@ -4,6 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import org.eclipse.collections.api.set.MutableSet;
 
+/**
+ * response object stored for GET /api/songLists/{listId}/songs
+ *
+ * @author CX无敌
+ */
 @Getter
 public class ResponseSongList {
 

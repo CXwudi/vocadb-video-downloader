@@ -85,25 +85,11 @@ public class Song {
   @JsonProperty("pvServices")
   private String pvServices;
 
+  @JsonProperty("releaseEvent")
+  private ReleaseEvent releaseEvent;
+
   @JsonProperty("status")
   private String status;
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Song song = (Song) o;
-    return id == song.id;
-  }
-
-  @Override
-  public int hashCode() {
-    return id;
-  }
 
   @Override
   public String toString() {
@@ -135,7 +121,25 @@ public class Song {
             ",favoritedTimes = '" + favoritedTimes + '\'' +
             ",name = '" + name + '\'' +
             ",pvServices = '" + pvServices + '\'' +
+            ",releaseEvent = '" + releaseEvent + '\'' +
             ",status = '" + status + '\'' +
             "}";
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Song song = (Song) o;
+    return id == song.id;
+  }
+
+  @Override
+  public int hashCode() {
+    return id;
   }
 }

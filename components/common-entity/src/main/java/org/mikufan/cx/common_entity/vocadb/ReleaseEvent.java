@@ -37,6 +37,9 @@ public class ReleaseEvent {
   @JsonProperty("seriesNumber")
   private int seriesNumber;
 
+  @JsonProperty("tags")
+  private MutableList<TagsItem> tags;
+
   @JsonProperty("venueName")
   private String venueName;
 
@@ -84,6 +87,7 @@ public class ReleaseEvent {
             ",version = '" + version + '\'' +
             ",seriesId = '" + seriesId + '\'' +
             ",seriesNumber = '" + seriesNumber + '\'' +
+            ",tags = '" + tags + '\'' +
             ",venueName = '" + venueName + '\'' +
             ",names = '" + names + '\'' +
             ",artists = '" + artists + '\'' +
