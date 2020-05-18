@@ -26,7 +26,7 @@
     <build.library.dir>libs</build.library.dir>
     <!-- some shared version numbers -->
     <module.version>4.0.0-SNAPSHOT</module.version>  <!-- stay same with project version, but don't replace project version -->
-    <log4j.version>2.13.2</log4j.version>
+    <log4j.version>2.13.3</log4j.version>
     <eclipse-collections.version>10.2.0</eclipse-collections.version>
     <jackson.version>2.11.0</jackson.version>
 
@@ -59,7 +59,7 @@
       </dependency>
 
       <!-- application framework -->
-      <dependency><!-- http-client5 -->
+      <dependency> <!-- http-client5 -->
         <groupId>org.apache.httpcomponents.client5</groupId>
         <artifactId>httpclient5</artifactId>
         <version>5.0</version>
@@ -67,7 +67,7 @@
       <dependency> <!-- commons-configuration, read .property files -->
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-configuration2</artifactId>
-        <version>2.6</version>
+        <version>2.7</version>
       </dependency>
       <dependency> <!-- support for common configuration -->
         <groupId>commons-beanutils</groupId>
@@ -157,6 +157,11 @@
       <version>1.18.12</version>
       <scope>provided</scope>
     </dependency>
+    <dependency> <!-- provide NotNull annotation, can be useful for lombok -->
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+      <version>13.0</version>
+    </dependency>
 
     <!-- honor utils -->
     <dependency>
@@ -176,6 +181,7 @@
       <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
       <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
       <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+      <!-- by default, all maven self-owned plugins in pluginManagement are enabled -->
       <plugins>
 
         <plugin> <!-- only need this to compiling high version java like 11 or higher -->
@@ -193,7 +199,8 @@
 
         <!-- zip file build setup -->
         <!-- jar + assembly to produce a fat zip, recommended way to publish releases -->
-        <!-- should never build a fat jar file as library jars have signatures, fail to preserve signatures will get exception -->
+        <!-- should never build a fat jar file as library jars have signatures, fail to preserve signatures will get exception. -->
+        <!-- but removing signature violates open-source licenses -->
         <plugin> <!-- add dependencies to the jar-->
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.2.0</version>
@@ -203,7 +210,7 @@
                 <addClasspath>true</addClasspath>
                 <classpathPrefix>${build.library.dir}</classpathPrefix>
                 <!-- children plz indicate your main class -->
-                <!--                <mainClass>com.sample.Main</mainClass>-->
+                <!-- <mainClass>com.sample.Main</mainClass> -->
               </manifest>
             </archive>
           </configuration>

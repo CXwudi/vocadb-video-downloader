@@ -19,6 +19,10 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.mikufan.cx</groupId>
+      <artifactId>common-entity</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
