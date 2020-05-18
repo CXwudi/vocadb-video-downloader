@@ -3,6 +3,7 @@ package org.mikufan.cx.common.entity.vocadb;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.eclipsecollections.EclipseCollectionsModule;
+import lombok.extern.slf4j.Slf4j;
 import org.eclipse.collections.api.factory.Lists;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +12,7 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Slf4j
 class ResponseSongListTest {
   private ObjectMapper objectMapper = JsonMapper.builder()
       .addModule(new EclipseCollectionsModule())
@@ -21,7 +23,7 @@ class ResponseSongListTest {
   void testParseModel() throws IOException {
     var jsonFile = new File("src/test/resources/vocadb/songListModelSchema.json");
     var response = objectMapper.readValue(jsonFile,ResponseSongList.class);
-    System.out.println(response);
+    log.info("{}", response);
     assertTrue(true);
   }
 
@@ -39,7 +41,7 @@ class ResponseSongListTest {
       } catch (IOException e) {
         fail(e);
       }
-      System.out.println(response);
+      log.info("{}", response);
       assertNotNull(response);
     });
   }
@@ -68,8 +70,8 @@ class ResponseSongListTest {
           return res1;
         });
 
-    System.out.println(mergedResponse);
-    assertEquals(mergedResponse.getItems().size(), 8);
+    log.info("{}", mergedResponse);
+    assertEquals(8, mergedResponse.getItems().size());
 
   }
 

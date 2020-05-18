@@ -13,6 +13,7 @@ class VocaDbPvTest {
     var pvVocadb = new VocaDbPv("sm123456", VideoWebsiteString.NICONICO, "Nice Deco*27 PV", 435);
     assertEquals(pv, pvVocadb);
     assertEquals(pvVocadb, pv);
-
   }
+
+
 }
