@@ -10,10 +10,16 @@ class VocaDbPvTest {
   @Test
   void testEquals() {
     var pv = new Pv("sm123456", VideoWebsiteString.NICONICO, "Nice Deco*27 PV");
-    var pvVocadb = new VocaDbPv("sm123456", VideoWebsiteString.NICONICO, "Nice Deco*27 PV", 435);
+    var pvVocadb = new VocaDbPv("sm123456", VideoWebsiteString.NICONICO, "Nice 40mP PV", 435);
     assertEquals(pv, pvVocadb);
     assertEquals(pvVocadb, pv);
   }
 
-
+  @Test
+  void testEquals2() {
+    AbstractPv pv = new Pv("sm123456", VideoWebsiteString.NICONICO, "Nice Deco*27 PV");
+    AbstractPv pvVocadb = new VocaDbPv("sm123456", VideoWebsiteString.NICONICO, "Nice 40mP PV", 435);
+    assertEquals(pv, pvVocadb);
+    assertEquals(pvVocadb, pv);
+  }
 }

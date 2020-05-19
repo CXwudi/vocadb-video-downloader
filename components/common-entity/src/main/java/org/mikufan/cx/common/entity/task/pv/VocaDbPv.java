@@ -8,7 +8,7 @@ import lombok.ToString;
 
 
 /**
- * Basically a Pv class but use VocaDB song id to identify itself.
+ * Basically a Pv class but use VocaDB song songId to identify itself.
  * If we have multiply Pv representing the same song but from different service, Pv equals() can't distinguish it.
  * By using the ids from VocaDB, this would not be a problem.
  *
@@ -19,12 +19,12 @@ import lombok.ToString;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class VocaDbPv extends AbstractPv {
 
-  @JsonProperty("id")
-  private int id;
+  @JsonProperty("songId")
+  private int songId;
 
-  public VocaDbPv(String pvId, String service, String title, int id) {
-    super(pvId, service, title);
-    this.id = id;
+  public VocaDbPv(String pvId, String service, String name, int songId) {
+    super(pvId, service, name);
+    this.songId = songId;
   }
 
   @Override
@@ -42,11 +42,11 @@ public class VocaDbPv extends AbstractPv {
       return false;
     }
     VocaDbPv vocaDbPv = (VocaDbPv) o;
-    return id == vocaDbPv.id;
+    return songId == vocaDbPv.songId;
   }
 
   @Override
   public final int hashCode() {
-    return id;
+    return songId;
   }
 }

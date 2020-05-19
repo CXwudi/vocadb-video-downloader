@@ -2,6 +2,7 @@ package org.mikufan.cx.common.entity.vocadb;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
+import lombok.Setter;
 import org.eclipse.collections.api.set.MutableSet;
 
 /**
@@ -15,6 +16,7 @@ public class ResponseSongList {
   @JsonProperty("term")
   private String term;
 
+  @Setter
   @JsonProperty("totalCount")
   private int totalCount;
 
