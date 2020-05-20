@@ -1,0 +1,536 @@
+{
+  "items": [
+    {
+      "notes": "string",
+      "order": 0,
+      "song": {
+        "additionalNames": "string",
+        "albums": [
+          {
+            "additionalNames": "string",
+            "artistString": "string",
+            "coverPictureMime": "string",
+            "createDate": "2020-05-17T17:48:21.158Z",
+            "deleted": true,
+            "discType": "Unknown",
+            "id": 0,
+            "name": "string",
+            "ratingAverage": 0,
+            "ratingCount": 0,
+            "releaseDate": {
+              "day": 0,
+              "formatted": "string",
+              "isEmpty": true,
+              "month": 0,
+              "year": 0
+            },
+            "releaseEvent": {
+              "additionalNames": "string",
+              "artists": [
+                {
+                  "artist": {
+                    "additionalNames": "string",
+                    "artistType": "Unknown",
+                    "deleted": true,
+                    "id": 0,
+                    "name": "string",
+                    "pictureMime": "string",
+                    "releaseDate": "2020-05-17T17:48:21.158Z",
+                    "status": "Draft",
+                    "version": 0
+                  },
+                  "effectiveRoles": "Default",
+                  "id": 0,
+                  "name": "string",
+                  "roles": "Default"
+                }
+              ],
+              "category": "Unspecified",
+              "date": "2020-05-17T17:48:21.158Z",
+              "description": "string",
+              "endDate": "2020-05-17T17:48:21.158Z",
+              "id": 0,
+              "mainPicture": {
+                "mime": "string",
+                "urlOriginal": "string",
+                "urlSmallThumb": "string",
+                "urlThumb": "string",
+                "urlTinyThumb": "string"
+              },
+              "name": "string",
+              "names": [
+                {
+                  "language": "Unspecified",
+                  "value": "string"
+                }
+              ],
+              "series": {
+                "additionalNames": "string",
+                "category": "Unspecified",
+                "deleted": true,
+                "description": "string",
+                "id": 0,
+                "name": "string",
+                "pictureMime": "string",
+                "status": "Draft",
+                "urlSlug": "string",
+                "version": 0,
+                "webLinks": [
+                  {
+                    "category": "Official",
+                    "description": "string",
+                    "descriptionOrUrl": "string",
+                    "id": 0,
+                    "url": "string"
+                  }
+                ]
+              },
+              "seriesId": 0,
+              "seriesNumber": 0,
+              "seriesSuffix": "string",
+              "songList": {
+                "featuredCategory": "Nothing",
+                "id": 0,
+                "name": "string"
+              },
+              "status": "Draft",
+              "tags": [
+                {
+                  "count": 0,
+                  "tag": {
+                    "additionalNames": "string",
+                    "categoryName": "string",
+                    "id": 0,
+                    "name": "string",
+                    "urlSlug": "string"
+                  }
+                }
+              ],
+              "urlSlug": "string",
+              "venue": {
+                "additionalNames": "string",
+                "address": "string",
+                "addressCountryCode": "string",
+                "coordinates": {
+                  "formatted": "string",
+                  "hasValue": true,
+                  "latitude": 0,
+                  "longitude": 0
+                },
+                "description": "string",
+                "events": [
+                  {
+                    "additionalNames": "string",
+                    "category": "Unspecified",
+                    "customName": true,
+                    "date": "2020-05-17T17:48:21.158Z",
+                    "deleted": true,
+                    "description": "string",
+                    "endDate": "2020-05-17T17:48:21.158Z",
+                    "hasVenueOrVenueName": true,
+                    "id": 0,
+                    "inheritedCategory": "Unspecified",
+                    "name": "string",
+                    "pictureMime": "string",
+                    "series": {
+                      "additionalNames": "string",
+                      "category": "Unspecified",
+                      "deleted": true,
+                      "description": "string",
+                      "id": 0,
+                      "name": "string",
+                      "pictureMime": "string",
+                      "status": "Draft",
+                      "urlSlug": "string",
+                      "version": 0,
+                      "webLinks": [
+                        {
+                          "category": "Official",
+                          "description": "string",
+                          "descriptionOrUrl": "string",
+                          "id": 0,
+                          "url": "string"
+                        }
+                      ]
+                    },
+                    "songList": {
+                      "featuredCategory": "Nothing",
+                      "id": 0,
+                      "name": "string"
+                    },
+                    "status": "Draft",
+                    "urlSlug": "string",
+                    "venue": {
+                      "additionalNames": "string",
+                      "address": "string",
+                      "addressCountryCode": "string",
+                      "coordinates": {
+                        "formatted": "string",
+                        "hasValue": true,
+                        "latitude": 0,
+                        "longitude": 0
+                      },
+                      "deleted": true,
+                      "description": "string",
+                      "id": 0,
+                      "name": "string",
+                      "status": "Draft",
+                      "version": 0,
+                      "webLinks": [
+                        {
+                          "category": "Official",
+                          "description": "string",
+                          "descriptionOrUrl": "string",
+                          "id": 0,
+                          "url": "string"
+                        }
+                      ]
+                    },
+                    "venueName": "string",
+                    "version": 0
+                  }
+                ],
+                "id": 0,
+                "name": "string",
+                "names": [
+                  {
+                    "language": "Unspecified",
+                    "value": "string"
+                  }
+                ],
+                "status": "Draft",
+                "version": 0,
+                "webLinks": [
+                  {
+                    "category": "Official",
+                    "description": "string",
+                    "descriptionOrUrl": "string",
+                    "id": 0,
+                    "url": "string"
+                  }
+                ]
+              },
+              "venueName": "string",
+              "version": 0,
+              "webLinks": [
+                {
+                  "category": "Official",
+                  "description": "string",
+                  "descriptionOrUrl": "string",
+                  "id": 0,
+                  "url": "string"
+                }
+              ]
+            },
+            "status": "Draft",
+            "version": 0
+          }
+        ],
+        "artists": [
+          {
+            "artist": {
+              "additionalNames": "string",
+              "artistType": "Unknown",
+              "deleted": true,
+              "id": 0,
+              "name": "string",
+              "pictureMime": "string",
+              "releaseDate": "2020-05-17T17:48:21.159Z",
+              "status": "Draft",
+              "version": 0
+            },
+            "categories": "Nothing",
+            "effectiveRoles": "Default",
+            "id": 0,
+            "isCustomName": true,
+            "isSupport": true,
+            "name": "string",
+            "roles": "Default"
+          }
+        ],
+        "artistString": "string",
+        "createDate": "2020-05-17T17:48:21.159Z",
+        "defaultName": "string",
+        "defaultNameLanguage": "Unspecified",
+        "deleted": true,
+        "favoritedTimes": 0,
+        "id": 0,
+        "lengthSeconds": 0,
+        "lyrics": [
+          {
+            "cultureCode": "string",
+            "id": 0,
+            "source": "string",
+            "translationType": "Original",
+            "url": "string",
+            "value": "string"
+          }
+        ],
+        "mainPicture": {
+          "mime": "string",
+          "urlOriginal": "string",
+          "urlSmallThumb": "string",
+          "urlThumb": "string",
+          "urlTinyThumb": "string"
+        },
+        "mergedTo": 0,
+        "name": "string",
+        "names": [
+          {
+            "language": "Unspecified",
+            "value": "string"
+          }
+        ],
+        "originalVersionId": 0,
+        "publishDate": "2020-05-17T17:48:21.159Z",
+        "pvs": [
+          {
+            "author": "string",
+            "createdBy": 0,
+            "disabled": true,
+            "extendedMetadata": {
+              "json": "string"
+            },
+            "id": 0,
+            "length": 0,
+            "name": "string",
+            "publishDate": "2020-05-17T17:48:21.159Z",
+            "pvId": "string",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "string",
+            "url": "string"
+          }
+        ],
+        "pvServices": "Nothing",
+        "ratingScore": 0,
+        "releaseEvent": {
+          "additionalNames": "string",
+          "artists": [
+            {
+              "artist": {
+                "additionalNames": "string",
+                "artistType": "Unknown",
+                "deleted": true,
+                "id": 0,
+                "name": "string",
+                "pictureMime": "string",
+                "releaseDate": "2020-05-17T17:48:21.159Z",
+                "status": "Draft",
+                "version": 0
+              },
+              "effectiveRoles": "Default",
+              "id": 0,
+              "name": "string",
+              "roles": "Default"
+            }
+          ],
+          "category": "Unspecified",
+          "date": "2020-05-17T17:48:21.159Z",
+          "description": "string",
+          "endDate": "2020-05-17T17:48:21.159Z",
+          "id": 0,
+          "mainPicture": {
+            "mime": "string",
+            "urlOriginal": "string",
+            "urlSmallThumb": "string",
+            "urlThumb": "string",
+            "urlTinyThumb": "string"
+          },
+          "name": "string",
+          "names": [
+            {
+              "language": "Unspecified",
+              "value": "string"
+            }
+          ],
+          "series": {
+            "additionalNames": "string",
+            "category": "Unspecified",
+            "deleted": true,
+            "description": "string",
+            "id": 0,
+            "name": "string",
+            "pictureMime": "string",
+            "status": "Draft",
+            "urlSlug": "string",
+            "version": 0,
+            "webLinks": [
+              {
+                "category": "Official",
+                "description": "string",
+                "descriptionOrUrl": "string",
+                "id": 0,
+                "url": "string"
+              }
+            ]
+          },
+          "seriesId": 0,
+          "seriesNumber": 0,
+          "seriesSuffix": "string",
+          "songList": {
+            "featuredCategory": "Nothing",
+            "id": 0,
+            "name": "string"
+          },
+          "status": "Draft",
+          "tags": [
+            {
+              "count": 0,
+              "tag": {
+                "additionalNames": "string",
+                "categoryName": "string",
+                "id": 0,
+                "name": "string",
+                "urlSlug": "string"
+              }
+            }
+          ],
+          "urlSlug": "string",
+          "venue": {
+            "additionalNames": "string",
+            "address": "string",
+            "addressCountryCode": "string",
+            "coordinates": {
+              "formatted": "string",
+              "hasValue": true,
+              "latitude": 0,
+              "longitude": 0
+            },
+            "description": "string",
+            "events": [
+              {
+                "additionalNames": "string",
+                "category": "Unspecified",
+                "customName": true,
+                "date": "2020-05-17T17:48:21.159Z",
+                "deleted": true,
+                "description": "string",
+                "endDate": "2020-05-17T17:48:21.159Z",
+                "hasVenueOrVenueName": true,
+                "id": 0,
+                "inheritedCategory": "Unspecified",
+                "name": "string",
+                "pictureMime": "string",
+                "series": {
+                  "additionalNames": "string",
+                  "category": "Unspecified",
+                  "deleted": true,
+                  "description": "string",
+                  "id": 0,
+                  "name": "string",
+                  "pictureMime": "string",
+                  "status": "Draft",
+                  "urlSlug": "string",
+                  "version": 0,
+                  "webLinks": [
+                    {
+                      "category": "Official",
+                      "description": "string",
+                      "descriptionOrUrl": "string",
+                      "id": 0,
+                      "url": "string"
+                    }
+                  ]
+                },
+                "songList": {
+                  "featuredCategory": "Nothing",
+                  "id": 0,
+                  "name": "string"
+                },
+                "status": "Draft",
+                "urlSlug": "string",
+                "venue": {
+                  "additionalNames": "string",
+                  "address": "string",
+                  "addressCountryCode": "string",
+                  "coordinates": {
+                    "formatted": "string",
+                    "hasValue": true,
+                    "latitude": 0,
+                    "longitude": 0
+                  },
+                  "deleted": true,
+                  "description": "string",
+                  "id": 0,
+                  "name": "string",
+                  "status": "Draft",
+                  "version": 0,
+                  "webLinks": [
+                    {
+                      "category": "Official",
+                      "description": "string",
+                      "descriptionOrUrl": "string",
+                      "id": 0,
+                      "url": "string"
+                    }
+                  ]
+                },
+                "venueName": "string",
+                "version": 0
+              }
+            ],
+            "id": 0,
+            "name": "string",
+            "names": [
+              {
+                "language": "Unspecified",
+                "value": "string"
+              }
+            ],
+            "status": "Draft",
+            "version": 0,
+            "webLinks": [
+              {
+                "category": "Official",
+                "description": "string",
+                "descriptionOrUrl": "string",
+                "id": 0,
+                "url": "string"
+              }
+            ]
+          },
+          "venueName": "string",
+          "version": 0,
+          "webLinks": [
+            {
+              "category": "Official",
+              "description": "string",
+              "descriptionOrUrl": "string",
+              "id": 0,
+              "url": "string"
+            }
+          ]
+        },
+        "songType": "Unspecified",
+        "status": "Draft",
+        "tags": [
+          {
+            "count": 0,
+            "tag": {
+              "additionalNames": "string",
+              "categoryName": "string",
+              "id": 0,
+              "name": "string",
+              "urlSlug": "string"
+            }
+          }
+        ],
+        "thumbUrl": "string",
+        "version": 0,
+        "webLinks": [
+          {
+            "category": "Official",
+            "description": "string",
+            "descriptionOrUrl": "string",
+            "id": 0,
+            "url": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "term": "string",
+  "totalCount": 0
+}
+

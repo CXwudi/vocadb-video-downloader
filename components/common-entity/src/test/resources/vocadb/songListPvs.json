@@ -1,0 +1,1084 @@
+{
+  "items": [
+    {
+      "notes": "",
+      "order": 21,
+      "song": {
+        "artistString": "100回嘔吐 feat. 初音ミク, 音街ウナ (Unknown), v flower",
+        "createDate": "2019-11-06T15:08:19.747",
+        "defaultName": "はしがき参(る)",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 1,
+        "id": 260202,
+        "lengthSeconds": 221,
+        "name": "はしがき参(る)",
+        "publishDate": "2019-11-06T00:00:00Z",
+        "pvs": [
+          {
+            "author": "100回嘔吐",
+            "disabled": false,
+            "id": 371678,
+            "length": 221,
+            "name": "はしがき参(る)／初音ミク・音街ウナ・flower",
+            "publishDate": "2019-11-06T00:00:00",
+            "pvId": "sm35916073",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35916073/35916073.58717187",
+            "url": "http://www.nicovideo.jp/watch/sm35916073"
+          },
+          {
+            "author": "100回嘔吐 /100kaiouto",
+            "disabled": false,
+            "id": 371679,
+            "length": 222,
+            "name": "【VOCALOID】はしがき参(る)【初音ミク・音街ウナ・flower】",
+            "publishDate": "2019-11-06T00:00:00",
+            "pvId": "XIT1aPfD7WM",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/XIT1aPfD7WM/default.jpg",
+            "url": "https://youtu.be/XIT1aPfD7WM"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 11,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 3
+      }
+    },
+    {
+      "notes": "",
+      "order": 22,
+      "song": {
+        "artistString": "OSTER project feat. various",
+        "createDate": "2019-10-31T00:34:27.277",
+        "defaultName": "軋んだ夢と糸繰人形",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 1,
+        "id": 259123,
+        "lengthSeconds": 259,
+        "name": "軋んだ夢と糸繰人形",
+        "publishDate": "2019-10-31T00:00:00Z",
+        "pvs": [
+          {
+            "author": "ふわふわシナモン",
+            "disabled": false,
+            "id": 370317,
+            "length": 259,
+            "name": "【ミクリンルカメイコグミ】軋んだ夢と糸繰人形（マリオネット）【オリジナル曲】",
+            "publishDate": "2019-10-31T00:00:00",
+            "pvId": "sm35886773",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35886773/35886773.3342311",
+            "url": "http://www.nicovideo.jp/watch/sm35886773"
+          },
+          {
+            "author": "OSTER project",
+            "disabled": false,
+            "id": 370318,
+            "length": 260,
+            "name": "【VOCALOID】軋んだ夢と糸繰人形（マリオネット）【ミクリンルカメイコグミ】",
+            "publishDate": "2019-10-30T00:00:00",
+            "pvId": "h7Qkd5IOF1w",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/h7Qkd5IOF1w/default.jpg",
+            "url": "https://youtu.be/h7Qkd5IOF1w"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 5,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 2
+      }
+    },
+    {
+      "notes": "",
+      "order": 23,
+      "song": {
+        "artistString": "Ayase feat. 初音ミク",
+        "createDate": "2019-10-31T14:55:16.917",
+        "defaultName": "ヴァイオレッタ",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 1,
+        "id": 259150,
+        "lengthSeconds": 247,
+        "name": "ヴァイオレッタ",
+        "publishDate": "2019-10-31T00:00:00Z",
+        "pvs": [
+          {
+            "author": "Ayase",
+            "disabled": false,
+            "id": 370353,
+            "length": 247,
+            "name": "ヴァイオレッタ / 初音ミク",
+            "publishDate": "2019-10-31T00:00:00",
+            "pvId": "sm35889278",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35889278/35889278.12134126",
+            "url": "http://www.nicovideo.jp/watch/sm35889278"
+          },
+          {
+            "author": "Ayase",
+            "disabled": false,
+            "id": 370354,
+            "length": 248,
+            "name": "ヴァイオレッタ / 初音ミク",
+            "publishDate": "2019-10-31T00:00:00",
+            "pvId": "tI47fWu0r_s",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/tI47fWu0r_s/default.jpg",
+            "url": "https://youtu.be/tI47fWu0r_s"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 11,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 4
+      }
+    },
+    {
+      "notes": "",
+      "order": 24,
+      "song": {
+        "artistString": "23.exe feat. 初音ミク",
+        "createDate": "2019-10-09T16:09:27.473",
+        "defaultName": "YY",
+        "defaultNameLanguage": "English",
+        "favoritedTimes": 11,
+        "id": 256450,
+        "lengthSeconds": 194,
+        "name": "YY",
+        "publishDate": "2019-10-09T00:00:00Z",
+        "pvs": [
+          {
+            "author": "23.exe",
+            "disabled": false,
+            "id": 366698,
+            "length": 194,
+            "name": "YY - ft.初音ミク",
+            "publishDate": "2019-10-09T00:00:00",
+            "pvId": "sm35791694",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35791694/35791694.5327467",
+            "url": "http://www.nicovideo.jp/watch/sm35791694"
+          },
+          {
+            "author": "23.exe",
+            "disabled": false,
+            "id": 366699,
+            "length": 195,
+            "name": "YY - ft.Hatsune Miku",
+            "publishDate": "2019-10-09T00:00:00",
+            "pvId": "TcHvEFxk_78",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/TcHvEFxk_78/default.jpg",
+            "url": "https://youtu.be/TcHvEFxk_78"
+          },
+          {
+            "author": "23.exe",
+            "disabled": false,
+            "id": 366724,
+            "length": 191,
+            "name": "YY",
+            "publishDate": "2019-10-09T00:00:00",
+            "pvId": "693200476 23-sc/yy-1",
+            "service": "SoundCloud",
+            "pvType": "Original",
+            "thumbUrl": "https://i1.sndcdn.com/avatars-000075893700-z3renm-large.jpg",
+            "url": "http://soundcloud.com/23-sc/yy-1"
+          },
+          {
+            "author": "羊小星",
+            "disabled": false,
+            "extendedMetadata": {
+              "json": "{\"Cid\":122610530}"
+            },
+            "id": 390833,
+            "length": 195,
+            "name": "【初音ミク】YY【23.exe】",
+            "publishDate": "2019-10-10T00:00:00",
+            "pvId": "70766169",
+            "service": "Bilibili",
+            "pvType": "Reprint",
+            "thumbUrl": "https://i0.hdslb.com/bfs/archive/889fe51f441c21a04be59eb113e96e5a88f2477e.jpg",
+            "url": "https://www.bilibili.com/video/av70766169"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube, SoundCloud, Bilibili",
+        "ratingScore": 71,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 6
+      }
+    },
+    {
+      "notes": "",
+      "order": 25,
+      "song": {
+        "artistString": "MARETU feat. 初音ミク",
+        "createDate": "2019-11-09T14:51:01.477",
+        "defaultName": "しう",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 9,
+        "id": 260455,
+        "lengthSeconds": 278,
+        "name": "しう",
+        "publishDate": "2019-11-09T00:00:00Z",
+        "pvs": [
+          {
+            "author": "MARETU",
+            "disabled": false,
+            "id": 372107,
+            "length": 278,
+            "name": "【初音ミク】　しう　【オリジナル】",
+            "publishDate": "2019-11-09T00:00:00",
+            "pvId": "sm35928733",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35928733/35928733.88918426",
+            "url": "http://www.nicovideo.jp/watch/sm35928733"
+          },
+          {
+            "author": "MARETU",
+            "disabled": false,
+            "id": 372110,
+            "length": 279,
+            "name": "【初音ミク】　しう　【オリジナル】",
+            "publishDate": "2019-11-09T00:00:00",
+            "pvId": "LCOItseOsFE",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/LCOItseOsFE/default.jpg",
+            "url": "https://youtu.be/LCOItseOsFE"
+          },
+          {
+            "author": "NAKANAKA",
+            "disabled": false,
+            "id": 372492,
+            "length": 279,
+            "name": "【MARETU feat. 初音ミク】しう (S.I.U)【ENGLISH SUBTITLES】",
+            "publishDate": "2019-11-09T00:00:00",
+            "pvId": "3P7Z51rDw4E",
+            "service": "Youtube",
+            "pvType": "Reprint",
+            "thumbUrl": "https://i.ytimg.com/vi/3P7Z51rDw4E/default.jpg",
+            "url": "https://youtu.be/3P7Z51rDw4E"
+          },
+          {
+            "author": "AliceSubs",
+            "disabled": false,
+            "id": 372493,
+            "length": 279,
+            "name": "[Legendado] Hatsune Miku - S.I.U",
+            "publishDate": "2019-11-10T00:00:00",
+            "pvId": "2Q0HAjTVjrk",
+            "service": "Youtube",
+            "pvType": "Other",
+            "thumbUrl": "https://i.ytimg.com/vi/2Q0HAjTVjrk/default.jpg",
+            "url": "https://youtu.be/2Q0HAjTVjrk"
+          },
+          {
+            "author": "KitanoNani",
+            "disabled": false,
+            "extendedMetadata": {
+              "json": "{\"Cid\":128476179}"
+            },
+            "id": 386946,
+            "length": 280,
+            "name": "【初音ミク】四有【MARETU】",
+            "publishDate": "2019-11-09T00:00:00",
+            "pvId": "75100423",
+            "service": "Bilibili",
+            "pvType": "Reprint",
+            "thumbUrl": "https://i1.hdslb.com/bfs/archive/53638e316f6800f83d6cdcc7fa1c162a2f2aa1e6.jpg",
+            "url": "https://www.bilibili.com/video/av75100423"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube, Bilibili",
+        "ratingScore": 51,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 10
+      }
+    },
+    {
+      "notes": "",
+      "order": 26,
+      "song": {
+        "artistString": "Taiske feat. 初音ミク",
+        "createDate": "2019-12-14T12:17:22.64",
+        "defaultName": "君に温暖化",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 0,
+        "id": 264259,
+        "lengthSeconds": 279,
+        "name": "君に温暖化",
+        "publishDate": "2019-10-22T00:00:00Z",
+        "pvs": [
+          {
+            "author": "Taiske",
+            "disabled": false,
+            "id": 377709,
+            "length": 279,
+            "name": "【カルロ・ピノ イメージソング】君に温暖化【アイドル部】",
+            "publishDate": "2019-10-22T00:00:00",
+            "pvId": "sm35848303",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35848303/35848303.33896768",
+            "url": "http://www.nicovideo.jp/watch/sm35848303"
+          },
+          {
+            "author": "Taiske",
+            "disabled": false,
+            "id": 377710,
+            "length": 287,
+            "name": "【カルロ・ピノ イメージソング】君に温暖化【アイドル部】",
+            "publishDate": "2019-10-22T00:00:00",
+            "pvId": "_0fH-xkH49c",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/_0fH-xkH49c/default.jpg",
+            "url": "https://youtu.be/_0fH-xkH49c"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 0,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 5
+      }
+    },
+    {
+      "notes": "",
+      "order": 27,
+      "song": {
+        "artistString": "瀬名航 feat. 初音ミク",
+        "createDate": "2019-11-01T14:48:44.42",
+        "defaultName": "紅い頬",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 1,
+        "id": 259356,
+        "lengthSeconds": 109,
+        "name": "紅い頬",
+        "publishDate": "2019-11-01T00:00:00Z",
+        "pvs": [
+          {
+            "author": "瀬名航",
+            "disabled": false,
+            "id": 370611,
+            "length": 109,
+            "name": "紅い頬 ／ 初音ミク",
+            "publishDate": "2019-11-01T00:00:00",
+            "pvId": "sm35886513",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35886513/35886513.10587861",
+            "url": "http://www.nicovideo.jp/watch/sm35886513"
+          },
+          {
+            "author": "瀬名航/Wataru Sena",
+            "disabled": false,
+            "id": 370613,
+            "length": 110,
+            "name": "瀬名航 - 紅い頬 feat.初音ミク ／ Wataru Sena - Red Cheek ft. Miku Hatsune",
+            "publishDate": "2019-11-01T00:00:00",
+            "pvId": "MSydGLd104s",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/MSydGLd104s/default.jpg",
+            "url": "https://youtu.be/MSydGLd104s"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 7,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 3
+      }
+    },
+    {
+      "notes": "",
+      "order": 28,
+      "song": {
+        "artistString": "kalic feat. 初音ミク",
+        "createDate": "2019-10-17T16:03:30.78",
+        "defaultName": "瞼",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 0,
+        "id": 257297,
+        "lengthSeconds": 280,
+        "name": "瞼",
+        "publishDate": "2019-10-17T00:00:00Z",
+        "pvs": [
+          {
+            "author": "かりく",
+            "disabled": false,
+            "id": 367912,
+            "length": 280,
+            "name": "瞼 / 初音ミク",
+            "publishDate": "2019-10-17T00:00:00",
+            "pvId": "sm35818695",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35818695/35818695.66302512",
+            "url": "http://www.nicovideo.jp/watch/sm35818695"
+          },
+          {
+            "author": "かりく",
+            "disabled": false,
+            "id": 367913,
+            "length": 282,
+            "name": "瞼 / 初音ミク",
+            "publishDate": "2019-10-17T00:00:00",
+            "pvId": "YbaeOops2Hw",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/YbaeOops2Hw/default.jpg",
+            "url": "https://youtu.be/YbaeOops2Hw"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 2,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 3
+      }
+    },
+    {
+      "notes": "",
+      "order": 29,
+      "song": {
+        "artistString": "ピノキオピー feat. 初音ミク",
+        "createDate": "2019-10-15T19:43:42.683",
+        "defaultName": "アルティメットセンパイ",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 9,
+        "id": 257182,
+        "lengthSeconds": 219,
+        "name": "アルティメットセンパイ",
+        "publishDate": "2019-10-16T00:00:00Z",
+        "pvs": [
+          {
+            "author": "ピノキオピー PINOCCHIOP OFFICIAL CHANNEL",
+            "disabled": false,
+            "id": 367743,
+            "length": 219,
+            "name": "PinocchioP - Ultimate Senpai  / ピノキオピー - アルティメットセンパイ",
+            "publishDate": "2019-10-15T00:00:00",
+            "pvId": "MnJq5kSn-GY",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/MnJq5kSn-GY/default.jpg",
+            "url": "https://youtu.be/MnJq5kSn-GY"
+          },
+          {
+            "author": "ピノキオピー",
+            "disabled": false,
+            "id": 367798,
+            "length": 218,
+            "name": "アルティメットセンパイ / 初音ミク",
+            "publishDate": "2019-10-16T00:00:00",
+            "pvId": "sm35818693",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35818693/35818693.61422570",
+            "url": "http://www.nicovideo.jp/watch/sm35818693"
+          },
+          {
+            "author": "ピノキオピー_official",
+            "disabled": false,
+            "extendedMetadata": {
+              "json": "{\"Cid\":123590368}"
+            },
+            "id": 367808,
+            "length": 219,
+            "name": "【初音ミク】究极前辈【ピノキオピー】",
+            "publishDate": "2019-10-16T00:00:00",
+            "pvId": "71329096",
+            "service": "Bilibili",
+            "pvType": "Original",
+            "thumbUrl": "https://i1.hdslb.com/bfs/archive/5d0a7cec11993392631e090468fd01491371c179.jpg",
+            "url": "https://www.bilibili.com/video/av71329096"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube, Bilibili",
+        "ratingScore": 65,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 7
+      }
+    },
+    {
+      "notes": "",
+      "order": 30,
+      "song": {
+        "artistString": "ラムネP feat. 鏡音リン",
+        "createDate": "2019-10-16T16:07:42.77",
+        "defaultName": "さよならヒグラシ",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 3,
+        "id": 257232,
+        "lengthSeconds": 328,
+        "name": "さよならヒグラシ",
+        "publishDate": "2019-10-15T00:00:00Z",
+        "pvs": [
+          {
+            "author": "nuz",
+            "disabled": false,
+            "id": 367801,
+            "length": 328,
+            "name": "【鏡音リン】　さよならヒグラシ　【オリジナル】",
+            "publishDate": "2019-10-15T00:00:00",
+            "pvId": "sm35819650",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35819650/35819650.61485747",
+            "url": "http://www.nicovideo.jp/watch/sm35819650"
+          }
+        ],
+        "pvServices": "NicoNicoDouga",
+        "ratingScore": 15,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 5
+      }
+    },
+    {
+      "notes": "",
+      "order": 31,
+      "song": {
+        "artistString": "ねじ式 feat. 紲星あかり",
+        "createDate": "2019-10-15T17:18:25.037",
+        "defaultName": "9andA",
+        "defaultNameLanguage": "English",
+        "favoritedTimes": 1,
+        "id": 257179,
+        "lengthSeconds": 242,
+        "name": "9andA",
+        "publishDate": "2019-10-15T00:00:00Z",
+        "pvs": [
+          {
+            "author": "ねじ式",
+            "disabled": false,
+            "id": 367739,
+            "length": 242,
+            "name": "9andA / ねじ式 feat.紲星あかり",
+            "publishDate": "2019-10-15T00:00:00",
+            "pvId": "sm35818316",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35818316/35818316.61426316",
+            "url": "http://www.nicovideo.jp/watch/sm35818316"
+          },
+          {
+            "author": "Ｐねじ式",
+            "disabled": false,
+            "id": 367740,
+            "length": 243,
+            "name": "9andA / ねじ式 feat.紲星あかり / 9andA/ Nejishiki feat.Kizuna Akari",
+            "publishDate": "2019-10-15T00:00:00",
+            "pvId": "6lPqpp3kOpU",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/6lPqpp3kOpU/default.jpg",
+            "url": "https://youtu.be/6lPqpp3kOpU"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 17,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 4
+      }
+    },
+    {
+      "notes": "",
+      "order": 32,
+      "song": {
+        "artistString": "ラマーズP feat. 初音ミク",
+        "createDate": "2019-10-14T08:19:39.693",
+        "defaultName": "Msylvatica",
+        "defaultNameLanguage": "English",
+        "favoritedTimes": 2,
+        "id": 257053,
+        "lengthSeconds": 131,
+        "name": "Msylvatica",
+        "publishDate": "2019-10-14T00:00:00Z",
+        "pvs": [
+          {
+            "author": "名無し",
+            "disabled": false,
+            "id": 367580,
+            "length": 131,
+            "name": "Msylvatica-初音ミク for LamazeP",
+            "publishDate": "2019-10-14T00:00:00",
+            "pvId": "sm35812713",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35812713/35812713.10713446",
+            "url": "http://www.nicovideo.jp/watch/sm35812713"
+          },
+          {
+            "author": "LamazeP",
+            "disabled": false,
+            "id": 367581,
+            "length": 132,
+            "name": "Msylvatica-初音ミク for LamazeP",
+            "publishDate": "2019-10-14T00:00:00",
+            "pvId": "tp53f3P0WIA",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/tp53f3P0WIA/default.jpg",
+            "url": "https://youtu.be/tp53f3P0WIA"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 12,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 2
+      }
+    },
+    {
+      "notes": "",
+      "order": 33,
+      "song": {
+        "artistString": "八王子P, ギガP feat. various",
+        "createDate": "2019-07-19T22:56:06.55",
+        "defaultName": "Gimme×Gimme",
+        "defaultNameLanguage": "English",
+        "favoritedTimes": 13,
+        "id": 246033,
+        "lengthSeconds": 220,
+        "name": "Gimme×Gimme",
+        "publishDate": "2019-08-28T00:00:00Z",
+        "pvs": [
+          {
+            "author": "八王子P",
+            "disabled": false,
+            "id": 369641,
+            "length": 221,
+            "name": "八王子P × Giga「Gimme×Gimme feat. 初音ミク・鏡音リン」",
+            "publishDate": "2019-10-26T00:00:00",
+            "pvId": "ERo-sPa1a5g",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/ERo-sPa1a5g/default.jpg",
+            "url": "https://youtu.be/ERo-sPa1a5g"
+          },
+          {
+            "author": "八王子P",
+            "disabled": false,
+            "id": 369642,
+            "length": 220,
+            "name": "【初音ミク×鏡音リン】Gimme×Gimme【八王子P×Giga】",
+            "publishDate": "2019-10-26T00:00:00",
+            "pvId": "sm35866152",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35866152/35866152.16699174",
+            "url": "http://www.nicovideo.jp/watch/sm35866152"
+          },
+          {
+            "author": "八王子P_公式",
+            "disabled": false,
+            "extendedMetadata": {
+              "json": "{\"Cid\":125771837}"
+            },
+            "id": 369764,
+            "length": 222,
+            "name": "八王子P × Giga「Gimme×Gimme feat. 初音ミク・鏡音リン」",
+            "publishDate": "2019-10-26T00:00:00",
+            "pvId": "73527536",
+            "service": "Bilibili",
+            "pvType": "Original",
+            "thumbUrl": "https://i2.hdslb.com/bfs/archive/ac137852aeae98f4057be2b5be87bd9dcf82b8d0.jpg",
+            "url": "https://www.bilibili.com/video/av73527536"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube, Bilibili",
+        "ratingScore": 79,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 15
+      }
+    },
+    {
+      "notes": "",
+      "order": 34,
+      "song": {
+        "artistString": "Aqu3ra feat. 初音ミク",
+        "createDate": "2019-09-21T17:21:09.547",
+        "defaultName": "チョコレートミルク",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 8,
+        "id": 254981,
+        "lengthSeconds": 143,
+        "name": "チョコレートミルク",
+        "publishDate": "2019-09-21T00:00:00Z",
+        "pvs": [
+          {
+            "author": "あぷえら",
+            "disabled": false,
+            "id": 364674,
+            "length": 143,
+            "name": "チョコレートミルク / 初音ミク",
+            "publishDate": "2019-09-21T00:00:00",
+            "pvId": "sm35713086",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35713086/35713086.80799547",
+            "url": "http://www.nicovideo.jp/watch/sm35713086"
+          },
+          {
+            "author": "3ra apu",
+            "disabled": false,
+            "id": 364675,
+            "length": 144,
+            "name": "チョコレートミルク / Apu3ra feat.初音ミク",
+            "publishDate": "2019-09-21T00:00:00",
+            "pvId": "LYSSZ8PctpA",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/LYSSZ8PctpA/default.jpg",
+            "url": "https://youtu.be/LYSSZ8PctpA"
+          },
+          {
+            "author": "Magenetra",
+            "disabled": false,
+            "id": 386218,
+            "length": 144,
+            "name": "【Apu3ra feat. Hatsune Miku】Chocolate Milk (English Subs)",
+            "publishDate": "2019-09-23T00:00:00",
+            "pvId": "9Muc48f3mO8",
+            "service": "Youtube",
+            "pvType": "Other",
+            "thumbUrl": "https://i.ytimg.com/vi/9Muc48f3mO8/default.jpg",
+            "url": "https://youtu.be/9Muc48f3mO8"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 50,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 4
+      }
+    },
+    {
+      "notes": "",
+      "order": 35,
+      "song": {
+        "artistString": "まらしぃ, KOUICHI feat. 初音ミク",
+        "createDate": "2019-10-09T15:32:03.273",
+        "defaultName": "霖と五線譜",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 2,
+        "id": 256447,
+        "lengthSeconds": 234,
+        "name": "霖と五線譜",
+        "publishDate": "2019-10-09T00:00:00Z",
+        "pvs": [
+          {
+            "author": "marasy",
+            "disabled": false,
+            "id": 366691,
+            "length": 234,
+            "name": "【初音ミク】  霖と五線譜  【オリジナル】",
+            "publishDate": "2019-10-09T00:00:00",
+            "pvId": "sm35791513",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35791513/35791513.20076566",
+            "url": "http://www.nicovideo.jp/watch/sm35791513"
+          },
+          {
+            "author": "marasy8",
+            "disabled": false,
+            "id": 366693,
+            "length": 235,
+            "name": "霖と五線譜 （Nagaame to Gosenhu）【初音ミク（Hatsune Miku）】",
+            "publishDate": "2019-10-09T00:00:00",
+            "pvId": "yNfb_bdoAkQ",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/yNfb_bdoAkQ/default.jpg",
+            "url": "https://youtu.be/yNfb_bdoAkQ"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 18,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 6
+      }
+    },
+    {
+      "notes": "",
+      "order": 36,
+      "song": {
+        "artistString": "カジャ, ねじ式, cillia feat. 初音ミク",
+        "createDate": "2019-10-05T13:55:37.087",
+        "defaultName": "アンクローズ・ヒューマン",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 20,
+        "id": 256042,
+        "lengthSeconds": 288,
+        "name": "アンクローズ・ヒューマン",
+        "publishDate": "2019-10-05T00:00:00Z",
+        "pvs": [
+          {
+            "author": "カジャ",
+            "disabled": false,
+            "id": 366107,
+            "length": 288,
+            "name": "アンクローズ・ヒューマン/初音ミク",
+            "publishDate": "2019-10-05T00:00:00",
+            "pvId": "sm35755698",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35755698/35755698.68814930",
+            "url": "http://www.nicovideo.jp/watch/sm35755698"
+          },
+          {
+            "author": "カジャ",
+            "disabled": false,
+            "id": 366115,
+            "length": 289,
+            "name": "アンクローズ・ヒューマン/初音ミク",
+            "publishDate": "2019-10-05T00:00:00",
+            "pvId": "OeadMRojh18",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/OeadMRojh18/default.jpg",
+            "url": "https://youtu.be/OeadMRojh18"
+          },
+          {
+            "author": "歌惹カジャ",
+            "disabled": false,
+            "extendedMetadata": {
+              "json": "{\"Cid\":121559701}"
+            },
+            "id": 366116,
+            "length": 289,
+            "name": "アンクローズ・ヒューマン/初音ミク",
+            "publishDate": "2019-10-05T00:00:00",
+            "pvId": "70164836",
+            "service": "Bilibili",
+            "pvType": "Original",
+            "thumbUrl": "https://i1.hdslb.com/bfs/archive/33c082cb9e4fd2a73aabe15e58d4589c9ec97896.jpg",
+            "url": "https://www.bilibili.com/video/av70164836"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube, Bilibili",
+        "ratingScore": 96,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 16
+      }
+    },
+    {
+      "notes": "",
+      "order": 37,
+      "song": {
+        "artistString": "れるりり feat. 初音ミク, GUMI",
+        "createDate": "2019-10-04T13:56:53.377",
+        "defaultName": "シン・ノンフィクションガール",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 2,
+        "id": 255950,
+        "lengthSeconds": 234,
+        "name": "シン・ノンフィクションガール",
+        "publishDate": "2019-10-04T00:00:00Z",
+        "pvs": [
+          {
+            "author": "れるりり",
+            "disabled": false,
+            "id": 365940,
+            "length": 234,
+            "name": "シン・ノンフィクションガール - れるりりfeat.初音ミク＆GUMI",
+            "publishDate": "2019-10-04T00:00:00",
+            "pvId": "sm35767788",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35767788/35767788.68574087",
+            "url": "http://www.nicovideo.jp/watch/sm35767788"
+          },
+          {
+            "author": "れるりり公式チャンネル / rerulili Official Channel",
+            "disabled": false,
+            "id": 365941,
+            "length": 235,
+            "name": "シン・ノンフィクションガール - れるりりfeat.初音ミク&GUMI / Shin Non-Fiction Girl - rerulili feat.miku&gumi",
+            "publishDate": "2019-10-04T00:00:00",
+            "pvId": "KXsArf-uWR8",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/KXsArf-uWR8/default.jpg",
+            "url": "https://youtu.be/KXsArf-uWR8"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 30,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 4
+      }
+    },
+    {
+      "notes": "",
+      "order": 38,
+      "song": {
+        "artistString": "ラマーズP feat. 初音ミク",
+        "createDate": "2019-09-30T00:38:02.49",
+        "defaultName": "我こそ昆布大使館",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 3,
+        "id": 255597,
+        "lengthSeconds": 177,
+        "name": "我こそ昆布大使館",
+        "publishDate": "2019-09-29T00:00:00Z",
+        "pvs": [
+          {
+            "author": "LamazeP",
+            "disabled": false,
+            "id": 365463,
+            "length": 177,
+            "name": "我こそ昆布大使館-初音ミク for LamazeP",
+            "publishDate": "2019-09-29T00:00:00",
+            "pvId": "gST3woiTD5I",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/gST3woiTD5I/default.jpg",
+            "url": "https://youtu.be/gST3woiTD5I"
+          },
+          {
+            "author": "名無し",
+            "disabled": false,
+            "id": 365467,
+            "length": 176,
+            "name": "我こそ昆布大使館-初音ミク for LamazeP",
+            "publishDate": "2019-09-30T00:00:00",
+            "pvId": "sm35750733",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35750733/35750733.36698279",
+            "url": "http://www.nicovideo.jp/watch/sm35750733"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 17,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 4
+      }
+    },
+    {
+      "notes": "",
+      "order": 39,
+      "song": {
+        "artistString": "れるりり feat. Fukase (Unknown)",
+        "createDate": "2019-09-13T14:23:21.767",
+        "defaultName": "Q極進化論",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 3,
+        "id": 253330,
+        "lengthSeconds": 231,
+        "name": "Q極進化論",
+        "publishDate": "2019-09-13T00:00:00Z",
+        "pvs": [
+          {
+            "author": "れるりり",
+            "disabled": false,
+            "id": 362444,
+            "length": 231,
+            "name": "Q極進化論 - れるりりfeat.VOCALOID Fukase",
+            "publishDate": "2019-09-13T00:00:00",
+            "pvId": "sm35675259",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35675259/35675259.94850474",
+            "url": "http://www.nicovideo.jp/watch/sm35675259"
+          },
+          {
+            "author": "れるりり公式チャンネル / rerulili Official Channel",
+            "disabled": false,
+            "id": 362454,
+            "length": 232,
+            "name": "Q極進化論 - れるりりfeat.VOCALOID Fukase / Q-kyoku Theory of evolution - rerulili feat.VOCALOID Fukase",
+            "publishDate": "2019-09-13T00:00:00",
+            "pvId": "2h7BrfJGcXs",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/2h7BrfJGcXs/default.jpg",
+            "url": "https://youtu.be/2h7BrfJGcXs"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 29,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 14
+      }
+    },
+    {
+      "notes": "",
+      "order": 40,
+      "song": {
+        "artistString": "タカヒロ feat. 初音ミク",
+        "createDate": "2019-09-11T16:52:21.183",
+        "defaultName": "アカボシ",
+        "defaultNameLanguage": "Japanese",
+        "favoritedTimes": 3,
+        "id": 253000,
+        "lengthSeconds": 232,
+        "name": "アカボシ",
+        "publishDate": "2019-09-11T00:00:00Z",
+        "pvs": [
+          {
+            "author": "タカヒロ",
+            "disabled": false,
+            "id": 361991,
+            "length": 232,
+            "name": "初音ミク - アカボシ",
+            "publishDate": "2019-09-11T00:00:00",
+            "pvId": "sm35666758",
+            "service": "NicoNicoDouga",
+            "pvType": "Original",
+            "thumbUrl": "http://nicovideo.cdn.nimg.jp/thumbnails/35666758/35666758.46186509",
+            "url": "http://www.nicovideo.jp/watch/sm35666758"
+          },
+          {
+            "author": "starchots",
+            "disabled": false,
+            "id": 361992,
+            "length": 233,
+            "name": "starchots feat.初音ミク - アカボシ",
+            "publishDate": "2019-09-11T00:00:00",
+            "pvId": "QSyEMVbTlQk",
+            "service": "Youtube",
+            "pvType": "Original",
+            "thumbUrl": "https://i.ytimg.com/vi/QSyEMVbTlQk/default.jpg",
+            "url": "https://youtu.be/QSyEMVbTlQk"
+          }
+        ],
+        "pvServices": "NicoNicoDouga, Youtube",
+        "ratingScore": 11,
+        "songType": "Original",
+        "status": "Finished",
+        "version": 4
+      }
+    }
+  ],
+  "totalCount": 133
+}
