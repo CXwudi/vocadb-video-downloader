@@ -1,8 +1,11 @@
 package org.mikufan.cx.common.entity.vocadb;
 
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.eclipsecollections.EclipseCollectionsModule;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.collections.api.factory.Lists;
 import org.junit.jupiter.api.Test;
@@ -19,8 +22,8 @@ class ResponseSongListTest {
       .build();
 
 
-  @Test
-  void testParseModel() throws IOException {
+  @Test @SneakyThrows
+  void testParseModel() {
     var jsonFile = new File("src/test/resources/vocadb/songListModelSchema.json");
     var response = objectMapper.readValue(jsonFile,ResponseSongList.class);
     log.info("{}", response);
@@ -73,6 +76,15 @@ class ResponseSongListTest {
     log.info("{}", mergedResponse);
     assertEquals(8, mergedResponse.getItems().size());
 
+  }
+
+  @Test @SneakyThrows
+  void testWriteBackToFile(){
+    var jsonFile = new File("src/test/resources/vocadb/songListModelSchema.json");
+    var response = objectMapper.readValue(jsonFile,ResponseSongList.class);
+    objectMapper.enable(SerializationFeature.INDENT_OUTPUT).enable(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY);
+    objectMapper.writeValue(new File("src/test/resources/vocadb/songListModelSchemaRewritten.json"),response);
+    assertTrue(true);
   }
 
 

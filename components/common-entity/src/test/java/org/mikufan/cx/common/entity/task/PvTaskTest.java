@@ -11,8 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.eclipse.collections.api.list.MutableList;
 import org.junit.jupiter.api.Test;
 import org.mikufan.cx.common.entity.task.pv.AbstractPv;
+import org.mikufan.cx.common.entity.task.pv.IdentifiedPv;
 import org.mikufan.cx.common.entity.task.pv.Pv;
-import org.mikufan.cx.common.entity.task.pv.VocaDbPv;
 import org.mikufan.cx.common.entity.vocadb.ResponseSongList;
 
 import java.io.File;
@@ -31,17 +31,17 @@ class PvTaskTest {
 
   @Test
   void testEqualsUsingSet() {
-    MutableList<VocaDbPv> vocaDbPvs = generateVocadbPvs();
-    log.debug("vocaDbPvs count = {}", vocaDbPvs.size());
-    var set = vocaDbPvs.toSet();
+    MutableList<IdentifiedPv> identifiedPvs = generateVocadbPvs();
+    log.debug("identifiedPvs count = {}", identifiedPvs.size());
+    var set = identifiedPvs.toSet();
     log.debug("set size = {}", set.size());
-    assertNotEquals(vocaDbPvs.size(), set.size());
+    assertNotEquals(identifiedPvs.size(), set.size());
   }
 
   @Test @SneakyThrows
   void testJsonSerialization() {
     var vocaDbPvs = generateVocadbPvs();
-    var task = new PvTask<VocaDbPv>("2019 Vocaloid Song");
+    var task = new PvTask<IdentifiedPv>("2019 Vocaloid Song");
     task.getTodos().addAll(vocaDbPvs);
     log.debug("a task is created, folder = {}, todo count = {}", task.getFolderName(), task.getTodos().size());
     var outputFile = new File("src/test/resources/task/sampleTask.json");
@@ -51,11 +51,13 @@ class PvTaskTest {
 
   /**
    * Multi pv types mix tasks, although shouldn't exist in production
+   * remembered that {@link IdentifiedPv} has a special equals method that can compare with other pv
    */
   @Test @SneakyThrows
   void testJsonSerialization2() {
     MutableList<AbstractPv> pvs = generateVocadbPvs().collectWithIndex(
-        (pv, index) -> index % 2 == 0 ? new Pv(pv.getPvId(), pv.getService(), pv.getName()): pv
+        (pv, index) -> index % 2 == 0 ?
+            new Pv(pv.getPvId(), pv.getService(), pv.getName()): new IdentifiedPv(pv.getPvId(), pv.getService(), pv.getName(), index)
     );
     log.debug("pvs.size = {}", pvs.size());
     var task = new PvTask<>("2020 Vocaloid Song");
@@ -71,7 +73,7 @@ class PvTaskTest {
     var jsonFile = new File("src/test/resources/task/sampleTask.json");
     var jsonFile2 = new File("src/test/resources/task/sampleTask2.json");
     
-    var task = objectMapper.readValue(jsonFile, new TypeReference<PvTask<VocaDbPv>>(){});
+    var task = objectMapper.readValue(jsonFile, new TypeReference<PvTask<IdentifiedPv>>(){});
     log.debug("task = {}", task);
     
     var task2 = objectMapper.readValue(jsonFile2, new TypeReference<PvTask<AbstractPv>>() {});
@@ -87,8 +89,8 @@ class PvTaskTest {
     });
   }
 
-  /** this can generate VocaDbPv with same songIds */
-  private MutableList<VocaDbPv> generateVocadbPvs() {
+  /** this generate multiple IdentifiedPv with repeated songIds */
+  private MutableList<IdentifiedPv> generateVocadbPvs() {
     var file = new File("src/test/resources/vocadb/songListPvs.json");
     ResponseSongList response = null;
     try {
@@ -100,7 +102,7 @@ class PvTaskTest {
     var pvs = response.getItems().toList().flatCollect(
         item ->
           item.getSong().getPvs().collect(pvItem ->
-              new VocaDbPv(pvItem.getPvId(), pvItem.getService(), pvItem.getName(), item.getSong().getId())
+              new IdentifiedPv(pvItem.getPvId(), pvItem.getService(), pvItem.getName(), item.getSong().getId())
           )
 
     );

@@ -19,7 +19,7 @@ import lombok.*;
     property = "_type"
 )
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = VocaDbPv.class, name = "vocaDbPv"),
+    @JsonSubTypes.Type(value = IdentifiedPv.class, name = "identified pv"),
     @JsonSubTypes.Type(value = Pv.class, name = "pv")
     //New subclass need to be declared here
 })

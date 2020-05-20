@@ -5,12 +5,15 @@ import org.mikufan.cx.common.entity.common.VideoWebsiteString;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class VocaDbPvTest {
+/**
+ * Test transitive property across different subclasses
+ */
+class IdentifiedPvTest {
 
   @Test
   void testEquals() {
     var pv = new Pv("sm123456", VideoWebsiteString.NICONICO, "Nice Deco*27 PV");
-    var pvVocadb = new VocaDbPv("sm123456", VideoWebsiteString.NICONICO, "Nice 40mP PV", 435);
+    var pvVocadb = new IdentifiedPv("sm123456", VideoWebsiteString.NICONICO, "Nice 40mP PV", 435);
     assertEquals(pv, pvVocadb);
     assertEquals(pvVocadb, pv);
   }
@@ -18,7 +21,7 @@ class VocaDbPvTest {
   @Test
   void testEquals2() {
     AbstractPv pv = new Pv("sm123456", VideoWebsiteString.NICONICO, "Nice Deco*27 PV");
-    AbstractPv pvVocadb = new VocaDbPv("sm123456", VideoWebsiteString.NICONICO, "Nice 40mP PV", 435);
+    AbstractPv pvVocadb = new IdentifiedPv("sm123456", VideoWebsiteString.NICONICO, "Nice 40mP PV", 435);
     assertEquals(pv, pvVocadb);
     assertEquals(pvVocadb, pv);
   }
