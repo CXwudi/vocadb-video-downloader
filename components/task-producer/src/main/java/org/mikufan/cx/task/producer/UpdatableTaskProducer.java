@@ -1,12 +1,10 @@
 package org.mikufan.cx.task.producer;
 
-import org.mikufan.cx.common.entity.task.Task;
-
 /**
  *
  * @author CX无敌
  */
-public interface UpdatableTaskProducer<T extends Task<O>, O> extends GeneralTaskProducer {
+public interface UpdatableTaskProducer<T> extends GeneralTaskProducer {
 
   /**
    * create a new task or update an existing task if {@code task} presents
