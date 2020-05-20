@@ -10,9 +10,9 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>task-producer</artifactId>
+  <artifactId>task-producer-api</artifactId>
 
-  <name>task-producer</name>
+  <name>task-producer-api</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

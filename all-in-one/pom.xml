@@ -12,7 +12,7 @@
     <maven>3.5.0</maven> <!-- not required but better to add this, good for updating and solving maven problems-->
   </prerequisites>
   <modules>
-    <module>../components/task-producer</module>
+    <module>../components/task-producer-api</module>
     <module>../components/common-entity</module>
     <module>../components/vocadb-pvtask-producer</module>
     <module>../components/common-util</module>
@@ -27,7 +27,7 @@
     <!-- variables for ci/cd -->
     <build.library.dir>libs</build.library.dir>
     <!-- some shared version numbers -->
-    <module.version>4.0.0-SNAPSHOT</module.version>  <!-- stay same with project version, but don't replace project version -->
+    <module.version>4.0.0-SNAPSHOT</module.version>  <!-- stay same with project version, but don't replace project version tag in pom-->
     <log4j.version>2.13.3</log4j.version>
     <eclipse-collections.version>10.2.0</eclipse-collections.version>
     <jackson.version>2.11.0</jackson.version>
@@ -39,12 +39,17 @@
       <!-- all my modules -->
       <dependency>
         <groupId>org.mikufan.cx</groupId>
-        <artifactId>task-producer</artifactId>
+        <artifactId>common-entity</artifactId>
         <version>${module.version}</version>
       </dependency>
       <dependency>
         <groupId>org.mikufan.cx</groupId>
-        <artifactId>common-entity</artifactId>
+        <artifactId>common-util</artifactId>
+        <version>${module.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mikufan.cx</groupId>
+        <artifactId>task-producer-api</artifactId>
         <version>${module.version}</version>
       </dependency>
 
