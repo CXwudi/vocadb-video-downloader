@@ -13,4 +13,18 @@
   <artifactId>vocadb-pvtask-producer</artifactId>
 
 
+  <dependencies>
+    <dependency>
+      <groupId>org.mikufan.cx</groupId>
+      <artifactId>common-entity</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mikufan.cx</groupId>
+      <artifactId>common-util</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mikufan.cx</groupId>
+      <artifactId>task-producer-api</artifactId>
+    </dependency>
+  </dependencies>
 </project>
