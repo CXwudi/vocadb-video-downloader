@@ -69,7 +69,10 @@ class ResponseSongListTest {
     var mergedResponse = responses.drop(1).injectInto(
         responses.get(0),
         (res1, res2) ->{
-          res1.getItems().addAll(res2.getItems());
+          var set = res1.getItems().toSortedSet();
+          set.addAll(res2.getItems());
+          res1.getItems().clear();
+          res1.getItems().addAll(set);
           return res1;
         });
 

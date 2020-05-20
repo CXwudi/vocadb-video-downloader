@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.*;
 
+import java.util.Comparator;
+
 /**
  * The PV class to simply represent the PV to be download
  * @author CX无敌
@@ -24,7 +26,7 @@ import lombok.*;
     //New subclass need to be declared here
 })
 @JsonPropertyOrder({"name", "pvId", "service"})
-public abstract class AbstractPv {
+public abstract class AbstractPv implements Comparable<AbstractPv> {
   // is better to have a protected default constructor for jackson for this class and subclasses
   // the equals() is designed to make sure every single PV is a different instance
 
@@ -37,4 +39,15 @@ public abstract class AbstractPv {
   @EqualsAndHashCode.Exclude
   @JsonProperty("name")
   protected String name;
+
+  /**
+   * we decide to give a default compare method base on pv id and service
+   */
+  @Override
+  public int compareTo(AbstractPv o) {
+    return Comparator
+        .comparing(AbstractPv::getService)
+        .thenComparing(AbstractPv::getPvId)
+        .compare(this, o);
+  }
 }

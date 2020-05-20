@@ -9,6 +9,7 @@ import com.fasterxml.jackson.datatype.eclipsecollections.EclipseCollectionsModul
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.collections.api.list.MutableList;
+import org.eclipse.collections.api.set.sorted.MutableSortedSet;
 import org.junit.jupiter.api.Test;
 import org.mikufan.cx.common.entity.task.pv.AbstractPv;
 import org.mikufan.cx.common.entity.task.pv.IdentifiedPv;
@@ -30,19 +31,31 @@ class PvTaskTest {
       .build();
 
   @Test
-  void testEqualsUsingSet() {
+  void testEqualsAndCompareUsingSet() {
     MutableList<IdentifiedPv> identifiedPvs = generateVocadbPvs();
     log.debug("identifiedPvs count = {}", identifiedPvs.size());
-    var set = identifiedPvs.toSet();
+    var set = identifiedPvs.toSortedSet();
     log.debug("set size = {}", set.size());
     assertNotEquals(identifiedPvs.size(), set.size());
+    assertEquals(20, set.size());
+  }
+
+  @Test
+  void testCompareUsingSet2(){
+    MutableList<IdentifiedPv> identifiedPvs = generateVocadbPvs();
+    MutableSortedSet<AbstractPv> pvs = identifiedPvs.collectWithIndex(
+        (pv, index) -> index % 2 == 0 ?
+            new Pv(pv.getPvId(), pv.getService(), pv.getName()): new IdentifiedPv(pv.getPvId(), pv.getService(), pv.getName(), index)
+    ).toSortedSet();
+    log.debug("identifiedPvs count = {}, sorted set size = {}", identifiedPvs.size(), pvs.size());
+    assertEquals(identifiedPvs.size(), pvs.size());
   }
 
   @Test @SneakyThrows
   void testJsonSerialization() {
-    var vocaDbPvs = generateVocadbPvs();
+    var identifiedPvs = generateVocadbPvs().toSortedSet();
     var task = new PvTask<IdentifiedPv>("2019 Vocaloid Song");
-    task.getTodos().addAll(vocaDbPvs);
+    task.getTodos().addAll(identifiedPvs);
     log.debug("a task is created, folder = {}, todo count = {}", task.getFolderName(), task.getTodos().size());
     var outputFile = new File("src/test/resources/task/sampleTask.json");
     outputFile.createNewFile();
@@ -55,13 +68,13 @@ class PvTaskTest {
    */
   @Test @SneakyThrows
   void testJsonSerialization2() {
-    MutableList<AbstractPv> pvs = generateVocadbPvs().collectWithIndex(
+    MutableSortedSet<AbstractPv> pvs = generateVocadbPvs().collectWithIndex(
         (pv, index) -> index % 2 == 0 ?
             new Pv(pv.getPvId(), pv.getService(), pv.getName()): new IdentifiedPv(pv.getPvId(), pv.getService(), pv.getName(), index)
-    );
+    ).toSortedSet();
     log.debug("pvs.size = {}", pvs.size());
     var task = new PvTask<>("2020 Vocaloid Song");
-    task.getTodos().addAll(pvs);  //FIXME: something doesn't get added here
+    task.getTodos().addAll(pvs);
     log.info("a task is created, folder = {}, todo count = {}", task.getFolderName(), task.getTodos().size());
     var outputFile = new File("src/test/resources/task/sampleTask2.json");
     outputFile.createNewFile();
@@ -80,13 +93,6 @@ class PvTaskTest {
     log.debug("task2 = {}", task2);
     log.debug("task size = {}, task2 size = {}", task.getTodos().size(), task2.getTodos().size());
 
-    var originaList = generateVocadbPvs();
-    var rest = originaList.toList();
-    originaList.forEach(pv -> {
-      if (!task.getTodos().contains(pv)){
-        log.debug("task2 doesn't contain = {}", pv);
-      }
-    });
   }
 
   /** this generate multiple IdentifiedPv with repeated songIds */

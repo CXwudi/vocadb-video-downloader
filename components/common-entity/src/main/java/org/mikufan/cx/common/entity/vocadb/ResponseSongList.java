@@ -3,7 +3,7 @@ package org.mikufan.cx.common.entity.vocadb;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
-import org.eclipse.collections.api.set.MutableSet;
+import org.eclipse.collections.api.list.MutableList;
 
 /**
  * response object stored for GET /api/songLists/{listId}/songs
@@ -21,7 +21,7 @@ public class ResponseSongList {
   private int totalCount;
 
   @JsonProperty("items")
-  private MutableSet<ItemsItem> items;
+  private MutableList<ItemsItem> items;
 
   @Override
   public String toString() {

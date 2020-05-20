@@ -3,10 +3,12 @@ package org.mikufan.cx.common.entity.task;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import org.eclipse.collections.api.factory.Sets;
-import org.eclipse.collections.api.set.MutableSet;
+import org.eclipse.collections.api.factory.SortedSets;
+import org.eclipse.collections.api.set.sorted.MutableSortedSet;
 import org.mikufan.cx.common.entity.task.pv.AbstractPv;
 import org.mikufan.cx.common.entity.task.pv.FailedPv;
+
+import java.util.Comparator;
 
 /**
  * a task for manipulating around Pvs
@@ -23,29 +25,29 @@ public class PvTask<P extends AbstractPv> implements Task<P> {
   protected String folderName;
 
   @JsonProperty("todo")
-  protected MutableSet<P> todo = Sets.mutable.empty();
+  protected MutableSortedSet<P> todo = SortedSets.mutable.empty();
 
   @JsonProperty("done")
-  protected MutableSet<P> done = Sets.mutable.empty();
+  protected MutableSortedSet<P> done = SortedSets.mutable.empty();
 
   @JsonProperty("fail")
-  protected MutableSet<FailedPv> fail = Sets.mutable.empty();
+  protected MutableSortedSet<FailedPv> fail = SortedSets.mutable.with(Comparator.comparing(FailedPv::getPv));
 
 
   @Override
   @JsonIgnore
-  public MutableSet<P> getTodos() {
+  public MutableSortedSet<P> getTodos() {
     return todo;
   }
 
   @Override
   @JsonIgnore
-  public MutableSet<P> getDones() {
+  public MutableSortedSet<P> getDones() {
     return done;
   }
 
   @JsonIgnore
-  public MutableSet<FailedPv> getErrors() {
+  public MutableSortedSet<FailedPv> getErrors() {
     return fail;
   }
 

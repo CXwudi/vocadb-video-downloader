@@ -19,8 +19,11 @@ import lombok.ToString;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class IdentifiedPv extends AbstractPv {
 
+  /**
+   * can change it to use String for supporting more than just number identifier
+   */
   @JsonProperty("songId")
-  protected int songId; //can change it to use String for supporting more than just number identifier
+  protected int songId;
 
   public IdentifiedPv(String pvId, String service, String name, int songId) {
     super(pvId, service, name);
@@ -55,5 +58,14 @@ public class IdentifiedPv extends AbstractPv {
   @Override
   public int hashCode() {
     return songId;
+  }
+
+  @Override
+  public int compareTo(AbstractPv o) {
+    //must add this check, otherwise, sorted set fail to maintain distinct pv by song id
+    if (o instanceof IdentifiedPv){
+      return this.songId - ((IdentifiedPv)o).songId;
+    }
+    return super.compareTo(o);
   }
 }

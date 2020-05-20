@@ -16,6 +16,9 @@ class IdentifiedPvTest {
     var pvVocadb = new IdentifiedPv("sm123456", VideoWebsiteString.NICONICO, "Nice 40mP PV", 435);
     assertEquals(pv, pvVocadb);
     assertEquals(pvVocadb, pv);
+    assertEquals(0, pv.compareTo(pvVocadb));
+    assertEquals(0, pvVocadb.compareTo(pv));
+
   }
 
   @Test
@@ -24,5 +27,7 @@ class IdentifiedPvTest {
     AbstractPv pvVocadb = new IdentifiedPv("sm123456", VideoWebsiteString.NICONICO, "Nice 40mP PV", 435);
     assertEquals(pv, pvVocadb);
     assertEquals(pvVocadb, pv);
+    assertEquals(0, pv.compareTo(pvVocadb));
+    assertEquals(0, pvVocadb.compareTo(pv));
   }
 }
