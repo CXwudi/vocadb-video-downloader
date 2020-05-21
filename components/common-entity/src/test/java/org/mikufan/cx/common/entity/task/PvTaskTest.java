@@ -30,6 +30,9 @@ class PvTaskTest {
       .serializationInclusion(JsonInclude.Include.NON_NULL)
       .build();
 
+  private File testJsonFilesPath = new File("src/test/resources/task/");
+
+  /* equals and compareTo test*/
   @Test
   void testEqualsAndCompareUsingSet() {
     MutableList<IdentifiedPv> identifiedPvs = generateVocadbPvs();
@@ -51,13 +54,23 @@ class PvTaskTest {
     assertEquals(identifiedPvs.size(), pvs.size());
   }
 
+  /*jackson deserialize/serialize test */
+
+  @Test @SneakyThrows
+  void testDeserializeJsonModel(){
+    var taskModel = objectMapper.readValue(
+        new File(testJsonFilesPath,"pvTaskModel.json"),
+        new TypeReference<PvTask<AbstractPv>>(){});
+    assertEquals(2, taskModel.getDones().size());
+  }
+
   @Test @SneakyThrows
   void testJsonSerialization() {
     var identifiedPvs = generateVocadbPvs().toSortedSet();
     var task = new PvTask<IdentifiedPv>("2019 Vocaloid Song");
     task.getTodos().addAll(identifiedPvs);
     log.debug("a task is created, folder = {}, todo count = {}", task.getFolderName(), task.getTodos().size());
-    var outputFile = new File("src/test/resources/task/sampleTask.json");
+    var outputFile = new File(testJsonFilesPath, "sampleTask.json");
     outputFile.createNewFile();
     objectMapper.writeValue(outputFile, task);
   }
@@ -76,15 +89,15 @@ class PvTaskTest {
     var task = new PvTask<>("2020 Vocaloid Song");
     task.getTodos().addAll(pvs);
     log.info("a task is created, folder = {}, todo count = {}", task.getFolderName(), task.getTodos().size());
-    var outputFile = new File("src/test/resources/task/sampleTask2.json");
+    var outputFile = new File(testJsonFilesPath, "sampleTask2.json");
     outputFile.createNewFile();
     objectMapper.writeValue(outputFile, task);
   }
 
   @Test @SneakyThrows
   void testJsonDeserialization(){
-    var jsonFile = new File("src/test/resources/task/sampleTask.json");
-    var jsonFile2 = new File("src/test/resources/task/sampleTask2.json");
+    var jsonFile = new File(testJsonFilesPath, "sampleTask.json");
+    var jsonFile2 = new File(testJsonFilesPath, "sampleTask2.json");
     
     var task = objectMapper.readValue(jsonFile, new TypeReference<PvTask<IdentifiedPv>>(){});
     log.debug("task = {}", task);
@@ -92,7 +105,7 @@ class PvTaskTest {
     var task2 = objectMapper.readValue(jsonFile2, new TypeReference<PvTask<AbstractPv>>() {});
     log.debug("task2 = {}", task2);
     log.debug("task size = {}, task2 size = {}", task.getTodos().size(), task2.getTodos().size());
-
+    assertTrue(true);
   }
 
   /** this generate multiple IdentifiedPv with repeated songIds */

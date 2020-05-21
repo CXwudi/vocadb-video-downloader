@@ -1,0 +1,48 @@
+{
+  "folderName" : "",
+  "todo" :
+  [ {
+    "_type" : "identified pv",
+    "name" : "【初音ミク】  霖と五線譜  【オリジナル】",
+    "pvId" : "sm35791513",
+    "service" : "NicoNicoDouga",
+    "songId" : 35
+  }, {
+    "_type" : "pv",
+    "name" : "【初音ミク】四有【MARETU】",
+    "pvId" : "75100423",
+    "service" : "Bilibili"
+  } ],
+  "done" :
+  [  {
+    "_type" : "identified pv",
+    "name" : "【初音ミク】  霖と五線譜  【オリジナル】",
+    "pvId" : "sm35791513",
+    "service" : "NicoNicoDouga",
+    "songId" : 35
+  }, {
+    "_type" : "pv",
+    "name" : "【初音ミク】四有【MARETU】",
+    "pvId" : "75100423",
+    "service" : "Bilibili"
+  }],
+  "fail" :
+  [ {
+    "pv": {
+      "_type" : "identified pv",
+      "name" : "【初音ミク】  霖と五線譜  【オリジナル】",
+      "pvId" : "sm35791513",
+      "service" : "NicoNicoDouga",
+      "songId" : 35
+    },
+    "reason": "blah"
+  }, {
+    "pv": {
+      "_type" : "pv",
+      "name" : "【初音ミク】四有【MARETU】",
+      "pvId" : "75100423",
+      "service" : "Bilibili"
+    },
+    "reason": "blah"
+  }]
+}

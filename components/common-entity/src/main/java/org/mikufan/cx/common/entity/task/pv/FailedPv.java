@@ -10,7 +10,7 @@ import lombok.*;
 @Getter @ToString @EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
-public class FailedPv {
+public class FailedPv implements Comparable<FailedPv> {
 
   @JsonProperty("pv")
   private AbstractPv pv;
@@ -19,4 +19,11 @@ public class FailedPv {
   @EqualsAndHashCode.Exclude
   private String reason;
 
+  @Override
+  public int compareTo(FailedPv o) {
+    if (o == null){
+      return 1;
+    }
+    return this.pv.compareTo(o.getPv());
+  }
 }
