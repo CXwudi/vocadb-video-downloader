@@ -33,6 +33,10 @@ class PvTaskTest {
   private File testJsonFilesPath = new File("src/test/resources/task/");
 
   /* equals and compareTo test*/
+
+  /**
+   * should be able to filter out pvs with same songIds in set
+   */
   @Test
   void testEqualsAndCompareUsingSet() {
     MutableList<IdentifiedPv> identifiedPvs = generateVocadbPvs();
@@ -43,6 +47,11 @@ class PvTaskTest {
     assertEquals(20, set.size());
   }
 
+  /**
+   * should be sorted base on {@link AbstractPv#getPvId()} and {@link AbstractPv#getService()},
+   * or base on {@link IdentifiedPv#getSongId()}.
+   * remembered that {@link IdentifiedPv} has a special equals method that can compare with other pv
+   */
   @Test
   void testCompareUsingSet2(){
     MutableList<IdentifiedPv> identifiedPvs = generateVocadbPvs();
@@ -56,6 +65,9 @@ class PvTaskTest {
 
   /*jackson deserialize/serialize test */
 
+  /**
+   * should deserializer pv task obj from model json
+   */
   @Test @SneakyThrows
   void testDeserializeJsonModel(){
     var taskModel = objectMapper.readValue(
@@ -64,6 +76,9 @@ class PvTaskTest {
     assertEquals(2, taskModel.getDones().size());
   }
 
+  /**
+   * should be able to serializer a pv task of {@link IdentifiedPv}
+   */
   @Test @SneakyThrows
   void testJsonSerialization() {
     var identifiedPvs = generateVocadbPvs().toSortedSet();
@@ -76,8 +91,7 @@ class PvTaskTest {
   }
 
   /**
-   * Multi pv types mix tasks, although shouldn't exist in production
-   * remembered that {@link IdentifiedPv} has a special equals method that can compare with other pv
+   * should be able to serializer a task with multi pv types, although shouldn't exist in production
    */
   @Test @SneakyThrows
   void testJsonSerialization2() {
@@ -94,6 +108,9 @@ class PvTaskTest {
     objectMapper.writeValue(outputFile, task);
   }
 
+  /**
+   * should be able to deserializer a task, given the generic type of pvs
+   */
   @Test @SneakyThrows
   void testJsonDeserialization(){
     var jsonFile = new File(testJsonFilesPath, "sampleTask.json");
@@ -110,7 +127,7 @@ class PvTaskTest {
 
   /** this generate multiple IdentifiedPv with repeated songIds */
   private MutableList<IdentifiedPv> generateVocadbPvs() {
-    var file = new File("src/test/resources/vocadb/songListPvs.json");
+    var file = new File("src/test/resources/vocadb/songListNeededResponse.json");
     ResponseSongList response = null;
     try {
       response = objectMapper.readValue(file, ResponseSongList.class);

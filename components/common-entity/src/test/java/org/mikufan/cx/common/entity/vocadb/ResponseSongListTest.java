@@ -17,27 +17,34 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 class ResponseSongListTest {
-  private ObjectMapper objectMapper = JsonMapper.builder()
+  private final ObjectMapper objectMapper = JsonMapper.builder()
       .addModule(new EclipseCollectionsModule())
       .build();
+  private final String parent = "src/test/resources/vocadb";
 
 
+  /**
+   * should parse the json model
+   */
   @Test @SneakyThrows
   void testParseModel() {
-    var jsonFile = new File("src/test/resources/vocadb/songListModelSchema.json");
+    var jsonFile = new File(parent, "songListModelSchema.json");
     var response = objectMapper.readValue(jsonFile,ResponseSongList.class);
     log.info("{}", response);
     assertTrue(true);
   }
 
+  /**
+   * should be able to parse the response with full details
+   */
   @Test
   void testParseSampleResponse() {
     var samples = Lists.immutable.of(
-        "songListResponseSample1.json",
-        "songListResponseSample2.json"
+        "songListFullResponseSample1.json",
+        "songListFullResponseSample2.json"
     );
     samples.forEach(json -> {
-      var jsonFile = new File("src/test/resources/vocadb", json);
+      var jsonFile = new File(parent, json);
       ResponseSongList response = null;
       try {
         response = objectMapper.readValue(jsonFile, ResponseSongList.class);
@@ -49,13 +56,16 @@ class ResponseSongListTest {
     });
   }
 
+  /**
+   * should be able to merge two responses into one without duplicating songs
+   */
   @Test
   void testEqualsAndHashCode(){
     var responses = Lists.immutable.of(
-        "songListResponseSample1.json",
-        "songListResponseSample2.json"
+        "songListFullResponseSample1.json",
+        "songListFullResponseSample2.json"
     ).collect(str -> {
-      var file = new File("src/test/resources/vocadb", str);
+      var file = new File(parent, str);
       ResponseSongList response = null;
       try {
         response = objectMapper.readValue(file, ResponseSongList.class);
@@ -83,10 +93,12 @@ class ResponseSongListTest {
 
   @Test @SneakyThrows
   void testWriteBackToFile(){
-    var jsonFile = new File("src/test/resources/vocadb/songListModelSchema.json");
+    var jsonFile = new File(parent, "songListModelSchema.json");
     var response = objectMapper.readValue(jsonFile,ResponseSongList.class);
     objectMapper.enable(SerializationFeature.INDENT_OUTPUT).enable(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY);
-    objectMapper.writeValue(new File("src/test/resources/vocadb/songListModelSchemaRewritten.json"),response);
+    var resultFile = new File(parent, "songListModelSchemaRewritten.json");
+    resultFile.deleteOnExit();
+    objectMapper.writeValue(resultFile, response);
     assertTrue(true);
   }
 
