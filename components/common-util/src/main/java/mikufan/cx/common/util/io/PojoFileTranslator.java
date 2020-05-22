@@ -13,7 +13,7 @@ public interface PojoFileTranslator<P> {
   /**
    * read a file and return the content in pojo
    * @param file the file to read
-   * @return the pojo
+   * @return the pojo wrapped in Option if read success, else {@link Optional#empty()}
    */
   Optional<P> read(File file);
 
