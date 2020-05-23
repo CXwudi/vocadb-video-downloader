@@ -14,12 +14,33 @@
   <modules>
     <module>../components/task-producer-api</module>
     <module>../components/common-entity</module>
-    <module>../components/vocadb-pvtask-producer</module>
+    <module>../components/vocadbpv-taskproducer</module>
     <module>../components/common-util</module>
   </modules>
 
   <name>Vocal Character Video Downloader</name>
   <url>https://github.com/CXwudi/vocal-character-video-downloader</url>
+
+  <contributors>
+    <contributor>
+      <name>CXwudi</name>
+      <roles>
+        <role>Project manager</role>
+        <role>Main developer</role>
+        <role>初音ミクのfan</role>
+        <role>ボカロのfan</role>
+      </roles>
+      <email>cx2010017@qq.com</email>
+    </contributor>
+    <contributor>
+      <name>初音ミク</name>
+      <roles>
+        <role>Singer</role>
+        <role>Energy provider</role>
+      </roles>
+      <organizationUrl>https://ec.crypton.co.jp/pages/prod/vocaloid/mikuv4x</organizationUrl>
+    </contributor>
+  </contributors>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -245,8 +266,7 @@
   </build>
 
   <description>
-    The remastered Niconico Video Downloader to support more sites and more features.
-    origin project --> https://github.com/CXwudi/Niconico-Video-Downloader
+    Vocal Character Video Downloader, the remastered Niconico Video Downloader to support more sites and more features.
   </description>
 
 </project>
