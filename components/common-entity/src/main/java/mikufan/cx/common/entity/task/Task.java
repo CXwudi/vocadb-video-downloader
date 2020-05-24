@@ -14,12 +14,12 @@ public interface Task<T> {
    * tasks that are not done
    * @return tasks that are not done
    */
-  Set<T> getTodos();
+  Set<T> getTodo();
 
   /**
    * tasks that are done
    * @return tasks that are done
    */
-  Set<T> getDones();
+  Set<T> getDone();
 
 }

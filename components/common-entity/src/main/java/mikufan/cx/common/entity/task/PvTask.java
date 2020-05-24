@@ -31,24 +31,24 @@ public class PvTask<P extends AbstractPv> implements Task<P> {
   protected MutableSortedSet<P> done = SortedSets.mutable.empty();
 
   @JsonProperty("fail")
-  protected MutableSortedSet<FailedPv> fail = SortedSets.mutable.with(Comparator.comparing(FailedPv::getPv));
+  protected MutableSortedSet<FailedPv> fails = SortedSets.mutable.with(Comparator.comparing(FailedPv::getPv));
 
 
   @Override
   @JsonIgnore
-  public MutableSortedSet<P> getTodos() {
+  public MutableSortedSet<P> getTodo() {
     return todo;
   }
 
   @Override
   @JsonIgnore
-  public MutableSortedSet<P> getDones() {
+  public MutableSortedSet<P> getDone() {
     return done;
   }
 
   @JsonIgnore
-  public MutableSortedSet<FailedPv> getErrors() {
-    return fail;
+  public MutableSortedSet<FailedPv> getFails() {
+    return fails;
   }
 
   /**
@@ -57,7 +57,7 @@ public class PvTask<P extends AbstractPv> implements Task<P> {
    */
   public boolean markDone(P pv){
     todo.remove(pv);
-    fail.removeIf(failedPv -> failedPv.getPv().equals(pv));
+    fails.removeIf(failedPv -> failedPv.getPv().equals(pv));
     return done.add(pv);
   }
 
@@ -67,7 +67,7 @@ public class PvTask<P extends AbstractPv> implements Task<P> {
    */
   public boolean markTodo(P pv){
     done.remove(pv);
-    fail.removeIf(failedPv -> failedPv.getPv().equals(pv));
+    fails.removeIf(failedPv -> failedPv.getPv().equals(pv));
     return todo.add(pv);
   }
 
@@ -78,6 +78,6 @@ public class PvTask<P extends AbstractPv> implements Task<P> {
   public boolean markError(P pv, String reason){
     done.remove(pv);
     todo.remove(pv);
-    return fail.add(new FailedPv(pv, reason));
+    return fails.add(new FailedPv(pv, reason));
   }
 }

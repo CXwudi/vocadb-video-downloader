@@ -11,7 +11,7 @@ import lombok.ToString;
  */
 @ToString(callSuper = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Pv extends AbstractPv { //need a protected default constructor for jackson
+public class  Pv extends AbstractPv { //need a protected default constructor for jackson
 
   public Pv(String pvId, String service, String name) {
     super(pvId, service, name);

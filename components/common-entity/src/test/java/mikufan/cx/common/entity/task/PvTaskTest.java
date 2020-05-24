@@ -73,7 +73,7 @@ class PvTaskTest {
     var taskModel = objectMapper.readValue(
         new File(testJsonFilesPath,"pvTaskModel.json"),
         new TypeReference<PvTask<AbstractPv>>(){});
-    assertEquals(2, taskModel.getDones().size());
+    assertEquals(2, taskModel.getDone().size());
   }
 
   /**
@@ -83,8 +83,8 @@ class PvTaskTest {
   void testJsonSerialization() {
     var identifiedPvs = generateVocadbPvs().toSortedSet();
     var task = new PvTask<IdentifiedPv>("2019 Vocaloid Song");
-    task.getTodos().addAll(identifiedPvs);
-    log.debug("a task is created, folder = {}, todo count = {}", task.getFolderName(), task.getTodos().size());
+    task.getTodo().addAll(identifiedPvs);
+    log.debug("a task is created, folder = {}, todo count = {}", task.getFolderName(), task.getTodo().size());
     var outputFile = new File(testJsonFilesPath, "sampleTask.json");
     outputFile.createNewFile();
     objectMapper.writeValue(outputFile, task);
@@ -101,8 +101,8 @@ class PvTaskTest {
     ).toSortedSet();
     log.debug("pvs.size = {}", pvs.size());
     var task = new PvTask<>("2020 Vocaloid Song");
-    task.getTodos().addAll(pvs);
-    log.info("a task is created, folder = {}, todo count = {}", task.getFolderName(), task.getTodos().size());
+    task.getTodo().addAll(pvs);
+    log.info("a task is created, folder = {}, todo count = {}", task.getFolderName(), task.getTodo().size());
     var outputFile = new File(testJsonFilesPath, "sampleTask2.json");
     outputFile.createNewFile();
     objectMapper.writeValue(outputFile, task);
@@ -121,7 +121,7 @@ class PvTaskTest {
     
     var task2 = objectMapper.readValue(jsonFile2, new TypeReference<PvTask<AbstractPv>>() {});
     log.debug("task2 = {}", task2);
-    log.debug("task size = {}, task2 size = {}", task.getTodos().size(), task2.getTodos().size());
+    log.debug("task size = {}, task2 size = {}", task.getTodo().size(), task2.getTodo().size());
     assertTrue(true);
   }
 
