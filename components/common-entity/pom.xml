@@ -14,6 +14,11 @@
 
   <name>common-entity</name>
 
+  <description>
+    contains common entities that are used across different modules.
+    also contains a log4j2.xml config that can be used globally
+  </description>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
