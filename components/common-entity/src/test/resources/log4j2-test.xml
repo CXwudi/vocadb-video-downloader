@@ -24,7 +24,7 @@
       <AppenderRef ref="stdout"/>
     </Root>
 
-    <Logger name="org.mikufan.cx" level="debug" additivity="false">
+    <Logger name="mikufan.cx" level="debug" additivity="false">
       <AppenderRef ref="stdout"/>
     </Logger>
   </Loggers>

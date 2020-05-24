@@ -1,6 +1,7 @@
 package mikufan.cx.common.entity.task;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
 import mikufan.cx.common.entity.common.PvService;
 
@@ -19,26 +20,36 @@ import java.util.Objects;
 @Getter @ToString
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@JsonPropertyOrder({"name", "pvId", "service", "songId"})
 public class Pv2 implements Comparable<Pv2> {
-
+  //a protected default constructor used by jackson only
+  /**
+   * the website specific id
+   */
   @JsonProperty
   @NonNull
   protected String pvId;
 
+  /**
+   * which website does it belongs to
+   */
   @JsonProperty
   @NonNull
   protected PvService service;
 
+  /**
+   * name of the pv, can be null
+   */
   @JsonProperty
   protected String name;
 
   /**
-   * an optional field to indicate this pv belongs to a song,
+   * optional field, which song does the pv belongs to
    */
   @JsonProperty
   protected String songId;
 
-  public Pv2(String pvId, PvService service, String name) {
+  public Pv2(@NonNull String pvId, @NonNull PvService service, String name) {
     this(pvId, service, name, null);
   }
 

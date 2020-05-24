@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <artifactId>vocal-character-video-downloader</artifactId>
-    <groupId>org.mikufan.cx</groupId>
+    <groupId>mikufan.cx</groupId>
     <version>4.0.0-SNAPSHOT</version>
     <relativePath>../../all-in-one/pom.xml</relativePath>
   </parent>
@@ -16,6 +16,10 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-eclipse-collections</artifactId>
     </dependency>
   </dependencies>
 

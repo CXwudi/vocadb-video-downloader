@@ -3,7 +3,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.mikufan.cx</groupId>
+  <groupId>mikufan.cx</groupId>
   <artifactId>vocal-character-video-downloader</artifactId>
   <packaging>pom</packaging> <!-- in intellij "pom" won't let this module contains source code, IDEA-221071 -->
   <version>4.0.0-SNAPSHOT</version>
@@ -59,17 +59,17 @@
     <dependencies>
       <!-- all my modules -->
       <dependency>
-        <groupId>org.mikufan.cx</groupId>
+        <groupId>mikufan.cx</groupId>
         <artifactId>common-entity</artifactId>
         <version>${module.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.mikufan.cx</groupId>
+        <groupId>mikufan.cx</groupId>
         <artifactId>common-util</artifactId>
         <version>${module.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.mikufan.cx</groupId>
+        <groupId>mikufan.cx</groupId>
         <artifactId>task-producer-api</artifactId>
         <version>${module.version}</version>
       </dependency>
