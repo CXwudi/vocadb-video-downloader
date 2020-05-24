@@ -3,7 +3,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.mikufan.cx</groupId>
+  <groupId>mikufan.cx</groupId>
   <artifactId>vocal-character-video-downloader</artifactId>
   <packaging>pom</packaging> <!-- in intellij "pom" won't let this module contains source code, IDEA-221071 -->
   <version>4.0.0-SNAPSHOT</version>
@@ -12,12 +12,35 @@
     <maven>3.5.0</maven> <!-- not required but better to add this, good for updating and solving maven problems-->
   </prerequisites>
   <modules>
-    <module>../components/task-producer</module>
+    <module>../components/task-producer-api</module>
     <module>../components/common-entity</module>
+    <module>../components/vocadbpv-taskproducer</module>
+    <module>../components/common-util</module>
   </modules>
 
   <name>Vocal Character Video Downloader</name>
   <url>https://github.com/CXwudi/vocal-character-video-downloader</url>
+
+  <contributors>
+    <contributor>
+      <name>CXwudi</name>
+      <roles>
+        <role>Project manager</role>
+        <role>Main developer</role>
+        <role>初音ミクのfan</role>
+        <role>ボカロのfan</role>
+      </roles>
+      <email>charleschen0502@gmail.com</email>
+    </contributor>
+    <contributor>
+      <name>初音ミク</name>
+      <roles>
+        <role>Singer</role>
+        <role>Energy provider</role>
+      </roles>
+      <organizationUrl>https://ec.crypton.co.jp/pages/prod/vocaloid/mikuv4x</organizationUrl>
+    </contributor>
+  </contributors>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,7 +48,7 @@
     <!-- variables for ci/cd -->
     <build.library.dir>libs</build.library.dir>
     <!-- some shared version numbers -->
-    <module.version>4.0.0-SNAPSHOT</module.version>  <!-- stay same with project version, but don't replace project version -->
+    <module.version>4.0.0-SNAPSHOT</module.version>  <!-- stay same with project version, but don't replace project version tag in pom-->
     <log4j.version>2.13.3</log4j.version>
     <eclipse-collections.version>10.2.0</eclipse-collections.version>
     <jackson.version>2.11.0</jackson.version>
@@ -36,13 +59,18 @@
     <dependencies>
       <!-- all my modules -->
       <dependency>
-        <groupId>org.mikufan.cx</groupId>
-        <artifactId>task-producer</artifactId>
+        <groupId>mikufan.cx</groupId>
+        <artifactId>common-entity</artifactId>
         <version>${module.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.mikufan.cx</groupId>
-        <artifactId>common-entity</artifactId>
+        <groupId>mikufan.cx</groupId>
+        <artifactId>common-util</artifactId>
+        <version>${module.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mikufan.cx</groupId>
+        <artifactId>task-producer-api</artifactId>
         <version>${module.version}</version>
       </dependency>
 
@@ -50,7 +78,7 @@
       <dependency> <!-- guava, provides useful utils -->
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>28.2-jre</version>
+        <version>29.0-jre</version>
       </dependency>
       <dependency> <!-- common-lang, provides useful utils -->
         <groupId>org.apache.commons</groupId>
@@ -238,8 +266,7 @@
   </build>
 
   <description>
-    The remastered Niconico Video Downloader to support more sites and more features.
-    origin project --> https://github.com/CXwudi/Niconico-Video-Downloader
+    Vocal Character Video Downloader, the remastered Niconico Video Downloader to support more sites and more features.
   </description>
 
 </project>

@@ -6,7 +6,9 @@ name: Run Unit Test
 # events but only for the master branch
 on:
   push:
-    paths: [ components, all-in-one ] # let unit test only ran on source code changes
+    paths:  # let unit test only ran on source code changes
+      - "all-in-one/**"
+      - "components/**"
   pull_request:
     branches: [ master ] # by default types are [opened, synchronize, or reopened], can handle pr updates
 
