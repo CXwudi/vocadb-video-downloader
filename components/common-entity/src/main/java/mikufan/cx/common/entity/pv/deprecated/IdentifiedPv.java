@@ -1,4 +1,4 @@
-package mikufan.cx.common.entity.task.pv.deprecated;
+package mikufan.cx.common.entity.pv.deprecated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -13,7 +13,7 @@ import lombok.ToString;
  * To solve this, we can use the ids from VocaDB or use other integer identifiers.
  *
  * @author CX无敌
- * @deprecated use the new {@link mikufan.cx.common.entity.task.pv.Pv} class instead
+ * @deprecated use the new {@link mikufan.cx.common.entity.pv.Pv} class instead
  */
 @Getter
 @ToString(callSuper = true)

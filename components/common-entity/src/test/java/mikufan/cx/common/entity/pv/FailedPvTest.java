@@ -1,4 +1,4 @@
-package mikufan.cx.common.entity.task.pv;
+package mikufan.cx.common.entity.pv;
 
 import mikufan.cx.common.entity.common.PvService;
 import org.junit.jupiter.api.Test;

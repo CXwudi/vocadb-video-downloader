@@ -1,4 +1,4 @@
-package mikufan.cx.common.entity.task.pv.deprecated;
+package mikufan.cx.common.entity.pv.deprecated;
 
 import mikufan.cx.common.entity.common.PvService;
 import org.junit.jupiter.api.Disabled;

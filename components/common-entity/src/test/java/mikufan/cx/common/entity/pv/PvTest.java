@@ -1,21 +1,17 @@
-package mikufan.cx.common.entity.task.pv;
+package mikufan.cx.common.entity.pv;
 
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import mikufan.cx.common.entity.common.PvService;
-import mikufan.cx.common.entity.vocadb.ResponseSongList;
-import mikufan.cx.common.util.jackson.ObjMapperUtil;
 import org.eclipse.collections.api.list.MutableList;
 import org.eclipse.collections.api.set.sorted.MutableSortedSet;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.IOException;
-
+import static mikufan.cx.common.entity.pv.util.SamplePvsGenerator.generateVocadbPvs;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
-class PvTest {
+public class PvTest {
   private final Pv pv1 = new Pv("sm35767788", PvService.NICONICO,
       "シン・ノンフィクションガール - れるりりfeat.初音ミク＆GUMI", "255950");
   private final Pv pv1NoId = new Pv("sm35767788", PvService.NICONICO,
@@ -117,30 +113,5 @@ class PvTest {
     ).toSortedSet();
     log.debug("pvs count = {}, sorted set size = {}", pvs.size(), set.size());
     assertEquals(pvs.size(), set.size());
-  }
-
-  /** this generate multiple IdentifiedPv with repeated songIds */
-  private MutableList<Pv> generateVocadbPvs() {
-    var file = new File("src/test/resources/vocadb/songListNeededResponse.json");
-    ResponseSongList response = null;
-    try {
-      response = ObjMapperUtil.createDefaultForReadOnly().readValue(file, ResponseSongList.class);
-    } catch (IOException e) {
-      fail(e);
-    }
-    assertNotNull(response);
-    var pvs = response.getItems().toList().flatCollect(
-        item ->
-            item.getSong().getPvs().select(pvItem -> PvService.contain(pvItem.getService()))
-                .collect(pvItem -> new Pv(
-                    pvItem.getPvId(),
-                    PvService.enumOf(pvItem.getService()),
-                    pvItem.getName(),
-                    String.valueOf(item.getSong().getId())
-                )
-            )
-
-    );
-    return pvs;
   }
 }

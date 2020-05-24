@@ -1,4 +1,4 @@
-package mikufan.cx.common.entity.task.pv.deprecated;
+package mikufan.cx.common.entity.pv.deprecated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -11,7 +11,7 @@ import java.util.Comparator;
 /**
  * The PV class to simply represent the PV to be download
  * @author CX无敌
- * @deprecated use the new {@link mikufan.cx.common.entity.task.pv.Pv} class instead
+ * @deprecated use the new {@link mikufan.cx.common.entity.pv.Pv} class instead
  */
 @Getter @ToString @EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

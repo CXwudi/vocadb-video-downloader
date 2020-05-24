@@ -3,8 +3,8 @@ package mikufan.cx.common.entity.task;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import mikufan.cx.common.entity.task.pv.FailedPv;
-import mikufan.cx.common.entity.task.pv.Pv;
+import mikufan.cx.common.entity.pv.FailedPv;
+import mikufan.cx.common.entity.pv.Pv;
 import org.eclipse.collections.api.factory.SortedSets;
 import org.eclipse.collections.api.set.sorted.MutableSortedSet;
 

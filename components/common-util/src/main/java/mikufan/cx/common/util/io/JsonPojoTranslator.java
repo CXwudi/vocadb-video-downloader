@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import mikufan.cx.common.util.jackson.ObjMapperUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +18,12 @@ import java.util.Optional;
 @Getter @Slf4j
 @AllArgsConstructor
 public class JsonPojoTranslator<P> implements PojoFileTranslator<P> {
+
   private final ObjectMapper mapper;
+
+  public static <T> JsonPojoTranslator<T> createWithDefaultMapper(){
+    return new JsonPojoTranslator<>(ObjMapperUtil.createDefault());
+  }
 
   @Override
   public Optional<P> read(File file) {
