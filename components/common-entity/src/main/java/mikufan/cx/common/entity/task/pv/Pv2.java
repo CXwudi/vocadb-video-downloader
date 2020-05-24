@@ -1,4 +1,4 @@
-package mikufan.cx.common.entity.task;
+package mikufan.cx.common.entity.task.pv;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

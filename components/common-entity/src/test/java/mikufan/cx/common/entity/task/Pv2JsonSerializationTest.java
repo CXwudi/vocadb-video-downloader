@@ -5,6 +5,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import mikufan.cx.common.entity.common.PvService;
+import mikufan.cx.common.entity.task.pv.Pv2;
 import mikufan.cx.common.util.jackson.ObjMapperBuilder;
 import org.junit.jupiter.api.Test;
 
