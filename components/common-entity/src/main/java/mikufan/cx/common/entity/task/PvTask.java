@@ -3,8 +3,8 @@ package mikufan.cx.common.entity.task;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import mikufan.cx.common.entity.task.pv.AbstractPv;
 import mikufan.cx.common.entity.task.pv.FailedPv;
+import mikufan.cx.common.entity.task.pv.Pv;
 import org.eclipse.collections.api.factory.SortedSets;
 import org.eclipse.collections.api.set.sorted.MutableSortedSet;
 
@@ -17,7 +17,7 @@ import java.util.Comparator;
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @RequiredArgsConstructor
-public class PvTask<P extends AbstractPv> implements Task<P> {
+public class PvTask implements Task<Pv> {
   //we use <P extends AbstractPv> to allow either storing generic AbstractPv or just one subtype of AbstractPv
 
   @Getter @NonNull
@@ -25,10 +25,10 @@ public class PvTask<P extends AbstractPv> implements Task<P> {
   protected String folderName;
 
   @JsonProperty("todo")
-  protected MutableSortedSet<P> todo = SortedSets.mutable.empty();
+  protected MutableSortedSet<Pv> todo = SortedSets.mutable.empty();
 
   @JsonProperty("done")
-  protected MutableSortedSet<P> done = SortedSets.mutable.empty();
+  protected MutableSortedSet<Pv> done = SortedSets.mutable.empty();
 
   @JsonProperty("fail")
   protected MutableSortedSet<FailedPv> fails = SortedSets.mutable.with(Comparator.comparing(FailedPv::getPv));
@@ -36,13 +36,13 @@ public class PvTask<P extends AbstractPv> implements Task<P> {
 
   @Override
   @JsonIgnore
-  public MutableSortedSet<P> getTodo() {
+  public MutableSortedSet<Pv> getTodo() {
     return todo;
   }
 
   @Override
   @JsonIgnore
-  public MutableSortedSet<P> getDone() {
+  public MutableSortedSet<Pv> getDone() {
     return done;
   }
 
@@ -55,7 +55,7 @@ public class PvTask<P extends AbstractPv> implements Task<P> {
    * add the pv to done list, remove it from other lists if presents
    * @return {@code true} if pv added
    */
-  public boolean markDone(P pv){
+  public boolean markDone(Pv pv){
     todo.remove(pv);
     fails.removeIf(failedPv -> failedPv.getPv().equals(pv));
     return done.add(pv);
@@ -65,7 +65,7 @@ public class PvTask<P extends AbstractPv> implements Task<P> {
    * add the pv to tudo list, remove it from other lists if presents
    * @return {@code true} if pv added
    */
-  public boolean markTodo(P pv){
+  public boolean markTodo(Pv pv){
     done.remove(pv);
     fails.removeIf(failedPv -> failedPv.getPv().equals(pv));
     return todo.add(pv);
@@ -75,7 +75,7 @@ public class PvTask<P extends AbstractPv> implements Task<P> {
    * add the pv to error list, remove it from other lists if presents
    * @return {@code true} if pv added
    */
-  public boolean markError(P pv, String reason){
+  public boolean markError(Pv pv, String reason){
     done.remove(pv);
     todo.remove(pv);
     return fails.add(new FailedPv(pv, reason));

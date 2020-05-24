@@ -1,4 +1,4 @@
-package mikufan.cx.common.entity.task.pv;
+package mikufan.cx.common.entity.task.pv.deprecated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -8,15 +8,17 @@ import lombok.ToString;
 
 
 /**
- * Basically a Pv class but use a songId to identify itself. (In our case, the song id from VocaDb)
- * If we have multiply Pv representing the same song but from different service, Pv equals() can't distinguish it.
+ * Basically a PvOld class but use a songId to identify itself. (In our case, the song id from VocaDb)
+ * If we have multiply PvOld representing the same song but from different service, PvOld equals() can't distinguish it.
  * To solve this, we can use the ids from VocaDB or use other integer identifiers.
  *
  * @author CX无敌
+ * @deprecated use the new {@link mikufan.cx.common.entity.task.pv.Pv} class instead
  */
 @Getter
 @ToString(callSuper = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Deprecated(since = "4.0.0")
 public class IdentifiedPv extends AbstractPv {
 
   /**

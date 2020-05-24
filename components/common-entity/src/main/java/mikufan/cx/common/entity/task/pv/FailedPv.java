@@ -13,7 +13,7 @@ import lombok.*;
 public class FailedPv implements Comparable<FailedPv> {
 
   @JsonProperty("pv")
-  private AbstractPv pv;
+  private Pv pv;
 
   @JsonProperty("reason")
   @EqualsAndHashCode.Exclude
@@ -22,6 +22,7 @@ public class FailedPv implements Comparable<FailedPv> {
   @Override
   public int compareTo(FailedPv o) {
     if (o == null){
+      //failed pv with empty pv go first
       return 1;
     }
     return this.pv.compareTo(o.getPv());

@@ -1,4 +1,4 @@
-package mikufan.cx.common.entity.task.pv;
+package mikufan.cx.common.entity.task.pv.deprecated;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -11,6 +11,7 @@ import java.util.Comparator;
 /**
  * The PV class to simply represent the PV to be download
  * @author CX无敌
+ * @deprecated use the new {@link mikufan.cx.common.entity.task.pv.Pv} class instead
  */
 @Getter @ToString @EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -22,10 +23,11 @@ import java.util.Comparator;
 )
 @JsonSubTypes({
     @JsonSubTypes.Type(value = IdentifiedPv.class, name = "identified pv"),
-    @JsonSubTypes.Type(value = Pv.class, name = "pv")
+    @JsonSubTypes.Type(value = PvOld.class, name = "pv")
     //New subclass need to be declared here
 })
 @JsonPropertyOrder({"name", "pvId", "service"})
+@Deprecated(since = "4.0.0")
 public abstract class AbstractPv implements Comparable<AbstractPv> {
   // is better to have a protected default constructor for jackson for this class and subclasses
   // the equals() is designed to make sure every single PV is a different instance
