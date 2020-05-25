@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.common.util.jackson.ObjMapperUtil;
 
@@ -19,6 +20,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class JsonPojoTranslator<P> implements PojoFileTranslator<P> {
 
+  @NonNull
   private final ObjectMapper mapper;
 
   public static <T> JsonPojoTranslator<T> createWithDefaultMapper(){
