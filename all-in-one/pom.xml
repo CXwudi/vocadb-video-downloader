@@ -14,7 +14,7 @@
   <modules>
     <module>../components/task-producer-api</module>
     <module>../components/common-entity</module>
-    <module>../components/vocadbpv-taskproducer</module>
+    <module>../components/vocadbpv-task-producer</module>
     <module>../components/common-util</module>
   </modules>
 
