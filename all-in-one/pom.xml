@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>mikufan.cx</groupId>
-  <artifactId>vocal-character-video-downloader</artifactId>
+  <artifactId>project-vd</artifactId>
   <packaging>pom</packaging> <!-- in intellij "pom" won't let this module contains source code, IDEA-221071 -->
   <version>4.0.0-SNAPSHOT</version>
 
