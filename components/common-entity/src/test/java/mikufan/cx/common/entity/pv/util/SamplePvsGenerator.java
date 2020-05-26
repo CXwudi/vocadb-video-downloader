@@ -1,7 +1,7 @@
 package mikufan.cx.common.entity.pv.util;
 
 import mikufan.cx.common.entity.common.PvService;
-import mikufan.cx.common.entity.pv.Pv;
+import mikufan.cx.common.entity.pv.VocaDbPv;
 import mikufan.cx.common.entity.vocadb.ResponseSongList;
 import mikufan.cx.common.util.jackson.ObjMapperUtil;
 import org.eclipse.collections.api.list.MutableList;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class SamplePvsGenerator {
 
   /** this generate multiple IdentifiedPv with repeated songIds */
-  public static MutableList<Pv> generateVocadbPvs() {
+  public static MutableList<VocaDbPv> generateVocadbPvs() {
     var file = new File("src/test/resources/vocadb/songListNeededResponse.json");
     ResponseSongList response = null;
     try {
@@ -27,11 +27,11 @@ public class SamplePvsGenerator {
     var pvs = response.getItems().toList().flatCollect(
         item ->
             item.getSong().getPvs().select(pvItem -> PvService.contain(pvItem.getService()))
-                .collect(pvItem -> new Pv(
+                .collect(pvItem -> new VocaDbPv(
                         pvItem.getPvId(),
                         PvService.enumOf(pvItem.getService()),
                         pvItem.getName(),
-                        String.valueOf(item.getSong().getId())
+                        item.getSong().getId()
                     )
                 )
 

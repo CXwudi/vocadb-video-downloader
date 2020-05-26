@@ -5,13 +5,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.*;
+import mikufan.cx.common.entity.pv.VocaDbPv;
 
 import java.util.Comparator;
 
 /**
  * The PV class to simply represent the PV to be download
  * @author CX无敌
- * @deprecated use the new {@link mikufan.cx.common.entity.pv.Pv} class instead
+ * @deprecated use the new {@link VocaDbPv} class instead
  */
 @Getter @ToString @EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

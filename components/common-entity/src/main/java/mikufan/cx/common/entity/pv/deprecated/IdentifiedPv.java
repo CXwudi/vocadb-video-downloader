@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import mikufan.cx.common.entity.pv.VocaDbPv;
 
 
 /**
@@ -13,7 +14,7 @@ import lombok.ToString;
  * To solve this, we can use the ids from VocaDB or use other integer identifiers.
  *
  * @author CX无敌
- * @deprecated use the new {@link mikufan.cx.common.entity.pv.Pv} class instead
+ * @deprecated use the new {@link VocaDbPv} class instead
  */
 @Getter
 @ToString(callSuper = true)

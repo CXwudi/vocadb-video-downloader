@@ -5,7 +5,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import mikufan.cx.common.entity.common.PvService;
-import mikufan.cx.common.entity.pv.Pv;
+import mikufan.cx.common.entity.pv.VocaDbPv;
 import mikufan.cx.common.util.jackson.ObjMapperUtil;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
-class PvJsonSerializationTest {
+class VocaDbPvJsonSerializationTest {
   private final ObjectMapper mapper = ObjMapperUtil.createDefault();
   private final String parent = "src/test/resources/task";
 
@@ -24,11 +24,11 @@ class PvJsonSerializationTest {
    */
   @Test @SneakyThrows
   void readJsonModel(){
-    val pv = mapper.readValue(new File(parent, "pvJsonModel.json"), Pv.class);
+    val pv = mapper.readValue(new File(parent, "pvJsonModel.json"), VocaDbPv.class);
     assertEquals("", pv.getName());
     assertEquals("", pv.getPvId());
     assertEquals(PvService.NICONICO, pv.getService());
-    assertEquals("", pv.getSongId());
+    assertEquals(0, pv.getSongId());
   }
 
   /**
@@ -36,8 +36,8 @@ class PvJsonSerializationTest {
    */
   @Test @SneakyThrows
   void writeJson(){
-    val pv = new Pv("ERo-sPa1a5g", PvService.YOUTUBE,
-        "八王子P × Giga「Gimme×Gimme feat. 初音ミク・鏡音リン」", "246033");
+    val pv = new VocaDbPv("ERo-sPa1a5g", PvService.YOUTUBE,
+        "八王子P × Giga「Gimme×Gimme feat. 初音ミク・鏡音リン」", 246033);
     val str = mapper.writeValueAsString(pv);
     log.info("str = {}", str);
     assertTrue(true);

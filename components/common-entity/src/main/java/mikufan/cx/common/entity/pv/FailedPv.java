@@ -13,7 +13,7 @@ import lombok.*;
 public class FailedPv implements Comparable<FailedPv> {
 
   @JsonProperty("pv")
-  private Pv pv;
+  private VocaDbPv pv;
 
   @JsonProperty("reason")
   @EqualsAndHashCode.Exclude

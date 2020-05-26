@@ -13,7 +13,7 @@ import static mikufan.cx.common.entity.pv.util.SamplePvsGenerator.generateVocadb
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
-class PvTaskJsonSerializationTest {
+class VocaDbPvTaskJsonSerializationTest {
   private ObjectMapper mapper = ObjMapperUtil.createDefault();
 
   private File parent = new File("src/test/resources/task/");
@@ -24,7 +24,7 @@ class PvTaskJsonSerializationTest {
   @Test
   @SneakyThrows
   void testParseJsonModel() {
-    val task = mapper.readValue(new File(parent, "pvTaskModel.json"), PvTask.class);
+    val task = mapper.readValue(new File(parent, "pvTaskModel.json"), VocaDbPvTask.class);
     log.info("task = {}", task);
     assertTrue(true);
   }
@@ -33,7 +33,8 @@ class PvTaskJsonSerializationTest {
   @SneakyThrows
   void testWrite() {
     var pvs = generateVocadbPvs();
-    var task = new PvTask("2020 Song Task Test");
+    var task = new VocaDbPvTask("2020 Song Task Test");
+    //put half in tudo, put half in done
     pvs.zipWithIndex().forEachWith((pvIntegerPair, taskk) -> {
       var pv = pvIntegerPair.getOne();
       var index = pvIntegerPair.getTwo();
@@ -45,7 +46,6 @@ class PvTaskJsonSerializationTest {
     }, task);
     var json = mapper.writeValueAsString(task);
     log.debug("task = \n{}", json);
-
 
     var outputFile = new File(parent, "testOutput.json");
     outputFile.deleteOnExit();
