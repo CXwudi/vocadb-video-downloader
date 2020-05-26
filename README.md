@@ -26,7 +26,7 @@ The project is currently under development, current progresses are:
 3. 🔄 vocadbpv-task-producer (read VocaDB favourite list and produce/update the pv task in json)
 4. ❌ pv-downloader-util (utils for downloading pv, driven by youtube-dl)
 5. ❌ vocadbpv-video-downloader (download PV base on pv task)
-6. ❌ vocadbpv-postprocessor (extract audio and add tags, thumbnails)
+6. ❌ vocadbpv-postprocessor (extract audio and add tags and thumbnails to audio files, driven by python library, mutagen)
 
 # Appreciation
 
