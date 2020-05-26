@@ -18,8 +18,12 @@
     <module>../components/common-util</module>
   </modules>
 
-  <name>Vocal Character Video Downloader</name>
-  <url>https://github.com/CXwudi/vocal-character-video-downloader</url>
+  <name>Project VD - Video Downloader for Vocal Characters</name>
+  <description>
+    Project VD - Video Downloader for Vocal Characters
+    the remastered Niconico Video Downloader to support more sites and more features.
+  </description>
+  <url>https://github.com/CXwudi/Project-VD</url>
 
   <contributors>
     <contributor>
@@ -264,9 +268,5 @@
       </plugins>
     </pluginManagement>
   </build>
-
-  <description>
-    Vocal Character Video Downloader, the remastered Niconico Video Downloader to support more sites and more features.
-  </description>
 
 </project>
