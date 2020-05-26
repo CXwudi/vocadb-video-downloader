@@ -15,24 +15,22 @@ The successor of my previous project [Niconico Video Downloader](https://github.
 Aim to provide the following features:
 
 * Support Vocaloid producers' common video website like Youtube, Niconico, Bilibili (and more if needed)
-* Can get a list of PVs to download from VocaDB favourite list (or favourite list from supported websites)
-* Able to download Vocaloid PV from supported websites
-* Able to extract audio from Vocaloid PV and embed thumbnail and tags using information from VocaDB
+* Can get a list of PVs to download from VocaDB favourite list (usually imported from youtube/niconico favourite list using VocaDB website)
+* Can download Vocaloid PV from supported websites
+* Can extract audio from Vocaloid PV and embed thumbnail and tags using information from VocaDB
 
-The project is currently under development, current stages are:
+The project is currently under development, current progresses are:
 
 1. ✅ common-entity (define entites obj for stroing information)
 2. ✅ common-util (some util classes and function shared across all maven modules)
 3. 🔄 vocadbpv-task-producer (read VocaDB favourite list and produce/update the pv task in json)
-4. ❌ pv-downloader-util
+4. ❌ pv-downloader-util (utils for downloading pv, driven by youtube-dl)
 5. ❌ vocadbpv-video-downloader (download PV base on pv task)
 6. ❌ vocadbpv-postprocessor (extract audio and add tags, thumbnails)
 
 # Appreciation
 
-//TODO: complete
+//TODO: complete it
 
 * [VocaDB](https://github.com/VocaDB/vocadb) and its RestAPI
 * [youtube-dl](https://github.com/ytdl-org/youtube-dl)
-
-
