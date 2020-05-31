@@ -7,14 +7,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.*;
 import mikufan.cx.common.entity.pv.VocaDbPv;
 
-import java.util.Comparator;
-
 /**
  * The PV class to simply represent the PV to be download
  * @author CX无敌
  * @deprecated use the new {@link VocaDbPv} class instead
  */
-@Getter @ToString @EqualsAndHashCode
+@Getter @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @JsonTypeInfo(
@@ -29,7 +27,7 @@ import java.util.Comparator;
 })
 @JsonPropertyOrder({"name", "pvId", "service"})
 @Deprecated(since = "4.0.0")
-public abstract class AbstractPv implements Comparable<AbstractPv> {
+public abstract class AbstractPv {
   // is better to have a protected default constructor for jackson for this class and subclasses
   // the equals() is designed to make sure every single PV is a different instance
 
@@ -39,18 +37,7 @@ public abstract class AbstractPv implements Comparable<AbstractPv> {
   @JsonProperty("service")
   protected String service;
 
-  @EqualsAndHashCode.Exclude
   @JsonProperty("name")
   protected String name;
 
-  /**
-   * we decide to give a default compare method base on pv id and service
-   */
-  @Override
-  public int compareTo(AbstractPv o) {
-    return Comparator
-        .comparing(AbstractPv::getService)
-        .thenComparing(AbstractPv::getPvId)
-        .compare(this, o);
-  }
 }

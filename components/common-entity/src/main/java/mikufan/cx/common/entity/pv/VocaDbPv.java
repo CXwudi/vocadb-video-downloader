@@ -9,7 +9,8 @@ import mikufan.cx.common.entity.common.PvService;
  * A flatten class for representing a PV with a VocaDB songId to identify itself.
  * <br\>
  * Learn JAVA: if possible, should never introduce inheritance in json-pojo, unless one of
- * the pojo want to hold cross-types of one abstract type
+ * the pojo want to hold cross-types of one abstract type.
+ * One of the reason is we don't want json contain type information in json.
  * @author CX无敌
  */
 @Getter @ToString
