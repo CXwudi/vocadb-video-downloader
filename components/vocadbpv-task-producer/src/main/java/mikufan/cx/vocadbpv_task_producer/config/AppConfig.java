@@ -1,19 +1,19 @@
 package mikufan.cx.vocadbpv_task_producer.config;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 /**
  * @author CX无敌
  */
-@Getter @AllArgsConstructor
+@Getter @RequiredArgsConstructor
 public class AppConfig {
 
   @NonNull
   private final UserConfig userConfig;
 
-  @NonNull
-  private final SystemConfig systemConfig;
+  @NonNull @Getter
+  private static final SystemConfig systemConfig = SystemConfig.INSTANCE;
 
 }

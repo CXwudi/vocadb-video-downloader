@@ -11,6 +11,9 @@ import mikufan.cx.vocadbpv_task_producer.config.AppConfig;
 public class ArgParser {
   public static AppConfig parse(String[] args){
     //todo: implement
+//    var builder = UserConfig.builder();
+//    builder.name("");
+//    var config = new AppConfig(builder.build());
     return null;
   }
 }
