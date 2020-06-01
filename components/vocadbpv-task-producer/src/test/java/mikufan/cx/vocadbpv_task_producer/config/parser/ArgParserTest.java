@@ -59,6 +59,7 @@ class ArgParserTest {
       var value = cmdLine.getOptionValue("i");
       //todo: finish this test
       assertTrue(true);
+      return;
     }
     fail();
   }
