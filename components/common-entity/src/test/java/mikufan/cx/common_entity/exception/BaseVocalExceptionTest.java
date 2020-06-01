@@ -23,7 +23,7 @@ class BaseVocalExceptionTest {
 
   @Test
   void testToString(){
-    var exp = new DummyException(RCIExample.MIKU393901, "A dummy vocaloid exception thrown");
+    var exp = new DummyException(RCIExample.MIKU393901, "A dummy vocaloid exception thrown", new Exception("I love Miku"));
     log.error("DummyException in testToString()", exp);
     assertThrows(BaseVocalException.class, () -> {
       throw exp;

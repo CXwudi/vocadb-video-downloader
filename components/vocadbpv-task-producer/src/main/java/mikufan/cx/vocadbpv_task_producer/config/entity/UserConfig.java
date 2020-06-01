@@ -1,4 +1,4 @@
-package mikufan.cx.vocadbpv_task_producer.config;
+package mikufan.cx.vocadbpv_task_producer.config.entity;
 
 import lombok.Builder;
 import lombok.Getter;
