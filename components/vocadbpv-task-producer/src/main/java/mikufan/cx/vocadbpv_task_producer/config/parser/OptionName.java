@@ -13,6 +13,7 @@ public enum OptionName {
   TASK_NAME("name", "task-name", "name"),
   TASK_FILE("f", "task-file", "file"),
   REFERENCE_FILE("r", "reference-file", "file"),
+  PV_PREFERENCE("p","pv-preference", "pv service"),
 
   HELP("help", null, null);
 

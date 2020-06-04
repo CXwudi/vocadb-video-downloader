@@ -2,6 +2,7 @@ package mikufan.cx.vocadbpv_task_producer.config.parser;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import mikufan.cx.common_entity.common.PvService;
 import mikufan.cx.vocadbpv_task_producer.util.exception.VocaDbPvTaskException;
 import org.apache.commons.cli.*;
 import org.junit.jupiter.api.Test;
@@ -40,14 +41,22 @@ class ArgParserTest {
   }
 
   /**
-   * should throw if missing argument in option
+   * should throw if missing argument for a declared option that requires arg. <br/>
+   * noticed that if an option is not declared, it won't throw even though it requires arg
    */
   @Test
   @SneakyThrows
-  void testEmptyArgInOpt() {
-    assertThrows(MissingArgumentException.class, () -> parser.parse(options, new String[]{"-i"}));
-    assertThrows(MissingArgumentException.class, () -> parser.parse(options, new String[]{"--list-id"}));
-    assertThrows(VocaDbPvTaskException.class, () -> ArgParser.parse(new String[]{"-i"}));
+  void testThrowFromEmptyArgInOpt() {
+    //put all options that requires arg to this array
+    var opts = new OptionName[]{
+        OptionName.LIST_ID, OptionName.REFERENCE_FILE, OptionName.TASK_FILE, OptionName.TASK_NAME,
+        OptionName.PV_PREFERENCE
+    };
+    for (var opt : opts){
+      assertThrows(MissingArgumentException.class, () -> parser.parse(options, new String[]{"-" + opt.getOptName()}));
+      assertThrows(MissingArgumentException.class, () -> parser.parse(options, new String[]{"-" + opt.getOptLongName()}));
+      assertThrows(VocaDbPvTaskException.class, () -> ArgParser.parse(new String[]{"-" + opt.getOptName()}));
+    }
 
   }
 
@@ -57,8 +66,8 @@ class ArgParserTest {
   @Test
   @SneakyThrows
   void testEmptyArgInOpt2() {
-    assertThrows(MissingArgumentException.class, () -> parser.parse(options, new String[]{"-i", "-f"}));
-    assertThrows(VocaDbPvTaskException.class, () -> ArgParser.parse(new String[]{"-i", "-f"}));
+    assertThrows(MissingArgumentException.class, () -> parser.parse(options, new String[]{"-i", "-f", "file.txt"}));
+    assertThrows(VocaDbPvTaskException.class, () -> ArgParser.parse(new String[]{"-i", "-f", "file.txt"}));
   }
 
   /**
@@ -70,5 +79,20 @@ class ArgParserTest {
     assertThrows(VocaDbPvTaskException.class, () -> ArgParser.parse(new String[]{""}));
   }
 
+  /**
+   * test if we can parse multiply arg in an options
+   */
+  @Test @SneakyThrows
+  void testMultipleArgsInOption(){
+    var cmdLine = parser.parse(options, new String[]{"-i", "1234", "-p", PvService.NICONICO.getServiceName(), PvService.YOUTUBE.getServiceName()});
+    if (cmdLine.hasOption(OptionName.PV_PREFERENCE.getOptName())){
+      var args = cmdLine.getOptionValues(OptionName.PV_PREFERENCE.getOptName());
+
+      assertEquals(2, args.length);
+    } else {
+      fail();
+    }
+
+  }
 
 }

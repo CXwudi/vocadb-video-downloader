@@ -9,7 +9,8 @@ import org.eclipse.collections.api.map.ImmutableMap;
 import java.util.Objects;
 
 /**
- * enum of pv service that currently supported
+ * enum of pv service that currently supported. <br/>
+ * note: don't add pv service that our code base is not supported
  * @author CX无敌
  */
 @AllArgsConstructor

@@ -29,8 +29,14 @@ public final class ArgParser {
   public static AppConfig parse(String[] args){
     //construct options
     var options = OptionsFactory.createOptions();
+
     //real parsing
     CommandLine cmdLine = PARSER.realParse(args, options);
+    //if just need to print help
+    if (cmdLine.hasOption(OptionName.HELP.getOptName())){
+      PARSER.printHelp(options);
+      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MITA0002, "Only printing help message");
+    }
 
     //check and get listId
     int listId = PARSER.getListId(cmdLine, options);
@@ -66,14 +72,10 @@ public final class ArgParser {
       printHelp(options);
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MITA0001, "Fail to parse arguments, see \"Caused by\"", e);
     }
-    if (cmdLine.hasOption(OptionName.HELP.getOptName())){
-      printHelp(options);
-      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MITA0002, "Only printing help message");
-    }
     return cmdLine;
   }
 
-  protected void printHelp(Options options) {
+  private void printHelp(Options options) {
     var formatter = new HelpFormatter();
     formatter.printHelp("vocadbpv-task-producer", options);
   }
