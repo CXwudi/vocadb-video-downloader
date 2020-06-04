@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 class ArgParserTest {
   private final DefaultParser parser = new DefaultParser();
-  private final Options options = ArgParser.PARSER.createOptions();
+  private final Options options = OptionsFactory.createOptions();
 
   /**
    * print and make sure help message looks correct
