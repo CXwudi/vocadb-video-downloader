@@ -10,17 +10,17 @@ import lombok.*;
 @Getter @ToString @EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
-public class FailedPv implements Comparable<FailedPv> {
+public class FailedVocaDbPv implements Comparable<FailedVocaDbPv> {
 
-  @JsonProperty("pv")
+  @JsonProperty @NonNull
   private VocaDbPv pv;
 
-  @JsonProperty("reason")
+  @JsonProperty
   @EqualsAndHashCode.Exclude
   private String reason;
 
   @Override
-  public int compareTo(FailedPv o) {
+  public int compareTo(FailedVocaDbPv o) {
     if (o == null){
       //failed pv with empty pv go first
       return 1;

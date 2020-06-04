@@ -3,7 +3,7 @@ package mikufan.cx.common_entity.task;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import mikufan.cx.common_entity.pv.FailedPv;
+import mikufan.cx.common_entity.pv.FailedVocaDbPv;
 import mikufan.cx.common_entity.pv.VocaDbPv;
 import org.eclipse.collections.api.factory.SortedSets;
 import org.eclipse.collections.api.set.sorted.MutableSortedSet;
@@ -31,7 +31,7 @@ public class VocaDbPvTask implements Task<VocaDbPv> {
   protected MutableSortedSet<VocaDbPv> done = SortedSets.mutable.empty();
 
   @JsonProperty("fail")
-  protected MutableSortedSet<FailedPv> fails = SortedSets.mutable.with(Comparator.comparing(FailedPv::getPv));
+  protected MutableSortedSet<FailedVocaDbPv> fails = SortedSets.mutable.with(Comparator.comparing(FailedVocaDbPv::getPv));
 
 
   @Override
@@ -47,7 +47,7 @@ public class VocaDbPvTask implements Task<VocaDbPv> {
   }
 
   @JsonIgnore
-  public MutableSortedSet<FailedPv> getFails() {
+  public MutableSortedSet<FailedVocaDbPv> getFails() {
     return fails;
   }
 
@@ -57,7 +57,7 @@ public class VocaDbPvTask implements Task<VocaDbPv> {
    */
   public boolean markDone(VocaDbPv vocaDbPv){
     todo.remove(vocaDbPv);
-    fails.removeIf(failedPv -> failedPv.getPv().equals(vocaDbPv));
+    fails.removeIf(failedVocaDbPv -> failedVocaDbPv.getPv().equals(vocaDbPv));
     return done.add(vocaDbPv);
   }
 
@@ -67,7 +67,7 @@ public class VocaDbPvTask implements Task<VocaDbPv> {
    */
   public boolean markTodo(VocaDbPv vocaDbPv){
     done.remove(vocaDbPv);
-    fails.removeIf(failedPv -> failedPv.getPv().equals(vocaDbPv));
+    fails.removeIf(failedVocaDbPv -> failedVocaDbPv.getPv().equals(vocaDbPv));
     return todo.add(vocaDbPv);
   }
 
@@ -78,6 +78,6 @@ public class VocaDbPvTask implements Task<VocaDbPv> {
   public boolean markError(VocaDbPv vocaDbPv, String reason){
     done.remove(vocaDbPv);
     todo.remove(vocaDbPv);
-    return fails.add(new FailedPv(vocaDbPv, reason));
+    return fails.add(new FailedVocaDbPv(vocaDbPv, reason));
   }
 }

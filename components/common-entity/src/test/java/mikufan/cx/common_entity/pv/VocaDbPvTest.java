@@ -34,7 +34,7 @@ public class VocaDbPvTest {
    */
   @Test
   void testIdentity(){
-    val pv1copy = new VocaDbPv(vocaDbPv1.getPvId(), vocaDbPv1.getService(), vocaDbPv1.getName(), vocaDbPv1.getSongId());
+    val pv1copy = new VocaDbPv(vocaDbPv1.getPvId(), vocaDbPv1.getService(), vocaDbPv1.getTitle(), vocaDbPv1.getSongId());
     assertEquals(pv1copy, vocaDbPv1);
 
   }
@@ -45,7 +45,7 @@ public class VocaDbPvTest {
    */
   @Test
   void compareTo() {
-    val pv1copy = new VocaDbPv(vocaDbPv1.getPvId(), vocaDbPv1.getService(), vocaDbPv1.getName(), vocaDbPv1.getSongId());
+    val pv1copy = new VocaDbPv(vocaDbPv1.getPvId(), vocaDbPv1.getService(), vocaDbPv1.getTitle(), vocaDbPv1.getSongId());
     assertEquals(0, vocaDbPv1.compareTo(pv1copy));
     assertEquals(0, vocaDbPv3.compareTo(vocaDbPv3Alt));
   }

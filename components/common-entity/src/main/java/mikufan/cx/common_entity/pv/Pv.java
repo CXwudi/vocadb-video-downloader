@@ -1,25 +1,39 @@
 package mikufan.cx.common_entity.pv;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
+import mikufan.cx.common_entity.common.PvService;
+
+import java.util.Objects;
 
 /**
  * A simple representation of a pv
  * @author CX无敌
  */
-@Getter @ToString @EqualsAndHashCode
-@AllArgsConstructor
+@Getter @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@JsonPropertyOrder({"name", "pvId", "service"})
-public class Pv {
-  @JsonProperty @NonNull
-  protected String pvId;
+public class Pv extends AbstractPv{
 
-  @JsonProperty @NonNull
-  protected String service;
+  public Pv(@NonNull String pvId, @NonNull PvService service, String name) {
+    this.pvId = pvId;
+    this.service = service;
+    this.title = name;
+  }
 
-  @EqualsAndHashCode.Exclude
-  @JsonProperty
-  protected String name;
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof Pv)) {
+      return false;
+    }
+    AbstractPv that = (AbstractPv) o;
+    return service == that.service && Objects.equals(pvId, that.pvId);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(service, pvId);
+  }
 }

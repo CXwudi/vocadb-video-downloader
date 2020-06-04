@@ -25,7 +25,7 @@ class VocaDbPvJsonSerializationTest {
   @Test @SneakyThrows
   void readJsonModel(){
     val pv = mapper.readValue(new File(parent, "pvJsonModel.json"), VocaDbPv.class);
-    assertEquals("", pv.getName());
+    assertEquals("", pv.getTitle());
     assertEquals("", pv.getPvId());
     assertEquals(PvService.NICONICO, pv.getService());
     assertEquals(0, pv.getSongId());
