@@ -60,7 +60,7 @@ public final class OptionsFactory {
         .valueSeparator(',')
         .argName(OptionName.PV_PREFERENCE.getArgName())
         .desc(String.format("Your preference ranking of pv websites, separated by comma, " +
-                "by default this is -%s %s,%s,%s (no space around comma)" +
+                "by default this is \"-%s %s,%s,%s\" (no space around comma)" +
                 "Currently we only support websites listed in the default order",
             OptionName.PV_PREFERENCE.getOptName(),
             PvService.NICONICO.getServiceName(),
