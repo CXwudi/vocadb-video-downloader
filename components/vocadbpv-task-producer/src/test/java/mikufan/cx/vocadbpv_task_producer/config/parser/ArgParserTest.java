@@ -84,7 +84,8 @@ class ArgParserTest {
    */
   @Test @SneakyThrows
   void testMultipleArgsInOption(){
-    var cmdLine = parser.parse(options, new String[]{"-i", "1234", "-p", PvService.NICONICO.getServiceName(), PvService.YOUTUBE.getServiceName()});
+    var cmdLine = parser.parse(options, new String[]{"-i", "1234",
+        "-p", String.format("%s,%s", PvService.NICONICO.getServiceName(), PvService.YOUTUBE.getServiceName())});
     if (cmdLine.hasOption(OptionName.PV_PREFERENCE.getOptName())){
       var args = cmdLine.getOptionValues(OptionName.PV_PREFERENCE.getOptName());
 

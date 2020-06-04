@@ -33,23 +33,23 @@ public final class ArgParser {
     //real parsing
     CommandLine cmdLine = PARSER.realParse(args, options);
     //if just need to print help
+    PARSER.printHelpCheck(options, cmdLine);
+
+    var builder = UserConfig.builder();
+    builder.listId(PARSER.getListIdOrThrow(cmdLine, options));
+    //todo: implement the rest
+
+    return new AppConfig(builder.build());
+  }
+
+  private void printHelpCheck(Options options, CommandLine cmdLine) throws VocaDbPvTaskException {
     if (cmdLine.hasOption(OptionName.HELP.getOptName())){
       PARSER.printHelp(options);
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MITA0002, "Only printing help message");
     }
-
-    //check and get listId
-    int listId = PARSER.getListId(cmdLine, options);
-    //todo: implement the rest
-
-    //building
-    var builder = UserConfig.builder();
-    builder.listId(listId);
-    //todo: implement the rest
-    return new AppConfig(builder.build());
   }
 
-  private int getListId(CommandLine cmdLine, Options options) throws VocaDbPvTaskException {
+  private int getListIdOrThrow(CommandLine cmdLine, Options options) throws VocaDbPvTaskException {
     if (!cmdLine.hasOption(OptionName.LIST_ID.getOptName())){
       printHelp(options);
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MITA0003, "Plz give me the ID of VocaDB favourite list");

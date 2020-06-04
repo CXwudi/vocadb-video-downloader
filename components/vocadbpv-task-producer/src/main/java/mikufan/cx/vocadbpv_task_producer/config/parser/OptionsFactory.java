@@ -55,6 +55,9 @@ public final class OptionsFactory {
     options.addOption(Option.builder(OptionName.PV_PREFERENCE.getOptName())
         .longOpt(OptionName.PV_PREFERENCE.getOptLongName())
         .hasArgs()
+        //without this, we can make -p arg1 arg2 ...
+        //with common, we make -p arg1,arg2
+        .valueSeparator(',')
         .argName(OptionName.PV_PREFERENCE.getArgName())
         .desc(String.format("Your preference ranking of pv websites, separated by comma, " +
                 "by default this is -%s %s,%s,%s " +
