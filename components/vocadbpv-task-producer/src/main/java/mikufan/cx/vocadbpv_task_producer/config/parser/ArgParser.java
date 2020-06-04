@@ -9,8 +9,7 @@ import mikufan.cx.vocadbpv_task_producer.config.entity.UserConfig;
 import mikufan.cx.vocadbpv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadbpv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.apache.commons.cli.*;
-
-import java.util.Arrays;
+import org.eclipse.collections.api.factory.Lists;
 
 /**
  * the stateless arg parser
@@ -66,7 +65,10 @@ public final class ArgParser {
     var parser = new DefaultParser();
     CommandLine cmdLine;
     try {
-      log.debug("command line = {}", Arrays.toString(args));
+      log.debug("command line = {}",
+          Lists.fixedSize.of(args).asLazy()
+          .collect(str -> "\"" + str + "\"")
+          .makeString("[", ", ", "]"));
       cmdLine = parser.parse(options, args);
     } catch (ParseException e) {
       printHelp(options);
