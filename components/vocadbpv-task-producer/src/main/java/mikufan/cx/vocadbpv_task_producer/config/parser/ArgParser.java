@@ -33,7 +33,7 @@ public final class ArgParser {
     CommandLine cmdLine = PARSER.realParse(args, options);
 
     //check and get listId
-    int listId = PARSER.getListId(cmdLine);
+    int listId = PARSER.getListId(cmdLine, options);
     //todo: implement the rest
 
     //building
@@ -43,15 +43,17 @@ public final class ArgParser {
     return new AppConfig(builder.build());
   }
 
-  private int getListId(CommandLine cmdLine) throws VocaDbPvTaskException {
-    int listId;
+  private int getListId(CommandLine cmdLine, Options options) throws VocaDbPvTaskException {
+    if (!cmdLine.hasOption(OptionName.LIST_ID.getOptName())){
+      printHelp(options);
+      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MITA0003, "Plz give me the ID of VocaDB favourite list");
+    }
     var listIdStr = cmdLine.getOptionValue(OptionName.LIST_ID.getOptName());
     try {
-      listId = Integer.parseInt(listIdStr);
+      return Integer.parseInt(listIdStr);
     } catch (NumberFormatException e){
-      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MITA0002, "Invalid ID of VocaDB favourite list");
+      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MITA0004, "Invalid ID of VocaDB favourite list, " + listIdStr);
     }
-    return listId;
   }
 
   private CommandLine realParse(String[] args, Options options) throws VocaDbPvTaskException {
@@ -61,12 +63,12 @@ public final class ArgParser {
       log.debug("command line = {}", Arrays.toString(args));
       cmdLine = parser.parse(options, args);
     } catch (ParseException e) {
-      PARSER.printHelp(options);
+      printHelp(options);
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MITA0001, "Fail to parse arguments, see \"Caused by\"", e);
     }
     if (cmdLine.hasOption(OptionName.HELP.getOptName())){
-      PARSER.printHelp(options);
-      System.exit(3);
+      printHelp(options);
+      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MITA0002, "Only printing help message");
     }
     return cmdLine;
   }
