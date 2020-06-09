@@ -1,6 +1,6 @@
 package mikufan.cx.common_entity.pv.util;
 
-import mikufan.cx.common_entity.common.PvService;
+import mikufan.cx.common_entity.pv.PvService;
 import mikufan.cx.common_entity.pv.VocaDbPv;
 import mikufan.cx.common_entity.vocadb.ResponseSongList;
 import mikufan.cx.common_util.jackson.ObjMapperUtil;

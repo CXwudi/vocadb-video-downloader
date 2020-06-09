@@ -2,7 +2,7 @@ package mikufan.cx.vocadbpv_task_producer.config.parser;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_entity.common.PvService;
+import mikufan.cx.common_entity.pv.PvService;
 import mikufan.cx.vocadbpv_task_producer.util.exception.VocaDbPvTaskException;
 import org.apache.commons.cli.*;
 import org.junit.jupiter.api.Test;
@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
-class ArgParserTest {
+class ConfigFactoryParsingTest {
   private final DefaultParser parser = new DefaultParser();
-  private final Options options = OptionsFactory.createOptions();
+  private final Options options = new OptionsFactory().createOptions();
 
   /**
    * print and make sure help message looks correct
@@ -37,7 +37,7 @@ class ArgParserTest {
   @SneakyThrows
   void testInvalidOptions() {
     assertThrows(UnrecognizedOptionException.class, () -> parser.parse(options, new String[]{"-asd"}));
-    assertThrows(VocaDbPvTaskException.class, () -> ArgParser.parse(new String[]{"-asd"}));
+    assertThrows(VocaDbPvTaskException.class, () -> ConfigFactory.parse(new String[]{"-asd"}));
   }
 
   /**
@@ -50,12 +50,12 @@ class ArgParserTest {
     //put all options that requires arg to this array
     var opts = new OptionName[]{
         OptionName.LIST_ID, OptionName.REFERENCE_FILE, OptionName.TASK_FILE, OptionName.TASK_NAME,
-        OptionName.PV_PREFERENCE
+        OptionName.PV_PREFERENCE, OptionName.USER_AGENT
     };
     for (var opt : opts){
       assertThrows(MissingArgumentException.class, () -> parser.parse(options, new String[]{"-" + opt.getOptName()}));
       assertThrows(MissingArgumentException.class, () -> parser.parse(options, new String[]{"-" + opt.getOptLongName()}));
-      assertThrows(VocaDbPvTaskException.class, () -> ArgParser.parse(new String[]{"-" + opt.getOptName()}));
+      assertThrows(VocaDbPvTaskException.class, () -> ConfigFactory.parse(new String[]{"-" + opt.getOptName()}));
     }
 
   }
@@ -67,7 +67,7 @@ class ArgParserTest {
   @SneakyThrows
   void testEmptyArgInOpt2() {
     assertThrows(MissingArgumentException.class, () -> parser.parse(options, new String[]{"-i", "-f", "file.txt"}));
-    assertThrows(VocaDbPvTaskException.class, () -> ArgParser.parse(new String[]{"-i", "-f", "file.txt"}));
+    assertThrows(VocaDbPvTaskException.class, () -> ConfigFactory.parse(new String[]{"-i", "-f", "file.txt"}));
   }
 
   /**
@@ -75,8 +75,8 @@ class ArgParserTest {
    */
   @Test
   void testEmptyArg() {
-    assertThrows(VocaDbPvTaskException.class, () -> ArgParser.parse(new String[]{}));
-    assertThrows(VocaDbPvTaskException.class, () -> ArgParser.parse(new String[]{""}));
+    assertThrows(VocaDbPvTaskException.class, () -> ConfigFactory.parse(new String[]{}));
+    assertThrows(VocaDbPvTaskException.class, () -> ConfigFactory.parse(new String[]{""}));
   }
 
   /**

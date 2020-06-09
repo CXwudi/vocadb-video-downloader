@@ -2,7 +2,6 @@ package mikufan.cx.common_entity.pv;
 
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
-import mikufan.cx.common_entity.common.PvService;
 import mikufan.cx.common_entity.pv.util.SamplePvsGenerator;
 import org.eclipse.collections.api.list.MutableList;
 import org.junit.jupiter.api.Test;

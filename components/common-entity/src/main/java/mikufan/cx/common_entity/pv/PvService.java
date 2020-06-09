@@ -1,4 +1,4 @@
-package mikufan.cx.common_entity.common;
+package mikufan.cx.common_entity.pv;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -10,6 +10,7 @@ import java.util.Objects;
 
 /**
  * enum of pv service that currently supported. <br/>
+ * the order declared is also the default order of pv service preference
  * note: don't add pv service that our code base is not supported
  * @author CX无敌
  */

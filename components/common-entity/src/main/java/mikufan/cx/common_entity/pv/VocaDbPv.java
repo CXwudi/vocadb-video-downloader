@@ -3,7 +3,6 @@ package mikufan.cx.common_entity.pv;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
-import mikufan.cx.common_entity.common.PvService;
 
 /**
  * A flatten class for representing a PV with a VocaDB songId to identify itself.

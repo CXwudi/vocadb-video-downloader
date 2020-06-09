@@ -1,6 +1,5 @@
 package mikufan.cx.common_entity.pv;
 
-import mikufan.cx.common_entity.common.PvService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

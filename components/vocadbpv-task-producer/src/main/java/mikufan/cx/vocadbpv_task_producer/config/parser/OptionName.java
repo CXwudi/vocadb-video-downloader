@@ -10,10 +10,11 @@ import lombok.Getter;
 @AllArgsConstructor @Getter
 public enum OptionName {
   LIST_ID("i", "list-id", "list-id"),
-  TASK_NAME("name", "task-name", "name"),
-  TASK_FILE("f", "task-file", "file"),
-  REFERENCE_FILE("r", "reference-file", "file"),
+  TASK_NAME("tn", "task-name", "name"),
+  TASK_FILE("f", "task-file", "task-file"),
+  REFERENCE_FILE("r", "reference-file", "ref-file"),
   PV_PREFERENCE("p","pv-preference", "websites"),
+  USER_AGENT("ua", "user-agent", "user agent"),
 
   HELP("help", null, null);
 
