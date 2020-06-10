@@ -35,6 +35,7 @@ public final class ConfigFactory {
     builder.taskJsonFile(parser.getTaskJson(cmdLine, listId));
     builder.referenceJsonFile(parser.getReferenceJson(cmdLine, listId));
     builder.pvPerfOrd(parser.getPvPref(cmdLine));
+    builder.userAgent(parser.getUserAgent(cmdLine));
 
 
     return new AppConfig(builder.build());
