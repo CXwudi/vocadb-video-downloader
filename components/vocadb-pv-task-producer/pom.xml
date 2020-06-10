@@ -25,7 +25,7 @@
     </dependency>
     <dependency>
       <groupId>mikufan.cx</groupId>
-      <artifactId>task-producer-api</artifactId>
+      <artifactId>common-role</artifactId>
     </dependency>
 
     <!-- application frameworks -->

@@ -14,8 +14,8 @@
   <modules>
     <module>../components/common-entity</module>
     <module>../components/common-util</module>
-    <module>../components/vocadb-pv-task-producer</module>
     <module>../components/common-role</module>
+    <module>../components/vocadb-pv-task-producer</module>
   </modules>
 
   <name>Project VD - Video Downloader for Vocal Characters</name>
@@ -74,8 +74,8 @@
       </dependency>
       <dependency>
         <groupId>mikufan.cx</groupId>
-        <artifactId>task-producer-api</artifactId>
-        <version>${module.version}</version>
+        <artifactId>common-role</artifactId>
+        <version>4.0.0-SNAPSHOT</version>
       </dependency>
 
       <!-- honor utils -->

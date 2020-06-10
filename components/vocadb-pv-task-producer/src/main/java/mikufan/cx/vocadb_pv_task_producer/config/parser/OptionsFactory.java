@@ -29,6 +29,17 @@ public final class OptionsFactory {
         .desc("Which VocaDB favourite list does this task based on, input the id")
         .build()); //we didn't make this required option as it will break the -help usage
 
+    // second mandatory option needed for non -help use
+    options.addOption(Option.builder(OptionName.USER_AGENT.getOptName())
+        .longOpt(OptionName.USER_AGENT.getOptLongName())
+        .hasArg()
+        .argName(OptionName.USER_AGENT.getArgName())
+        .desc("I am sorry, but you have to input your own user-agent, we don't provide it. " +
+            "(so that ban by improper use of this software won't affect all other users). " +
+            "Base on VocaDB Admin's advice, it's better to provide your VocaDB username"
+        )
+        .build());
+
     options.addOption(Option.builder(OptionName.TASK_NAME.getOptName())
         .longOpt(OptionName.TASK_NAME.getOptLongName())
         .hasArg()
@@ -67,25 +78,12 @@ public final class OptionsFactory {
         .valueSeparator(',')
         .argName(OptionName.PV_PREFERENCE.getArgName())
         .desc(String.format("Your preference ranking of pv websites, separated by comma, " +
-                "by default this is \"-%s %s,%s,%s\" (no space around comma)" +
+                "by default this is \"-%s %s\" (no space around comma)" +
                 "Currently we only support websites listed in the default order",
             OptionName.PV_PREFERENCE.getOptName(),
-            PvService.NICONICO.getServiceName(),
-            PvService.YOUTUBE.getServiceName(),
-            PvService.BILIBILI.getServiceName()))
+            PvService.getDefaultOrder().makeString(",")))
         .build()
     );
-
-    // actually another mandatory field for use
-    options.addOption(Option.builder(OptionName.USER_AGENT.getOptName())
-        .longOpt(OptionName.USER_AGENT.getOptLongName())
-        .hasArg()
-        .argName(OptionName.USER_AGENT.getArgName())
-        .desc("I am sorry, but you have to input your own user-agent, we don't provide it. " +
-            "(so that ban by improper use of this software won't affect all other users)" +
-            "Base on VocaDB Admin's advice, it's better to provide your VocaDB username"
-            )
-        .build());
 
     return options;
   }

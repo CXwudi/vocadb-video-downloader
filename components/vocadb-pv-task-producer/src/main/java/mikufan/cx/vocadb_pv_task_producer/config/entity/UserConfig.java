@@ -6,7 +6,7 @@ import lombok.NonNull;
 import mikufan.cx.common_entity.pv.PvService;
 import org.eclipse.collections.api.list.ImmutableList;
 
-import java.io.File;
+import java.nio.file.Path;
 
 /**
  * entity class to store user arguments
@@ -27,13 +27,13 @@ public class UserConfig {
   /**
    * the json file, where to store or update the task,
    */
-  @NonNull private final File taskJsonFile;
+  @NonNull private final Path taskJsonFile;
 
   /**
    * the json file as well, to store all info about songs in the task.
    * this is useful for other components in the whole Project-VD later
    */
-  @NonNull private final File referenceJsonFile;
+  @NonNull private final Path referenceJsonFile;
 
   /**
    * do you prefer youtube over niconico, or vise area, tell me your preference

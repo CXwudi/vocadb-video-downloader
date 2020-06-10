@@ -30,12 +30,11 @@ public final class ConfigFactory {
     var builder = UserConfig.builder();
     var listId = parser.getListIdOrThrow(cmdLine, options);
     builder.listId(listId);
+    builder.userAgent(parser.getUserAgent(cmdLine));
     builder.taskName(parser.getTaskName(cmdLine, listId));
     builder.taskJsonFile(parser.getTaskJson(cmdLine, listId));
     builder.referenceJsonFile(parser.getReferenceJson(cmdLine, listId));
-    //todo: implement these two
     builder.pvPerfOrd(parser.getPvPref(cmdLine));
-    builder.userAgent("my ua");
 
 
     return new AppConfig(builder.build());

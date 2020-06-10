@@ -3,7 +3,9 @@ package mikufan.cx.common_entity.pv;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.eclipse.collections.api.factory.Lists;
 import org.eclipse.collections.api.factory.Maps;
+import org.eclipse.collections.api.list.ImmutableList;
 import org.eclipse.collections.api.map.ImmutableMap;
 
 import java.util.Objects;
@@ -33,13 +35,23 @@ public enum PvService {
    * map to hold service name -> enum, construct at jvm startup
    */
   private static final ImmutableMap<String, PvService> NAME_TO_ENUM_MAP;
+  /**
+   * default order of preference
+   */
+  private static final ImmutableList<PvService> DEFAULT_ORDER;
 
   static {
     NAME_TO_ENUM_MAP = Maps.immutable.of(
         PvServiceString.NICONICO_STR, NICONICO,
         PvServiceString.YOUTUBE_STR, YOUTUBE,
         PvServiceString.BILIBILI_STR, BILIBILI
-        );
+    );
+
+    DEFAULT_ORDER = Lists.immutable.of(
+        NICONICO,
+        YOUTUBE,
+        BILIBILI
+    );
   }
 
   /**
@@ -52,6 +64,10 @@ public enum PvService {
 
   public static boolean contain(String serviceName){
     return NAME_TO_ENUM_MAP.containsKey(serviceName);
+  }
+
+  public static ImmutableList<PvService> getDefaultOrder() {
+    return DEFAULT_ORDER;
   }
 
   /**
