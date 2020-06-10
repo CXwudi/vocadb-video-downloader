@@ -10,27 +10,29 @@
 # Introduction
 
 Project VD: Video Downloader for Vocal Characters  
-The successor of my previous project [Niconico Video Downloader](https://github.com/CXwudi/Niconico-Video-Downloader).
+A batching Vocaloid PV downloader driven by Youtube-dl, FFmpeg and Python Mutagen lib, that can download a list of Vocalid PVs, extract and tags these audio with information and thumbnails  
+This is the successor of my previous project [Niconico Video Downloader](https://github.com/CXwudi/Niconico-Video-Downloader).
 
 Aim to provide the following features:
 
-* Support Vocaloid producers' common video website like Youtube, Niconico, Bilibili (and more if needed)
-* Can get a list of PVs to download from VocaDB favourite list (usually imported from youtube/niconico favourite list using VocaDB website)
-* Can download Vocaloid PV from supported websites
+* Support reading the favourite list in VocaDB, and produce/update the json formatted task file
+  * favourite lists can be imported from youtube/niconico favourite list using the import feature in VocaDB website
+  * Support of reading the favourite list directly from local file, Youtube, Niconico, Bilibili will be added in the future
+* Can download Vocaloid PV from supported websites (Youtube, Niconico, Bilibili), and update the json formatted task file
 * Can extract audio from Vocaloid PV and embed thumbnail and tags using information from VocaDB
 
-The project is currently under development, current progresses are:
+The project is WIP, current progresses are:
 
 1. ✅ common-entity (define entites obj for stroing information)
 2. ✅ common-util (some util classes and function shared across all maven modules)
-3. 🔄 vocadbpv-task-producer (read VocaDB favourite list and produce/update the pv task in json)
+3. 🔄 vocadb-pv-task-producer (read VocaDB favourite list and produce/update the pv task and pv information in json)
 4. ❌ pv-downloader-util (utils for downloading pv, driven by youtube-dl)
-5. ❌ vocadbpv-video-downloader (download PV base on pv task)
-6. ❌ vocadbpv-postprocessor (extract audio and add tags and thumbnails to audio files, driven by python library, mutagen)
+5. ❌ vocadb-pv-downloader (fetch the video, thumbnail and tags of PVs base on pv task and pv information in json)
+6. ❌ vocadb-pv-postprocessor (extract audio and add tags and thumbnails to audio files)
 
 # Appreciation
 
-//TODO: complete it
+I'd like to thanks for the following awesome project:
 
 * [VocaDB](https://github.com/VocaDB/vocadb) and its RestAPI
 * [youtube-dl](https://github.com/ytdl-org/youtube-dl)
