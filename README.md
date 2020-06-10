@@ -9,22 +9,30 @@
 
 # Introduction
 
-Vocal Character Video Downloader,
-the successor of my previous project [Niconico Video Downloader](https://github.com/CXwudi/Niconico-Video-Downloader).
+Project VD: Video Downloader for Vocal Characters  
+A batching Vocaloid PV downloader driven by Youtube-dl, FFmpeg and Python Mutagen lib, that can download a list of Vocalid PVs, extract and tags these audio with information and thumbnails  
+This is the successor of my previous project [Niconico Video Downloader](https://github.com/CXwudi/Niconico-Video-Downloader).
 
 Aim to provide the following features:
 
-* Support Youtube, Niconico, Bilibili and any future website support
-* Able to download Vocaloid PV from sites mentioned above
-* Able to extract audio from Vocaloid PV and embed thumbnail and tags using information from VocaDB 
+* Support reading the favourite list in VocaDB, and produce/update the json formatted task file
+  * favourite lists can be imported from youtube/niconico favourite list using the import feature in VocaDB website
+  * Support of reading the favourite list directly from local file, Youtube, Niconico, Bilibili will be added in the future
+* Can download Vocaloid PV from supported websites (Youtube, Niconico, Bilibili), and update the json formatted task file
+* Can extract audio from Vocaloid PV and embed thumbnail and tags using information from VocaDB
 
-The project is currently under the developing stage...
+The project is WIP, current progresses are:
+
+1. ✅ common-entity (define entites obj for stroing information)
+2. ✅ common-util (some util classes and function shared across all maven modules)
+3. 🔄 vocadb-pv-task-producer (read VocaDB favourite list and produce/update the pv task and pv information in json)
+4. ❌ pv-downloader-util (utils for downloading pv, driven by youtube-dl)
+5. ❌ vocadb-pv-downloader (fetch the video, thumbnail and tags of PVs base on pv task and pv information in json)
+6. ❌ vocadb-pv-postprocessor (extract audio and add tags and thumbnails to audio files)
 
 # Appreciation
 
-//TODO: complete
+I'd like to thanks for the following awesome project:
 
 * [VocaDB](https://github.com/VocaDB/vocadb) and its RestAPI
 * [youtube-dl](https://github.com/ytdl-org/youtube-dl)
-
-
