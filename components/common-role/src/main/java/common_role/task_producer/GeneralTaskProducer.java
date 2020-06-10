@@ -1,4 +1,4 @@
-package mikufan.cx.task_producer;
+package common_role.task_producer;
 
 /**
  * Just an interface telling this is a task producer, we really can not give a concrete declaration

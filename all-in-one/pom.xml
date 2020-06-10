@@ -12,10 +12,10 @@
     <maven>3.5.0</maven> <!-- not required but better to add this, good for updating and solving maven problems-->
   </prerequisites>
   <modules>
-    <module>../components/task-producer-api</module>
     <module>../components/common-entity</module>
-    <module>../components/vocadb-pv-task-producer</module>
     <module>../components/common-util</module>
+    <module>../components/vocadb-pv-task-producer</module>
+    <module>../components/common-role</module>
   </modules>
 
   <name>Project VD - Video Downloader for Vocal Characters</name>
