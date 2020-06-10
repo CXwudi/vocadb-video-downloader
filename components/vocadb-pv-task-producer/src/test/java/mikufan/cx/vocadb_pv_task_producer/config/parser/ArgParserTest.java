@@ -7,6 +7,7 @@ import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import org.apache.commons.cli.Options;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,6 +25,14 @@ class ArgParserTest {
     var cmdLine = parser.parseArgs(new String[]{"-i", "1234", "-f", "myTask.json"}, options);
     var path = parser.getTaskJson(cmdLine, parser.getListIdOrThrow(cmdLine, options));
     assertEquals(Path.of(".", "myTask.json").toAbsolutePath().normalize(), path.toAbsolutePath());
+  }
+
+  @Test @SneakyThrows
+  void testThrowOnDirInGetTaskFile(){
+    var path = Files.createDirectory(Path.of("myTempDir"));
+    path.toFile().deleteOnExit();
+    var cmdLine = parser.parseArgs(new String[]{"-i", "1234", "-f", path.getFileName().toString()}, options);
+    assertThrows(VocaDbPvTaskException.class, () -> parser.getTaskJson(cmdLine, parser.getListIdOrThrow(cmdLine, options)));
   }
 
   /**
