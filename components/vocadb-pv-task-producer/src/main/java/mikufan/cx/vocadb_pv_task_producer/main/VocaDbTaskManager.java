@@ -18,7 +18,7 @@ public class VocaDbTaskManager {
     var producer = new VocaDbTaskUpdater(
         config.userConfig.getListId(),
         config.userConfig.getUserAgent(),
-        50); //TODO: replace the hardcode number from systemConfig
+        config.systemConfig.getMaxResult());
 
     //4. write back task
 
