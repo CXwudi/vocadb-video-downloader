@@ -120,6 +120,7 @@ cmake-build-*/
 # IntelliJ
 out/
 target/
+*.run.xml
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
