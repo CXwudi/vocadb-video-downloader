@@ -1,4 +1,4 @@
-package common_role.task_producer;
+package mikufan.cx.common_role.task_producer;
 
 /**
  *

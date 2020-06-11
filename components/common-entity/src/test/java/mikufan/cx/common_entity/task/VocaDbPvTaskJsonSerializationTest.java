@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
 class VocaDbPvTaskJsonSerializationTest {
-  private ObjectMapper mapper = ObjMapperUtil.createDefault();
+  private ObjectMapper mapper = ObjMapperUtil.createDefaultJsonMapper();
 
   private File parent = new File("src/test/resources/task/");
 

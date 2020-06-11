@@ -24,7 +24,7 @@ public class JsonPojoTranslator<P> implements PojoFileTranslator<P> {
   private final ObjectMapper mapper;
 
   public static <T> JsonPojoTranslator<T> createWithDefaultMapper(){
-    return new JsonPojoTranslator<>(ObjMapperUtil.createDefault());
+    return new JsonPojoTranslator<>(ObjMapperUtil.createDefaultJsonMapper());
   }
 
   @Override

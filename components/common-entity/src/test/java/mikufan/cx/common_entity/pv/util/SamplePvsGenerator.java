@@ -19,7 +19,7 @@ public class SamplePvsGenerator {
     var file = new File("src/test/resources/vocadb/songListNeededResponse.json");
     ResponseSongList response = null;
     try {
-      response = ObjMapperUtil.createDefaultForReadOnly().readValue(file, ResponseSongList.class);
+      response = ObjMapperUtil.createDefaultJsonMapperForReadOnly().readValue(file, ResponseSongList.class);
     } catch (IOException e) {
       fail(e);
     }

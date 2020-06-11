@@ -59,7 +59,7 @@
 
   </properties>
 
-  <dependencyManagement> <!-- declear dependencies that is useful in this project -->
+  <dependencyManagement> <!-- declare dependencies that is useful in this project -->
     <dependencies>
       <!-- all my modules -->
       <dependency>

@@ -1,0 +1,2 @@
+# how many songs maximum can we get from one GET request on songList endpoint
+maxResult: 50
