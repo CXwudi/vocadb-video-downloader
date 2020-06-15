@@ -31,10 +31,11 @@ public class SystemConfig {
    */
   @SneakyThrows(VocaDbPvTaskException.class)
   private static SystemConfig createInstance() {
-    val systemConfigFile = Path.of( "config", "system-config.yaml").toAbsolutePath();
+    val systemConfigFile = Path.of( "config", "system-config.yaml");
     val yamlMapper = YamlMapperUtil.createDefaultForReadOnly();
 
     try {
+      //maybe because it is in the class creation stage, we can't use PojoTranslator here, otherwise it reads as linked hashmap.
       return yamlMapper.readValue(systemConfigFile.toFile(), SystemConfig.class);
     } catch (IOException e) {
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_901, "Fail to read system config from " + systemConfigFile, e);

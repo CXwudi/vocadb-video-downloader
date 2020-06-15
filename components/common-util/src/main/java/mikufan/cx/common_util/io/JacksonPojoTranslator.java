@@ -8,9 +8,9 @@ import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.common_util.jackson.JsonMapperUtil;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Optional;
 
 /**
@@ -18,19 +18,19 @@ import java.util.Optional;
  */
 @Getter @Slf4j
 @AllArgsConstructor
-public class JsonPojoTranslator<P> implements PojoFileTranslator<P> {
+public class JacksonPojoTranslator<P> implements PojoFileTranslator<P> {
 
   @NonNull
   private final ObjectMapper mapper;
 
-  public static <T> JsonPojoTranslator<T> createWithDefaultMapper(){
-    return new JsonPojoTranslator<>(JsonMapperUtil.createDefault());
+  public static <T> JacksonPojoTranslator<T> createWithDefaultMapper(){
+    return new JacksonPojoTranslator<>(JsonMapperUtil.createDefault());
   }
 
   @Override
-  public Optional<P> read(File file) {
+  public Optional<P> read(Path file) {
     try {
-      return Optional.of(mapper.readValue(file, new TypeReference<P>() {}));
+      return Optional.of(mapper.readValue(file.toFile(), new TypeReference<P>() {}));
     } catch (IOException e) {
       log.error("java.io.IOException in read", e);
       return Optional.empty();
@@ -39,10 +39,10 @@ public class JsonPojoTranslator<P> implements PojoFileTranslator<P> {
   }
 
   @Override
-  public boolean write(P pojo, File dest) {
+  public boolean write(P pojo, Path dest) {
     try {
-      mapper.writeValue(dest, pojo);
-      return Files.exists(dest.toPath());
+      mapper.writeValue(dest.toFile(), pojo);
+      return Files.exists(dest);
     } catch (IOException e) {
       log.error("java.io.IOException in write", e);
       return false;

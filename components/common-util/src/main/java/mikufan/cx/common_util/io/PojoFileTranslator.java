@@ -1,6 +1,6 @@
 package mikufan.cx.common_util.io;
 
-import java.io.File;
+import java.nio.file.Path;
 import java.util.Optional;
 
 /**
@@ -15,7 +15,7 @@ public interface PojoFileTranslator<P> {
    * @param file the file to read
    * @return the pojo wrapped in Option if read success, else {@link Optional#empty()}
    */
-  Optional<P> read(File file);
+  Optional<P> read(Path file);
 
   /**
    * write a pojo back to a file
@@ -23,6 +23,6 @@ public interface PojoFileTranslator<P> {
    * @param dest the file where to write the pojo
    * @return {@code true} if success
    */
-  boolean write(P pojo, File dest);
+  boolean write(P pojo, Path dest);
 
 }

@@ -3,21 +3,22 @@ package mikufan.cx.common_util.io;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import mikufan.cx.common_util.jackson.YamlMapperUtil;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Slf4j
-class JsonPojoTranslatorTest {
-  private final JsonPojoTranslator<Dummy> dummyTranslator = new JsonPojoTranslator<>(JsonMapper.builder().build());
-  private final File dir = new File("src/test/resources");
-  private final File dummyJson = new File(dir, "dummy.json");
-  private final File missingFile = new File(dir, "missing.json");
+class JacksonPojoTranslatorTest {
+  private final JacksonPojoTranslator<Dummy> dummyTranslator = new JacksonPojoTranslator<>(JsonMapper.builder().build());
+  private final Path dir = Path.of("src/test/resources");
+  private final Path dummyJson = dir.resolve("dummy.json");
+  private final Path missingFile = dir.resolve("missing.json");
 
   private final Dummy dummyObj = new Dummy("CX", 22);
 
@@ -28,6 +29,7 @@ class JsonPojoTranslatorTest {
   void testRead() {
     Optional<Dummy> dummy = dummyTranslator.read(dummyJson);
     assertTrue(dummy.isPresent());
+    log.info("dummy = {}", dummy.get());
   }
 
   /**
@@ -44,8 +46,8 @@ class JsonPojoTranslatorTest {
    */
   @Test @SneakyThrows
   void testWrite(){
-    var tempFile = new File(dir, "temp.json");
-    tempFile.deleteOnExit();
+    var tempFile = dir.resolve("temp.json");
+    tempFile.toFile().deleteOnExit();
     assertTrue(dummyTranslator.write(dummyObj, tempFile));
   }
 
@@ -54,11 +56,20 @@ class JsonPojoTranslatorTest {
    */
   @Test @SneakyThrows
   void testOverWrite(){
-    var tempFile = new File(dir, "temp.json");
-    if (Files.notExists(tempFile.toPath()) && !tempFile.createNewFile()){ //make sure a file exists
+    var tempFile = dir.resolve("temp.json");
+    if (Files.notExists(tempFile) && !tempFile.toFile().createNewFile()){ //make sure a file exists
       fail();
     }
-    tempFile.deleteOnExit();
+    tempFile.toFile().deleteOnExit();
     assertTrue(dummyTranslator.write(dummyObj, tempFile));
+  }
+
+  @Test
+  void testReadYaml(){
+    var dummyYaml = dir.resolve("dummyYaml.yaml");
+    var reader = new JacksonPojoTranslator<Dummy>(YamlMapperUtil.createDefaultForReadOnly());
+    var yamlOpt = reader.read(dummyYaml);
+    log.info("yamlOpt = {}", yamlOpt.get());
+    assertTrue(true);
   }
 }

@@ -157,7 +157,7 @@ public final class ArgParser {
       var knownOrder = Lists.mutable.of(prefArr)
           .collect(PvService::enumOf);
 
-      Lists.mutable.of(PvService.values())
+      Lists.mutable.withAll(PvService.getDefaultOrder())
           //this introduce O(N^2)
           .rejectWith((service, order) -> order.contains(service), knownOrder)
           .injectInto(knownOrder, (order, service) -> {
