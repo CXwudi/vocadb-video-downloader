@@ -15,19 +15,19 @@ public class Main {
     var id = appConfig.userConfig.getListId();
     log.info("id = {}", id);
 
-    //1. read local task if exist
+    // == 1. read local task if exist ==
 
-    //2. read local ref if exist
+    // == 2. read local ref if exist ==
 
-    //3. update or create the task and the ref
+    // == 3. update or create the task and the ref  ==
     var producer = new VocaDbTaskUpdater(
         appConfig.userConfig.getListId(),
         appConfig.userConfig.getUserAgent(),
         appConfig.systemConfig.getMaxResult());
 
-    //4. write back task
+    // == 4. write back task ==
 
-    //5. write back ref
+    // == 5. write back ref ==
 
   }
 }
