@@ -2,7 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import mikufan.cx.common_util.jackson.ObjMapperUtil;
+import mikufan.cx.common_util.jackson.YamlMapperUtil;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 
@@ -32,7 +32,7 @@ public class SystemConfig {
   @SneakyThrows(VocaDbPvTaskException.class)
   private static SystemConfig createInstance() {
     val systemConfigFile = Path.of( "config", "system-config.yaml").toAbsolutePath();
-    val yamlMapper = ObjMapperUtil.createDefaultYamlMapperForReadOnly();
+    val yamlMapper = YamlMapperUtil.createDefaultForReadOnly();
 
     try {
       return yamlMapper.readValue(systemConfigFile.toFile(), SystemConfig.class);

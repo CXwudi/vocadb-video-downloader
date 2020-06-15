@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_util.jackson.ObjMapperUtil;
+import mikufan.cx.common_util.jackson.JsonMapperUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class JsonPojoTranslator<P> implements PojoFileTranslator<P> {
   private final ObjectMapper mapper;
 
   public static <T> JsonPojoTranslator<T> createWithDefaultMapper(){
-    return new JsonPojoTranslator<>(ObjMapperUtil.createDefaultJsonMapper());
+    return new JsonPojoTranslator<>(JsonMapperUtil.createDefault());
   }
 
   @Override

@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import mikufan.cx.common_entity.pv.PvService;
 import mikufan.cx.common_entity.pv.VocaDbPv;
-import mikufan.cx.common_util.jackson.ObjMapperUtil;
+import mikufan.cx.common_util.jackson.JsonMapperUtil;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
 class VocaDbPvJsonSerializationTest {
-  private final ObjectMapper mapper = ObjMapperUtil.createDefaultJsonMapper();
+  private final ObjectMapper mapper = JsonMapperUtil.createDefault();
   private final String parent = "src/test/resources/task";
 
   /**

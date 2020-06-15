@@ -3,7 +3,7 @@ package mikufan.cx.common_entity.pv.util;
 import mikufan.cx.common_entity.pv.PvService;
 import mikufan.cx.common_entity.pv.VocaDbPv;
 import mikufan.cx.common_entity.vocadb.ResponseSongList;
-import mikufan.cx.common_util.jackson.ObjMapperUtil;
+import mikufan.cx.common_util.jackson.JsonMapperUtil;
 import org.eclipse.collections.api.list.MutableList;
 
 import java.io.File;
@@ -19,7 +19,7 @@ public class SamplePvsGenerator {
     var file = new File("src/test/resources/vocadb/songListNeededResponse.json");
     ResponseSongList response = null;
     try {
-      response = ObjMapperUtil.createDefaultJsonMapperForReadOnly().readValue(file, ResponseSongList.class);
+      response = JsonMapperUtil.createDefaultForReadOnly().readValue(file, ResponseSongList.class);
     } catch (IOException e) {
       fail(e);
     }
