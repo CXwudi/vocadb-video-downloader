@@ -90,9 +90,9 @@ public final class OptionsFactory {
 
   static String getDefaultTaskFileName(String listId) {
     if (listId == null){
-      return String.format("task_for_list<%s>", OptionName.TASK_FILE.getArgName());
+      return String.format("task_for_list_<%s>", OptionName.TASK_FILE.getArgName());
     } else {
-      return String.format("task_for_list%s", listId);
+      return String.format("task_for_list_%s", listId);
     }
   }
 
@@ -106,9 +106,9 @@ public final class OptionsFactory {
 
   static String getDefaultRefFileName(String ref){
     if (ref == null){
-      return String.format("vocadb_list<%s>_ref", OptionName.REFERENCE_FILE.getArgName());
+      return String.format("vocadb_list_<%s>_ref", OptionName.REFERENCE_FILE.getArgName());
     } else {
-      return String.format("vocadb_list%s_ref", ref);
+      return String.format("vocadb_list_%s_ref", ref);
     }
   }
 }
