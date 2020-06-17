@@ -16,16 +16,29 @@
       <!-- <LevelRangeFilter minLevel="TRACE" maxLevel="WARN" onMatch="ACCEPT" onMismatch="DENY"/> -->
       <PatternLayout pattern="${myCurrentBestFormatter}"/>
     </Console>
+
+    <RollingRandomAccessFile name="rolling file" fileName="logs/app.log"
+                             filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log">
+      <PatternLayout>
+        <Pattern>${myCurrentBestFormatter}</Pattern>
+      </PatternLayout>
+      <Policies>
+        <OnStartupTriggeringPolicy />
+        <TimeBasedTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="250 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy fileIndex="min" max="7"/> <!-- this means oldest log on log 7 -->
+    </RollingRandomAccessFile>
   </Appenders>
 
   <Loggers>
     <!-- global logger setup-->
     <Root level="info">
-      <AppenderRef ref="stdout"/>
+      <AppenderRef ref="rolling file"/>
     </Root>
 
     <Logger name="mikufan.cx" level="debug" additivity="false">
-      <AppenderRef ref="stdout"/>
+      <AppenderRef ref="rolling file"/>
     </Logger>
   </Loggers>
 

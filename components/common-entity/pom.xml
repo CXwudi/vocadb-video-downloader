@@ -16,7 +16,6 @@
 
   <description>
     contains common entities that are used across different modules.
-    also contains a log4j2.xml config that can be used globally
   </description>
 
   <dependencies>

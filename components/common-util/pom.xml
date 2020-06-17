@@ -13,7 +13,7 @@
   <artifactId>common-util</artifactId>
 
   <description>
-    contains common classes or function to be used across all modules.
+    contains common utility classes and functions to be used across all modules.
     also contains a log4j2.xml file that can be used globally
   </description>
 
