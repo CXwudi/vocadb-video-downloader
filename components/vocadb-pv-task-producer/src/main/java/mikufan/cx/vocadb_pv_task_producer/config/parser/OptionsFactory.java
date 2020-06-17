@@ -106,7 +106,7 @@ public final class OptionsFactory {
 
   static String getDefaultRefFileName(String ref){
     if (ref == null){
-      return String.format("vocadb_list<%s>_ref", ref);
+      return String.format("vocadb_list<%s>_ref", OptionName.REFERENCE_FILE.getArgName());
     } else {
       return String.format("vocadb_list%s_ref", ref);
     }

@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Objects;
-
 @Getter
 public class ItemsItem implements Comparable<ItemsItem> {
 
@@ -21,23 +19,6 @@ public class ItemsItem implements Comparable<ItemsItem> {
   @Setter
   @JsonProperty("order")
   private int order;
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ItemsItem itemsItem = (ItemsItem) o;
-    return Objects.equals(song, itemsItem.song);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.nonNull(song) ? song.getId() : 0;
-  }
 
   @Override
   public String toString() {

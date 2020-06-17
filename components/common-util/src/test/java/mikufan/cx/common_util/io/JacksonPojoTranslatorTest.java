@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @Slf4j
 class JacksonPojoTranslatorTest {
   private final JacksonPojoTranslator<Dummy> dummyTranslator = new JacksonPojoTranslator<>(JsonMapper.builder().build());
-  private final Path dir = Path.of("src/test/resources");
+  private final Path dir = Path.of("src/test/resources/test");
   private final Path dummyJson = dir.resolve("dummy.json");
   private final Path missingFile = dir.resolve("missing.json");
 
@@ -66,7 +66,7 @@ class JacksonPojoTranslatorTest {
 
   @Test
   void testReadYaml(){
-    var dummyYaml = dir.resolve("dummyYaml.yaml");
+    var dummyYaml = dir.resolve("test/dummyYaml.yaml");
     var reader = new JacksonPojoTranslator<Dummy>(YamlMapperUtil.createDefaultForReadOnly());
     var yamlOpt = reader.read(dummyYaml);
     log.info("yamlOpt = {}", yamlOpt.get());

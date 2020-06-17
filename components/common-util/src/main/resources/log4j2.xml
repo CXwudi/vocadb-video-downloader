@@ -19,7 +19,8 @@
 
     <RollingRandomAccessFile name="rolling file" fileName="logs/app.log"
                              filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log">
-      <JsonLayout/>
+      <!-- <JsonLayout/> -->
+      <PatternLayout pattern="${myCurrentBestFormatter}"/>
       <Policies>
         <OnStartupTriggeringPolicy />
         <TimeBasedTriggeringPolicy />
