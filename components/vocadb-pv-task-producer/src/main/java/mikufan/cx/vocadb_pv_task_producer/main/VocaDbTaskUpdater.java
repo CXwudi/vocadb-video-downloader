@@ -4,15 +4,15 @@ import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.common_entity.task.VocaDbPvTask;
 import mikufan.cx.common_entity.vocadb.ResponseSongList;
-import mikufan.cx.common_role.task_producer.UpdatableTaskProducer;
 import org.eclipse.collections.api.tuple.Pair;
+import org.eclipse.collections.impl.tuple.Tuples;
 
 /**
  * A stateless task producer to update or create the VocaDb pv task and the reference json
  * @author CX无敌
  */
 @Slf4j
-public class VocaDbTaskUpdater implements UpdatableTaskProducer<Pair<VocaDbPvTask, ResponseSongList>> {
+public class VocaDbTaskUpdater {
 
   private final int listId;
   private final String userAgent;
@@ -25,23 +25,14 @@ public class VocaDbTaskUpdater implements UpdatableTaskProducer<Pair<VocaDbPvTas
   }
 
   /**
-   * create a new {@link VocaDbPvTask} and the reference {@link ResponseSongList}
+   * create or update an existing {@link VocaDbPvTask} and the reference {@link ResponseSongList}
    *
-   * @return new task and the reference
-   */
-  @Override
-  public Pair<VocaDbPvTask, ResponseSongList> create() {
-    return null;
-  }
-
-  /**
-   * update an existing {@link VocaDbPvTask} and the reference {@link ResponseSongList}
-   *
-   * @param taskWithRef the old {@link VocaDbPvTask} and the reference {@link ResponseSongList}
+   * @param inputTask the old {@link VocaDbPvTask}
+   * @param inputRef the old {@link ResponseSongList}
    * @return new updated task and the reference
    */
-  @Override
-  public Pair<VocaDbPvTask, ResponseSongList> update(Pair<VocaDbPvTask, ResponseSongList> taskWithRef) {
-    return null;
+  public Pair<VocaDbPvTask, ResponseSongList> createOrUpdate(VocaDbPvTask inputTask, ResponseSongList inputRef) {
+
+    return Tuples.pair(inputTask, inputRef);
   }
 }

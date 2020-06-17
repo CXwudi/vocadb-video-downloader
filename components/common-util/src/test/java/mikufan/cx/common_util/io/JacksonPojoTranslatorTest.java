@@ -66,7 +66,7 @@ class JacksonPojoTranslatorTest {
 
   @Test
   void testReadYaml(){
-    var dummyYaml = dir.resolve("test/dummyYaml.yaml");
+    var dummyYaml = dir.resolve("dummyYaml.yaml");
     var reader = new JacksonPojoTranslator<Dummy>(YamlMapperUtil.createDefaultForReadOnly());
     var yamlOpt = reader.read(dummyYaml);
     log.info("yamlOpt = {}", yamlOpt.get());
