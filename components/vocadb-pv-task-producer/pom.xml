@@ -17,29 +17,13 @@
     <!-- module dependencies -->
     <dependency>
       <groupId>mikufan.cx</groupId>
-      <artifactId>common-entity</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>mikufan.cx</groupId>
-      <artifactId>common-util</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>mikufan.cx</groupId>
-      <artifactId>common-role</artifactId>
+      <artifactId>common-vocaloid-import-all</artifactId>
     </dependency>
 
     <!-- application frameworks -->
     <dependency> <!-- http-client5 -->
       <groupId>org.apache.httpcomponents.client5</groupId>
       <artifactId>httpclient5</artifactId>
-    </dependency>
-    <dependency> <!-- commons-configuration, read .property files -->
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-configuration2</artifactId>
-    </dependency>
-    <dependency> <!-- support for common configuration -->
-      <groupId>commons-beanutils</groupId>
-      <artifactId>commons-beanutils</artifactId>
     </dependency>
     <dependency>
       <groupId>commons-cli</groupId>

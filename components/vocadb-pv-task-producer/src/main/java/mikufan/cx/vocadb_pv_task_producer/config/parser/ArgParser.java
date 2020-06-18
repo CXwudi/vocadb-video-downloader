@@ -3,14 +3,15 @@ package mikufan.cx.vocadb_pv_task_producer.config.parser;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_entity.pv.PvService;
-import mikufan.cx.common_util.exception.SneakyThrow;
+import mikufan.cx.common_vocaloid_entity.pv.PvService;
+import mikufan.cx.common_vocaloid_util.exception.SneakyThrow;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.apache.commons.cli.*;
 import org.eclipse.collections.api.factory.Lists;
 import org.eclipse.collections.api.list.ImmutableList;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -107,23 +108,42 @@ public final class ArgParser {
   /**
    * parsing {@link OptionName#TASK_FILE}
    */
-  Path getTaskJson(CommandLine cmdLine, int listId){
+  Path getTaskJson(CommandLine cmdLine, int listId) throws VocaDbPvTaskException{
+    Function<String, Path> function = fileName -> {
+      var path = Path.of(fileName);
+      if (Files.isDirectory(path)){
+        return SneakyThrow.theException(new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_008,
+            "the path denoted by the " + OptionName.TASK_FILE.getOptName() + "is a directory: " + path));
+      } else {
+        return path;
+      }
+    };
+
     Supplier<Path> defaultPath = () -> {
       var fileName = OptionsFactory.getDefaultTaskFileName("" + listId);
       return Path.of(fileName + ".json");
     };
-    return getValueOrElse(cmdLine, OptionName.TASK_FILE, Path::of, defaultPath);
+    return getValueOrElse(cmdLine, OptionName.TASK_FILE, function, defaultPath);
   }
 
   /**
    * parsing {@link OptionName#REFERENCE_FILE}
    */
-  Path getReferenceJson(CommandLine cmdLine, int listId){
+  Path getReferenceJson(CommandLine cmdLine, int listId) throws VocaDbPvTaskException {
+    Function<String, Path> function = fileName -> {
+      var path = Path.of(fileName);
+      if (Files.isDirectory(path)){
+        return SneakyThrow.theException(new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_007,
+            "the path denoted by the " + OptionName.REFERENCE_FILE.getOptName() + "is a directory: " + path));
+      } else {
+        return path;
+      }
+    };
     Supplier<Path> defaultPath = () -> {
       var fileName = OptionsFactory.getDefaultRefFileName("" + listId);
       return Path.of(fileName + ".json");
     };
-    return getValueOrElse(cmdLine, OptionName.REFERENCE_FILE, Path::of, defaultPath);
+    return getValueOrElse(cmdLine, OptionName.REFERENCE_FILE, function, defaultPath);
   }
 
   /**
@@ -137,7 +157,7 @@ public final class ArgParser {
       var knownOrder = Lists.mutable.of(prefArr)
           .collect(PvService::enumOf);
 
-      Lists.mutable.of(PvService.values())
+      Lists.mutable.withAll(PvService.getDefaultOrder())
           //this introduce O(N^2)
           .rejectWith((service, order) -> order.contains(service), knownOrder)
           .injectInto(knownOrder, (order, service) -> {

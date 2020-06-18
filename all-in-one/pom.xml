@@ -12,9 +12,6 @@
     <maven>3.5.0</maven> <!-- not required but better to add this, good for updating and solving maven problems-->
   </prerequisites>
   <modules>
-    <module>../components/common-entity</module>
-    <module>../components/common-util</module>
-    <module>../components/common-role</module>
     <module>../components/vocadb-pv-task-producer</module>
   </modules>
 
@@ -59,32 +56,31 @@
 
   </properties>
 
-  <dependencyManagement> <!-- declear dependencies that is useful in this project -->
+  <repositories>
+    <repository>
+      <id>github</id>
+      <name>GitHub CXwudi Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/CXwudi/Common-Vocaloid-JavaClass</url>
+    </repository>
+  </repositories>
+
+  <dependencyManagement> <!-- declare dependencies that is useful in this project -->
     <dependencies>
-      <!-- all my modules -->
+      <!-- my common modules from another repo -->
       <dependency>
         <groupId>mikufan.cx</groupId>
-        <artifactId>common-entity</artifactId>
-        <version>${module.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>mikufan.cx</groupId>
-        <artifactId>common-util</artifactId>
-        <version>${module.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>mikufan.cx</groupId>
-        <artifactId>common-role</artifactId>
-        <version>4.0.0-SNAPSHOT</version>
+        <artifactId>common-vocaloid-import-all</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
       </dependency>
 
       <!-- honor utils -->
+      <!-- for both guava and common-lang, only use it if Java own util lack of it -->
       <dependency> <!-- guava, provides useful utils -->
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
         <version>29.0-jre</version>
       </dependency>
-      <dependency> <!-- common-lang, provides useful utils -->
+      <dependency> <!-- common-lang, provides useful utils, -->
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
         <version>3.10</version>
@@ -95,16 +91,12 @@
         <groupId>org.apache.httpcomponents.client5</groupId>
         <artifactId>httpclient5</artifactId>
         <version>5.0</version>
-      </dependency>
-      <dependency> <!-- commons-configuration, read .property files -->
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-configuration2</artifactId>
-        <version>2.7</version>
-      </dependency>
-      <dependency> <!-- support for common configuration -->
-        <groupId>commons-beanutils</groupId>
-        <artifactId>commons-beanutils</artifactId>
-        <version>1.9.4</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>commons-cli</groupId>
@@ -130,6 +122,17 @@
       <dependency> <!-- and supports for eclipse collection -->
         <groupId>com.fasterxml.jackson.datatype</groupId>
         <artifactId>jackson-datatype-eclipse-collections</artifactId>
+        <version>${jackson.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.eclipse.collections</groupId>
+            <artifactId>eclipse-collections</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency> <!-- and support for yaml -->
+        <groupId>com.fasterxml.jackson.dataformat</groupId>
+        <artifactId>jackson-dataformat-yaml</artifactId>
         <version>${jackson.version}</version>
       </dependency>
 <!--      enable them if needed -->

@@ -120,6 +120,7 @@ cmake-build-*/
 # IntelliJ
 out/
 target/
+*.run.xml
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -167,5 +168,8 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+logs/
+*.json
 
 # End of https://www.gitignore.io/api/eclipse,netbeans,intellij+all
