@@ -3,7 +3,7 @@ package mikufan.cx.vocadb_pv_task_producer.config.entity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
-import mikufan.cx.common_entity.pv.PvService;
+import mikufan.cx.common_vocaloid_entity.pv.PvService;
 import org.eclipse.collections.api.list.ImmutableList;
 
 import java.nio.file.Path;

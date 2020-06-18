@@ -1,9 +1,9 @@
 package mikufan.cx.vocadb_pv_task_producer;
 
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_entity.task.VocaDbPvTask;
-import mikufan.cx.common_entity.vocadb.ResponseSongList;
-import mikufan.cx.common_util.io.JacksonPojoTranslator;
+import mikufan.cx.common_vocaloid_entity.task.VocaDbPvTask;
+import mikufan.cx.common_vocaloid_entity.vocadb.ResponseSongList;
+import mikufan.cx.common_vocaloid_util.io.JacksonPojoTranslator;
 import mikufan.cx.vocadb_pv_task_producer.config.parser.ConfigFactory;
 import mikufan.cx.vocadb_pv_task_producer.main.VocaDbTaskUpdater;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;

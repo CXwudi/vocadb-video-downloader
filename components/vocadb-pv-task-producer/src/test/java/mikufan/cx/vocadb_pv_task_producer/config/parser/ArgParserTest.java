@@ -2,7 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer.config.parser;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_entity.pv.PvService;
+import mikufan.cx.common_vocaloid_entity.pv.PvService;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import org.apache.commons.cli.Options;
 import org.junit.jupiter.api.Test;

@@ -2,8 +2,8 @@ package mikufan.cx.vocadb_pv_task_producer.main;
 
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_entity.task.VocaDbPvTask;
-import mikufan.cx.common_entity.vocadb.ResponseSongList;
+import mikufan.cx.common_vocaloid_entity.task.VocaDbPvTask;
+import mikufan.cx.common_vocaloid_entity.vocadb.ResponseSongList;
 import org.eclipse.collections.api.tuple.Pair;
 import org.eclipse.collections.impl.tuple.Tuples;
 

@@ -17,15 +17,7 @@
     <!-- module dependencies -->
     <dependency>
       <groupId>mikufan.cx</groupId>
-      <artifactId>common-entity</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>mikufan.cx</groupId>
-      <artifactId>common-util</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>mikufan.cx</groupId>
-      <artifactId>common-role</artifactId>
+      <artifactId>common-vocaloid-import-all</artifactId>
     </dependency>
 
     <!-- application frameworks -->

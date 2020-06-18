@@ -2,8 +2,8 @@ package mikufan.cx.vocadb_pv_task_producer.main;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import mikufan.cx.common_entity.vocadb.ResponseSongList;
-import mikufan.cx.common_util.jackson.JsonMapperUtil;
+import mikufan.cx.common_vocaloid_entity.vocadb.ResponseSongList;
+import mikufan.cx.common_vocaloid_util.jackson.JsonMapperUtil;
 
 /**
  * a wrapper class of jackson parsing json for {@link ResponseSongList}, used by {@link ListFetcher} only

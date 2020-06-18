@@ -1,6 +1,6 @@
 package mikufan.cx.vocadb_pv_task_producer.util.exception;
 
-import mikufan.cx.common_entity.exception.VocalExceptionRCI;
+import mikufan.cx.common_vocaloid_entity.exception.VocalExceptionRCI;
 
 /**
  * RCI code for this module only, {@code MITA} means Miku Task

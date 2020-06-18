@@ -2,7 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import mikufan.cx.common_util.jackson.YamlMapperUtil;
+import mikufan.cx.common_vocaloid_util.jackson.YamlMapperUtil;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 

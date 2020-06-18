@@ -2,7 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer.main;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_entity.vocadb.ResponseSongList;
+import mikufan.cx.common_vocaloid_entity.vocadb.ResponseSongList;
 
 /**
  * the stateless class that contains the real implementation for reading json response from VocaDB <br/>

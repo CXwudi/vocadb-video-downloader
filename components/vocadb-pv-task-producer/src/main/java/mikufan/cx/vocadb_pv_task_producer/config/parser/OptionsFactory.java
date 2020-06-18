@@ -2,7 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer.config.parser;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import mikufan.cx.common_entity.pv.PvService;
+import mikufan.cx.common_vocaloid_entity.pv.PvService;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 
