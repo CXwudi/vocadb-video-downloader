@@ -34,8 +34,16 @@ jobs:
       with:
         java-version: 1.11
         settings-path: ${{ github.workspace }} # location for the settings.xml file
+    
+    - name: maven-settings-xml-action
+      uses: whelk-io/maven-settings-xml-action@v7
+      with:
+        # json array of servers to add to settings.xml
+        servers: '[{"id": "github", "username": "${{ github.actor }}", "password": "${{ secrets.GITHUB_TOKEN }}"}]'
+        # json array of repositories to add to settings.xml
+        repositories: '[{"id": "github", "url": "https://maven.pkg.github.com/CXwudi/Common-Vocaloid-JavaClass"}]'
 
-    # Runs a set of commands using the runners shell
+    # Runs a set of commands using the runners shell        
     - name: Run Maven Unit Test
       run: |
         cd all-in-one
