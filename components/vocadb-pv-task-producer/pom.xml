@@ -14,7 +14,13 @@
 
 
   <dependencies>
-    <!-- module dependencies -->
+    <!-- internal module dependencies -->
+    <dependency>
+      <groupId>mikufan.cx</groupId>
+      <artifactId>project-vd-common-util</artifactId>
+    </dependency>
+
+    <!-- external module dependencies -->
     <dependency>
       <groupId>mikufan.cx</groupId>
       <artifactId>common-vocaloid-import-all</artifactId>

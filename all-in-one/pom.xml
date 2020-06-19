@@ -13,6 +13,7 @@
   </prerequisites>
   <modules>
     <module>../components/vocadb-pv-task-producer</module>
+    <module>../components/project-vd-common-util</module>
   </modules>
 
   <name>Project VD - Video Downloader for Vocal Characters</name>
@@ -67,12 +68,20 @@
 
   <dependencyManagement> <!-- declare dependencies that is useful in this project -->
     <dependencies>
+      <!-- my children for use -->
+      <dependency>
+        <groupId>mikufan.cx</groupId>
+        <artifactId>project-vd-common-util</artifactId>
+        <version>4.0.0-SNAPSHOT</version>
+      </dependency>
+
       <!-- my common modules from another repo -->
       <dependency>
         <groupId>mikufan.cx</groupId>
         <artifactId>common-vocaloid-import-all</artifactId>
-        <version>1.0.6.1</version>
+        <version>1.0.7.3</version>
       </dependency>
+
 
       <!-- honor utils -->
       <!-- for both guava and common-lang, only use it if Java own util lack of it -->

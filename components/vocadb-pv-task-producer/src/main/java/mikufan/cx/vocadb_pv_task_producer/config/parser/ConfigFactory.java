@@ -30,12 +30,11 @@ public final class ConfigFactory {
     var builder = UserConfig.builder();
     var listId = parser.getListIdOrThrow(cmdLine, options);
     builder.listId(listId);
-    builder.userAgent(parser.getUserAgent(cmdLine));
-    builder.taskName(parser.getTaskName(cmdLine, listId));
-    builder.taskJsonFile(parser.getTaskJson(cmdLine, listId));
-    builder.referenceJsonFile(parser.getReferenceJson(cmdLine, listId));
-    builder.pvPerfOrd(parser.getPvPref(cmdLine));
-    builder.userAgent(parser.getUserAgent(cmdLine));
+    builder.userAgent(parser.getUserAgentOrThrow(cmdLine));
+    builder.taskName(parser.getTaskNameOrDefault(cmdLine, listId));
+    builder.taskJsonFile(parser.getTaskJsonOrDefault(cmdLine, listId));
+    builder.referenceJsonFile(parser.getReferenceJsonOrDefault(cmdLine, listId));
+    builder.pvPerfOrd(parser.getPvPrefOrDefault(cmdLine));
 
 
     return new AppConfig(builder.build());

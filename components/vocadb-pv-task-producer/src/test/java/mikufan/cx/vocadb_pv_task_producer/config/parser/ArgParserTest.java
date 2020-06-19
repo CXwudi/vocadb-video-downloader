@@ -23,7 +23,8 @@ class ArgParserTest {
   @Test @SneakyThrows
   void testGetTaskFile(){
     var cmdLine = parser.parseArgs(new String[]{"-i", "1234", "-f", "myTask.json"}, options);
-    var path = parser.getTaskJson(cmdLine, parser.getListIdOrThrow(cmdLine, options));
+    var path = parser.getTaskJsonOrDefault(cmdLine, parser.getListIdOrThrow(cmdLine, options));
+    log.info("path = {}", path);
     assertEquals(Path.of(".", "myTask.json").toAbsolutePath().normalize(), path.toAbsolutePath());
   }
 
@@ -32,7 +33,7 @@ class ArgParserTest {
     var path = Files.createDirectory(Path.of("myTempDir"));
     path.toFile().deleteOnExit();
     var cmdLine = parser.parseArgs(new String[]{"-i", "1234", "-f", path.getFileName().toString()}, options);
-    assertThrows(VocaDbPvTaskException.class, () -> parser.getTaskJson(cmdLine, parser.getListIdOrThrow(cmdLine, options)));
+    assertThrows(VocaDbPvTaskException.class, () -> parser.getTaskJsonOrDefault(cmdLine, parser.getListIdOrThrow(cmdLine, options)));
   }
 
   /**
@@ -43,7 +44,7 @@ class ArgParserTest {
     var cmdLine = parser.parseArgs(new String[]{"-i", "1234",
         "-p", String.format("%s,%s", PvService.NICONICO.getServiceName(), PvService.YOUTUBE.getServiceName())},
         options);
-    var args = parser.getPvPref(cmdLine);
+    var args = parser.getPvPrefOrDefault(cmdLine);
     assertEquals(PvService.values().length, args.size());
   }
 
@@ -55,6 +56,6 @@ class ArgParserTest {
     var cmdLine = parser.parseArgs(new String[]{"-i", "1234",
             "-p", String.format("%s,%s,%s", PvService.NICONICO.getServiceName(), PvService.YOUTUBE.getServiceName(), "InvalidWebsite")},
         options);
-    assertThrows(VocaDbPvTaskException.class, () -> parser.getPvPref(cmdLine));
+    assertThrows(VocaDbPvTaskException.class, () -> parser.getPvPrefOrDefault(cmdLine));
   }
 }

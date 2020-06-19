@@ -70,7 +70,7 @@ public final class ArgParser {
    * parsing {@link OptionName#LIST_ID} <br/>
    * this method can sneaky throw {@link VocaDbPvTaskException}
    */
-  int getListIdOrThrow(CommandLine cmdLine, Options options) throws VocaDbPvTaskException {
+  int getListIdOrThrow(CommandLine cmdLine, Options options) {
     Function<String, Integer> function = listIdStr -> {
       try {
         return Integer.parseInt(listIdStr);
@@ -89,7 +89,7 @@ public final class ArgParser {
    * parse {@link OptionName#USER_AGENT} <br/>
    * this method can sneaky throw {@link VocaDbPvTaskException}
    */
-  String getUserAgent(CommandLine cmdLine) throws VocaDbPvTaskException{
+  String getUserAgentOrThrow(CommandLine cmdLine) {
     Supplier<String> throwExpSupplier =
         () -> SneakyThrow.theException(new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_006,
             "Plz define your own user-agent for the HttpClient to retrieve VocaDB song list"));
@@ -99,7 +99,7 @@ public final class ArgParser {
   /**
    * parsing {@link OptionName#TASK_NAME}
    */
-  String getTaskName(CommandLine cmdLine, int listId) {
+  String getTaskNameOrDefault(CommandLine cmdLine, int listId) {
     return getValueOrElse(cmdLine, OptionName.TASK_NAME, Function.identity(),
         () -> OptionsFactory.getDefaultTaskName("" + listId));
 
@@ -108,7 +108,7 @@ public final class ArgParser {
   /**
    * parsing {@link OptionName#TASK_FILE}
    */
-  Path getTaskJson(CommandLine cmdLine, int listId) throws VocaDbPvTaskException{
+  Path getTaskJsonOrDefault(CommandLine cmdLine, int listId) {
     Function<String, Path> function = fileName -> {
       var path = Path.of(fileName);
       if (Files.isDirectory(path)){
@@ -129,7 +129,7 @@ public final class ArgParser {
   /**
    * parsing {@link OptionName#REFERENCE_FILE}
    */
-  Path getReferenceJson(CommandLine cmdLine, int listId) throws VocaDbPvTaskException {
+  Path getReferenceJsonOrDefault(CommandLine cmdLine, int listId) {
     Function<String, Path> function = fileName -> {
       var path = Path.of(fileName);
       if (Files.isDirectory(path)){
@@ -151,7 +151,7 @@ public final class ArgParser {
    * throw {@link VocaDbPvTaskException} if unsupported pv is passed in
    *
    */
-  ImmutableList<PvService> getPvPref(CommandLine cmdLine) throws VocaDbPvTaskException {
+  ImmutableList<PvService> getPvPrefOrDefault(CommandLine cmdLine) throws VocaDbPvTaskException {
     Function<String[], ImmutableList<PvService>> function = prefArr -> {
       //here we didn't do the check of pv string, instead we try catch later
       var knownOrder = Lists.mutable.of(prefArr)
