@@ -14,8 +14,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  # This workflow contains a single job called "unit-test"
+  unit-test:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -35,7 +35,7 @@ jobs:
         java-version: 1.11
         settings-path: ${{ github.workspace }} # location for the settings.xml file
     
-    - name: maven-settings-xml-action
+    - name: Setup settings.xml 
       uses: whelk-io/maven-settings-xml-action@v7
       with:
         # json array of servers to add to settings.xml
