@@ -3,7 +3,7 @@ package mikufan.cx.vocadb_pv_task_producer;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.common_vocaloid_entity.task.VocaDbPvTask;
 import mikufan.cx.common_vocaloid_entity.vocadb.ResponseSongList;
-import mikufan.cx.common_vocaloid_util.io.JacksonPojoTranslator;
+import mikufan.cx.common_vocaloid_util.io.JacksonPojoTransformer;
 import mikufan.cx.vocadb_pv_task_producer.config.parser.ConfigFactory;
 import mikufan.cx.vocadb_pv_task_producer.main.VocaDbTaskUpdater;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
@@ -28,7 +28,7 @@ public class Main {
     /* == 1. read local task if exist == */
     log.info("reading local task file if exist");
     var taskFile = appConfig.userConfig.getTaskJsonFile();
-    var taskFileReader = JacksonPojoTranslator.createWithDefaultMapper(VocaDbPvTask.class);
+    var taskFileReader = JacksonPojoTransformer.createWithDefaultMapper(VocaDbPvTask.class);
     // no need to check if it is directory, app config should handled it
     VocaDbPvTask task = getFromFile(taskFile, taskFileReader,
         e -> new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_009, "Invalid task json file", e));
@@ -36,7 +36,7 @@ public class Main {
     /* ==  2. read local ref if exist == */
     log.info("reading local reference file if exist");
     var refFile = appConfig.userConfig.getReferenceJsonFile();
-    var refFileReader = JacksonPojoTranslator.createWithDefaultMapper(ResponseSongList.class);
+    var refFileReader = JacksonPojoTransformer.createWithDefaultMapper(ResponseSongList.class);
     ResponseSongList ref = getFromFile(refFile, refFileReader,
         e -> new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_010, "Invalid ref json file", e));
 
@@ -53,35 +53,48 @@ public class Main {
 
     /* ==  4. write back task and ref == */
     log.info("writing back the task json file");
-    try {
-      var isFileExist = taskFileReader.write(updatedTask, taskFile);
-      if (!isFileExist){
-        log.warn("Printing out the task json in case we failed to update {}: \n{}",
-            taskFile, taskFileReader.getMapper().writeValueAsString(updatedTask));
-      }
-    } catch (IOException e) {
-      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_011, "Fail to write or produce json for task", e);
-    }
+    writeBack(taskFile, taskFileReader, updatedTask,
+        "Printing out the task json in case we failed to update {}: \n{}",
+        VocaDbPvTaskRCI.MIKU_TASK_011, "Fail to write or produce json for task");
+
     /* ==  5. write back ref == */
     log.info("writing back the reference json file");
-    try {
-      var isFileExist = refFileReader.write(updatedRef, refFile);
-      if (!isFileExist){
-        log.warn("Printing out the reference json in case we failed to update {}: \n{}",
-            refFile, taskFileReader.getMapper().writeValueAsString(updatedRef));
-      }
-    } catch (IOException e){
-      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_012, "Fail to write or produce json for reference", e);
-    }
+    writeBack(refFile, refFileReader, updatedRef,
+        "Printing out the reference json in case we failed to update {}: \n{}",
+        VocaDbPvTaskRCI.MIKU_TASK_012, "Fail to write or produce json for reference");
+
+    /* ==  6. finish == */
     log.info("終わった。( •̀ ω •́ )y");
   }
 
   /**
-   * simply util function for getting pojo using {@link JacksonPojoTranslator}
+   * yet another simple util to write back to file
+   * @param <T> the type of POJO
+   */
+  private static <T> void writeBack(
+      Path file,
+      JacksonPojoTransformer writer,
+      T pojo,
+      String warming,
+      VocaDbPvTaskRCI rci,
+      String error) throws VocaDbPvTaskException {
+    try {
+      var isFileExist = writer.write(pojo, file);
+      if (!isFileExist) {
+        log.warn(warming,
+            file, writer.getMapper().writeValueAsString(pojo));
+      }
+    } catch (IOException e) {
+      throw new VocaDbPvTaskException(rci, error, e);
+    }
+  }
+
+  /**
+   * simply util function for getting pojo using {@link JacksonPojoTransformer}
    */
   private static <T> T getFromFile(
       Path jsonFile,
-      JacksonPojoTranslator<T> taskFileReader,
+      JacksonPojoTransformer<T> taskFileReader,
       Function<IOException, VocaDbPvTaskException> expFunc) throws VocaDbPvTaskException {
     T pojo;
     if (Files.exists(jsonFile)){
