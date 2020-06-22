@@ -7,7 +7,7 @@ import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Slf4j
 class ListFetcherTest {
@@ -19,12 +19,12 @@ class ListFetcherTest {
   void shouldGetUriOfIdFromAnIndex() {
     var uri = fetcher.getUri(8738, 15);
     assertEquals(
-        "https://vocadb.net/api/songLists/8738/songs?start=15&maxResults=5&getTotalCount=true&fields=PVs%2CArtists",
+        "https://vocadb.net/api/songLists/8738/songs?start=15&maxResults=5&getTotalCount=true&fields=PVs", //%2CArtists
         uri.toString()
     );
   }
 
-  @Disabled // disabled cause we don't want high network volume on VocaDB caused by CI
+  @Test // disabled to avoid high network volume on VocaDB caused by github CI
   @SneakyThrows
   void shouldGetPartialList() {
     var httpClient = HttpClients.custom().setUserAgent(testedUserAgent).build();

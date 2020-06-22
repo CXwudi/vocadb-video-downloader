@@ -35,10 +35,12 @@
     <!-- global logger setup-->
     <Root level="info">
       <AppenderRef ref="rolling file"/>
+      <AppenderRef ref="stdout"/>
     </Root>
 
-    <Logger name="mikufan.cx" level="info" additivity="false">
+    <Logger name="mikufan.cx" level="debug" additivity="false">
       <AppenderRef ref="rolling file"/>
+      <AppenderRef ref="stdout"/>
     </Logger>
   </Loggers>
 
