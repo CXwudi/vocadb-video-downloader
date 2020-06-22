@@ -12,7 +12,6 @@ import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.function.Function;
 
 /**
  * Meta main class, it shows all procedures
@@ -31,21 +30,22 @@ public class Main {
     var taskFileReader = JacksonPojoTransformer.createWithDefaultMapper(VocaDbPvTask.class);
     // no need to check if it is directory, app config should handled it
     VocaDbPvTask task = getFromFile(taskFile, taskFileReader,
-        e -> new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_009, "Invalid task json file", e));
+        VocaDbPvTaskRCI.MIKU_TASK_009, "Invalid task json file");
 
     /* ==  2. read local ref if exist == */
     log.info("reading local reference file if exist");
     var refFile = appConfig.userConfig.getReferenceJsonFile();
     var refFileReader = JacksonPojoTransformer.createWithDefaultMapper(ResponseSongList.class);
     ResponseSongList ref = getFromFile(refFile, refFileReader,
-        e -> new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_010, "Invalid ref json file", e));
+        VocaDbPvTaskRCI.MIKU_TASK_010, "Invalid ref json file");
 
     /* ==  3. update or create the task and the ref  == */
     log.info("updating or creating the task and the reference");
     var producer = new VocaDbTaskUpdater(
         appConfig.userConfig.getListId(),
         appConfig.userConfig.getUserAgent(),
-        appConfig.systemConfig.getMaxResult());
+        appConfig.systemConfig.getMaxResult(),
+        appConfig.userConfig.getPvPerfOrd());
 
     var updatedTaskRefPair = producer.createOrUpdate(task, ref, appConfig.userConfig.getTaskName());
     var updatedTask = updatedTaskRefPair.getOne();
@@ -73,13 +73,14 @@ public class Main {
   private static <T> T getFromFile(
       Path jsonFile,
       JacksonPojoTransformer<T> taskFileReader,
-      Function<IOException, VocaDbPvTaskException> expFunc) throws VocaDbPvTaskException {
+      VocaDbPvTaskRCI rci,
+      String error) throws VocaDbPvTaskException {
     T pojo;
     if (Files.exists(jsonFile)){
       try {
         pojo = taskFileReader.read(jsonFile);
       } catch (IOException e){
-        throw expFunc.apply(e);
+        throw new VocaDbPvTaskException(rci, error, e);
       }
     } else {
       pojo = null;
@@ -93,7 +94,7 @@ public class Main {
    */
   private static <T> void writeBack(
       Path file,
-      JacksonPojoTransformer writer,
+      JacksonPojoTransformer<T> writer,
       T pojo,
       String warming,
       VocaDbPvTaskRCI rci,

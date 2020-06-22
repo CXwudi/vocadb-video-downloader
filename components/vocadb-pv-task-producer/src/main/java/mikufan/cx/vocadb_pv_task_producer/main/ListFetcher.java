@@ -44,7 +44,7 @@ public class ListFetcher {
         .setUserAgent(ua)
         .build()) {
       int start = 0;
-      boolean hasMore = true;
+      boolean hasMore;
       // sequentially fetching songs until done
       do {
         log.debug("start fetching maximum {} songs from index {}", start + maxResult, start + 1);
@@ -74,6 +74,7 @@ public class ListFetcher {
     } catch (IOException e){
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_301, "Fail to handle HttpClient closable resource", e);
     }
+    checkIsCompletedAndSorted(concattedList);
     log.info("finished retrieving VocaDB song list of id {}", listId);
     return concattedList;
   }
@@ -119,6 +120,23 @@ public class ListFetcher {
     } else {
       concattedList.getItems().addAll(partialList.getItems());
       return concattedList;
+    }
+  }
+
+  /**
+   * log warm message is the list is not completed or is not sorted
+   * @param concattedList list to check
+   */
+  private void checkIsCompletedAndSorted(ResponseSongList concattedList) {
+    var size = concattedList.getItems().size();
+    var totalCount = concattedList.getTotalCount();
+    if (size != totalCount){
+      log.warn("the end result song list fails to contain all songs. Recommend to re-run this program again");
+      log.warn("expected # of songs = {}, actual # of songs collected = {}", totalCount, size);
+    }
+    var isSorted = concattedList.getItems().zipWithIndex().allSatisfy(pair -> pair.getOne().getOrder() - 1 == pair.getTwo());
+    if (!isSorted){
+      log.warn("the end result song list is not in order. Probably a bug in this program");
     }
   }
 }
