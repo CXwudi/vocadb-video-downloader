@@ -47,7 +47,7 @@ public class Main {
         appConfig.userConfig.getUserAgent(),
         appConfig.systemConfig.getMaxResult());
 
-    var updatedTaskRefPair = producer.createOrUpdate(task, ref);
+    var updatedTaskRefPair = producer.createOrUpdate(task, ref, appConfig.userConfig.getTaskName());
     var updatedTask = updatedTaskRefPair.getOne();
     var updatedRef = updatedTaskRefPair.getTwo();
 
@@ -68,28 +68,6 @@ public class Main {
   }
 
   /**
-   * yet another simple util to write back to file
-   * @param <T> the type of POJO
-   */
-  private static <T> void writeBack(
-      Path file,
-      JacksonPojoTransformer writer,
-      T pojo,
-      String warming,
-      VocaDbPvTaskRCI rci,
-      String error) throws VocaDbPvTaskException {
-    try {
-      var isFileExist = writer.write(pojo, file);
-      if (!isFileExist) {
-        log.warn(warming,
-            file, writer.getMapper().writeValueAsString(pojo));
-      }
-    } catch (IOException e) {
-      throw new VocaDbPvTaskException(rci, error, e);
-    }
-  }
-
-  /**
    * simply util function for getting pojo using {@link JacksonPojoTransformer}
    */
   private static <T> T getFromFile(
@@ -107,5 +85,26 @@ public class Main {
       pojo = null;
     }
     return pojo;
+  }
+
+  /**
+   * yet another simple util to write back to file
+   * @param <T> the type of POJO
+   */
+  private static <T> void writeBack(
+      Path file,
+      JacksonPojoTransformer writer,
+      T pojo,
+      String warming,
+      VocaDbPvTaskRCI rci,
+      String error) throws VocaDbPvTaskException {
+    try {
+      var isFileExist = writer.write(pojo, file);
+      if (!isFileExist) {
+        log.warn(warming, file, writer.getMapper().writeValueAsString(pojo));
+      }
+    } catch (IOException e) {
+      throw new VocaDbPvTaskException(rci, error, e);
+    }
   }
 }
