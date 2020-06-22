@@ -41,8 +41,9 @@ public class VocaDbTaskUpdater {
   public Pair<VocaDbPvTask, ResponseSongList> createOrUpdate(
       VocaDbPvTask inputTask, ResponseSongList inputRef, String taskNewName) throws VocaDbPvTaskException {
     var task = Objects.requireNonNullElse(inputTask, new VocaDbPvTask(taskNewName));
-    //TODO: link the list fetcher and we done
     var songLists = fetcher.getVocadbListOfId(listId, userAgent);
+    //TODO: we decide to use another separate class for handling "various artist"
+    //TODO: link the list fetcher and we done
     addToTask(task, songLists);
     mergeRef(inputRef, songLists);
     return Tuples.pair(task, inputRef);
