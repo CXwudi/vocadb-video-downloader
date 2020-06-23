@@ -5,7 +5,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_vocaloid_entity.vocadb.ResponseSongList;
+import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.PartialSongList;
 import mikufan.cx.common_vocaloid_util.jackson.JsonMapperUtil;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
@@ -37,9 +37,9 @@ public class ListFetcher {
    * @param listId the id of song list
    * @param ua user-agent
    */
-  public ResponseSongList getVocadbListOfId(int listId, String ua) throws VocaDbPvTaskException {
+  public PartialSongList getVocadbListOfId(int listId, String ua) throws VocaDbPvTaskException {
     log.info("creating HttpClient for retrieving VocaDB song list of id {}", listId);
-    ResponseSongList concattedList = null;
+    PartialSongList concattedList = null;
     try(final var httpClient = HttpClients.custom()
         .setUserAgent(ua)
         .build()) {
@@ -48,7 +48,7 @@ public class ListFetcher {
       // sequentially fetching songs until done
       do {
         log.debug("start fetching maximum {} songs from index {}", start + maxResult, start + 1);
-        ResponseSongList partialList = partialListOfIdOfIndex(httpClient, listId, ua, start);
+        PartialSongList partialList = partialListOfIdOfIndex(httpClient, listId, ua, start);
         if (partialList.getItems().isEmpty()){
           log.info("songLists {} has empty collection, returning now", listId);
           return partialList;
@@ -80,14 +80,14 @@ public class ListFetcher {
   }
 
   @SneakyThrows
-  protected ResponseSongList partialListOfIdOfIndex(CloseableHttpClient httpClient, int listId, String ua, int start) {
+  protected PartialSongList partialListOfIdOfIndex(CloseableHttpClient httpClient, int listId, String ua, int start) {
     try {
       var uri = getUri(listId, start);
       var getRequest = new HttpGet(uri);
       getRequest.setHeaders(new BasicHeader("Accept", "application/json"));
 
       var json = httpClient.execute(getRequest, responseHandler);
-      return mapper.readValue(json,ResponseSongList.class);
+      return mapper.readValue(json,PartialSongList.class);
     } catch (URISyntaxException | IOException e) {
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_302,
           String.format("Failed to fetch songs from %s of list id %s with user-agent %s", start, listId, ua), e);
@@ -108,13 +108,13 @@ public class ListFetcher {
   }
 
   /**
-   * concate two {@link ResponseSongList} into one <p>
+   * concate two {@link PartialSongList} into one <p>
    * if concattedList is null, it will be simply replaced by parialList
    * @param concattedList to
    * @param partialList from
    * @return concattedList list
    */
-  private ResponseSongList concatTwoLists(ResponseSongList concattedList, @NonNull ResponseSongList partialList) {
+  private PartialSongList concatTwoLists(PartialSongList concattedList, @NonNull PartialSongList partialList) {
     if (concattedList == null){
       return partialList;
     } else {
@@ -127,7 +127,7 @@ public class ListFetcher {
    * log warm message is the list is not completed or is not sorted
    * @param concattedList list to check
    */
-  private void checkIsCompletedAndSorted(ResponseSongList concattedList) {
+  private void checkIsCompletedAndSorted(PartialSongList concattedList) {
     var size = concattedList.getItems().size();
     var totalCount = concattedList.getTotalCount();
     if (size != totalCount){

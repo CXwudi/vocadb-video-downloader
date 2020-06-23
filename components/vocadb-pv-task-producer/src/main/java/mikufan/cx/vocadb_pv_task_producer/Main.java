@@ -2,7 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer;
 
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.common_vocaloid_entity.task.VocaDbPvTask;
-import mikufan.cx.common_vocaloid_entity.vocadb.ResponseSongList;
+import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.PartialSongList;
 import mikufan.cx.common_vocaloid_util.io.JacksonPojoTransformer;
 import mikufan.cx.vocadb_pv_task_producer.config.parser.ConfigFactory;
 import mikufan.cx.vocadb_pv_task_producer.main.VocaDbTaskUpdater;
@@ -35,8 +35,8 @@ public class Main {
     /* ==  2. read local ref if exist == */
     log.info("reading local reference file if exist");
     var refFile = appConfig.userConfig.getReferenceJsonFile();
-    var refFileReader = JacksonPojoTransformer.createWithDefaultMapper(ResponseSongList.class);
-    ResponseSongList ref = getFromFile(refFile, refFileReader,
+    var refFileReader = JacksonPojoTransformer.createWithDefaultMapper(PartialSongList.class);
+    PartialSongList ref = getFromFile(refFile, refFileReader,
         VocaDbPvTaskRCI.MIKU_TASK_010, "Invalid ref json file");
 
     /* ==  3. update or create the task and the ref  == */
