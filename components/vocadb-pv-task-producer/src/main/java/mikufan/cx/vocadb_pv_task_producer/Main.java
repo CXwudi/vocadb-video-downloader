@@ -40,6 +40,7 @@ public class Main {
         VocaDbPvTaskRCI.MIKU_TASK_010, "Invalid ref json file");
 
     /* ==  3. update or create the task and the ref  == */
+    //TODO: create an universal httpclient
     log.info("updating or creating the task and the reference");
     var producer = new VocaDbTaskUpdater(
         appConfig.userConfig.getListId(),
