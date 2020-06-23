@@ -24,7 +24,7 @@ class ListFetcherTest {
     );
   }
 
-  @Test // disabled to avoid high network volume on VocaDB caused by github CI
+  @Disabled // disabled to avoid high network volume on VocaDB caused by github CI
   @SneakyThrows
   void shouldGetPartialList() {
     var httpClient = HttpClients.custom().setUserAgent(testedUserAgent).build();

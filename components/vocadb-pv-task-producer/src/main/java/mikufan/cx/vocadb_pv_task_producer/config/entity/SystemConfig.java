@@ -23,8 +23,11 @@ public class SystemConfig {
    */
   static final SystemConfig INSTANCE = createInstance();
 
+  /**
+   * fields here should not declared as final, otherwise jackson won't able to change the value
+   */
   @JsonProperty
-  private final int maxResult = 0;
+  private int maxResult = 0;
 
   /**
    * create the singleton by jackson
