@@ -12,8 +12,8 @@ public enum VocaDbPvTaskRCI implements VocalExceptionRCI {
   MIKU_TASK_011, MIKU_TASK_012,
 
   //program main functionality issue
-  MIKU_TASK_301, MIKU_TASK_302, MIKU_TASK_303,
-
+  MIKU_TASK_301, MIKU_TASK_302, MIKU_TASK_303, MIKU_TASK_304, MIKU_TASK_305,
+  MIKU_TASK_306, MIKU_TASK_307, MIKU_TASK_308, MIKU_TASK_309, MIKU_TASK_310,
   //initializing issue
   MIKU_TASK_901,
 }
