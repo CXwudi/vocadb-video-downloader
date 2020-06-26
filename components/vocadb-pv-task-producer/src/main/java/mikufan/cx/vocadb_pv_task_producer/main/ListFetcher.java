@@ -63,7 +63,7 @@ public class ListFetcher {
           .getOrder();
       int totalCount = concattedList.getTotalCount();
       if (lastIndex != totalCount) {
-        log.debug("lastIndex = {}, totalCount = {}, more songs to be fetched, continuing..", lastIndex, totalCount);
+        log.debug("lastIndex = {}, totalCount = {}, more songs need to be fetched, continuing..", lastIndex, totalCount);
         hasMore = true;
         start = lastIndex;
       } else {
@@ -72,7 +72,7 @@ public class ListFetcher {
       }
     } while (hasMore);
     checkIsCompletedAndSorted(concattedList);
-    log.info("finished retrieving VocaDB song list of id {}", listId);
+    log.info("finished retrieving all {} songs from VocaDB song list of id {}", concattedList.getItems().size(), listId);
     return concattedList;
   }
 

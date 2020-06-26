@@ -44,7 +44,8 @@ public final class OptionsFactory {
         .longOpt(OptionName.TASK_NAME.getOptLongName())
         .hasArg()
         .argName(OptionName.TASK_NAME.getArgName())
-        .desc(String.format("The name of this task. If not defined, name is \"%s\"", defaultSampleFileName))
+        .desc(String.format("The name of this task. If the task file doesn't exist, default name is \"%s\". " +
+            "If the task file already exist, the original name is untouched", defaultSampleFileName))
         .build());
 
     options.addOption(Option.builder(OptionName.TASK_FILE.getOptName())
