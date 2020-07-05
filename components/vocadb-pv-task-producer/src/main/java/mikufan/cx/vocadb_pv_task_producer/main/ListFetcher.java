@@ -132,7 +132,7 @@ public class ListFetcher {
     var size = concattedList.getItems().size();
     var totalCount = concattedList.getTotalCount();
     if (size != totalCount) {
-      log.warn("the end result song list fails to contain all songs. Recommend to re-run this program again");
+      log.warn("the end result song list fails to contains all songs. Recommend to re-run this program again");
       log.warn("expected # of songs = {}, actual # of songs collected = {}", totalCount, size);
     }
     var isSorted = concattedList.getItems().zipWithIndex().allSatisfy(pair -> pair.getOne().getOrder() - 1 == pair.getTwo());

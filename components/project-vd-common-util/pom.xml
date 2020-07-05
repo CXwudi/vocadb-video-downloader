@@ -13,8 +13,15 @@
   <artifactId>project-vd-common-util</artifactId>
 
   <description>
-    This is just a commonly used internal util shared by the whole Project-VD.
-    It contains the log4j2.xml which used globally
+    This common util is used by the Project-VD only.
+    It also contains the log4j2.xml which used globally.
   </description>
+
+  <dependencies>
+    <dependency>
+      <groupId>mikufan.cx</groupId>
+      <artifactId>common-vocaloid-import-all</artifactId>
+    </dependency>
+  </dependencies>
 
 </project>

@@ -2,7 +2,8 @@ package mikufan.cx.vocadb_pv_task_producer.config.parser;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_vocaloid_entity.pv.PvService;
+import mikufan.cx.common_vocaloid_entity.pv.service.PvServiceStr;
+import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import org.apache.commons.cli.Options;
 import org.junit.jupiter.api.Test;
@@ -42,10 +43,10 @@ class ArgParserTest {
   @Test @SneakyThrows
   void testGetPvPref() {
     var cmdLine = parser.parseArgs(new String[]{"-i", "1234",
-        "-p", String.format("%s,%s", PvService.NICONICO.getServiceName(), PvService.YOUTUBE.getServiceName())},
+        "-p", String.format("%s,%s", PvServiceStr.NICONICO, PvServiceStr.YOUTUBE)},
         options);
     var args = parser.getPvPrefOrDefault(cmdLine);
-    assertEquals(PvService.values().length, args.size());
+    assertEquals(SupportedPvServices.getSupportedPvServices().size(), args.size());
   }
 
   /**
@@ -54,7 +55,7 @@ class ArgParserTest {
   @Test @SneakyThrows
   void testThrowInPvPref() {
     var cmdLine = parser.parseArgs(new String[]{"-i", "1234",
-            "-p", String.format("%s,%s,%s", PvService.NICONICO.getServiceName(), PvService.YOUTUBE.getServiceName(), "InvalidWebsite")},
+            "-p", String.format("%s,%s,%s", PvServiceStr.NICONICO, PvServiceStr.YOUTUBE, "InvalidWebsite")},
         options);
     assertThrows(VocaDbPvTaskException.class, () -> parser.getPvPrefOrDefault(cmdLine));
   }

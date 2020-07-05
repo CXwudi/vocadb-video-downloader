@@ -3,7 +3,6 @@ package mikufan.cx.vocadb_pv_task_producer.config.entity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
-import mikufan.cx.common_vocaloid_entity.pv.PvService;
 import org.eclipse.collections.api.list.ImmutableList;
 
 import java.nio.file.Path;
@@ -38,7 +37,7 @@ public class UserConfig {
   /**
    * do you prefer youtube over niconico, or vise area, tell me your preference
    */
-  @NonNull private final ImmutableList<PvService> pvPerfOrd;
+  @NonNull private final ImmutableList<String> pvPerfOrd;
 
   /**
    * your own user-agent, includes VocaDB username if you can

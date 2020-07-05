@@ -62,7 +62,7 @@
     <repository>
       <id>github</id>
       <name>GitHub CXwudi Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/CXwudi/Common-Vocaloid-JavaClass</url>
+      <url>https://maven.pkg.github.com/CXwudi/common-vocaloid-java</url>
     </repository>
   </repositories>
 
@@ -79,7 +79,7 @@
       <dependency>
         <groupId>mikufan.cx</groupId>
         <artifactId>common-vocaloid-import-all</artifactId>
-        <version>1.0.2.2</version>
+        <version>1.0.5</version>
       </dependency>
 
 

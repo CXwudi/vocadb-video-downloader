@@ -8,7 +8,7 @@ import mikufan.cx.common_vocaloid_util.io.JacksonPojoTransformer;
 import mikufan.cx.vocadb_pv_task_producer.config.parser.ConfigFactory;
 import mikufan.cx.vocadb_pv_task_producer.main.ArtistFieldFixer;
 import mikufan.cx.vocadb_pv_task_producer.main.ListFetcher;
-import mikufan.cx.vocadb_pv_task_producer.main.SongListMerger;
+import mikufan.cx.vocadb_pv_task_producer.main.ListTaskMerger;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
@@ -60,9 +60,9 @@ public class Main {
 
       /* ==  5. merging the new song list into task and ref  == */
       log.info("merging songs list into task and reference");
-      var merger = new SongListMerger();
+      var merger = new ListTaskMerger();
       var mergedTask = merger.mergeToTask(task, songList, appConfig.userConfig.getTaskName(), appConfig.userConfig.getPvPerfOrd());
-      var mergedRef = merger.mergeToList(ref,songList);
+      var mergedRef = merger.mergeToList(ref, songList);
 
       return Tuples.pair(mergedTask, mergedRef);
     });

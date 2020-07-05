@@ -2,7 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer.config.parser;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import mikufan.cx.common_vocaloid_entity.pv.PvService;
+import mikufan.cx.common_vocaloid_entity.pv.service.PvServices;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 
@@ -45,7 +45,7 @@ public final class OptionsFactory {
         .hasArg()
         .argName(OptionName.TASK_NAME.getArgName())
         .desc(String.format("The name of this task. If the task file doesn't exist, default name is \"%s\". " +
-            "If the task file already exist, the original name is untouched", defaultSampleFileName))
+            "If the task file already exist, the setting has no meaning", defaultSampleFileName))
         .build());
 
     options.addOption(Option.builder(OptionName.TASK_FILE.getOptName())
@@ -82,7 +82,7 @@ public final class OptionsFactory {
                 "by default this is \"-%s %s\" (no space around comma)" +
                 "Currently we only support websites listed in the default order",
             OptionName.PV_PREFERENCE.getOptName(),
-            PvService.getDefaultOrder().makeString(",")))
+            PvServices.getServices().makeString(",")))
         .build()
     );
 
