@@ -33,10 +33,10 @@ public class ListTaskMerger {
     }
 
     //get all songs that are not present in oldList
-    var ids = oldList.getItems().asLazy().collectInt(item -> item.getSong().getId()).toSet();
+    var oldIds = oldList.getItems().asLazy().collectInt(item -> item.getSong().getId()).toSet();
     var newAddedItems = newList.getItems().asLazy().rejectWith(
-        (item, oldIds) -> oldIds.contains(item.getSong().getId())
-        , ids).toList();
+        (item, ids) -> ids.contains(item.getSong().getId())
+        , oldIds).toList();
 
     //construct the new list with new items appended and correct the index
     var oldItems = Lists.mutable.withAll(oldList.getItems());
@@ -94,8 +94,12 @@ public class ListTaskMerger {
         continue;
       }
 
-      //filter out unaccessible pvs
-      var accessiblePvs = pvs.reject(PVContract::isDisabled);
+      // sort by pv pref
+      var prefWithIdx = pvPref.asLazy().zipWithIndex().toMap(Pair::getOne, Pair::getTwo);
+      var sortedPvs = pvs.sortThisByInt(pv -> prefWithIdx.get(pv.getService()));
+
+      //filter out inaccessible pvs
+      var accessiblePvs = sortedPvs.reject(PVContract::isDisabled);
       if (accessiblePvs.isEmpty()){
         log.warn("all PVs for {} are not accessible on website", name);
         var firstPv = pvs.get(0);
@@ -106,7 +110,7 @@ public class ListTaskMerger {
       }
 
       //filter out not supported pvs
-      var supportedPvs = accessiblePvs.reject(pv -> SupportedPvServices.contains(pv.getService()));
+      var supportedPvs = accessiblePvs.reject(pv -> !SupportedPvServices.contains(pv.getService()));
       if (supportedPvs.isEmpty()){
         log.warn("current {} doesn't contains PVs that are accessible and supported by vocadb-pv-video-downloader", name);
         var firstPv = accessiblePvs.get(0);
@@ -117,9 +121,10 @@ public class ListTaskMerger {
       }
 
       // according to pv pref add the task
-      var prefWithIdx = pvPref.asLazy().zipWithIndex().toMap(Pair::getOne, Pair::getTwo);
-      var selectedPv = supportedPvs.sortThisByInt(pv -> prefWithIdx.get(pv.getService())).get(0);
-      newTask.markTodo(new VocaDbPv(selectedPv.getPvId(), selectedPv.getService(), selectedPv.getName(), song.getId()));
+      var selectedPv = supportedPvs.get(0);
+      var vocaDbPv = new VocaDbPv(selectedPv.getPvId(), selectedPv.getService(), selectedPv.getName(), song.getId());
+      log.debug("adding new PV {} to task: {}", vocaDbPv, newTask.getFolderName());
+      newTask.markTodo(vocaDbPv);
     }
 
     return newTask;
