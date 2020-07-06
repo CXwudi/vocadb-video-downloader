@@ -3,6 +3,7 @@ package mikufan.cx.vocadb_pv_task_producer.main;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.common_vocaloid_entity.pv.VocaDbPv;
+import mikufan.cx.common_vocaloid_entity.pv.service.PvServices;
 import mikufan.cx.common_vocaloid_entity.task.VocaDbPvTask;
 import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.PartialSongList;
 import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.SongInListForApiContract;
@@ -94,8 +95,14 @@ public class ListTaskMerger {
         continue;
       }
 
-      // sort by pv pref
+      // sort by pv pref, un-supported pvs go last
       var prefWithIdx = pvPref.asLazy().zipWithIndex().toMap(Pair::getOne, Pair::getTwo);
+      PvServices.getServices().asLazy()
+          .reject(SupportedPvServices::contains)
+          .injectInto(prefWithIdx, (map, others) -> {
+            map.put(others, Integer.MAX_VALUE);
+            return map;
+          });
       var sortedPvs = pvs.sortThisByInt(pv -> prefWithIdx.get(pv.getService()));
 
       //filter out inaccessible pvs
@@ -120,7 +127,7 @@ public class ListTaskMerger {
         continue;
       }
 
-      // according to pv pref add the task
+      // add the best preference pv task
       var selectedPv = supportedPvs.get(0);
       var vocaDbPv = new VocaDbPv(selectedPv.getPvId(), selectedPv.getService(), selectedPv.getName(), song.getId());
       log.debug("adding new PV {} to task: {}", vocaDbPv, newTask.getFolderName());
