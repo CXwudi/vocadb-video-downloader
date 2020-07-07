@@ -2,6 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import mikufan.cx.common_vocaloid_util.io.JacksonPojoTransformer;
 import mikufan.cx.common_vocaloid_util.jackson.YamlMapperUtil;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
@@ -22,8 +23,11 @@ public class SystemConfig {
    */
   static final SystemConfig INSTANCE = createInstance();
 
+  /**
+   * fields here should not declared as final, otherwise jackson won't able to change the value
+   */
   @JsonProperty
-  private final int maxResult = 0;
+  private int maxResult = 0;
 
   /**
    * create the singleton by jackson
@@ -31,12 +35,12 @@ public class SystemConfig {
    */
   @SneakyThrows(VocaDbPvTaskException.class)
   private static SystemConfig createInstance() {
-    val systemConfigFile = Path.of( "config", "system-config.yaml");
-    val yamlMapper = YamlMapperUtil.createDefaultForReadOnly();
+    val systemConfigFile = Path.of( "task-producer-config", "system-config.yaml");
+    val configReader = new JacksonPojoTransformer<>(YamlMapperUtil.createDefaultForReadOnly(), SystemConfig.class);
 
     try {
       //maybe because it is in the class creation stage, we can't use PojoTranslator here, otherwise it reads as linked hashmap.
-      return yamlMapper.readValue(systemConfigFile.toFile(), SystemConfig.class);
+      return configReader.read(systemConfigFile);
     } catch (IOException e) {
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_901, "Fail to read system config from " + systemConfigFile, e);
     }

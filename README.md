@@ -23,10 +23,12 @@ Aim to provide the following features:
 
 The project is WIP, current progresses are:
 
-1. ✅ common-entity (define entites obj for stroing information)
-2. ✅ common-util (some util classes and function shared across all maven modules)
+1. ✅ [common-vocaloid-java](https://github.com/CXwudi/common-vocaloid-java) (implemented in another repo)
+   1. ✅ common-entity (define entites obj for stroing information)
+   2. ✅ common-util (some util classes and functions that reduce spolit code)
+2. ✅ project-vd-common-util (some util classes and function that are only used by this project)
 3. 🔄 vocadb-pv-task-producer (read VocaDB favourite list and produce/update the pv task and pv information in json)
-4. ❌ pv-downloader-util (utils for downloading pv, driven by youtube-dl)
+4. ❌ [youtubedl-java](https://github.com/CXwudi/youtubedl-java) (forked from <https://github.com/sapher/youtubedl-java>, but need to modify it to suit our need)
 5. ❌ vocadb-pv-downloader (fetch the video, thumbnail and tags of PVs base on pv task and pv information in json)
 6. ❌ vocadb-pv-postprocessor (extract audio and add tags and thumbnails to audio files)
 

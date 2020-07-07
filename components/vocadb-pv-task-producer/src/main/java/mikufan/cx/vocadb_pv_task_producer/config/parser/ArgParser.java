@@ -3,8 +3,9 @@ package mikufan.cx.vocadb_pv_task_producer.config.parser;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_vocaloid_entity.pv.PvService;
+import mikufan.cx.common_vocaloid_entity.pv.service.PvServices;
 import mikufan.cx.common_vocaloid_util.exception.SneakyThrow;
+import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.apache.commons.cli.*;
@@ -70,7 +71,7 @@ public final class ArgParser {
    * parsing {@link OptionName#LIST_ID} <br/>
    * this method can sneaky throw {@link VocaDbPvTaskException}
    */
-  int getListIdOrThrow(CommandLine cmdLine, Options options) throws VocaDbPvTaskException {
+  int getListIdOrThrow(CommandLine cmdLine, Options options) {
     Function<String, Integer> function = listIdStr -> {
       try {
         return Integer.parseInt(listIdStr);
@@ -89,7 +90,7 @@ public final class ArgParser {
    * parse {@link OptionName#USER_AGENT} <br/>
    * this method can sneaky throw {@link VocaDbPvTaskException}
    */
-  String getUserAgent(CommandLine cmdLine) throws VocaDbPvTaskException{
+  String getUserAgentOrThrow(CommandLine cmdLine) {
     Supplier<String> throwExpSupplier =
         () -> SneakyThrow.theException(new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_006,
             "Plz define your own user-agent for the HttpClient to retrieve VocaDB song list"));
@@ -99,7 +100,7 @@ public final class ArgParser {
   /**
    * parsing {@link OptionName#TASK_NAME}
    */
-  String getTaskName(CommandLine cmdLine, int listId) {
+  String getTaskNameOrDefault(CommandLine cmdLine, int listId) {
     return getValueOrElse(cmdLine, OptionName.TASK_NAME, Function.identity(),
         () -> OptionsFactory.getDefaultTaskName("" + listId));
 
@@ -108,7 +109,7 @@ public final class ArgParser {
   /**
    * parsing {@link OptionName#TASK_FILE}
    */
-  Path getTaskJson(CommandLine cmdLine, int listId) throws VocaDbPvTaskException{
+  Path getTaskJsonOrDefault(CommandLine cmdLine, int listId) {
     Function<String, Path> function = fileName -> {
       var path = Path.of(fileName);
       if (Files.isDirectory(path)){
@@ -129,7 +130,7 @@ public final class ArgParser {
   /**
    * parsing {@link OptionName#REFERENCE_FILE}
    */
-  Path getReferenceJson(CommandLine cmdLine, int listId) throws VocaDbPvTaskException {
+  Path getReferenceJsonOrDefault(CommandLine cmdLine, int listId) {
     Function<String, Path> function = fileName -> {
       var path = Path.of(fileName);
       if (Files.isDirectory(path)){
@@ -151,13 +152,18 @@ public final class ArgParser {
    * throw {@link VocaDbPvTaskException} if unsupported pv is passed in
    *
    */
-  ImmutableList<PvService> getPvPref(CommandLine cmdLine) throws VocaDbPvTaskException {
-    Function<String[], ImmutableList<PvService>> function = prefArr -> {
-      //here we didn't do the check of pv string, instead we try catch later
-      var knownOrder = Lists.mutable.of(prefArr)
-          .collect(PvService::enumOf);
+  ImmutableList<String> getPvPrefOrDefault(CommandLine cmdLine) throws VocaDbPvTaskException {
+    Function<String[], ImmutableList<String>> function = prefArr -> {
+      var knownOrder = Lists.mutable.of(prefArr);
+      //check if pv string contains un-supported pv services
+      var unsupportedServOpt = knownOrder.reject(SupportedPvServices::contains).getFirstOptional();
+      unsupportedServOpt.ifPresent(s ->
+          SneakyThrow.theException(
+              new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_005, "Unsupported PV service in PV service preference: " + s)
+          )
+      );
 
-      Lists.mutable.withAll(PvService.getDefaultOrder())
+      SupportedPvServices.getSupportedPvServices().asLazy()
           //this introduce O(N^2)
           .rejectWith((service, order) -> order.contains(service), knownOrder)
           .injectInto(knownOrder, (order, service) -> {
@@ -165,14 +171,12 @@ public final class ArgParser {
             return order;
           });
 
+
       return knownOrder.toImmutable();
     };
-    try {
-      return getValuesOrElse(cmdLine, OptionName.PV_PREFERENCE, function, PvService::getDefaultOrder);
-    } catch (NullPointerException e){
-      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_005,
-          "Un-supported PV website in PV preference order, see \"Caused by\"", e);
-    }
+    Supplier<ImmutableList<String>> defaultOrderFunc =
+        () -> PvServices.getServices().select(SupportedPvServices::contains);
+    return getValuesOrElse(cmdLine, OptionName.PV_PREFERENCE, function, defaultOrderFunc);
   }
 
   /**

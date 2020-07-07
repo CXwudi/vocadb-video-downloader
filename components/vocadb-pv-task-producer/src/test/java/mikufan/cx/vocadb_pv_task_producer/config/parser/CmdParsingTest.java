@@ -1,14 +1,12 @@
 package mikufan.cx.vocadb_pv_task_producer.config.parser;
 
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import org.apache.commons.cli.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Slf4j
 class CmdParsingTest {
   private final DefaultParser parser = new DefaultParser();
   private final Options options = new OptionsFactory().createOptions();
