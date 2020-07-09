@@ -14,6 +14,7 @@
   <modules>
     <module>../components/vocadb-pv-task-producer</module>
     <module>../components/project-vd-common-util</module>
+    <module>../components/vocadb-pv-downloader</module>
   </modules>
 
   <name>Project VD - Video Downloader for Vocal Characters</name>
