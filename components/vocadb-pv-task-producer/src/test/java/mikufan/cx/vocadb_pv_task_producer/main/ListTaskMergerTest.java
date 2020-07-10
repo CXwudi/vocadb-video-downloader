@@ -62,4 +62,6 @@ class ListTaskMergerTest {
     assertEquals(listName, newTask.getFolderName());
 
   }
+
+  //TODO: one more test for able to sort services without break by unsupport services
 }

@@ -82,7 +82,7 @@
         <version>1.0.5.6</version>
       </dependency>
 
-      <!-- the modified util for youtube-dl wrapper -->
+      <!-- the modified youtube-dl wrapper -->
       <dependency>
         <groupId>com.github.CXwudi</groupId>
         <artifactId>youtubedl-java</artifactId>

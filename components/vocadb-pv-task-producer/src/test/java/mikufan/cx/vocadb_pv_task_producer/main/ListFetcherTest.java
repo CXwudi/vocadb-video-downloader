@@ -18,7 +18,7 @@ class ListFetcherTest  extends WithHttpClientSupport {
   void shouldGetUriOfIdFromAnIndex() {
     var uri = fetcher.getUri(8738, 15);
     assertEquals(
-        "https://vocadb.net/api/songLists/8738/songs?start=15&maxResults=5&getTotalCount=true&fields=PVs", //%2CArtists
+        "https://vocadb.net/api/songLists/8738/songs?start=15&maxResults=5&getTotalCount=true&fields=PVs%2CAlbums", //%2CArtists
         uri.toString()
     );
   }
