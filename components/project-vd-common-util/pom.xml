@@ -19,7 +19,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>mikufan.cx</groupId>
+      <groupId>com.github.CXwudi.common-vocaloid-java</groupId>
       <artifactId>common-vocaloid-import-all</artifactId>
     </dependency>
   </dependencies>

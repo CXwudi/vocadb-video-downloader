@@ -59,11 +59,10 @@
   </properties>
 
   <repositories>
-    <!-- my another repository that holds all common entity classes -->
+    <!-- for helping me releasing maven package of common-vocaloid-java-->
     <repository>
-      <id>github</id>
-      <name>GitHub CXwudi Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/CXwudi/common-vocaloid-java</url>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
     </repository>
   </repositories>
 
@@ -78,9 +77,16 @@
 
       <!-- my common modules from another repo -->
       <dependency>
-        <groupId>mikufan.cx</groupId>
+        <groupId>com.github.CXwudi.common-vocaloid-java</groupId>
         <artifactId>common-vocaloid-import-all</artifactId>
-        <version>1.0.5.4</version>
+        <version>1.0.5.6</version>
+      </dependency>
+
+      <!-- the modified util for youtube-dl wrapper -->
+      <dependency>
+        <groupId>com.github.CXwudi</groupId>
+        <artifactId>youtubedl-java</artifactId>
+        <version>1.2.RC3</version>
       </dependency>
 
 
