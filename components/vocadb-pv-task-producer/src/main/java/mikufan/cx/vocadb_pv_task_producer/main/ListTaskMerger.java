@@ -3,7 +3,6 @@ package mikufan.cx.vocadb_pv_task_producer.main;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.common_vocaloid_entity.pv.VocaDbPv;
-import mikufan.cx.common_vocaloid_entity.pv.service.PvServices;
 import mikufan.cx.common_vocaloid_entity.task.VocaDbPvTask;
 import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.PartialSongList;
 import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.SongInListForApiContract;
@@ -32,16 +31,17 @@ public class ListTaskMerger {
     } else {
       log.info("merging new song list into the reference");
     }
-
+    //FIXME: should use new updated song list as the base, instead of using old list as the base
     //get all songs that are not present in oldList
     var oldIds = oldList.getItems().asLazy().collectInt(item -> item.getSong().getId()).toSet();
     var newAddedItems = newList.getItems().asLazy().rejectWith(
         (item, ids) -> ids.contains(item.getSong().getId())
         , oldIds).toList();
 
-    //construct the new list with new items appended and correct the index
+    //construct the new list with new items appended
     var oldItems = Lists.mutable.withAll(oldList.getItems());
     oldItems.addAll(newAddedItems);
+    //and re-index the list
     var newItems = oldItems.asLazy()
         .zipWithIndex()
         .collect(itemWithIdx -> {
@@ -86,6 +86,7 @@ public class ListTaskMerger {
 
     // with a list of new songs, according to status, map them to new item in to-do or failed
     for (var song : newAddedSongs){
+      // get the list of PVs of a song
       var pvs = song.getPvs();
       var name = song.getName();
       //check if no pvs
@@ -96,14 +97,14 @@ public class ListTaskMerger {
       }
 
       // sort by pv pref, un-supported pvs go last
+      // first, get a map of pref service with int to indicate each service's priority
       var prefWithIdx = pvPref.asLazy().zipWithIndex().toMap(Pair::getOne, Pair::getTwo);
-      PvServices.getServices().asLazy()
-          .reject(SupportedPvServices::contains)
-          .injectInto(prefWithIdx, (map, others) -> {
-            map.put(others, Integer.MAX_VALUE);
-            return map;
-          });
-      var sortedPvs = pvs.sortThisByInt(pv -> prefWithIdx.get(pv.getService()));
+      // then, sort the pvs base on service priority numbers.
+      // if a pv uses service that are not supported, put them at the back of the map
+      var sortedPvs = pvs.sortThisByInt(pv -> {
+        var service = pv.getService();
+        return prefWithIdx.contains(service) ? prefWithIdx.get(service) : Integer.MAX_VALUE;
+      });
 
       //filter out inaccessible pvs
       var accessiblePvs = sortedPvs.reject(PVContract::isDisabled);

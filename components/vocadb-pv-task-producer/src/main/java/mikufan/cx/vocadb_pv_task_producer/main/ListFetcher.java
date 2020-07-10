@@ -102,7 +102,7 @@ public class ListFetcher {
             new BasicNameValuePair("start", String.valueOf(start)),
             new BasicNameValuePair("maxResults", String.valueOf(maxResult)),
             new BasicNameValuePair("getTotalCount", String.valueOf(true)),
-            new BasicNameValuePair("fields", "PVs"))
+            new BasicNameValuePair("fields", "PVs,Albums"))
         .build();
   }
 
