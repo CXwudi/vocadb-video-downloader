@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Run Unit Test
+name: unit test
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -43,13 +43,13 @@ jobs:
         restore-keys: | 
           ${{ runner.os }}-maven-  
     
-    - name: Setup settings.xml 
-      uses: whelk-io/maven-settings-xml-action@v7
-      with:
-        # json array of servers to add to settings.xml
-        servers: '[{"id": "github", "username": "${{ github.actor }}", "password": "${{ secrets.GITHUB_TOKEN }}"}]'
-        # json array of repositories to add to settings.xml
-        repositories: '[{"id": "github", "url": "https://maven.pkg.github.com/CXwudi/Common-Vocaloid-JavaClass"}]'
+#     - name: Setup settings.xml 
+#       uses: whelk-io/maven-settings-xml-action@v7
+#       with:
+#         # json array of servers to add to settings.xml
+#         servers: '[{"id": "github", "username": "${{ github.actor }}", "password": "${{ secrets.GITHUB_TOKEN }}"}]'
+#         # json array of repositories to add to settings.xml
+#         repositories: '[{"id": "github", "url": "https://maven.pkg.github.com/CXwudi/Common-Vocaloid-JavaClass"}]'
 
     # Runs a set of commands using the runners shell        
     - name: Run Maven Unit Test
