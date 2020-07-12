@@ -54,7 +54,7 @@
     <module.version>4.0.0-SNAPSHOT</module.version>  <!-- stay same with project version, but don't replace project version tag in pom-->
     <log4j.version>2.13.3</log4j.version>
     <eclipse-collections.version>10.2.0</eclipse-collections.version>
-    <jackson.version>2.11.0</jackson.version>
+    <jackson.version>2.11.1</jackson.version>
 
   </properties>
 
@@ -107,7 +107,7 @@
       <dependency> <!-- http-client5 -->
         <groupId>org.apache.httpcomponents.client5</groupId>
         <artifactId>httpclient5</artifactId>
-        <version>5.0</version>
+        <version>5.0.1</version>
         <exclusions>
           <exclusion>
             <groupId>org.slf4j</groupId>
