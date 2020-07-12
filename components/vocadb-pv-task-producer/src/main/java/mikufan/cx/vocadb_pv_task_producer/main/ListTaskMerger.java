@@ -8,7 +8,8 @@ import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.Pa
 import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.SongInListForApiContract;
 import mikufan.cx.common_vocaloid_entity.vocadb.models.PVContract;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
-import org.eclipse.collections.api.factory.Lists;
+import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
+import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.eclipse.collections.api.list.ImmutableList;
 import org.eclipse.collections.api.tuple.Pair;
 
@@ -22,7 +23,8 @@ import java.util.Objects;
 public class ListTaskMerger {
 
   /**
-   * merge two {@link PartialSongList} into one, by appending the second one into the first one
+   * merge two {@link PartialSongList} into one,
+   * by updating the existing songs in first list, then appending the second one into the first one
    */
   public PartialSongList mergeToList(PartialSongList oldList, @NonNull PartialSongList newList) {
     if (oldList == null){
@@ -31,18 +33,18 @@ public class ListTaskMerger {
     } else {
       log.info("merging new song list into the reference");
     }
-    //FIXME: should use new updated song list as the base, instead of using old list as the base
-    //get all songs that are not present in oldList
-    var oldIds = oldList.getItems().asLazy().collectInt(item -> item.getSong().getId()).toSet();
-    var newAddedItems = newList.getItems().asLazy().rejectWith(
-        (item, ids) -> ids.contains(item.getSong().getId())
-        , oldIds).toList();
 
-    //construct the new list with new items appended
-    var oldItems = Lists.mutable.withAll(oldList.getItems());
-    oldItems.addAll(newAddedItems);
+    //get all songs in old list that are not present in new list
+    var newIds = newList.getItems().collectInt(item -> item.getSong().getId()).toSet();
+    var oldItemsToPreserve = oldList.getItems().asLazy()
+        .rejectWith((item, ids) -> ids.contains(item.getSong().getId()), newIds)
+        .toList();
+
+    // append new list to the end of old list
+    oldItemsToPreserve.addAll(newList.getItems());
+
     //and re-index the list
-    var newItems = oldItems.asLazy()
+    var newItems = oldItemsToPreserve.asLazy()
         .zipWithIndex()
         .collect(itemWithIdx -> {
           var item = itemWithIdx.getOne();
@@ -61,7 +63,7 @@ public class ListTaskMerger {
   }
 
   /**
-   * update or construct the new task
+   * update or construct the new task, and also update existing pvs in tasks if presented
    * @param oldTask the task to be updated.
    *                if null, new task is constructed with the given new name
    * @param newList the new gotten response song list from the http client
@@ -73,26 +75,29 @@ public class ListTaskMerger {
       VocaDbPvTask oldTask,
       @NonNull PartialSongList newList,
       String newName,
-      @NonNull ImmutableList<String> pvPref) {
+      @NonNull ImmutableList<String> pvPref) throws VocaDbPvTaskException {
+    if (oldTask == null && newName == null){
+      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_307, "Both old task and new task name are null");
+    }
     VocaDbPvTask newTask = Objects.requireNonNullElse(oldTask, new VocaDbPvTask(newName));
     log.info("updating the task {} with new response song list", newTask.getFolderName());
-    // get a list of new songs, no matter if PV is still available or not
-    var pvIdSet = newTask.getDone().collectInt(VocaDbPv::getSongId).toSet();
-    pvIdSet.addAll(newTask.getTodo().collectInt(VocaDbPv::getSongId));
-    var newAddedSongs = newList.getItems().asLazy()
+    // get a set of ids of songs in done set
+    var doneIds = newTask.getDone().collectInt(VocaDbPv::getSongId).toSet();
+
+    var newSongs = newList.getItems().asLazy()
         .collect(SongInListForApiContract::getSong)
-        .rejectWith((song, set) -> set.contains(song.getId()), pvIdSet)
         .toList();
 
-    // with a list of new songs, according to status, map them to new item in to-do or failed
-    for (var song : newAddedSongs){
+    // with a list of songs from new list,
+    // according to status, update the to-do, done or failed set
+    for (var song : newSongs){
       // get the list of PVs of a song
       var pvs = song.getPvs();
       var name = song.getName();
       //check if no pvs
       if (pvs.isEmpty()){
         log.warn("no PVs found in {}", name);
-        newTask.markError(name, "no PVs");
+        newTask.markError(name, "no official PVs");
         continue;
       }
 
@@ -103,7 +108,7 @@ public class ListTaskMerger {
       // if a pv uses service that are not supported, put them at the back of the map
       var sortedPvs = pvs.sortThisByInt(pv -> {
         var service = pv.getService();
-        return prefWithIdx.contains(service) ? prefWithIdx.get(service) : Integer.MAX_VALUE;
+        return prefWithIdx.containsKey(service) ? prefWithIdx.get(service) : Integer.MAX_VALUE;
       });
 
       //filter out inaccessible pvs
@@ -113,7 +118,7 @@ public class ListTaskMerger {
         var firstPv = pvs.get(0);
         newTask.markError(
             new VocaDbPv(firstPv.getPvId(), firstPv.getService(), firstPv.getName(), song.getId()),
-            "deleted PV");
+            "officially deleted PV");
         continue;
       }
 
@@ -128,11 +133,23 @@ public class ListTaskMerger {
         continue;
       }
 
-      // add the best preference pv task
+      // use the best preference pv to make the task
       var selectedPv = supportedPvs.get(0);
       var vocaDbPv = new VocaDbPv(selectedPv.getPvId(), selectedPv.getService(), selectedPv.getName(), song.getId());
       log.debug("adding new PV {} to task: {}", vocaDbPv, newTask.getFolderName());
-      newTask.markTodo(vocaDbPv);
+
+      // add to proper set, only add to done set if done contains it
+      if (doneIds.contains(song.getId())){
+        if (newTask.getDone().contains(vocaDbPv)){
+          newTask.getDone().remove(vocaDbPv);
+        }
+        newTask.markDone(vocaDbPv);
+      } else { //to-do contains it or error contains it, or neither
+        if (newTask.getTodo().contains(vocaDbPv)){
+          newTask.getTodo().remove(vocaDbPv);
+        }
+        newTask.markTodo(vocaDbPv);
+      }
     }
 
     return newTask;

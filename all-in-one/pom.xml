@@ -79,7 +79,7 @@
       <dependency>
         <groupId>com.github.CXwudi.common-vocaloid-java</groupId>
         <artifactId>common-vocaloid-import-all</artifactId>
-        <version>1.0.5.6</version>
+        <version>1.0.6</version>
       </dependency>
 
       <!-- the modified youtube-dl wrapper -->
