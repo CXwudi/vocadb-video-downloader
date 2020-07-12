@@ -43,10 +43,11 @@ class ArgParserTest {
   @Test @SneakyThrows
   void testGetPvPref() {
     var cmdLine = parser.parseArgs(new String[]{"-i", "1234",
-        "-p", String.format("%s,%s", PvServiceStr.NICONICO, PvServiceStr.YOUTUBE)},
+        "-p", String.format("%s,%s", PvServiceStr.YOUTUBE, PvServiceStr.NICONICO)},
         options);
-    var args = parser.getPvPrefOrDefault(cmdLine);
-    assertEquals(SupportedPvServices.getSupportedPvServices().size(), args.size());
+    var pvPref = parser.getPvPrefOrDefault(cmdLine);
+    log.debug("pvPref = {}", pvPref);
+    assertEquals(SupportedPvServices.getSupportedPvServices().size(), pvPref.size());
   }
 
   /**

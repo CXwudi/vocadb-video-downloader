@@ -162,7 +162,7 @@ public final class ArgParser {
               new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_005, "Unsupported PV service in PV service preference: " + s)
           )
       );
-
+      // append the rest of pv pref to knownOrder base on default pv service pref
       SupportedPvServices.getSupportedPvServices().asLazy()
           //this introduce O(N^2)
           .rejectWith((service, order) -> order.contains(service), knownOrder)

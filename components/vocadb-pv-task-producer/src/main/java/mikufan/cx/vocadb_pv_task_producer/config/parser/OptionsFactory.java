@@ -2,7 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer.config.parser;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import mikufan.cx.common_vocaloid_entity.pv.service.PvServices;
+import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 
@@ -82,7 +82,7 @@ public final class OptionsFactory {
                 "by default this is \"-%s %s\" (no space around comma)" +
                 "Currently we only support websites listed in the default order",
             OptionName.PV_PREFERENCE.getOptName(),
-            PvServices.getServices().makeString(",")))
+            SupportedPvServices.getSupportedPvServices().makeString(",")))
         .build()
     );
 
