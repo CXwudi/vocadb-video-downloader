@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.common_vocaloid_entity.pv.service.PvServices;
-import mikufan.cx.common_vocaloid_util.exception.SneakyThrow;
+import mikufan.cx.project_vd_common_util.exception.SneakyThrow;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;

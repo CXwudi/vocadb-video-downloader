@@ -22,6 +22,27 @@
       <groupId>com.github.CXwudi.common-vocaloid-java</groupId>
       <artifactId>common-vocaloid-import-all</artifactId>
     </dependency>
+
+    <dependency> <!-- jackson -->
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+    </dependency>
+    <dependency> <!-- and its standalone annotation, children import this to avoid jackson-databind -->
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+    </dependency>
+    <dependency> <!-- and its standalone object mapper -->
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+    <dependency> <!-- and supports for eclipse collection -->
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-eclipse-collections</artifactId>
+    </dependency>
+    <dependency> <!-- and support for yaml -->
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-yaml</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

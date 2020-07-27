@@ -8,7 +8,7 @@ import mikufan.cx.common_vocaloid_entity.pv.service.PvServiceStr;
 import mikufan.cx.common_vocaloid_entity.pv.service.PvServices;
 import mikufan.cx.common_vocaloid_entity.task.VocaDbPvTask;
 import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.PartialSongList;
-import mikufan.cx.common_vocaloid_util.jackson.JsonMapperUtil;
+import mikufan.cx.project_vd_common_util.jackson.JsonMapperUtil;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
 import org.junit.jupiter.api.Test;
 

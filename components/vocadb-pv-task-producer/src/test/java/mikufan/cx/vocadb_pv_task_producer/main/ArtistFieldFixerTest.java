@@ -6,7 +6,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.common_vocaloid_entity.vocadb.models.ArtistForSongContract;
 import mikufan.cx.common_vocaloid_entity.vocadb.models.SongForApiContract;
-import mikufan.cx.common_vocaloid_util.jackson.JsonMapperUtil;
+import mikufan.cx.project_vd_common_util.jackson.JsonMapperUtil;
 import org.eclipse.collections.api.factory.Lists;
 import org.eclipse.collections.api.list.ImmutableList;
 import org.junit.jupiter.api.Disabled;
