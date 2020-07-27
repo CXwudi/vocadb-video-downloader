@@ -17,11 +17,12 @@ This is the successor of my previous project [Niconico Video Downloader](https:/
 
 Aim to provide the following features:
 
-* Support reading the favourite list in VocaDB, and produce/update the json formatted task file
+* Support reading the favourite list in VocaDB, and produce/update a folder of json files containing all necessary information about these songs
+  * the json file is simply of GET [`https://vocadb.net/api/songs/<songId>?fields=PVs`](https://vocadb.net/swagger/ui/index#!/SongApi/SongApi_GetById)
   * favourite lists can be imported from youtube/niconico favourite list using the import feature in VocaDB website
   * If I have time, I'll add supports of reading favourite lists directly from local file, Youtube, Niconico, Bilibili
-* Can download Vocaloid PV from supported websites (Youtube, Niconico, Bilibili), and update the json formatted task file
-* Can extract audio from Vocaloid PV and embed thumbnail and tags using information from VocaDB
+* Can download Vocaloid PV from supported websites (Youtube, Niconico, Bilibili) base on json file
+* Can extract audio from Vocaloid PV and embed thumbnail and tags using information from json files
 
 ## Current Progresses
 
@@ -29,11 +30,11 @@ The project is WIP:
 
 1. ✅ [common-vocaloid-java](https://github.com/CXwudi/common-vocaloid-java) (implemented in another repo)
    1. ✅ common-entity (define entites obj for stroing information)
-   2. ✅ common-util (some util classes and functions that reduce spolit code)
-2. ✅ project-vd-common-util (some util classes and function that are only used by this project)
-3. ✅ vocadb-pv-task-producer (read VocaDB favourite list and produce/update the pv task and pv information in json)
+2. ✅ project-vd-common-util (some util classes and function that reduce spolier codes)
+3. 🔄 vocadb-pv-task-producer (read VocaDB favourite list and produce/update the pv task and pv information in json)
+   1. currently I am reworking on this one to simplify the usage
 4. ✅ [youtubedl-java](https://github.com/CXwudi/youtubedl-java) (forked from <https://github.com/sapher/youtubedl-java>, but need to modify it to suit our need)
-5. 🔄 vocadb-pv-downloader (fetch the video, thumbnail and tags of PVs base on pv task and pv information in json)
+5. ❌ vocadb-pv-downloader (fetch the video, thumbnail and tags of PVs base on pv task and pv information in json)
 6. ❌ vocadb-pv-postprocessor (extract audio and add tags and thumbnails to audio files)
 
 ## Appreciation
