@@ -16,7 +16,7 @@ import java.nio.file.Path;
  * @author CX无敌
  */
 @Getter @Slf4j
-@AllArgsConstructor
+@AllArgsConstructor(staticName = "createWith")
 public class JacksonPojoTransformer<P> implements PojoFileTransformer<P> {
 
   @NonNull

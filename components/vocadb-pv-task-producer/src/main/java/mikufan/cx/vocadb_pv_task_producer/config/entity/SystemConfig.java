@@ -36,7 +36,7 @@ public class SystemConfig {
   @SneakyThrows(VocaDbPvTaskException.class)
   private static SystemConfig createInstance() {
     val systemConfigFile = Path.of( "task-producer-config", "system-config.yaml");
-    val configReader = new JacksonPojoTransformer<>(YamlMapperUtil.createDefaultForReadOnly(), SystemConfig.class);
+    val configReader = JacksonPojoTransformer.createWith(YamlMapperUtil.createDefaultForReadOnly(), SystemConfig.class);
 
     try {
       //maybe because it is in the class creation stage, we can't use PojoTranslator here, otherwise it reads as linked hashmap.

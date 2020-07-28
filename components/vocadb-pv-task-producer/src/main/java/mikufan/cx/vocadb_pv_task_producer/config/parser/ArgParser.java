@@ -3,20 +3,19 @@ package mikufan.cx.vocadb_pv_task_producer.config.parser;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_vocaloid_entity.pv.service.PvServices;
-import mikufan.cx.project_vd_common_util.exception.SneakyThrow;
-import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
+import mikufan.cx.project_vd_common_util.cli.parser.ParserUtil;
+import mikufan.cx.project_vd_common_util.exception.ThrowableFunction;
+import mikufan.cx.project_vd_common_util.exception.ThrowableSupplier;
+import mikufan.cx.project_vd_common_util.io.JacksonPojoTransformer;
+import mikufan.cx.project_vd_common_util.jackson.YamlMapperUtil;
+import mikufan.cx.vocadb_pv_task_producer.config.entity.UserConfig;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.apache.commons.cli.*;
 import org.eclipse.collections.api.factory.Lists;
-import org.eclipse.collections.api.list.ImmutableList;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 /**
  * the stateless arg parser <br/>
@@ -58,7 +57,7 @@ public final class ArgParser {
   void checkAndPrintHelpAndQuitIfNeed(Options options, CommandLine cmdLine) throws VocaDbPvTaskException {
     if (cmdLine.hasOption(OptionName.HELP.getOptName())){
       printHelp(options);
-      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_002, "Only printing help message");
+      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_009, "Only printing help message");
     }
   }
 
@@ -72,146 +71,66 @@ public final class ArgParser {
    * this method can sneaky throw {@link VocaDbPvTaskException}
    */
   int getListIdOrThrow(CommandLine cmdLine, Options options) {
-    Function<String, Integer> function = listIdStr -> {
+    ThrowableFunction<String, Integer> function = listIdStr -> {
       try {
         return Integer.parseInt(listIdStr);
       } catch (NumberFormatException e){
-        return SneakyThrow.theException(new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_004, "Invalid ID of VocaDB favourite list, " + listIdStr, e));
+        throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_003, "Invalid ID of VocaDB favourite list, " + listIdStr, e);
       }
     };
-    Supplier<Integer> throwExpSupplier = () -> {
+    ThrowableSupplier<Integer> throwExpSupplier = () -> {
       printHelp(options);
-      return SneakyThrow.theException(new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_003, "Plz give me the ID of VocaDB favourite list"));
+      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_002, "Plz give me the ID of VocaDB favourite list");
     };
-    return getValueOrElse(cmdLine, OptionName.LIST_ID, function, throwExpSupplier);
+    return ParserUtil.getValueOrElse(cmdLine, OptionName.LIST_ID.getOptName(), function.toFunction(), throwExpSupplier.toSupplier());
   }
 
   /**
-   * parse {@link OptionName#USER_AGENT} <br/>
+   * parse {@link OptionName#OUTPUT_DIR} <br/>
    * this method can sneaky throw {@link VocaDbPvTaskException}
    */
-  String getUserAgentOrThrow(CommandLine cmdLine) {
-    Supplier<String> throwExpSupplier =
-        () -> SneakyThrow.theException(new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_006,
-            "Plz define your own user-agent for the HttpClient to retrieve VocaDB song list"));
-    return getValueOrElse(cmdLine, OptionName.USER_AGENT, Function.identity(), throwExpSupplier);
-  }
-
-  /**
-   * parsing {@link OptionName#TASK_NAME}
-   */
-  String getTaskNameOrDefault(CommandLine cmdLine, int listId) {
-    return getValueOrElse(cmdLine, OptionName.TASK_NAME, Function.identity(),
-        () -> OptionsFactory.getDefaultTaskName("" + listId));
-
-  }
-
-  /**
-   * parsing {@link OptionName#TASK_FILE}
-   */
-  Path getTaskJsonOrDefault(CommandLine cmdLine, int listId) {
-    Function<String, Path> function = fileName -> {
-      var path = Path.of(fileName);
+  Path getOutputDirOrThrow(CommandLine cmdLine) {
+    ThrowableFunction<String, Path> function = dirName -> {
+      var path = Path.of(dirName);
       if (Files.isDirectory(path)){
-        return SneakyThrow.theException(new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_008,
-            "the path denoted by the " + OptionName.TASK_FILE.getOptName() + "is a directory: " + path));
-      } else {
         return path;
+      } else {
+        throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_004,
+            "the path denoted by the " + OptionName.OUTPUT_DIR.getOptName() + "is NOT an existing directory: " + path);
       }
     };
 
-    Supplier<Path> defaultPath = () -> {
-      var fileName = OptionsFactory.getDefaultTaskFileName("" + listId);
-      return Path.of(fileName + ".json");
+    ThrowableSupplier<Path> defaultPath = () -> {
+      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_005,
+          OptionName.OUTPUT_DIR.getOptName() + " should contain one argument");
     };
-    return getValueOrElse(cmdLine, OptionName.TASK_FILE, function, defaultPath);
+
+    return ParserUtil.getValueOrElse(cmdLine, OptionName.OUTPUT_DIR.getOptName(), function.toFunction(), defaultPath.toSupplier());
   }
 
+
   /**
-   * parsing {@link OptionName#REFERENCE_FILE}
+   * parse {@link OptionName#USER_CONFIG} <br/>
+   * this method can sneaky throw {@link VocaDbPvTaskException}
    */
-  Path getReferenceJsonOrDefault(CommandLine cmdLine, int listId) {
-    Function<String, Path> function = fileName -> {
+  UserConfig getUserConfigOrThrow(CommandLine cmdLine) {
+    ThrowableFunction<String, UserConfig> function = fileName -> {
       var path = Path.of(fileName);
-      if (Files.isDirectory(path)){
-        return SneakyThrow.theException(new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_007,
-            "the path denoted by the " + OptionName.REFERENCE_FILE.getOptName() + "is a directory: " + path));
+      if (Files.isRegularFile(path)){
+        var reader = JacksonPojoTransformer.createWith(YamlMapperUtil.createDefaultForReadOnly(), UserConfig.class);
+        return reader.read(path);
       } else {
-        return path;
+        throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_006,
+            "the path denoted by the " + OptionName.USER_CONFIG.getOptName() + "is NOT an existing directory: " + path);
       }
     };
-    Supplier<Path> defaultPath = () -> {
-      var fileName = OptionsFactory.getDefaultRefFileName("" + listId);
-      return Path.of(fileName + ".json");
+
+    ThrowableSupplier<UserConfig> defaultPath = () -> {
+      throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_007,
+          OptionName.USER_CONFIG.getOptName() + " should contain one argument");
     };
-    return getValueOrElse(cmdLine, OptionName.REFERENCE_FILE, function, defaultPath);
-  }
 
-  /**
-   * parsing {@link OptionName#PV_PREFERENCE} <br/>
-   * throw {@link VocaDbPvTaskException} if unsupported pv is passed in
-   *
-   */
-  ImmutableList<String> getPvPrefOrDefault(CommandLine cmdLine) throws VocaDbPvTaskException {
-    Function<String[], ImmutableList<String>> function = prefArr -> {
-      var knownOrder = Lists.mutable.of(prefArr);
-      //check if pv string contains un-supported pv services
-      var unsupportedServOpt = knownOrder.reject(SupportedPvServices::contains).getFirstOptional();
-      unsupportedServOpt.ifPresent(s ->
-          SneakyThrow.theException(
-              new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_005, "Unsupported PV service in PV service preference: " + s)
-          )
-      );
-      // append the rest of pv pref to knownOrder base on default pv service pref
-      SupportedPvServices.getSupportedPvServices().asLazy()
-          //this introduce O(N^2)
-          .rejectWith((service, order) -> order.contains(service), knownOrder)
-          .injectInto(knownOrder, (order, service) -> {
-            order.add(service);
-            return order;
-          });
-
-
-      return knownOrder.toImmutable();
-    };
-    Supplier<ImmutableList<String>> defaultOrderFunc =
-        () -> PvServices.getServices().select(SupportedPvServices::contains);
-    return getValuesOrElse(cmdLine, OptionName.PV_PREFERENCE, function, defaultOrderFunc);
-  }
-
-  /**
-   * an util method for retrieving an arg from the given option in cmd line, and processing that arg string with given function. <br/>
-   * if the option doesn't exist, return a default value produced by defValSupplier
-   */
-  private <T> T getValueOrElse(CommandLine cmdLine, OptionName opt,
-                               Function<String, T> process,
-                               Supplier<T> defValSupplier) {
-    return getOrElse(cmdLine, opt, process, CommandLine::getOptionValue, defValSupplier);
-  }
-
-  /**
-   * an util method for retrieving a list of args from the given option in cmd line, and processing those args with given function. <br/>
-   * if the option doesn't exist, return a default value produced by defValSupplier
-   */
-  private <T> T getValuesOrElse(CommandLine cmdLine, OptionName opt,
-                                Function<String[], T> process,
-                                Supplier<T> defValSupplier){
-    return getOrElse(cmdLine, opt, process, CommandLine::getOptionValues, defValSupplier);
-  }
-
-  /**
-   * the internal util method used by {@link ArgParser#getValuesOrElse(org.apache.commons.cli.CommandLine, mikufan.cx.vocadb_pv_task_producer.config.parser.OptionName, java.util.function.Function, java.util.function.Supplier)}
-   * and {@link ArgParser#getValuesOrElse(org.apache.commons.cli.CommandLine, mikufan.cx.vocadb_pv_task_producer.config.parser.OptionName, java.util.function.Function, java.util.function.Supplier)}
-   */
-  private <I, T> T getOrElse(CommandLine cmdLine, OptionName opt,
-                             Function<I, T> process,
-                             BiFunction<CommandLine, String, I> readArg,
-                             Supplier<T> defValSupplier) {
-    if (cmdLine.hasOption(opt.getOptName())){
-      return process.apply(readArg.apply(cmdLine, opt.getOptName()));
-    } else {
-      return defValSupplier.get();
-    }
+    return ParserUtil.getValueOrElse(cmdLine, OptionName.USER_CONFIG.getOptName(), function.toFunction(), defaultPath.toSupplier());
   }
 
 }

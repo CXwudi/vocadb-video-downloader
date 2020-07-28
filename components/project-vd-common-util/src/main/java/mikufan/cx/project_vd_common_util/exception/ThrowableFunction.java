@@ -16,7 +16,7 @@ public interface ThrowableFunction<T, R> {
   /**
    * convert it to the instance of {@link Function}
    */
-  static <T, R> Function<T, R> toFunction(mikufan.cx.project_vd_common_util.exception.ThrowableFunction<T, R> f){
+  static <T, R> Function<T, R> toFunction(ThrowableFunction<T, R> f){
     return t -> {
       try {
         return f.apply(t);
