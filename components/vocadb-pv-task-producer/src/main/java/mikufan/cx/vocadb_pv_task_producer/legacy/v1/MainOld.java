@@ -49,7 +49,7 @@ public class MainOld {
 //      /* ==  4. fixing "various" "unknown" in artist fields in songs list  == */
 //      log.info("song list of {} gotten, start processing artist field string fixup", listId);
 //      var artistFixer = new ArtistFieldFixer();
-//      artistFixer.tryFixAll(songList, httpClient);
+//      artistFixer.fixAll(songList, httpClient);
 //
 //      /* ==  5. merging the new song list into task and ref  == */
 //      log.info("merging songs list into task and reference");
