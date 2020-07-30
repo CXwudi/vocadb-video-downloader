@@ -13,7 +13,7 @@
   </prerequisites>
   <modules>
     <module>../components/vocadb-pv-task-producer</module>
-    <module>../components/project-vd-common-util</module>
+    <module>../commons/project-vd-common-util</module>
     <module>../components/vocadb-pv-downloader</module>
   </modules>
 
