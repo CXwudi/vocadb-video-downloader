@@ -1,0 +1,1 @@
+java -jar lib/vocadb-pv-task-producer.jar %*

@@ -43,12 +43,13 @@ public class SongInfoValidator {
     //check if pvs are not supported
     var supportedPvs = accessiblePvs.select(pv -> SupportedPvServices.contains(pv.getService()));
     if (supportedPvs.isEmpty()){
-      log.warn("current {} doesn't contains PVs that are accessible and supported by vocadb-pv-video-downloader", name);
-      return Optional.of("currently we are not able to download PV from web service other than " +
-          SupportedPvServices.getSupportedPvServices().makeString(", "));
+      var supportedServices = SupportedPvServices.getSupportedPvServices().makeString(", ");
+      log.warn("current {} doesn't contains PVs from supported web services {}", name, supportedServices);
+      return Optional.of("currently we are not able to download PV from web services other than " +
+          supportedServices);
     }
 
-
+    //pass
     return Optional.empty();
   }
 }

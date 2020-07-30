@@ -83,7 +83,7 @@ public class ArtistFieldFixer {
       if (containsWithoutCase(artistStr, VARIOUS) ){
         artists.addAll(getArtists(song.getId(), httpClient));
         artistStr = formArtistInfo(artists);
-        log.debug("artist str with 'various', '{}' is now replaced by = '{}'", song.getArtistString(), artistStr);
+        log.debug("artist str with 'various', '{}' is now replaced by '{}'", song.getArtistString(), artistStr);
       }
 
       // fix unknown

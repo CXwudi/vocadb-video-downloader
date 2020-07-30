@@ -32,8 +32,8 @@ public class ListFetcher {
 
   private final int maxResult;
 
-  private static final ObjectMapper mapper = JsonMapperUtil.createDefaultForReadOnly();
-  private static final BasicHttpClientResponseHandler responseHandler = new BasicHttpClientResponseHandler();
+  private final ObjectMapper mapper = JsonMapperUtil.createDefaultForReadOnly();
+  private final BasicHttpClientResponseHandler responseHandler = new BasicHttpClientResponseHandler();
 
   /**
    * get a fully concattedList response of the endpoint using

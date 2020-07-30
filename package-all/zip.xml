@@ -1,0 +1,43 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+  <id>zip</id>
+  <includeBaseDirectory>true</includeBaseDirectory>
+
+  <formats>
+    <format>zip</format>
+  </formats>
+
+  <fileSets>
+    <!-- the launching script of various applications -->
+    <fileSet>
+      <directory>${project.basedir}/scripts</directory>
+      <outputDirectory>/</outputDirectory>
+    </fileSet>
+
+    <!-- each component's config files -->
+    <fileSet>
+      <directory>${project.basedir}/../components/vocadb-pv-task-producer/task-producer-config</directory>
+      <!-- the parent path must be same as scripts' base dir, otherwise system-config cannot be found,
+      and adding "cd lib" to the script will cause user-config not found problem if relative path is used -->
+      <outputDirectory>/task-producer-config</outputDirectory>
+    </fileSet>
+  </fileSets>
+
+  <files>
+    <file>
+      <!-- each component's sample user config file -->
+      <source>${project.basedir}/../components/vocadb-pv-task-producer/task-producer-sample-config.yaml</source>
+<!--      <outputDirectory>/</outputDirectory>-->
+    </file>
+  </files>
+
+  <dependencySets>
+    <!-- including all jar files from maven build directories, as well as their dependencies from maven repo-->
+    <dependencySet>
+      <outputDirectory>lib</outputDirectory>
+      <outputFileNameMapping>${artifact.artifactId}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+  </dependencySets>
+
+</assembly>

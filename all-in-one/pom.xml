@@ -15,6 +15,8 @@
     <module>../components/vocadb-pv-task-producer</module>
     <module>../commons/project-vd-common-util</module>
     <module>../components/vocadb-pv-downloader</module>
+    <module>../commons/project-vd-common-entity</module>
+    <module>../package-all</module>
   </modules>
 
   <name>Project VD - Video Downloader for Vocal Characters</name>
@@ -68,11 +70,16 @@
 
   <dependencyManagement> <!-- declare dependencies that is useful in this project -->
     <dependencies>
-      <!-- my children for use -->
+      <!-- my internal children for use -->
       <dependency>
         <groupId>mikufan.cx</groupId>
         <artifactId>project-vd-common-util</artifactId>
-        <version>4.0.0-SNAPSHOT</version>
+        <version>${module.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mikufan.cx</groupId>
+        <artifactId>project-vd-common-entity</artifactId>
+        <version>${module.version}</version>
       </dependency>
 
       <!-- my common modules from another repo -->
@@ -192,6 +199,17 @@
         <version>3.4.2</version>
       </dependency>
 
+      <!-- all my application components, declared here for packaging proposes -->
+      <dependency>
+        <groupId>mikufan.cx</groupId>
+        <artifactId>vocadb-pv-task-producer</artifactId>
+        <version>${module.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mikufan.cx</groupId>
+        <artifactId>vocadb-pv-downloader</artifactId>
+        <version>${module.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -247,44 +265,25 @@
           <version>3.0.0-M3</version>
         </plugin>
 
-        <!-- zip file build setup -->
-        <!-- jar + assembly to produce a fat zip, recommended way to publish releases -->
-        <!-- should never build a fat jar file as library jars have signatures, fail to preserve signatures will get exception. -->
-        <!-- but removing signature violates open-source licenses -->
-        <plugin> <!-- add dependencies to the jar-->
+        <plugin> <!-- make sure maven produce jar file for each components -->
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.2.0</version>
           <configuration>
             <archive>
               <manifest>
+                <!-- children copy all these setting, and finish the mainClass -->
+                <!-- base on the package-all assembly zip.xml configuration,
+                 all modules dependencies will be found in the same directory,
+                 and the class path naming should be custom,
+                 which need to stay same with zip.xml in assembly plugin -->
                 <addClasspath>true</addClasspath>
-                <classpathPrefix>${build.library.dir}</classpathPrefix>
+                <classpathLayoutType>custom</classpathLayoutType>
+                <!--suppress UnresolvedMavenProperty -->
+                <customClasspathLayout>$${artifact.artifactId}$${dashClassifier?}.$${artifact.extension}</customClasspathLayout>
                 <!-- children plz indicate your main class -->
                 <!-- <mainClass>com.sample.Main</mainClass> -->
               </manifest>
             </archive>
-          </configuration>
-        </plugin>
-
-        <plugin>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <version>3.2.0</version>
-          <executions>
-            <execution>
-              <id>make-assembly</id> <!-- this is used for inheritance merges -->
-              <phase>package</phase> <!-- bind to the packaging phase -->
-              <goals>
-                <goal>single</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <appendAssemblyId>false</appendAssemblyId>
-            <outputDirectory>${project.basedir}/release</outputDirectory>
-            <descriptors>
-              <!-- children plz specify your location of configuration file -->
-              <descriptor>src/main/resources/assembly/zip.xml</descriptor> <!-- default path -->
-            </descriptors>
           </configuration>
         </plugin>
 

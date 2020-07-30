@@ -29,7 +29,7 @@ class ConfigFactoryTest {
     // so the error code is 001
     shouldThrowVocaDbExpByParser(VocaDbPvTaskRCI.MIKU_TASK_001, "-i", "1234", "-o", "-s", "fakeSetting");
 
-    var config = ConfigFactory.parse(new String[]{"-i", "1234", "-o", "src", "-s", "src/test/resources/sample-config.yaml"});
+    var config = ConfigFactory.parse(new String[]{"-i", "1234", "-o", "src", "-s", "src/test/resources/sample-test-config.yaml"});
     assertEquals(Paths.get("src"), config.getOutputDir());
   }
 
