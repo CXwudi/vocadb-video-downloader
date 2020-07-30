@@ -6,6 +6,7 @@ import java.util.function.Function;
  * Basically a {@link Function} that can throw exp
  * @author CX无敌
  */
+@FunctionalInterface
 public interface ThrowableFunction<T, R> {
   /**
    * same as {@link Function#apply(Object)}, but can throw exp

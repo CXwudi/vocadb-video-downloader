@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 /**
  * @author CX无敌
  */
+@FunctionalInterface
 public interface ThrowableConsumer<T>  {
 
   /**

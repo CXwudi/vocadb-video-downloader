@@ -6,6 +6,7 @@ import java.util.function.Supplier;
  * Basically a {@link Supplier} that can throw exp
  * @author CX无敌
  */
+@FunctionalInterface
 public interface ThrowableSupplier<T> {
 
   /**
