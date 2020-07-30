@@ -17,24 +17,24 @@ public class Main {
     var appConfig = ConfigFactory.parse(args);
 
     /* ==  the main logic == */
-    var songListFixed = withHttpClient(appConfig.userConfig.getUserAgent(),
+    var songList = withHttpClient(appConfig.userConfig.getUserAgent(),
         httpClient -> {
           /* ==  1. fetch list == */
           var listId = appConfig.getListId();
           log.info("start requesting full VocaDB songs list of id {}", listId);
           var listFetcher = new ListFetcher(appConfig.systemConfig.getMaxResult());
-          var songList = listFetcher.getVocadbListOfId(listId, httpClient);
+          var list = listFetcher.getVocadbListOfId(listId, httpClient);
 
           /* ==  2. fixing "various" "unknown" in artist fields in songs list == */
           log.info("song list of {} gotten, start processing artist field string fixup", listId);
           var artistFixer = new ArtistFieldFixer();
-          artistFixer.fixAll(songList, httpClient);
+          artistFixer.fixAll(list, httpClient);
 
-          return songList;
+          return list;
         }
     );
     /* ==  for each song in list == */
-    for(var item : songListFixed.getItems()){
+    for(var item : songList.getItems()){
       var song = item.getSong();
 
       /*
