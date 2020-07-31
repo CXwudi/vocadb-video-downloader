@@ -40,7 +40,7 @@ class ArtistFieldFixerTest extends WithHttpClientSupport {
    * can get the artists by id
    */
   @Test @SneakyThrows
-  @Disabled
+  @Disabled("test is disabled as it contains RESTful api calls")
   void getArtists() {
     // OSTER project feat. various - 軋んだ夢と糸繰人形
     var artists = fixer.getArtists(259123, testedHttpClient);
@@ -89,7 +89,7 @@ class ArtistFieldFixerTest extends WithHttpClientSupport {
    * it: can fix a song
    */
   @Test @SneakyThrows
-  @Disabled
+  @Disabled("test is disabled as it contains RESTful api calls")
   void fixArtist() {
     // cisco, たかぴぃ, ねじ式 feat. 結月ゆかり, 紲星あかり - ゆづきず☆ダンスナイト
     var smallSong = SongForApiContract.builder().id(272694)
