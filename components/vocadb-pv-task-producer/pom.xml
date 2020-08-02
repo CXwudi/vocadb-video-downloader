@@ -19,10 +19,14 @@
       <groupId>mikufan.cx</groupId>
       <artifactId>project-vd-common-util</artifactId>
     </dependency>
+    <dependency>
+      <groupId>mikufan.cx</groupId>
+      <artifactId>project-vd-common-entity</artifactId>
+    </dependency>
 
     <!-- external module dependencies -->
     <dependency>
-      <groupId>mikufan.cx</groupId>
+      <groupId>com.github.CXwudi.common-vocaloid-java</groupId>
       <artifactId>common-vocaloid-import-all</artifactId>
     </dependency>
 
@@ -60,5 +64,51 @@
       <groupId>com.fasterxml.jackson.dataformat</groupId>
       <artifactId>jackson-dataformat-yaml</artifactId>
     </dependency>
+
+    <!-- logging -->
+    <dependency> <!-- slf4j -->
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+    <dependency> <!-- log4j2 -->
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+    </dependency>
+    <dependency> <!-- async logging support-->
+      <groupId>com.lmax</groupId>
+      <artifactId>disruptor</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.fusesource.jansi</groupId>
+      <artifactId>jansi</artifactId>
+    </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <!-- base on the package-all assembly zip.xml configuration,
+                 all modules dependencies will be found in the same directory,
+                 and the class path naming should be custom,
+                 which need to stay same with zip.xml in assembly plugin -->
+              <addClasspath>true</addClasspath>
+              <classpathLayoutType>custom</classpathLayoutType>
+              <!--suppress UnresolvedMavenProperty -->
+              <customClasspathLayout>$${artifact.artifactId}$${dashClassifier?}.$${artifact.extension}</customClasspathLayout>
+              <mainClass>mikufan.cx.vocadb_pv_task_producer.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

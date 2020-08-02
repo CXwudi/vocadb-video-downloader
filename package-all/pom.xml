@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>project-vd</artifactId>
+    <groupId>mikufan.cx</groupId>
+    <version>4.0.0-SNAPSHOT</version>
+    <relativePath>../all-in-one/pom.xml</relativePath>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>package-all</artifactId>
+
+  <description>
+    this is just configuration of all maven packaging is done
+  </description>
+
+  <dependencies>
+    <dependency>
+      <groupId>mikufan.cx</groupId>
+      <artifactId>vocadb-pv-task-producer</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>mikufan.cx</groupId>
+      <artifactId>vocadb-pv-downloader</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- zip file build setup -->
+      <!-- jar + assembly to produce a fat zip, recommended way to publish releases -->
+      <!-- should never build a fat jar file as library jars have signatures, fail to preserve signatures will get exception. -->
+      <!-- but removing signature violates open-source licenses -->
+
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>make-assembly</id> <!-- this is used for inheritance merges -->
+            <phase>package</phase> <!-- bind to the packaging phase -->
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <appendAssemblyId>false</appendAssemblyId>
+          <outputDirectory>${project.basedir}/release</outputDirectory>
+          <descriptors>
+            <!-- children plz specify your location of configuration file -->
+            <descriptor>zip.xml</descriptor> <!-- default path -->
+          </descriptors>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>

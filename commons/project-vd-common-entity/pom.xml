@@ -10,18 +10,21 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>project-vd-common-util</artifactId>
+  <artifactId>project-vd-common-entity</artifactId>
 
   <description>
-    This common util is used by the Project-VD only.
-    It also contains the log4j2.xml which used globally.
+    This common entity is used by the Project-VD only
   </description>
 
   <dependencies>
     <dependency>
-      <groupId>mikufan.cx</groupId>
+      <groupId>com.github.CXwudi.common-vocaloid-java</groupId>
       <artifactId>common-vocaloid-import-all</artifactId>
     </dependency>
-  </dependencies>
 
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+    </dependency>
+  </dependencies>
 </project>

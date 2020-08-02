@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.PartialSongList;
-import mikufan.cx.common_vocaloid_util.jackson.JsonMapperUtil;
+import mikufan.cx.project_vd_common_util.jackson.JsonMapperUtil;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
@@ -32,8 +32,8 @@ public class ListFetcher {
 
   private final int maxResult;
 
-  private static final ObjectMapper mapper = JsonMapperUtil.createDefaultForReadOnly();
-  private static final BasicHttpClientResponseHandler responseHandler = new BasicHttpClientResponseHandler();
+  private final ObjectMapper mapper = JsonMapperUtil.createDefaultForReadOnly();
+  private final BasicHttpClientResponseHandler responseHandler = new BasicHttpClientResponseHandler();
 
   /**
    * get a fully concattedList response of the endpoint using
@@ -102,7 +102,7 @@ public class ListFetcher {
             new BasicNameValuePair("start", String.valueOf(start)),
             new BasicNameValuePair("maxResults", String.valueOf(maxResult)),
             new BasicNameValuePair("getTotalCount", String.valueOf(true)),
-            new BasicNameValuePair("fields", "PVs"))
+            new BasicNameValuePair("fields", "PVs,Albums"))
         .build();
   }
 

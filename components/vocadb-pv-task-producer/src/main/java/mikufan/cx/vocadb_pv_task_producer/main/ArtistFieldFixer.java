@@ -8,8 +8,8 @@ import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.Pa
 import mikufan.cx.common_vocaloid_entity.vocadb.api.songList.get_listid_songs.SongInListForApiContract;
 import mikufan.cx.common_vocaloid_entity.vocadb.models.ArtistForSongContract;
 import mikufan.cx.common_vocaloid_entity.vocadb.models.SongForApiContract;
-import mikufan.cx.common_vocaloid_util.exception.ThrowableConsumer;
-import mikufan.cx.common_vocaloid_util.jackson.JsonMapperUtil;
+import mikufan.cx.project_vd_common_util.exception.ThrowableConsumer;
+import mikufan.cx.project_vd_common_util.jackson.JsonMapperUtil;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
@@ -40,18 +40,21 @@ public class ArtistFieldFixer {
   private static final ObjectMapper mapper = JsonMapperUtil.createDefaultForReadOnly();
   private static final BasicHttpClientResponseHandler responseHandler = new BasicHttpClientResponseHandler();
 
-  public void tryFixAll(@NonNull PartialSongList songList, CloseableHttpClient httpClient){
+  public void fixAll(@NonNull PartialSongList songList, CloseableHttpClient httpClient){
+    // instead of iterating all list, we first get all songs' index that pointing to the song that need to fix
     var songToFixIndexList = songList.getItems().zipWithIndex()
         .select(pair -> containAmbiguousStrings(pair.getOne().getSong().getArtistString())).collect(Pair::getTwo);
+    // we didn't use forEachWith because we haven't implement ThrowableBi* interfaces, maybe in future we will
     songToFixIndexList.forEach(ThrowableConsumer.toConsumer(i -> {
-      var songInListToFix = songList.getItems().get(i);
+      //for each index in the list
+      var itemToFix = songList.getItems().get(i);
       log.debug("fixing {}th song '{}' with artist name '{}'",
-          i, songInListToFix.getSong().getName(),
-          songInListToFix.getSong().getArtistString());
+          i, itemToFix.getSong().getName(),
+          itemToFix.getSong().getArtistString());
       var fixed = SongInListForApiContract.builder()
-          .notes(songInListToFix.getNotes())
-          .order(songInListToFix.getOrder())
-          .song(fixArtist(songInListToFix.getSong(), httpClient))
+          .notes(itemToFix.getNotes())
+          .order(itemToFix.getOrder())
+          .song(fixOne(itemToFix.getSong(), httpClient))
           .build();
       songList.getItems().set(i, fixed);
     }));
@@ -72,7 +75,7 @@ public class ArtistFieldFixer {
    * @param httpClient the http client to be used for
    * @return new song containing fixed artist, detail artists, and PVs info
    */
-  public SongForApiContract fixArtist(SongForApiContract song, CloseableHttpClient httpClient) throws VocaDbPvTaskException {
+  public SongForApiContract fixOne(SongForApiContract song, CloseableHttpClient httpClient) throws VocaDbPvTaskException {
     try {
       var artistStr = song.getArtistString();
       MutableList<ArtistForSongContract> artists = Lists.mutable.empty();
@@ -80,7 +83,7 @@ public class ArtistFieldFixer {
       if (containsWithoutCase(artistStr, VARIOUS) ){
         artists.addAll(getArtists(song.getId(), httpClient));
         artistStr = formArtistInfo(artists);
-        log.debug("artist str with 'various', '{}' is now replaced by = '{}'", song.getArtistString(), artistStr);
+        log.debug("artist str with 'various', '{}' is now replaced by '{}'", song.getArtistString(), artistStr);
       }
 
       // fix unknown

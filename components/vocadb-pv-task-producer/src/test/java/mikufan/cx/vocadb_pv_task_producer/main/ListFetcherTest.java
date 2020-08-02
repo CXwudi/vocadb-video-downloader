@@ -2,7 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer.main;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.common_vocaloid_util.jackson.JsonMapperUtil;
+import mikufan.cx.project_vd_common_util.jackson.JsonMapperUtil;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +18,7 @@ class ListFetcherTest  extends WithHttpClientSupport {
   void shouldGetUriOfIdFromAnIndex() {
     var uri = fetcher.getUri(8738, 15);
     assertEquals(
-        "https://vocadb.net/api/songLists/8738/songs?start=15&maxResults=5&getTotalCount=true&fields=PVs", //%2CArtists
+        "https://vocadb.net/api/songLists/8738/songs?start=15&maxResults=5&getTotalCount=true&fields=PVs%2CAlbums", //%2CArtists
         uri.toString()
     );
   }

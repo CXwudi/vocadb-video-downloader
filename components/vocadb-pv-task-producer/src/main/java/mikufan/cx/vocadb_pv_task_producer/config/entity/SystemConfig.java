@@ -2,8 +2,8 @@ package mikufan.cx.vocadb_pv_task_producer.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import mikufan.cx.common_vocaloid_util.io.JacksonPojoTransformer;
-import mikufan.cx.common_vocaloid_util.jackson.YamlMapperUtil;
+import mikufan.cx.project_vd_common_util.io.JacksonPojoTransformer;
+import mikufan.cx.project_vd_common_util.jackson.YamlMapperUtil;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 
@@ -36,7 +36,7 @@ public class SystemConfig {
   @SneakyThrows(VocaDbPvTaskException.class)
   private static SystemConfig createInstance() {
     val systemConfigFile = Path.of( "task-producer-config", "system-config.yaml");
-    val configReader = new JacksonPojoTransformer<>(YamlMapperUtil.createDefaultForReadOnly(), SystemConfig.class);
+    val configReader = JacksonPojoTransformer.createWith(YamlMapperUtil.createDefaultForReadOnly(), SystemConfig.class);
 
     try {
       //maybe because it is in the class creation stage, we can't use PojoTranslator here, otherwise it reads as linked hashmap.
