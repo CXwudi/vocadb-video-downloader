@@ -21,6 +21,7 @@ class ConfigFactoryTest {
 
   /**
    * should only success if it is a dir
+   * also test system config can be parsed successfully
    */
   @Test
   void testParsingOutputDir(){

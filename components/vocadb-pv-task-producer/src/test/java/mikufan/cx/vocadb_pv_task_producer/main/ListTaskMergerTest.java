@@ -28,7 +28,7 @@ class ListTaskMergerTest {
   /**
    * a real fixed json data set containing lots of data
    */
-  private Path file3 = Paths.get(baseDir, "2019 Vocaloid list data.json");
+  private Path file3 = Paths.get(baseDir, "019 Vocaloid list data.json");
 
   private ListTaskMerger merger = new ListTaskMerger();
 
