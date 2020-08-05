@@ -17,10 +17,10 @@
 
     <!-- each component's config files -->
     <fileSet>
-      <directory>${project.basedir}/../components/vocadb-pv-task-producer/task-producer-config</directory>
+      <directory>${project.basedir}/../components/vocadb-pv-task-producer/assets</directory>
       <!-- the parent path must be same as scripts' base dir, otherwise system-config cannot be found,
       and adding "cd lib" to the script will cause user-config not found problem if relative path is used -->
-      <outputDirectory>/task-producer-config</outputDirectory>
+      <outputDirectory>/assets</outputDirectory>
     </fileSet>
   </fileSets>
 
