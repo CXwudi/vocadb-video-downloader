@@ -39,6 +39,10 @@
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
     </dependency>
+    <dependency>
+      <groupId>ws.schild</groupId>
+      <artifactId>jave-all-deps</artifactId>
+    </dependency>
 
     <dependency> <!-- jackson -->
       <groupId>com.fasterxml.jackson.core</groupId>

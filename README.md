@@ -32,11 +32,10 @@ The project is WIP:
    1. ✅ common-entity (define entites obj for stroing information)
 2. ✅ project-vd-common-util (some util classes and function that reduce spolier codes)
 3. ✅ project-vd-common-entity (some entity classes that only project-vd used)
-4. 🔄 vocadb-pv-task-producer (read VocaDB favourite list and dump song info in json format to the output directory)
-   1. currently I am improving this module
+4. ✅ vocadb-pv-task-producer (read VocaDB favourite list and dump song info in json format to the output directory)
 5. ✅ [youtubedl-java](https://github.com/CXwudi/youtubedl-java) (forked from <https://github.com/sapher/youtubedl-java>, but need to modify it to suit our need)
-6. ❌ vocadb-pv-downloader (take the output directory from vocadb-pv-task-producer, download PVs, thumbnails base on song info and save them in another output directory)
-7. ❌ vocadb-pv-postprocessor (take the output directory from vocadb-pv-downloader, extract audios to another output directory, and add tags and thumbnails to these audio files)
+6. 🔄 vocadb-pv-downloader (take the output directory from vocadb-pv-task-producer as input, download PVs, thumbnails base on song info and save them in another output directory)
+7. ❌ vocadb-pv-postprocessor (take the output directory from vocadb-pv-downloader as input, extract audios to another output directory, and add tags and thumbnails to these audio files)
 
 ## Appreciation
 
