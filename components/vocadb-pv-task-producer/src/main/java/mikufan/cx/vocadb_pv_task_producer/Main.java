@@ -65,11 +65,9 @@ public class Main extends MainUtil {
 
           /* == 4. base on result, write to specific folder == */
           if (failedReasonOpt.isPresent()) {
-            log.info("validation fail, writing {} songInfo with failing reason to {}", name, errDir);
             var failedSong = new FailedSong(song, failedReasonOpt.get());
             songInfoWriter.writeError(failedSong, errDir);
           } else {
-            log.info("validation success, writing {}'s songInfo", name);
             songInfoWriter.writeSongInfo(song, outputDir);
           }
         }));

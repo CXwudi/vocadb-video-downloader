@@ -27,6 +27,7 @@ public class SongInfoWriter {
     var fileName = FileNameBuilder.build(song) + FilePostFix.SONG_INFO + ".json";
     var outputFile = outputDir.resolve(fileName);
     try {
+      log.info("writing {}'s songInfo", song.getName());
       return songWriter.write(song, outputFile);
     } catch (IOException e) {
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_308, "fail to write " + fileName + " to output dir " + outputDir, e);
@@ -37,6 +38,7 @@ public class SongInfoWriter {
     var fileName = FileNameBuilder.build(failedSong.getFailedObj()) + FilePostFix.SONG_INFO_ERR + ".json";
     var outputFile = errDir.resolve(fileName);
     try {
+      log.info("writing {} songInfo with failing reason to {}", failedSong.getFailedObj().getName(), errDir);
       return failureWriter.write(failedSong, outputFile);
     } catch (IOException e) {
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_308, "fail to write " + fileName + " to error dir " + errDir, e);
