@@ -22,14 +22,23 @@
       and adding "cd lib" to the script will cause user-config not found problem if relative path is used -->
       <outputDirectory>/assets</outputDirectory>
     </fileSet>
+
+    <fileSet>
+      <directory>${project.basedir}/../components/vocadb-pv-downloader/assets</directory>
+      <outputDirectory>/assets</outputDirectory>
+    </fileSet>
   </fileSets>
 
   <files>
+    <!-- each component's sample user config file -->
     <file>
-      <!-- each component's sample user config file -->
       <source>${project.basedir}/../components/vocadb-pv-task-producer/task-producer-sample-config.yaml</source>
 <!--      <outputDirectory>/</outputDirectory>-->
     </file>
+    <file>
+      <source>${project.basedir}/../components/vocadb-pv-downloader/pv-downloader-sample-config.yaml</source>
+    </file>
+
   </files>
 
   <dependencySets>
