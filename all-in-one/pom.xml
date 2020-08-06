@@ -86,7 +86,7 @@
       <dependency><!-- my common modules from another repo -->
         <groupId>com.github.CXwudi.common-vocaloid-java</groupId>
         <artifactId>common-vocaloid-import-all</artifactId>
-        <version>1.0.7.1</version>
+        <version>1.0.8</version>
       </dependency>
       <dependency><!-- the modified youtube-dl wrapper -->
         <groupId>com.github.CXwudi</groupId>
@@ -125,7 +125,7 @@
         <artifactId>commons-cli</artifactId>
         <version>1.4</version>
       </dependency>
-      <dependency>
+      <dependency> <!-- JAVE2 (Java Audio Video Encoder) library -->
         <groupId>ws.schild</groupId>
         <artifactId>jave-all-deps</artifactId>
         <version>2.7.3</version>
