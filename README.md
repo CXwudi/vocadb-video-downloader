@@ -1,18 +1,24 @@
-# Project-VD
+# Project VD
 
 ## *Code* with the _love_ and _passion_ of **初音ミク**, **ボカロ**, **アニメ** and **二次元**
 
-[![alt text](https://i.imgur.com/yi3yLkX.png)](https://ec.crypton.co.jp/pages/prod/vocaloid/mikuv4x "初音ミクv4x")
+[![alt text](https://i.loli.net/2020/08/13/LcM7GFqzHb2WuoS.png)](https://ec.crypton.co.jp/pages/prod/vocaloid/mikuv4x "初音ミクv4x")
 [![alt text](https://upload.wikimedia.org/wikipedia/de/c/ce/NicoNicoDouga-Logo-Vector.svg)](https://www.nicovideo.jp/  "ニコニコ動画")
 
 ## Project Motivation
 
-//TODO
+I, am a Super Miku fan who like to check Vocaloid Daily Ranking on NicoNico or Youtube, and extract thoes songs from the PVs on Niconico or Youtube. 😁  
+However, it takes too much time for me to keep downloading these PVs while checking ranking. 😭  
+As a computer science student, can we write a program that automatically download PVs for me? 🤔
+The answer is Yes. 😎  
+In 2017, The predecessor of this project [Niconico Video Downloader](https://github.com/CXwudi/Niconico-Video-Downloader) was out. It can automatically download every PVs in my NicoNico favourite list just in one click. 😂  
+However, as more and more Vocaloid Producers tend to abundant NicoNico and upload new songs to Youtube only (Yes! I am talking about you, HoneyWork and ナユタン星人) 😡, we need a new program that is extendable for support more video services (inclduing NicoNico, Youtube and Bilibili at least) 😏. Also we want to integrate an audio extractor in to the new program for automatically extracts audios from PVs that downloaded. 😄
 
 ## Introduction
 
-Project VD: Video Downloader for Vocal Characters  
-A batching Vocaloid PV downloader driven by Youtube-dl, FFmpeg and Python Mutagen lib, that can download a list of Vocalid PVs, extract and tags these audio with information and thumbnails  
+Project VD: [VocaDB](https://vocadb.net/) Video Downloader  
+A batching program driven by Youtube-dl, FFmpeg and Python Mutagen lib,
+that can download PVs from VocaDB favourite list, and extract and tags these audio with information and thumbnails  
 This is the successor of my previous project [Niconico Video Downloader](https://github.com/CXwudi/Niconico-Video-Downloader).
 
 Aim to provide the following features:
@@ -21,7 +27,7 @@ Aim to provide the following features:
   * the json file is simply of GET [`https://vocadb.net/api/songs/<songId>?fields=PVs`](https://vocadb.net/swagger/ui/index#!/SongApi/SongApi_GetById "VocaDB Api Doc")
   * favourite lists can be imported from youtube/niconico favourite list using the import feature in VocaDB website
   * If I have time, I'll add supports of reading favourite lists directly from local file, Youtube, Niconico, Bilibili
-* Can download Vocaloid PV from supported websites (Youtube, Niconico, Bilibili) base on json file
+* Can download Vocaloid PV from supported websites (Youtube, Niconico, Bilibili) base on json files
 * Can extract audio from Vocaloid PV and embed thumbnail and tags using information from json files
 
 ## Current Progresses
