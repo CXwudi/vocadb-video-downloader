@@ -26,7 +26,7 @@ public final class OptionsFactory {
         .required()
         .argName(OptionName.LIST_ID.getArgName())
         .desc("Which VocaDB favourite list does this task based on, input the id")
-        .build()); //we didn't make this required option as it will break the -help usage
+        .build());
 
     // second mandatory option with required argument needed for non -help use
     options.addOption(Option.builder(OptionName.OUTPUT_DIR.getOptName())
@@ -34,7 +34,7 @@ public final class OptionsFactory {
         .hasArg()
         .required()
         .argName(OptionName.OUTPUT_DIR.getArgName())
-        .desc("the path of the directory where all songs' info in json format will be stored")
+        .desc("The path of the directory where all songs' info in json format will be stored")
         .build());
 
     // third mandatory option with required argument needed for non -help use
@@ -43,7 +43,7 @@ public final class OptionsFactory {
         .hasArg()
         .required()
         .argName(OptionName.USER_CONFIG.getArgName())
-        .desc("the path to the user config file")
+        .desc("The location of your user config file")
         .build());
 
 //    options.addOption(Option.builder(OptionName.PV_PREFERENCE.getOptName())
