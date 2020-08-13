@@ -10,7 +10,7 @@ import static mikufan.cx.vocadb_pv_downloader.config.parser.OptionName.*;
  * @author CX无敌
  */
 @NoArgsConstructor
-public class OptionFactory {
+public class OptionsFactory {
 
   public Options createOptions(){
     var options = new Options();

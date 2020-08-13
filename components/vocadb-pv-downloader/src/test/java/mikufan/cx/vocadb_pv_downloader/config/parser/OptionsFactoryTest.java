@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class OptionFactoryTest {
-  private final OptionFactory optionFactory = new OptionFactory();;
+class OptionsFactoryTest {
+  private final OptionsFactory optionsFactory = new OptionsFactory();;
 
   @Test
   void printHelpAndCheck() {
-    var options = optionFactory.createOptions();
+    var options = optionsFactory.createOptions();
     HelpFormatter helpFormatter = new HelpFormatter();
     helpFormatter.printHelp("tested title", options);
     assertTrue(true);

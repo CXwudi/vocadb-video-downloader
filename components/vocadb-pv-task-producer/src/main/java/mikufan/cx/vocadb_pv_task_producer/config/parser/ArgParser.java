@@ -17,8 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 /**
- * the stateless arg parser <br/>
- * noted functions are declared without modifier to be package-private
+ * the stateless arg parser
  * @author CX无敌
  */
 @Slf4j

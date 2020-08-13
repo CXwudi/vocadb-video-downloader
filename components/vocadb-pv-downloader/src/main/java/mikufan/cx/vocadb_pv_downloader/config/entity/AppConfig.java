@@ -1,6 +1,7 @@
 package mikufan.cx.vocadb_pv_downloader.config.entity;
 
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.nio.file.Path;
@@ -8,7 +9,7 @@ import java.nio.file.Path;
 /**
  * @author CX无敌
  */
-@Builder
+@Builder @Getter
 public class AppConfig {
 
   @NonNull private final Path inputDir;

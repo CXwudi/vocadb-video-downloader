@@ -1,6 +1,8 @@
 package mikufan.cx.vocadb_pv_downloader.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
 import org.eclipse.collections.api.list.ImmutableList;
 
@@ -9,6 +11,7 @@ import java.nio.file.Path;
 /**
  * @author CX无敌
  */
+@Getter
 public class UserConfig {
 
   /**
@@ -16,7 +19,7 @@ public class UserConfig {
    * has the pv available for downloading. if non, we use {@link SupportedPvServices#getSupportedPvServices()}
    * as the default preference
    */
-  @JsonProperty
+  @JsonProperty @Setter
   private ImmutableList<String> pvPreference;
 
   /**
