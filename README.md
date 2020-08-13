@@ -12,14 +12,14 @@ However, it takes too much time for me to keep downloading these PVs while check
 As a computer science student, can we write a program that automatically download PVs for me? 🤔
 The answer is Yes. 😎  
 In 2017, The predecessor of this project [Niconico Video Downloader](https://github.com/CXwudi/Niconico-Video-Downloader) was out. It can automatically download every PVs in my NicoNico favourite list just in one click. 😂  
-However, as more and more Vocaloid Producers tend to abundant NicoNico and upload new songs to Youtube only (Yes! I am talking about you, HoneyWork and ナユタン星人) 😡, we need a new program that is extendable for support more video services (inclduing NicoNico, Youtube and Bilibili at least) 😏. Also we want to integrate an audio extractor in to the new program for automatically extracts audios from PVs that downloaded. 😄
+However, as more and more Vocaloid Producers tend to abundant NicoNico and upload new songs to Youtube only (Yes! I am talking about you, HoneyWork and ナユタン星人) 😡, we need a new program that is extendable for support more video services (inclduing NicoNico, Youtube and Bilibili at least) 😏. Also we want to integrate an audio extractor in to the new program for automatically extracts audios from PVs that downloaded. 😄  
+And this new program is VocaDB Video Downloader, in short called Project VD ✨
 
 ## Introduction
 
 Project VD: [VocaDB](https://vocadb.net/) Video Downloader  
-A batching program driven by Youtube-dl, FFmpeg and Python Mutagen lib,
+A multi-module program driven by Youtube-dl, FFmpeg and Python Mutagen lib,
 that can download PVs from VocaDB favourite list, and extract and tags these audio with information and thumbnails  
-This is the successor of my previous project [Niconico Video Downloader](https://github.com/CXwudi/Niconico-Video-Downloader).
 
 Aim to provide the following features:
 
