@@ -37,16 +37,18 @@ Functionality of each module:
   * Input: the output of vocadb-pv-downloader, which contains PVs downloaded, thumbnails of PVs, and detail information of songs in json files
   * Output: the copy of json files, plus audio tracks extracted from PVs and embeded with thumbnail and tags information from json files using Python Mutagen library
 
+//TODO: other explaination like easy hackable configs, easy hackable output/input, allowing using output with other program and etc.
+
 ## Current Progresses
 
-The project is WIP:
+The project is WIP, current progresses are:
 
 1. ✅ [common-vocaloid-java](https://github.com/CXwudi/common-vocaloid-java) (implemented in another repo)
-   1. ✅ common-entity (define entites obj for stroing information)
+   1. ✅ common-entity (define entites obj for storing information, also includes the Java model to receive output from VocaDB RestAPI)
 2. ✅ project-vd-common-util (some util classes and function that reduce spolier codes)
 3. ✅ project-vd-common-entity (some entity classes that only project-vd used)
 4. ✅ vocadb-pv-task-producer
-5. ✅ [youtubedl-java](https://github.com/CXwudi/youtubedl-java) (forked from <https://github.com/sapher/youtubedl-java>, but need to modify it to suit our need)
+5. ✅ [youtubedl-java](https://github.com/CXwudi/youtubedl-java) (a wrapper of youtube in Java, forked from <https://github.com/sapher/youtubedl-java> with various useful modification to suit our need)
 6. 🔄 vocadb-pv-downloader
    * it embedds youtube-dl executables compiled from my folked repo [here](https://github.com/CXwudi/youtube-dl-niconico-enhanced)  
 7. ❌ vocadb-pv-extractor
