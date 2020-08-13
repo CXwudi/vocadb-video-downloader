@@ -2,8 +2,8 @@
 
 ## *Code* with the _love_ and _passion_ of **初音ミク**, **ボカロ**, **アニメ** and **二次元**
 
-[![alt text](https://i.loli.net/2020/08/13/LcM7GFqzHb2WuoS.png)](https://ec.crypton.co.jp/pages/prod/vocaloid/mikuv4x "初音ミクv4x")
 [![alt text](https://upload.wikimedia.org/wikipedia/de/c/ce/NicoNicoDouga-Logo-Vector.svg)](https://www.nicovideo.jp/  "ニコニコ動画")
+[![alt text](https://i.loli.net/2020/08/13/LcM7GFqzHb2WuoS.png)](https://ec.crypton.co.jp/pages/prod/vocaloid/mikuv4x "初音ミクv4x")
 
 ## Project Motivation
 
@@ -18,17 +18,24 @@ And this new program is VocaDB Video Downloader, in short called Project VD ✨
 ## Introduction
 
 Project VD: [VocaDB](https://vocadb.net/) Video Downloader  
-A multi-module program driven by Youtube-dl, FFmpeg and Python Mutagen lib,
-that can download PVs from VocaDB favourite list, and extract and tags these audio with information and thumbnails  
+A multi-module program driven by Youtube-dl, FFmpeg and Python Mutagen library,
+that can download PVs from various 二次元 websites (Niconico, Youtube, Bilibili and etc) according to a VocaDB favourite list, extract audios from PVs, and tags audios with dedicated information from VocaDB  
 
-Aim to provide the following features:
+Functionality of each module:
 
-* Support reading the favourite list in VocaDB, and produce/update a folder of json files containing all necessary information about these songs
-  * the json file is simply of GET [`https://vocadb.net/api/songs/<songId>?fields=PVs`](https://vocadb.net/swagger/ui/index#!/SongApi/SongApi_GetById "VocaDB Api Doc Page")
-  * favourite lists can be imported from youtube/niconico favourite list using the import feature in VocaDB website
-  * If I have time, I'll add supports of reading favourite lists directly from local file, Youtube, Niconico, Bilibili
-* Can download Vocaloid PV from supported websites (Youtube, Niconico, Bilibili) base on json files
-* Can extract audio from Vocaloid PV and embed thumbnail and tags using information from json files
+* **vocadb-pv-task-producer**:
+  * Input: An ID of a favourite list in VocaDB
+  * Output: Produce/Update a folder of json files where each json file is the detail information of a Vocaloid song
+  * Notes:
+    * The format of the json file follows GET [`https://vocadb.net/api/songs/<songId>?fields=PVs`](https://vocadb.net/swagger/ui/index#!/SongApi/SongApi_GetById "VocaDB Api Doc Page")
+    * Youtube/Niconico favourite list can be imported into VocaDB website using the import feature on the website. Therefore this module covers both Niconico and Youtube favourite list as well.
+    * If I have time, other modules for reading favourite lists directly from local file, Bilibili and writing same output can be implemented using Selenium or commons-csv
+* **vocadb-pv-downloader**:
+  * Input: The output of vocadb-pv-task-producer, which is a folder of json files where each json file is the detail information of a Vocaloid song. In this module, each json file indicate a Vocaloid PV to be downloaded
+  * Output: Contains a copy of the input, plus PV downloaded from supported websites (Youtube, Niconico, Bilibili) using youtube-dl
+* **vocadb-pv-extractor**:
+  * Input: the output of vocadb-pv-downloader, which contains PVs downloaded, thumbnails of PVs, and detail information of songs in json files
+  * Output: the copy of json files, plus audio tracks extracted from PVs and embeded with thumbnail and tags information from json files using Python Mutagen library
 
 ## Current Progresses
 
@@ -38,11 +45,11 @@ The project is WIP:
    1. ✅ common-entity (define entites obj for stroing information)
 2. ✅ project-vd-common-util (some util classes and function that reduce spolier codes)
 3. ✅ project-vd-common-entity (some entity classes that only project-vd used)
-4. ✅ vocadb-pv-task-producer (read VocaDB favourite list and dump song info in json format to the output directory)
+4. ✅ vocadb-pv-task-producer
 5. ✅ [youtubedl-java](https://github.com/CXwudi/youtubedl-java) (forked from <https://github.com/sapher/youtubedl-java>, but need to modify it to suit our need)
-6. 🔄 vocadb-pv-downloader (take the output directory from vocadb-pv-task-producer as input, download PVs, thumbnails base on song info and save them in another output directory)
+6. 🔄 vocadb-pv-downloader
    * it embedds youtube-dl executables compiled from my folked repo [here](https://github.com/CXwudi/youtube-dl-niconico-enhanced)  
-7. ❌ vocadb-pv-postprocessor (take the output directory from vocadb-pv-downloader as input, extract audios to another output directory, and add tags and thumbnails to these audio files)
+7. ❌ vocadb-pv-extractor
 
 ## Appreciation
 
