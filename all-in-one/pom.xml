@@ -91,7 +91,7 @@
       <dependency><!-- the modified youtube-dl wrapper -->
         <groupId>com.github.CXwudi</groupId>
         <artifactId>youtubedl-java</artifactId>
-        <version>1.2.RC4</version>
+        <version>1.2.RC5</version>
       </dependency>
 
 

@@ -2,7 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer;
 
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.project_vd_common_entity.failure.FailedSong;
-import mikufan.cx.vocadb_pv_task_producer.config.parser.ConfigFactory;
+import mikufan.cx.vocadb_pv_task_producer.config.ConfigFactory;
 import mikufan.cx.vocadb_pv_task_producer.main.ArtistFieldFixer;
 import mikufan.cx.vocadb_pv_task_producer.main.ListFetcher;
 import mikufan.cx.vocadb_pv_task_producer.main.SongInfoValidator;

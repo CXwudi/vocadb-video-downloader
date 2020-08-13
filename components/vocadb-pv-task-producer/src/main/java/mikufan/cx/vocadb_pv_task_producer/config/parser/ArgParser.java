@@ -1,6 +1,5 @@
 package mikufan.cx.vocadb_pv_task_producer.config.parser;
 
-import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.project_vd_common_util.cli.parser.ParserUtil;
@@ -23,7 +22,7 @@ import java.nio.file.Path;
  * @author CX无敌
  */
 @Slf4j
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 public final class ArgParser {
   /**
    * the real argument parsing code, using commons-cli
@@ -32,7 +31,7 @@ public final class ArgParser {
    * @return the parsed {@link CommandLine} which contains all information
    * @throws VocaDbPvTaskException if parsing fails
    */
-  CommandLine parseArgs(String[] args, Options options) throws VocaDbPvTaskException {
+  public CommandLine parseArgs(String[] args, Options options) throws VocaDbPvTaskException {
     var parser = new DefaultParser();
     CommandLine cmdLine;
     try {
@@ -54,14 +53,14 @@ public final class ArgParser {
    * @param cmdLine parsed command line
    * @throws VocaDbPvTaskException which terminates this program
    */
-  void checkAndPrintHelpAndQuitIfNeed(Options options, CommandLine cmdLine) throws VocaDbPvTaskException {
+  public void checkAndPrintHelpAndQuitIfNeed(Options options, CommandLine cmdLine) throws VocaDbPvTaskException {
     if (cmdLine.hasOption(OptionName.HELP.getOptName())){
       printHelp(options);
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_009, "Only printing help message");
     }
   }
 
-  void printHelp(Options options) {
+  public void printHelp(Options options) {
     var formatter = new HelpFormatter();
     formatter.printHelp("vocadb-pv-task-producer", options);
   }
@@ -70,7 +69,7 @@ public final class ArgParser {
    * parsing {@link OptionName#LIST_ID} <br/>
    * this method can sneaky throw {@link VocaDbPvTaskException}
    */
-  int getListIdOrThrow(CommandLine cmdLine, Options options) {
+  public int getListIdOrThrow(CommandLine cmdLine, Options options) {
     ThrowableFunction<String, Integer> function = listIdStr -> {
       try {
         return Integer.parseInt(listIdStr);
@@ -89,7 +88,7 @@ public final class ArgParser {
    * parse {@link OptionName#OUTPUT_DIR} <br/>
    * this method can sneaky throw {@link VocaDbPvTaskException}
    */
-  Path getOutputDirOrThrow(CommandLine cmdLine) {
+  public Path getOutputDirOrThrow(CommandLine cmdLine) {
     ThrowableFunction<String, Path> function = dirName -> {
       var path = Path.of(dirName);
       if (Files.isDirectory(path)){
@@ -113,7 +112,7 @@ public final class ArgParser {
    * parse {@link OptionName#USER_CONFIG} <br/>
    * this method can sneaky throw {@link VocaDbPvTaskException}
    */
-  UserConfig getUserConfigOrThrow(CommandLine cmdLine) {
+  public UserConfig getUserConfigOrThrow(CommandLine cmdLine) {
     ThrowableFunction<String, UserConfig> function = fileName -> {
       var path = Path.of(fileName);
       if (Files.isRegularFile(path)){

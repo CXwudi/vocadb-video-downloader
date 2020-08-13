@@ -1,10 +1,12 @@
-package mikufan.cx.vocadb_pv_task_producer.config.parser;
+package mikufan.cx.vocadb_pv_task_producer.config;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 import mikufan.cx.vocadb_pv_task_producer.config.entity.AppConfig;
 import mikufan.cx.vocadb_pv_task_producer.config.entity.UserConfig;
+import mikufan.cx.vocadb_pv_task_producer.config.parser.ArgParser;
+import mikufan.cx.vocadb_pv_task_producer.config.parser.OptionsFactory;
 import mikufan.cx.vocadb_pv_task_producer.config.validator.UserConfigValidator;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import org.apache.commons.cli.CommandLine;

@@ -1,6 +1,5 @@
 package mikufan.cx.vocadb_pv_task_producer.config.parser;
 
-import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
@@ -9,10 +8,10 @@ import org.apache.commons.cli.Options;
  * A factory declaring options
  * @author CX无敌
  */
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 public final class OptionsFactory {
 
-  Options createOptions(){ // leave it package private to allow testing
+  public Options createOptions(){ // leave it package private to allow testing
     var options = new Options();
 //    var defaultSampleFileName = getDefaultTaskFileName(null);
 //    var defaultSampleTaskName = getDefaultTaskName(null);

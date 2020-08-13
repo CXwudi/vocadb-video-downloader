@@ -25,7 +25,7 @@ public class SupportedPvServices {
 
   /**
    * a list of supported pv services, which is also the default order of pv service preference
-   * @return
+   * @return supported pv services in default order of pv service preference
    */
   public static ImmutableList<String> getSupportedPvServices(){
     return AVAIABLE_PV_SERVICES;
