@@ -17,8 +17,8 @@ public class Main extends MainUtil {
     log.info("ytdl = {}", appConfig.userConfig.getYoutubeDlFile());
     log.info("ffmpeg = {}", appConfig.userConfig.getFfmpegFile());
 
-    log.info("ytdl-win = {}", appConfig.systemConfig.getYoutubeDlWinPath());
-    log.info("ytdl-unix = {}", appConfig.systemConfig.getYoutubeDlLinuxPath());
+    log.info("ytdl-win = {}", appConfig.systemConfig.getYoutubeDlWinPath().toAbsolutePath());
+    log.info("ytdl-linux = {}", appConfig.systemConfig.getYoutubeDlLinuxPath().toAbsolutePath());
 
     log.info("win os = {}", SystemUtils.IS_OS_WINDOWS);
     log.info("mac os = {}", SystemUtils.IS_OS_MAC);

@@ -12,6 +12,7 @@ import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlException;
 import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlRCI;
 
 import java.io.IOException;
+import java.nio.file.Path;
 
 /**
  * @author CX无敌
@@ -34,8 +35,8 @@ public class SystemConfig {
   }
 
   @JsonProperty
-  private String youtubeDlWinPath;
+  private Path youtubeDlWinPath;
 
   @JsonProperty
-  private String youtubeDlLinuxPath;
+  private Path youtubeDlLinuxPath;
 }
