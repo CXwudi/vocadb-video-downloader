@@ -29,14 +29,14 @@ public class SongInfoValidator {
 
     //check if no pvs
     if (pvs == null || pvs.isEmpty()){
-      log.warn("no PVs found in {}", name);
+      log.warn("no PVs found in {}, validation fails", name);
       return Optional.of("no official PVs found");
     }
 
     //check if pvs are inaccessible
     var accessiblePvs = pvs.reject(PVContract::isDisabled);
     if (accessiblePvs.isEmpty()){
-      log.warn("all PVs for {} are not accessible on website", name);
+      log.warn("all PVs for {} are not accessible on website, validation fails", name);
       return Optional.of("all PVs are not accessible from service websites");
     }
 
@@ -44,12 +44,13 @@ public class SongInfoValidator {
     var supportedPvs = accessiblePvs.select(pv -> SupportedPvServices.contains(pv.getService()));
     if (supportedPvs.isEmpty()){
       var supportedServices = SupportedPvServices.getSupportedPvServices().makeString(", ");
-      log.warn("current {} doesn't contains PVs from supported web services {}", name, supportedServices);
+      log.warn("current {} doesn't contains PVs from supported web services {}, validation fails", name, supportedServices);
       return Optional.of("currently we are not able to download PV from web services other than " +
           supportedServices);
     }
 
     //pass
+    log.info("validation success");
     return Optional.empty();
   }
 }

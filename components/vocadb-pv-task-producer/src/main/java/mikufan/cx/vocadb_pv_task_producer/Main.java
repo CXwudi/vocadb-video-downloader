@@ -2,7 +2,7 @@ package mikufan.cx.vocadb_pv_task_producer;
 
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.project_vd_common_entity.failure.FailedSong;
-import mikufan.cx.vocadb_pv_task_producer.config.parser.ConfigFactory;
+import mikufan.cx.vocadb_pv_task_producer.config.ConfigFactory;
 import mikufan.cx.vocadb_pv_task_producer.main.ArtistFieldFixer;
 import mikufan.cx.vocadb_pv_task_producer.main.ListFetcher;
 import mikufan.cx.vocadb_pv_task_producer.main.SongInfoValidator;
@@ -46,27 +46,31 @@ public class Main extends MainUtil {
     var outputDir = appConfig.getOutputDir().toAbsolutePath();
     var errDir = outputDir.resolve("err");
     createDir(errDir);
-    var threadPoolExecutor = new ThreadPoolExecutor(8, 1000, Integer.MAX_VALUE, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+    var threadPoolExecutor = new ThreadPoolExecutor(
+        appConfig.systemConfig.getThreadCorePoolSize(),
+        appConfig.systemConfig.getThreadMaxPoolSize(),
+        Integer.MAX_VALUE, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
 
     log.info("start writing song info in list {} to output folder {}", listId, outputDir);
-    songList.getItems().asParallel(threadPoolExecutor, 8).forEach(makeThrowableProcedure(item -> {
-      var song = item.getSong();
-      var name = song.getName();
+    songList.getItems()
+        .asParallel(threadPoolExecutor, appConfig.systemConfig.getBatchSize())
+        .forEach(makeThrowableProcedure(item -> {
 
-      /* == 3. validate if the song is downloadable == */
-      log.info("validating PVs info of {}", name);
-      var failedReasonOpt = validator.validate(song);
+          var song = item.getSong();
+          var name = song.getName();
 
-      /* == 4. base on result, write to specific folder == */
-      if (failedReasonOpt.isPresent()) {
-        log.info("validation fail, writing {} songInfo with failing reason to {}", name, errDir);
-        var failedSong = new FailedSong(song, failedReasonOpt.get());
-        songInfoWriter.writeError(failedSong, errDir);
-      } else {
-        log.info("validation success, writing {}'s songInfo", name);
-        songInfoWriter.writeSongInfo(song, outputDir);
-      }
-    }));
+          /* == 3. validate if the song is downloadable == */
+          log.info("validating PVs info of {}", name);
+          var failedReasonOpt = validator.validate(song);
+
+          /* == 4. base on result, write to specific folder == */
+          if (failedReasonOpt.isPresent()) {
+            var failedSong = new FailedSong(song, failedReasonOpt.get());
+            songInfoWriter.writeError(failedSong, errDir);
+          } else {
+            songInfoWriter.writeSongInfo(song, outputDir);
+          }
+        }));
 
     /* == 5. all finished == */
     threadPoolExecutor.shutdown();

@@ -2,13 +2,13 @@ package mikufan.cx.vocadb_pv_task_producer.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import mikufan.cx.project_vd_common_util.config.Assets;
 import mikufan.cx.project_vd_common_util.io.JacksonPojoTransformer;
 import mikufan.cx.project_vd_common_util.jackson.YamlMapperUtil;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 
 import java.io.IOException;
-import java.nio.file.Path;
 
 /**
  * The system-wised config that stays constant for every run of this program
@@ -24,18 +24,12 @@ public class SystemConfig {
   static final SystemConfig INSTANCE = createInstance();
 
   /**
-   * fields here should not declared as final, otherwise jackson won't able to change the value
-   */
-  @JsonProperty
-  private int maxResult = 0;
-
-  /**
    * create the singleton by jackson
    * @return the singleton
    */
   @SneakyThrows(VocaDbPvTaskException.class)
   private static SystemConfig createInstance() {
-    val systemConfigFile = Path.of( "task-producer-config", "system-config.yaml");
+    val systemConfigFile = Assets.getAssetsRoot().resolve("vocadb-pv-task-producer-system-config.yaml");
     val configReader = JacksonPojoTransformer.createWith(YamlMapperUtil.createDefaultForReadOnly(), SystemConfig.class);
 
     try {
@@ -45,5 +39,32 @@ public class SystemConfig {
       throw new VocaDbPvTaskException(VocaDbPvTaskRCI.MIKU_TASK_901, "Fail to read system config from " + systemConfigFile, e);
     }
   }
+
+
+  /**
+   * fields here should not declared as final, otherwise jackson won't able to change the value
+   */
+  @JsonProperty
+  private int maxResult = 0;
+
+  /**
+   * how many threads can ran in parallel when writing song info json file to output dir
+   */
+  @JsonProperty
+  private int threadCorePoolSize = 0;
+
+  /**
+   * max # of threads that can be hold by the thread pool executor,
+   * same as max # of songs in a favourite list.
+   */
+  @JsonProperty
+  private int threadMaxPoolSize = 0;
+
+  /**
+   * the actual # of thread can be ran in parallel,
+   * this is for eclipse-collection's parallel setting, stay same with threadCorePoolSize
+   */
+  @JsonProperty
+  private int batchSize = 0;
 
 }

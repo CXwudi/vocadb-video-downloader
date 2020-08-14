@@ -1,0 +1,10 @@
+# how many songs maximum can we get from one GET request on songList endpoint
+maxResult: 50
+# how many threads can ran in parallel when writing song info json file to output dir
+threadCorePoolSize: 8
+# max # of threads that can be hold by the thread pool executor,
+# same as max # of songs in a favourite list.
+threadMaxPoolSize: 1500
+# the actual # of thread can be ran in parallel,
+# this is for eclipse-collection's parallel setting, stay same with threadCorePoolSize
+batchSize: 8
