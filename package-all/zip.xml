@@ -15,7 +15,7 @@
       <outputDirectory>/</outputDirectory>
     </fileSet>
 
-    <!-- each component's config files -->
+    <!-- each component's config files, executable files and etc. -->
     <fileSet>
       <directory>${project.basedir}/../components/vocadb-pv-task-producer/assets</directory>
       <!-- the parent path must be same as scripts' base dir, otherwise system-config cannot be found,

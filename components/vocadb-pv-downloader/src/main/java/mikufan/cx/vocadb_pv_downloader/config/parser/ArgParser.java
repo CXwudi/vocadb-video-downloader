@@ -65,6 +65,29 @@ public class ArgParser {
     formatter.printHelp("vocadb-pv-task-producer", options);
   }
 
+  /**
+   * parse {@link OptionName#OUTPUT_DIR} <br/>
+   * this method can sneaky throw {@link VocaDbPvDlException}
+   */
+  public Path getInputDirOrThrow(CommandLine cmdLine) {
+    ThrowableFunction<String, Path> function = dirName -> {
+      var path = Path.of(dirName);
+      if (Files.isDirectory(path)){
+        return path;
+      } else {
+        throw new VocaDbPvDlException(VocaDbPvDlRCI.MIKU_DL_002,
+            buildPathNotExistMessage(OptionName.INPUT_DIR, path));
+      }
+    };
+
+    ThrowableSupplier<Path> defaultPath = () -> {
+      throw new VocaDbPvDlException(VocaDbPvDlRCI.MIKU_DL_003,
+          buildMissingArgMessage(OptionName.INPUT_DIR));
+    };
+
+    return ParserUtil.getValueOrElse(cmdLine, OptionName.INPUT_DIR.getOptName(), function.toFunction(), defaultPath.toSupplier());
+  }
+
 
   /**
    * parse {@link OptionName#OUTPUT_DIR} <br/>
@@ -77,13 +100,13 @@ public class ArgParser {
         return path;
       } else {
         throw new VocaDbPvDlException(VocaDbPvDlRCI.MIKU_DL_004,
-            "the path denoted by the " + OptionName.OUTPUT_DIR.getOptName() + "is NOT an existing directory: " + path);
+            buildPathNotExistMessage(OptionName.OUTPUT_DIR, path));
       }
     };
 
     ThrowableSupplier<Path> defaultPath = () -> {
       throw new VocaDbPvDlException(VocaDbPvDlRCI.MIKU_DL_005,
-          OptionName.OUTPUT_DIR.getOptName() + " should contain one argument");
+          buildMissingArgMessage(OptionName.OUTPUT_DIR));
     };
 
     return ParserUtil.getValueOrElse(cmdLine, OptionName.OUTPUT_DIR.getOptName(), function.toFunction(), defaultPath.toSupplier());
@@ -102,15 +125,24 @@ public class ArgParser {
         return reader.read(path);
       } else {
         throw new VocaDbPvDlException(VocaDbPvDlRCI.MIKU_DL_006,
-            "the path denoted by the " + OptionName.USER_CONFIG.getOptName() + "is NOT an existing directory: " + path);
+            buildPathNotExistMessage(OptionName.USER_CONFIG, path));
       }
     };
 
     ThrowableSupplier<UserConfig> defaultPath = () -> {
       throw new VocaDbPvDlException(VocaDbPvDlRCI.MIKU_DL_007,
-          OptionName.USER_CONFIG.getOptName() + " should contain one argument");
+          buildMissingArgMessage(OptionName.USER_CONFIG));
     };
 
     return ParserUtil.getValueOrElse(cmdLine, OptionName.USER_CONFIG.getOptName(), function.toFunction(), defaultPath.toSupplier());
+  }
+
+
+  private String buildMissingArgMessage(OptionName optName) {
+    return optName.getOptName() + " should contain one argument";
+  }
+
+  private String buildPathNotExistMessage(OptionName optName, Path path) {
+    return "the path denoted by the " + optName.getOptName() + "is NOT an existing directory: " + path;
   }
 }

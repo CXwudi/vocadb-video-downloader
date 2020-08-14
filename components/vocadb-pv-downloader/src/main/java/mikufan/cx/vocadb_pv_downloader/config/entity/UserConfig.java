@@ -2,13 +2,14 @@ package mikufan.cx.vocadb_pv_downloader.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-import lombok.Setter;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
 import org.eclipse.collections.api.list.ImmutableList;
 
 import java.nio.file.Path;
 
 /**
+ * Store user's raw input from the yaml user config file. Allows null in optional fields.
+ * All null fields should be picked up with default value lazily.
  * @author CX无敌
  */
 @Getter
@@ -19,7 +20,7 @@ public class UserConfig {
    * has the pv available for downloading. if non, we use {@link SupportedPvServices#getSupportedPvServices()}
    * as the default preference
    */
-  @JsonProperty @Setter
+  @JsonProperty
   private ImmutableList<String> pvPreference;
 
   /**

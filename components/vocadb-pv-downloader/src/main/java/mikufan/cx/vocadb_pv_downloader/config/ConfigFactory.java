@@ -27,9 +27,11 @@ public class ConfigFactory {
     // in case if all required args exist and user still want to print help only
     parser.checkAndPrintHelpAndQuitIfNeed(options, cmdLine);
 
-    log.debug("setting up user config");
+    log.debug("setting up app config");
     var configBuilder = AppConfig.builder();
+    configBuilder.inputDir(parser.getInputDirOrThrow(cmdLine));
     configBuilder.outputDir(parser.getOutputDirOrThrow(cmdLine));
+
     var userConfig = parser.getUserConfigOrThrow(cmdLine);
     new UserConfigValidator().validateAndFill(userConfig);
     configBuilder.userConfig(userConfig);

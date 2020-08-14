@@ -29,7 +29,7 @@ public class SystemConfig {
    */
   @SneakyThrows(VocaDbPvTaskException.class)
   private static SystemConfig createInstance() {
-    val systemConfigFile = Assets.getAssetsRoot().resolve("task-producer-config/system-config.yaml");
+    val systemConfigFile = Assets.getAssetsRoot().resolve("vocadb-pv-task-producer-system-config.yaml");
     val configReader = JacksonPojoTransformer.createWith(YamlMapperUtil.createDefaultForReadOnly(), SystemConfig.class);
 
     try {
