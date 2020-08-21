@@ -48,7 +48,7 @@ The project is WIP, current progresses are:
 2. ✅ project-vd-common-util (some util classes and function that reduce spolier codes)
 3. ✅ project-vd-common-entity (some entity classes that only project-vd used)
 4. ✅ vocadb-pv-task-producer
-5. ✅ [youtubedl-java](https://github.com/CXwudi/youtubedl-java) (a wrapper of youtube in Java, forked from <https://github.com/sapher/youtubedl-java> with various useful modification to suit our need)
+5. ✅ [youtubedl-java](https://github.com/CXwudi/youtubedl-java) (a wrapper of youtube-dl in Java, forked from <https://github.com/sapher/youtubedl-java> with various useful modification to suit our need)
 6. 🔄 vocadb-pv-downloader
    * it embedds youtube-dl executables compiled from my folked repo [here](https://github.com/CXwudi/youtube-dl-niconico-enhanced)  
 7. ❌ vocadb-pv-extractor
