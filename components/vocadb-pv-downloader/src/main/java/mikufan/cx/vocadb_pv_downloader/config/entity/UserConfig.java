@@ -8,7 +8,7 @@ import org.eclipse.collections.api.list.ImmutableList;
 import java.nio.file.Path;
 
 /**
- * Store user's raw input from the yaml user config file. Allows null in optional fields.
+ * Immutable user config parsed from yaml file. Allows null in optional fields.
  * All null fields should be picked up with default value lazily.
  * @author CX无敌
  */
@@ -25,7 +25,7 @@ public class UserConfig {
 
   /**
    * optional, user defined youtube-dl file
-   * if non, use our own youtube-dl
+   * if non, the system uses our own youtube-dl base on os type
    */
   @JsonProperty
   private Path youtubeDlFile;

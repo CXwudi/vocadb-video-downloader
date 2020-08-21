@@ -33,7 +33,7 @@ public class ConfigFactory {
     configBuilder.outputDir(parser.getOutputDirOrThrow(cmdLine));
 
     var userConfig = parser.getUserConfigOrThrow(cmdLine);
-    new UserConfigValidator().validateAndFill(userConfig);
+    new UserConfigValidator().validate(userConfig);
     configBuilder.userConfig(userConfig);
 
     return configBuilder.build();

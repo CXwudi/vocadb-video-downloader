@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 /**
+ * Immutable system config parsed from yaml file in assets dir
  * @author CX无敌
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

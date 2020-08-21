@@ -86,7 +86,7 @@
       <dependency><!-- my common modules from another repo -->
         <groupId>com.github.CXwudi.common-vocaloid-java</groupId>
         <artifactId>common-vocaloid-import-all</artifactId>
-        <version>1.0.8</version>
+        <version>1.0.9</version>
       </dependency>
       <dependency><!-- the modified youtube-dl wrapper -->
         <groupId>com.github.CXwudi</groupId>
@@ -160,6 +160,11 @@
       <dependency> <!-- and support for yaml -->
         <groupId>com.fasterxml.jackson.dataformat</groupId>
         <artifactId>jackson-dataformat-yaml</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency> <!-- and support for using all arg constructor without any jackson annotation -->
+        <groupId>com.fasterxml.jackson.module</groupId>
+        <artifactId>jackson-module-parameter-names</artifactId>
         <version>${jackson.version}</version>
       </dependency>
 <!--      enable them if needed -->
@@ -265,6 +270,9 @@
           <version>3.8.1</version> <!-- higher version support higher java -->
           <configuration>
             <release>${java.version}</release>
+            <compilerArgs>
+              <arg>-parameters</arg>  <!-- allow using jackson without annotation, even for subclasses -->
+            </compilerArgs>
           </configuration>
         </plugin>
 

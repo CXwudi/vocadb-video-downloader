@@ -64,6 +64,10 @@
       <groupId>com.fasterxml.jackson.dataformat</groupId>
       <artifactId>jackson-dataformat-yaml</artifactId>
     </dependency>
+    <dependency> <!-- and support for using all arg constructor without any jackson annotation -->
+      <groupId>com.fasterxml.jackson.module</groupId>
+      <artifactId>jackson-module-parameter-names</artifactId>
+    </dependency>
 
     <!-- logging -->
     <dependency> <!-- slf4j -->
