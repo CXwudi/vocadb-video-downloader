@@ -11,6 +11,9 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * there are 4 ways to make it works: https://stackoverflow.com/a/51465038/8529009
+ */
 @Slf4j
 class NoJacksonAnnotationJsonParsingTest {
   private final ObjectMapper mapper = JsonMapperUtil.createDefault();

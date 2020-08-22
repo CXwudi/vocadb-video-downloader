@@ -272,7 +272,7 @@
           <configuration>
             <release>${java.version}</release>
             <compilerArgs>
-              <arg>-parameters</arg> <!-- allow using jackson without annotation, even for subclasses -->
+              <!-- <arg>-parameters</arg> allow using jackson without annotation, even for subclasses -->
             </compilerArgs>
           </configuration>
         </plugin>
