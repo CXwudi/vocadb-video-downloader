@@ -6,6 +6,7 @@ import lombok.ToString;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
 import mikufan.cx.vocadb_pv_downloader.config.downloader.AbstractDownloaderConfigeration;
 import org.eclipse.collections.api.list.ImmutableList;
+import org.eclipse.collections.api.list.MutableList;
 import org.eclipse.collections.api.map.ImmutableMap;
 
 import java.nio.file.Path;
@@ -40,11 +41,12 @@ public class UserConfig {
   @JsonProperty
   private Path ffmpegFile;
 
+  // using MutableList inside the map because of the bug in jackson https://github.com/FasterXML/jackson-datatypes-collections/issues/71
   /**
    * required, where key value is the name of the supported Pv services,
    * and value value is the configuration
    */
   @JsonProperty
-  private ImmutableMap<String, AbstractDownloaderConfigeration> downloaderConfigs;
+  private ImmutableMap<String, MutableList<AbstractDownloaderConfigeration>> downloaderConfigs;
 
 }

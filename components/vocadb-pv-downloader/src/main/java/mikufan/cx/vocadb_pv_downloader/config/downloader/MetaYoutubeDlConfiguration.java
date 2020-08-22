@@ -1,7 +1,9 @@
 package mikufan.cx.vocadb_pv_downloader.config.downloader;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.eclipse.collections.api.map.ImmutableMap;
 
@@ -13,6 +15,7 @@ import java.nio.file.Path;
  * @author CX无敌
  */
 @Getter @ToString
+@NoArgsConstructor(force = true, access = AccessLevel.PROTECTED)
 public class MetaYoutubeDlConfiguration extends AbstractDownloaderConfigeration {
   /**
    * the youtube-dl key-value pair options <br/>
@@ -38,13 +41,5 @@ public class MetaYoutubeDlConfiguration extends AbstractDownloaderConfigeration 
    */
   @JsonProperty
   private Path idmPath;
-
-  public MetaYoutubeDlConfiguration(String targetDownloaderName, ImmutableMap<String, String> options, Path youtubeDlPath, Path ffmpegPath, Path idmPath) {
-    super(targetDownloaderName);
-    this.options = options;
-    this.youtubeDlPath = youtubeDlPath;
-    this.ffmpegPath = ffmpegPath;
-    this.idmPath = idmPath;
-  }
 
 }

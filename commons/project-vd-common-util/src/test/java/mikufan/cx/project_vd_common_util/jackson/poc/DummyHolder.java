@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @ToString(callSuper = true)
-@NoArgsConstructor(force = true, access = AccessLevel.PROTECTED)
+@NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
 public class DummyHolder extends BaseDummyHolder<Dummy> {
 
   public DummyHolder(Dummy obj, String note) {
