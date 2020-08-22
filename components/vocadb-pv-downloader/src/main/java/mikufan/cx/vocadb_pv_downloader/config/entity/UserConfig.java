@@ -2,8 +2,11 @@ package mikufan.cx.vocadb_pv_downloader.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
+import lombok.ToString;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
+import mikufan.cx.vocadb_pv_downloader.config.downloader.AbstractDownloaderConfigeration;
 import org.eclipse.collections.api.list.ImmutableList;
+import org.eclipse.collections.api.map.ImmutableMap;
 
 import java.nio.file.Path;
 
@@ -12,7 +15,7 @@ import java.nio.file.Path;
  * All null fields should be picked up with default value lazily.
  * @author CX无敌
  */
-@Getter
+@Getter @ToString
 public class UserConfig {
 
   /**
@@ -36,5 +39,12 @@ public class UserConfig {
    */
   @JsonProperty
   private Path ffmpegFile;
+
+  /**
+   * required, where key value is the name of the supported Pv services,
+   * and value value is the configuration
+   */
+  @JsonProperty
+  private ImmutableMap<String, AbstractDownloaderConfigeration> downloaderConfigs;
 
 }

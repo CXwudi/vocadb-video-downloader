@@ -1,9 +1,9 @@
 package mikufan.cx.vocadb_pv_downloader.config.downloader;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import org.eclipse.collections.api.map.MutableMap;
+import lombok.ToString;
+import org.eclipse.collections.api.map.ImmutableMap;
 
 import java.nio.file.Path;
 
@@ -12,29 +12,39 @@ import java.nio.file.Path;
  * Keep it for recording raw input only.
  * @author CX无敌
  */
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
+@Getter @ToString
 public class MetaYoutubeDlConfiguration extends AbstractDownloaderConfigeration {
   /**
    * the youtube-dl key-value pair options <br/>
    * user should not put url, -o into here as our program already handles it
    */
-  private MutableMap<String, String> options;
+  @JsonProperty
+  private ImmutableMap<String, String> options;
 
   /**
-   * optional youtube-dl path
+   * optional, youtube-dl path
    */
+  @JsonProperty
   private Path youtubeDlPath;
 
   /**
-   * optional youtube-dl path
+   * optional, ffmpeg path, some downloader might require this
    */
+  @JsonProperty
   private Path ffmpegPath;
 
   /**
-   * optional youtube-dl path
+   * optional, idm path, some downloader might require this
    */
+  @JsonProperty
   private Path idmPath;
+
+  public MetaYoutubeDlConfiguration(String targetDownloaderName, ImmutableMap<String, String> options, Path youtubeDlPath, Path ffmpegPath, Path idmPath) {
+    super(targetDownloaderName);
+    this.options = options;
+    this.youtubeDlPath = youtubeDlPath;
+    this.ffmpegPath = ffmpegPath;
+    this.idmPath = idmPath;
+  }
 
 }

@@ -4,4 +4,22 @@ pvPreference:
   - Bilibili
 youtubeDlFile: null
 ffmpegFile: null
+downloaderConfigs:
+  NicoNicoDouga:
+    config type: youtube-dl config
+    targetDownloaderName: DummyDownloader
+    options:
+      --username: 1113421658@qq.com
+      --password: 2010017980502
+      -v: null
+  Youtube:
+    config type: youtube-dl config
+    targetDownloaderName: DummyDownloader
+    options:
+      -v: null
+  Bilibili:
+    config type: youtube-dl config
+    targetDownloaderName: DummyDownloader
+    options:
+      -v: null
 

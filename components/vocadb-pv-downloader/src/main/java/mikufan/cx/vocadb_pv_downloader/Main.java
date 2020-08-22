@@ -23,5 +23,7 @@ public class Main extends MainUtil {
     log.info("win os = {}", SystemUtils.IS_OS_WINDOWS);
     log.info("mac os = {}", SystemUtils.IS_OS_MAC);
     log.info("linux os = {}", SystemUtils.IS_OS_LINUX);
+
+    log.info("downloader config = {}", appConfig.userConfig.getDownloaderConfigs());
   }
 }
