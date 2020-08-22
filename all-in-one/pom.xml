@@ -55,8 +55,8 @@
     <!-- some shared version numbers -->
     <module.version>4.0.0-SNAPSHOT</module.version>  <!-- stay same with project version, but don't replace project version tag in pom-->
     <log4j.version>2.13.3</log4j.version>
-    <eclipse-collections.version>10.2.0</eclipse-collections.version>
-    <jackson.version>2.11.1</jackson.version>
+    <eclipse-collections.version>10.4.0</eclipse-collections.version>
+    <jackson.version>2.11.2</jackson.version>
 
   </properties>
 
