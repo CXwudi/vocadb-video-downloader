@@ -82,6 +82,18 @@
         <version>${module.version}</version>
       </dependency>
 
+      <!-- all my application components, declared here for packaging proposes -->
+      <dependency>
+        <groupId>mikufan.cx</groupId>
+        <artifactId>vocadb-pv-task-producer</artifactId>
+        <version>${module.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mikufan.cx</groupId>
+        <artifactId>vocadb-pv-downloader</artifactId>
+        <version>${module.version}</version>
+      </dependency>
+
       <!-- my other libraries -->
       <dependency><!-- my common modules from another repo -->
         <groupId>com.github.CXwudi.common-vocaloid-java</groupId>
@@ -91,7 +103,7 @@
       <dependency><!-- the modified youtube-dl wrapper -->
         <groupId>com.github.CXwudi</groupId>
         <artifactId>youtubedl-java</artifactId>
-        <version>1.2.RC5</version>
+        <version>1.2.RC6</version>
       </dependency>
 
 
@@ -212,17 +224,6 @@
         <version>1.18</version>
       </dependency>
 
-      <!-- all my application components, declared here for packaging proposes -->
-      <dependency>
-        <groupId>mikufan.cx</groupId>
-        <artifactId>vocadb-pv-task-producer</artifactId>
-        <version>${module.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>mikufan.cx</groupId>
-        <artifactId>vocadb-pv-downloader</artifactId>
-        <version>${module.version}</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -271,7 +272,7 @@
           <configuration>
             <release>${java.version}</release>
             <compilerArgs>
-              <arg>-parameters</arg>  <!-- allow using jackson without annotation, even for subclasses -->
+              <arg>-parameters</arg> <!-- allow using jackson without annotation, even for subclasses -->
             </compilerArgs>
           </configuration>
         </plugin>

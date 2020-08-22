@@ -59,9 +59,8 @@ class NoJacksonAnnotationJsonParsingTest {
 
   @Test @SneakyThrows
   void testWriteToJson3(){
-    var dummy = new Dummy("yeah yeah", 51, "nice dummy");
-    var dummyHolder = new DummyHolder(dummy, "is just a dummy");
-    var json = mapper.writeValueAsString(dummyHolder);
+    var dummy = new DummyIndependent(21, "nice format", true, false, 5, 2020);
+    var json = mapper.writeValueAsString(dummy);
     log.info("json = {}", json);
     assertTrue(true);
   }
