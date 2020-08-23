@@ -1,10 +1,12 @@
 package mikufan.cx.vocadb_pv_downloader.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
-import mikufan.cx.vocadb_pv_downloader.config.downloader.AbstractDownloaderConfigeration;
+import mikufan.cx.vocadb_pv_downloader.config.downloader.AbstractDownloaderConfiguration;
 import org.eclipse.collections.api.list.ImmutableList;
 import org.eclipse.collections.api.list.MutableList;
 import org.eclipse.collections.api.map.ImmutableMap;
@@ -17,6 +19,7 @@ import java.nio.file.Path;
  * @author CX无敌
  */
 @Getter @ToString
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserConfig {
 
   /**
@@ -47,6 +50,6 @@ public class UserConfig {
    * and value value is the configuration
    */
   @JsonProperty
-  private ImmutableMap<String, MutableList<AbstractDownloaderConfigeration>> downloaderConfigs;
+  private ImmutableMap<String, MutableList<AbstractDownloaderConfiguration>> downloaderConfigs;
 
 }

@@ -16,7 +16,7 @@ import java.nio.file.Path;
  */
 @Getter @ToString
 @NoArgsConstructor(force = true, access = AccessLevel.PROTECTED)
-public class MetaYoutubeDlConfiguration extends AbstractDownloaderConfigeration {
+public class MetaYoutubeDlConfiguration extends AbstractDownloaderConfiguration {
   /**
    * the youtube-dl key-value pair options <br/>
    * user should not put url, -o into here as our program already handles it

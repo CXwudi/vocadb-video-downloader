@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @JsonSubTypes({
     @JsonSubTypes.Type(value = MetaYoutubeDlConfiguration.class, name = "youtube-dl config")
 })
-public abstract class AbstractDownloaderConfigeration {
+public abstract class AbstractDownloaderConfiguration {
 
   /**
    * should be the class name of the downloader that is been created via reflection
