@@ -24,44 +24,42 @@ that can download PVs from various 二次元 websites (Niconico, Youtube, Bilibi
 ### Functionality of each modules
 
 * **vocadb-pv-task-producer**:
-  * Input: An ID of a favourite list in VocaDB
-    * You can transform your Youtube/Niconico favourite list into VocaDB favourite list by using the import feature on the website
+  * Input: an ID of a favourite list in VocaDB
+    * you can transform your Youtube/Niconico favourite list into VocaDB favourite list by using the import feature on the website
   * Output: a folder of json files representing detail information of Vocaloid songs in favourite list
-    * The format of the json file follows GET [`https://vocadb.net/api/songs/<songId>?fields=PVs`](https://vocadb.net/swagger/ui/index#!/SongApi/SongApi_GetById "VocaDB Api Doc Page")(click to see the api doc page)  
-    * If I have time, I can implement other modules for reading favourite lists directly from local file, Bilibili and writing same output
+    * the format of the json file follows GET [`https://vocadb.net/api/songs/<songId>?fields=PVs`](https://vocadb.net/swagger/ui/index#!/SongApi/SongApi_GetById "VocaDB Api Doc Page")(click to see the api doc page)  
+    * if I have time, I can implement other modules for reading favourite lists directly from local file, Bilibili and writing same output
 * **vocadb-pv-downloader**:
-  * Input: The output of vocadb-pv-task-producer
-  * Output: A copy of the input of this module + PV and thumbnails downloaded from supported websites (Youtube, Niconico, Bilibili)
-    * Powered by using youtube-dl
+  * Input: the output of vocadb-pv-task-producer
+  * Output: a copy of the input of this module + PVs and thumbnails downloaded from supported websites (Youtube, Niconico, Bilibili)
+    * powered by youtube-dl
 * **vocadb-pv-extractor**:
   * Input: the output of vocadb-pv-downloader
-  * Output: A folder with copies of json files + audio files extracted from PVs with embedded thumbnail and tags information
+  * Output: a folder with copies of json files + audio files extracted from PVs with embedded thumbnail and tags information
     * extraction is done by ffmpeg
     * thumbnail and tag are done by Python Mutagen library
     * the json files provide information of tags
 
 ### General Implementation Consideration
 
-Of course, the following are my first concern
-
-Functional Requirements:
+Of course, the following functional requirements are my first concern:
 
 * able to download videos from Bilibili, Youtube and Niconico
 * automatically extract audio losslessly using ffmpeg
 * since VocaDB provides useful info of Vocaloid songs, and youtube-dl can download thumbnails, why not embed tags and thumbnails using python mutagen lib
 
-Hence, we decide to make a Maven multi-module project. Each module handle one action
+Hence, we decide to make a Maven multi-module project. Each module handle one action (task perparing, downloading and extracting)
 
-However, there are some other things I concern
-
-Non-Functional Requirements:
+However, there are some other things I concern: (non-functional requirements)
 
 * replacable binary files (youtube-dl, ffmpeg, and etc)
+* modifiable programs behaviors
+  * espacially the youtube-dl commands
 * can stop and continue
 * can inspect and modify the input/output manually, by users or by some other programs
 
-Hence, we come up with easy hackable configs, easy hackable output/input. As all modules follow the pattern of: take an input and some config files, then it produces an output.  
-Input files, Output files and config files are all placed outside of the programs and stored in txt. So they are free to be read and edited by users or other programs 😁
+Hence, we come up with easy hackable configs, easy hackable output/input. As all modules follow the pattern of: take some input and some config files, then it produces an output.  
+Input files, output files, config files and executable files are all placed outside of the programs. So they are free to be read, edited or replaced by any ways 😁
 
 ## Current Progresses
 
