@@ -21,23 +21,47 @@ Project VD: [VocaDB](https://vocadb.net/) Video Downloader
 A multi-module program driven by Youtube-dl, FFmpeg and Python Mutagen library,
 that can download PVs from various 二次元 websites (Niconico, Youtube, Bilibili and etc) according to a VocaDB favourite list, extract audios from PVs, and tags audios with dedicated information from VocaDB  
 
-Functionality of each module:
+### Functionality of each modules
 
 * **vocadb-pv-task-producer**:
   * Input: An ID of a favourite list in VocaDB
-  * Output: Produce/Update a folder of json files where each json file is the detail information of a Vocaloid song
-  * Notes:
-    * The format of the json file follows GET [`https://vocadb.net/api/songs/<songId>?fields=PVs`](https://vocadb.net/swagger/ui/index#!/SongApi/SongApi_GetById "VocaDB Api Doc Page")
-    * Youtube/Niconico favourite list can be imported into VocaDB website using the import feature on the website. Therefore this module covers both Niconico and Youtube favourite list as well.
-    * If I have time, other modules for reading favourite lists directly from local file, Bilibili and writing same output can be implemented using Selenium or commons-csv
+    * You can transform your Youtube/Niconico favourite list into VocaDB favourite list by using the import feature on the website
+  * Output: a folder of json files representing detail information of Vocaloid songs in favourite list
+    * The format of the json file follows GET [`https://vocadb.net/api/songs/<songId>?fields=PVs`](https://vocadb.net/swagger/ui/index#!/SongApi/SongApi_GetById "VocaDB Api Doc Page")(click to see the api doc page)  
+    * If I have time, I can implement other modules for reading favourite lists directly from local file, Bilibili and writing same output
 * **vocadb-pv-downloader**:
-  * Input: The output of vocadb-pv-task-producer, which is a folder of json files where each json file is the detail information of a Vocaloid song. In this module, each json file indicate a Vocaloid PV to be downloaded
-  * Output: Contains a copy of the input, plus PV downloaded from supported websites (Youtube, Niconico, Bilibili) using youtube-dl
+  * Input: The output of vocadb-pv-task-producer
+  * Output: A copy of the input of this module + PV and thumbnails downloaded from supported websites (Youtube, Niconico, Bilibili)
+    * Powered by using youtube-dl
 * **vocadb-pv-extractor**:
-  * Input: the output of vocadb-pv-downloader, which contains PVs downloaded, thumbnails of PVs, and detail information of songs in json files
-  * Output: the copy of json files, plus audio tracks extracted from PVs and embeded with thumbnail and tags information from json files using Python Mutagen library
+  * Input: the output of vocadb-pv-downloader
+  * Output: A folder with copies of json files + audio files extracted from PVs with embedded thumbnail and tags information
+    * extraction is done by ffmpeg
+    * thumbnail and tag are done by Python Mutagen library
+    * the json files provide information of tags
 
-//TODO: other explaination like easy hackable configs, easy hackable output/input, allowing using output with other program and etc.
+### General Implementation Consideration
+
+Of course, the following are my first concern
+
+Functional Requirements:
+
+* able to download videos from Bilibili, Youtube and Niconico
+* automatically extract audio losslessly using ffmpeg
+* since VocaDB provides useful info of Vocaloid songs, and youtube-dl can download thumbnails, why not embed tags and thumbnails using python mutagen lib
+
+Hence, we decide to make a Maven multi-module project. Each module handle one action
+
+However, there are some other things I concern
+
+Non-Functional Requirements:
+
+* replacable binary files (youtube-dl, ffmpeg, and etc)
+* can stop and continue
+* can inspect and modify the input/output manually, by users or by some other programs
+
+Hence, we come up with easy hackable configs, easy hackable output/input. As all modules follow the pattern of: take an input and some config files, then it produces an output.  
+Input files, Output files and config files are all placed outside of the programs and stored in txt. So they are free to be read and edited by users or other programs 😁
 
 ## Current Progresses
 
