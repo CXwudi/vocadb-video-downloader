@@ -13,6 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * there are 4 ways to make it works: https://stackoverflow.com/a/51465038/8529009
+ *
+ * We prefer the 1st way, declare no arg constructor and getters, works for final fields as well
  */
 @Slf4j
 class NoJacksonAnnotationJsonParsingTest {

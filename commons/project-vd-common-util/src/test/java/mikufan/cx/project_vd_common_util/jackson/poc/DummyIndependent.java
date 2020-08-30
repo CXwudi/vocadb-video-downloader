@@ -13,7 +13,7 @@ public class DummyIndependent {
 
   private final String formatted;
 
-  @JsonProperty("isEmpty") // jackson strip out is/get from getter, so make sure add an "is" back to boolean
+  @JsonProperty("isEmpty") // jackson strip out is/get from boolean getter, so make sure add an "is" back to boolean
   private final boolean isEmpty;
 
   private final boolean stupid;
