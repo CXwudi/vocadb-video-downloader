@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_task_producer.main;
+package mikufan.cx.vocadb_pv_task_producer.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NonNull;
@@ -21,6 +21,8 @@ import org.apache.hc.core5.net.URIBuilder;
 import org.eclipse.collections.api.factory.Lists;
 import org.eclipse.collections.api.list.MutableList;
 import org.eclipse.collections.api.tuple.Pair;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -30,7 +32,7 @@ import java.net.URISyntaxException;
  * This requires an endpoint GET https://vocadb.net/api/songs/246033
  * @author CX无敌
  */
-@Slf4j
+@Slf4j @Service @Lazy
 @RequiredArgsConstructor
 public class ArtistFieldFixer {
 

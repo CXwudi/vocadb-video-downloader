@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_task_producer.main;
+package mikufan.cx.vocadb_pv_task_producer.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

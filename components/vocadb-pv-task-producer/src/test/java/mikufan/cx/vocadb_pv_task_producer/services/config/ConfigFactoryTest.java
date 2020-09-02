@@ -1,9 +1,11 @@
-package mikufan.cx.vocadb_pv_task_producer.config;
+package mikufan.cx.vocadb_pv_task_producer.services.config;
 
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.nio.file.Paths;
 
@@ -11,7 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Slf4j
+@SpringBootTest
 class ConfigFactoryTest {
+
+  @Autowired
+  private final ConfigFactory configFactory = null;
 
   @Test
   void testHelp(){
@@ -30,13 +36,13 @@ class ConfigFactoryTest {
     // so the error code is 001
     shouldThrowVocaDbExpByParser(VocaDbPvTaskRCI.MIKU_TASK_001, "-i", "1234", "-o", "-s", "fakeSetting");
 
-    var config = ConfigFactory.parse(new String[]{"-i", "1234", "-o", "src", "-s", "src/test/resources/sample-test-config.yaml"});
+    var config = configFactory.parse(new String[]{"-i", "1234", "-o", "src", "-s", "src/test/resources/sample-test-config.yaml"});
     assertEquals(Paths.get("src"), config.getOutputDir());
   }
 
   private void shouldThrowVocaDbExpByParser(VocaDbPvTaskRCI rci, String... cmdLine){
     try {
-      ConfigFactory.parse(cmdLine);
+      configFactory.parse(cmdLine);
       fail();
     } catch (Exception e){ // parse method used sneakThrow, so we can't catch a specific exception
       if (e instanceof VocaDbPvTaskException ){

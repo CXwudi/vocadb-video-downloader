@@ -8,3 +8,7 @@ threadMaxPoolSize: 1500
 # the actual # of thread can be ran in parallel,
 # this is for eclipse-collection's parallel setting, stay same with threadCorePoolSize
 batchSize: 8
+# the relative path of the error directory from output directory perspective
+# that used to store song info json that
+# doesn't include an available PV to download
+errDir: err/

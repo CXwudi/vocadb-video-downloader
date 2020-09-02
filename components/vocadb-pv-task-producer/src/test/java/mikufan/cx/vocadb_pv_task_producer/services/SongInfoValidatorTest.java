@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_task_producer.main;
+package mikufan.cx.vocadb_pv_task_producer.services;
 
 import mikufan.cx.common_vocaloid_entity.pv.service.PvServiceStr;
 import mikufan.cx.common_vocaloid_entity.vocadb.models.PVContract;

@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_task_producer.main;
+package mikufan.cx.vocadb_pv_task_producer.services;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

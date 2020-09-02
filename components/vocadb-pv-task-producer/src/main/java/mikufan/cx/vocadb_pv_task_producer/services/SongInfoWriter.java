@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_task_producer.main;
+package mikufan.cx.vocadb_pv_task_producer.services;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +9,8 @@ import mikufan.cx.project_vd_common_util.io.JacksonPojoTransformer;
 import mikufan.cx.project_vd_common_util.string.FileNameBuilder;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -19,6 +21,7 @@ import java.nio.file.Path;
  * @author CX无敌
  */
 @Slf4j @RequiredArgsConstructor
+@Service @Lazy
 public class SongInfoWriter {
   private final JacksonPojoTransformer<SongForApiContract> songWriter = JacksonPojoTransformer.createWithDefaultMapper(SongForApiContract.class);
   private final JacksonPojoTransformer<FailedSong> failureWriter = JacksonPojoTransformer.createWithDefaultMapper(FailedSong.class);

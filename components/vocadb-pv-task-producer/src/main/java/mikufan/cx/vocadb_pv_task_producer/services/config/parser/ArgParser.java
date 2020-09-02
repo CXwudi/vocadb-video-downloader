@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_task_producer.config.parser;
+package mikufan.cx.vocadb_pv_task_producer.services.config.parser;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,11 +7,13 @@ import mikufan.cx.project_vd_common_util.exception.ThrowableFunction;
 import mikufan.cx.project_vd_common_util.exception.ThrowableSupplier;
 import mikufan.cx.project_vd_common_util.io.JacksonPojoTransformer;
 import mikufan.cx.project_vd_common_util.jackson.YamlMapperUtil;
-import mikufan.cx.vocadb_pv_task_producer.config.entity.UserConfig;
+import mikufan.cx.vocadb_pv_task_producer.services.config.entity.UserConfig;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.apache.commons.cli.*;
 import org.eclipse.collections.api.factory.Lists;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,6 +22,7 @@ import java.nio.file.Path;
  * the stateless arg parser
  * @author CX无敌
  */
+@Component @Lazy
 @Slf4j
 @NoArgsConstructor
 public final class ArgParser {

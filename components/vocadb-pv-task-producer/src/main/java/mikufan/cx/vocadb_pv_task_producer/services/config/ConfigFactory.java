@@ -1,30 +1,33 @@
-package mikufan.cx.vocadb_pv_task_producer.config;
+package mikufan.cx.vocadb_pv_task_producer.services.config;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import mikufan.cx.vocadb_pv_task_producer.config.entity.AppConfig;
-import mikufan.cx.vocadb_pv_task_producer.config.entity.UserConfig;
-import mikufan.cx.vocadb_pv_task_producer.config.parser.ArgParser;
-import mikufan.cx.vocadb_pv_task_producer.config.parser.OptionsFactory;
-import mikufan.cx.vocadb_pv_task_producer.config.validator.UserConfigValidator;
+import mikufan.cx.vocadb_pv_task_producer.services.config.entity.AppConfig;
+import mikufan.cx.vocadb_pv_task_producer.services.config.entity.UserConfig;
+import mikufan.cx.vocadb_pv_task_producer.services.config.parser.ArgParser;
+import mikufan.cx.vocadb_pv_task_producer.services.config.parser.OptionsFactory;
+import mikufan.cx.vocadb_pv_task_producer.services.config.validator.UserConfigValidator;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import org.apache.commons.cli.CommandLine;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
 
 /**
  * facade of parsing args from command line
  * @author CX无敌
  */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class ConfigFactory {
-
+@Service @Lazy
+@RequiredArgsConstructor
+public class ConfigFactory {
+  private final OptionsFactory optionsFactory;
+  private final ArgParser parser;
+  private final UserConfigValidator configValidator;
 
   @SneakyThrows(VocaDbPvTaskException.class)
-  public static AppConfig parse(String[] args){
+  public AppConfig parse(String[] args){
     //construct options
-    var options = new OptionsFactory().createOptions();
+    var options = optionsFactory.createOptions();
     // construct parser
-    var parser = new ArgParser();
 
     // real parsing, which also print help if any required options are missing
     CommandLine cmdLine = parser.parseArgs(args, options);
@@ -36,7 +39,7 @@ public final class ConfigFactory {
     UserConfig userConfig = parser.getUserConfigOrThrow(cmdLine);
 
     //user config needs an external validator because it is parsed from Jackson
-    new UserConfigValidator().validate(userConfig);
+    configValidator.validate(userConfig);
 
     return AppConfig.builder()
         .listId(listId)

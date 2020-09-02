@@ -16,14 +16,16 @@
     this is just configuration of all maven packaging is done
   </description>
 
-  <dependencies>
+  <dependencies> <!-- all my application components, declared here for packaging proposes -->
     <dependency>
       <groupId>mikufan.cx</groupId>
       <artifactId>vocadb-pv-task-producer</artifactId>
+      <version>${module.version}</version>
     </dependency>
     <dependency>
       <groupId>mikufan.cx</groupId>
       <artifactId>vocadb-pv-downloader</artifactId>
+      <version>${module.version}</version>
     </dependency>
   </dependencies>
 

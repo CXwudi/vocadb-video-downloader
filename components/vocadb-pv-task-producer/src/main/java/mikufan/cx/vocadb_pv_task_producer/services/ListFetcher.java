@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_task_producer.main;
+package mikufan.cx.vocadb_pv_task_producer.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NonNull;
@@ -15,6 +15,8 @@ import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.core5.http.message.BasicHeader;
 import org.apache.hc.core5.http.message.BasicNameValuePair;
 import org.apache.hc.core5.net.URIBuilder;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URI;
@@ -26,7 +28,7 @@ import java.net.URISyntaxException;
  *
  * @author CX无敌
  */
-@Slf4j
+@Slf4j @Service @Lazy
 @RequiredArgsConstructor
 public class ListFetcher {
 

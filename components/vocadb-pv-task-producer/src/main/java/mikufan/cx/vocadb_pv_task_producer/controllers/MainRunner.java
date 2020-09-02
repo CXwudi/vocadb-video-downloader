@@ -1,29 +1,42 @@
-package mikufan.cx.vocadb_pv_task_producer;
+package mikufan.cx.vocadb_pv_task_producer.controllers;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.project_vd_common_entity.failure.FailedSong;
-import mikufan.cx.vocadb_pv_task_producer.config.ConfigFactory;
-import mikufan.cx.vocadb_pv_task_producer.main.ArtistFieldFixer;
-import mikufan.cx.vocadb_pv_task_producer.main.ListFetcher;
-import mikufan.cx.vocadb_pv_task_producer.main.SongInfoValidator;
-import mikufan.cx.vocadb_pv_task_producer.main.SongInfoWriter;
-import mikufan.cx.vocadb_pv_task_producer.util.MainUtil;
+import mikufan.cx.vocadb_pv_task_producer.services.ArtistFieldFixer;
+import mikufan.cx.vocadb_pv_task_producer.services.ListFetcher;
+import mikufan.cx.vocadb_pv_task_producer.services.SongInfoValidator;
+import mikufan.cx.vocadb_pv_task_producer.services.SongInfoWriter;
+import mikufan.cx.vocadb_pv_task_producer.services.config.ConfigFactory;
+import mikufan.cx.vocadb_pv_task_producer.util.MainRunnerUtil;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
-
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.stereotype.Controller;
 
 /**
  * @author CX无敌
  */
-@Slf4j
-public class Main extends MainUtil {
+@Controller @Slf4j
+@RequiredArgsConstructor
+public class MainRunner extends MainRunnerUtil {
 
-  public static void main(String[] args) throws VocaDbPvTaskException {
+  private final ObjectProvider<ConfigFactory> configFactoryOp;
+  private final ObjectProvider<ListFetcher> listFetcherOp;
+  private final ObjectProvider<ArtistFieldFixer> artistFieldFixerOp;
+
+  private final ObjectProvider<SongInfoValidator> songInfoValidatorOp;
+  private final ObjectProvider<SongInfoWriter> songInfoWriterOp;
+
+  /**
+   * Callback used to run the bean.
+   *
+   * @param args incoming main method arguments
+   * @throws Exception on error
+   */
+  public void run(String... args) throws VocaDbPvTaskException {
     /* ==  0. reading cmd == */
     log.info("configuring application");
-    var appConfig = ConfigFactory.parse(args);
+    var appConfig = configFactoryOp.getObject().parse(args);
     var listId = appConfig.getListId();
 
     /* ==  the main logic == */
@@ -31,12 +44,12 @@ public class Main extends MainUtil {
         httpClient -> {
           /* ==  1. fetch list == */
           log.info("start requesting full VocaDB songs list of id {}", listId);
-          var listFetcher = new ListFetcher(appConfig.systemConfig.getMaxResult());
+          var listFetcher = listFetcherOp.getObject(appConfig.systemConfig.getMaxResult());
           var list = listFetcher.getVocadbListOfId(listId, httpClient);
 
           /* ==  2. fixing "various" "unknown" in artist fields in songs list == */
           log.info("song list of {} gotten, start processing artist field string fixup", listId);
-          var artistFixer = new ArtistFieldFixer();
+          var artistFixer = artistFieldFixerOp.getObject();
           artistFixer.fixAll(list, httpClient);
 
           return list;
@@ -44,15 +57,14 @@ public class Main extends MainUtil {
     );
     /* ==  for each song in list in parallel == */
     //preparation
-    var validator = new SongInfoValidator();
-    var songInfoWriter = new SongInfoWriter();
+    var validator = songInfoValidatorOp.getObject();
+    var songInfoWriter = songInfoWriterOp.getObject();
     var outputDir = appConfig.getOutputDir().toAbsolutePath();
-    var errDir = outputDir.resolve("err");
+    var errDir = outputDir.resolve(appConfig.systemConfig.getErrDir());
     createDir(errDir);
-    var threadPoolExecutor = new ThreadPoolExecutor(
+    var threadPoolExecutor = createThreadPoolExecutor(
         appConfig.systemConfig.getThreadCorePoolSize(),
-        appConfig.systemConfig.getThreadMaxPoolSize(),
-        Integer.MAX_VALUE, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+        appConfig.systemConfig.getThreadMaxPoolSize());
 
     log.info("start writing song info in list {} to output folder {}", listId, outputDir);
     songList.getItems()
@@ -79,6 +91,4 @@ public class Main extends MainUtil {
     threadPoolExecutor.shutdown();
     log.info("終わった。( •̀ ω •́ )y");
   }
-
-
 }

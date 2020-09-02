@@ -3,6 +3,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.3.3.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
   <groupId>mikufan.cx</groupId>
   <artifactId>project-vd</artifactId>
   <packaging>pom</packaging> <!-- in intellij "pom" won't let this module contains source code, IDEA-221071 -->
@@ -54,9 +60,7 @@
     <build.library.dir>libs</build.library.dir>
     <!-- some shared version numbers -->
     <module.version>4.0.0-SNAPSHOT</module.version>  <!-- stay same with project version, but don't replace project version tag in pom-->
-    <log4j.version>2.13.3</log4j.version>
     <eclipse-collections.version>10.4.0</eclipse-collections.version>
-    <jackson-bom.version>2.11.2</jackson-bom.version>
 
   </properties>
 
@@ -79,18 +83,6 @@
       <dependency>
         <groupId>mikufan.cx</groupId>
         <artifactId>project-vd-common-entity</artifactId>
-        <version>${module.version}</version>
-      </dependency>
-
-      <!-- all my application components, declared here for packaging proposes -->
-      <dependency>
-        <groupId>mikufan.cx</groupId>
-        <artifactId>vocadb-pv-task-producer</artifactId>
-        <version>${module.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>mikufan.cx</groupId>
-        <artifactId>vocadb-pv-downloader</artifactId>
         <version>${module.version}</version>
       </dependency>
 
@@ -124,11 +116,6 @@
         <artifactId>guava</artifactId>
         <version>29.0-jre</version>
       </dependency>
-      <dependency> <!-- common-lang, provides useful utils as well -->
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>3.11</version>
-      </dependency>
 
       <!-- application framework -->
       <dependency> <!-- http-client5 -->
@@ -152,18 +139,11 @@
         <artifactId>jave-all-deps</artifactId>
         <version>2.7.3</version>
       </dependency>
-      <dependency> <!-- all-in-one jackson bom -->
-        <groupId>com.fasterxml.jackson</groupId>
-        <artifactId>jackson-bom</artifactId>
-        <version>${jackson-bom.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency> <!-- to exclude the embedded eclipse collection which is old -->
+      <dependency> <!-- eclipse-coll jackson support -->
         <groupId>com.fasterxml.jackson.datatype</groupId>
         <artifactId>jackson-datatype-eclipse-collections</artifactId>
         <version>${jackson-bom.version}</version>
-        <exclusions>
+        <exclusions> <!-- to exclude the embedded eclipse collection which is old -->
           <exclusion>
             <groupId>org.eclipse.collections</groupId>
             <artifactId>eclipse-collections</artifactId>
@@ -172,59 +152,52 @@
       </dependency>
 
       <!-- logging -->
-      <dependency> <!-- all-in-one log4j bom -->
-        <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-bom</artifactId>
-        <version>${log4j.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency> <!-- slf4j -->
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.7.30</version>
-      </dependency>
-      <dependency> <!-- to exclude the included slf4j, which is old -->
-        <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-slf4j-impl</artifactId>
-        <version>${log4j.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency> <!-- async logging support-->
+      <dependency>
         <groupId>com.lmax</groupId>
         <artifactId>disruptor</artifactId>
         <version>3.4.2</version>
-      </dependency>
-      <dependency>
-        <groupId>org.fusesource.jansi</groupId>
-        <artifactId>jansi</artifactId>
-        <version>1.18</version>
       </dependency>
 
     </dependencies>
   </dependencyManagement>
 
   <dependencies> <!-- enabled by default dependencies that are shared across the whole project -->
-    <!-- current enabled dep: junit, lombok, eclipse-collection -->
+    <!-- current enabled dep:
+    spring-boot-starter (without default logging),
+    spring-boot-start-test (junit + mockito),
+    lombok,
+    eclipse-collection
+    -->
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
     <!-- test cases -->
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>5.6.2</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <!-- injecting cheat -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.12</version>
-      <scope>provided</scope>
+      <optional>true</optional>
     </dependency>
 
     <!-- honor utils -->

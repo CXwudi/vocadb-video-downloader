@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_task_producer.main;
+package mikufan.cx.vocadb_pv_task_producer.services;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.common_vocaloid_entity.vocadb.models.PVContract;
 import mikufan.cx.common_vocaloid_entity.vocadb.models.SongForApiContract;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
@@ -13,7 +15,7 @@ import java.util.Optional;
  * A stateless validator to check if a song is downloadable
  * @author CX无敌
  */
-@Slf4j
+@Slf4j @Service @Lazy
 @RequiredArgsConstructor
 public class SongInfoValidator {
 
