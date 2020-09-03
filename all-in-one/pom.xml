@@ -25,9 +25,9 @@
     <module>../package-all</module>
   </modules>
 
-  <name>Project VD - Video Downloader for Vocal Characters</name>
+  <name>Project VD - VocaDB Video Downloader</name>
   <description>
-    Project VD - Video Downloader for Vocal Characters
+    Project VD - VocaDB Video Downloader
     the remastered Niconico Video Downloader to support more sites and more features.
   </description>
   <url>https://github.com/CXwudi/Project-VD</url>
