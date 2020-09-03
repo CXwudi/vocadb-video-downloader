@@ -52,4 +52,6 @@ public class UserConfig {
   @JsonProperty
   private ImmutableMap<String, MutableList<AbstractDownloaderConfiguration>> downloaderConfigs;
 
+  @JsonProperty
+  private int retryTimes;
 }

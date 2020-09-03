@@ -27,4 +27,4 @@ downloaderConfigs:
       options:
         -v: null
 
-
+retryTimes: 5

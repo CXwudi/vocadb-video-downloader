@@ -1,2 +1,3 @@
 youtubeDlWinPath: "assets\\youtube-dls\\win\\youtube-dl-niconico-enhanced.exe"
 youtubeDlLinuxPath: "assets\\youtube-dls\\linux\\youtube-dl-niconico-enhanced"
+retryTimes: 6

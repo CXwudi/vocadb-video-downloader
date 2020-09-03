@@ -40,4 +40,7 @@ public class SystemConfig {
 
   @JsonProperty
   private Path youtubeDlLinuxPath;
+
+  @JsonProperty
+  private int retryTimes;
 }
