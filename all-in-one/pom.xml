@@ -152,7 +152,7 @@
       </dependency>
 
       <!-- logging -->
-      <dependency>
+      <dependency> <!-- support for async logging -->
         <groupId>com.lmax</groupId>
         <artifactId>disruptor</artifactId>
         <version>3.4.2</version>
