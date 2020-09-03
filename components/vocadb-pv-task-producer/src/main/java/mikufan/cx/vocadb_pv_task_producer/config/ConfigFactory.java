@@ -1,36 +1,43 @@
-package mikufan.cx.vocadb_pv_task_producer.services.config;
+package mikufan.cx.vocadb_pv_task_producer.config;
 
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
-import mikufan.cx.vocadb_pv_task_producer.services.config.entity.AppConfig;
-import mikufan.cx.vocadb_pv_task_producer.services.config.entity.UserConfig;
-import mikufan.cx.vocadb_pv_task_producer.services.config.parser.ArgParser;
-import mikufan.cx.vocadb_pv_task_producer.services.config.parser.OptionsFactory;
-import mikufan.cx.vocadb_pv_task_producer.services.config.validator.UserConfigValidator;
+import mikufan.cx.vocadb_pv_task_producer.config.entity.AppConfig;
+import mikufan.cx.vocadb_pv_task_producer.config.entity.UserConfig;
+import mikufan.cx.vocadb_pv_task_producer.config.parser.ArgParser;
+import mikufan.cx.vocadb_pv_task_producer.config.parser.OptionsFactory;
+import mikufan.cx.vocadb_pv_task_producer.config.validator.UserConfigValidator;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import org.apache.commons.cli.CommandLine;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Service;
 
 /**
- * facade of parsing args from command line
+ * a factory that lazily produce the singleton bean of {@link AppConfig}
  * @author CX无敌
  */
-@Service @Lazy
+@Configuration
+@Lazy
 @RequiredArgsConstructor
 public class ConfigFactory {
   private final OptionsFactory optionsFactory;
   private final ArgParser parser;
   private final UserConfigValidator configValidator;
 
-  @SneakyThrows(VocaDbPvTaskException.class)
-  public AppConfig parse(String[] args){
+  /**
+   * produce the singleton bean of {@link AppConfig}
+   * @param args application arguments from spring boot
+   * @return the singleton bean of {@link AppConfig}
+   */
+  @Bean
+  public AppConfig parse(ApplicationArguments args) throws VocaDbPvTaskException{
     //construct options
     var options = optionsFactory.createOptions();
     // construct parser
 
     // real parsing, which also print help if any required options are missing
-    CommandLine cmdLine = parser.parseArgs(args, options);
+    CommandLine cmdLine = parser.parseArgs(args.getSourceArgs(), options);
     // in case if all required args exist and user still want to print help only
     parser.checkAndPrintHelpAndQuitIfNeed(options, cmdLine);
 

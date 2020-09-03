@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_task_producer.services.config.parser;
+package mikufan.cx.vocadb_pv_task_producer.config.parser;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,7 +7,7 @@ import mikufan.cx.project_vd_common_util.exception.ThrowableFunction;
 import mikufan.cx.project_vd_common_util.exception.ThrowableSupplier;
 import mikufan.cx.project_vd_common_util.io.JacksonPojoTransformer;
 import mikufan.cx.project_vd_common_util.jackson.YamlMapperUtil;
-import mikufan.cx.vocadb_pv_task_producer.services.config.entity.UserConfig;
+import mikufan.cx.vocadb_pv_task_producer.config.entity.UserConfig;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.apache.commons.cli.*;

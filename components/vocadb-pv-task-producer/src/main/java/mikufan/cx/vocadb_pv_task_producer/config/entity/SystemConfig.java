@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_task_producer.services.config.entity;
+package mikufan.cx.vocadb_pv_task_producer.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

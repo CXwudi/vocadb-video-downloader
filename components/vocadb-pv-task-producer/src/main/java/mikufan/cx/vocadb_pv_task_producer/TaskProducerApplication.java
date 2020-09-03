@@ -14,6 +14,6 @@ public class TaskProducerApplication {
   public static void main(String[] args) throws VocaDbPvTaskException {
     var context = SpringApplication.run(TaskProducerApplication.class, args);
     //running our own class
-    context.getBean(MainRunner.class).run(args);
+    context.getBean(MainRunner.class).run();
   }
 }

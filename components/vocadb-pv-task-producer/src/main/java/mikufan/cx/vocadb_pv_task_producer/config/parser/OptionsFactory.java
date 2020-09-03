@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_task_producer.services.config.parser;
+package mikufan.cx.vocadb_pv_task_producer.config.parser;
 
 import lombok.NoArgsConstructor;
 import org.apache.commons.cli.Option;
