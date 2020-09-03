@@ -14,9 +14,10 @@
   <packaging>pom</packaging> <!-- in intellij "pom" won't let this module contains source code, IDEA-221071 -->
   <version>4.0.0-SNAPSHOT</version>
 
-  <prerequisites>
-    <maven>3.5.0</maven> <!-- not required but better to add this, good for updating and solving maven problems-->
-  </prerequisites>
+<!--  prerequisites can be ignored if using spring boot -->
+<!--  <prerequisites>-->
+<!--    <maven>3.5.0</maven> &lt;!&ndash; not required but better to add this, good for updating and solving maven problems&ndash;&gt;-->
+<!--  </prerequisites>-->
   <modules>
     <module>../components/vocadb-pv-task-producer</module>
     <module>../commons/project-vd-common-util</module>
