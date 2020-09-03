@@ -15,6 +15,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PvDownloaderApplication extends MainUtil {
   public static void main(String[] args) throws VocaDbPvDlException {
     var context = SpringApplication.run(PvDownloaderApplication.class, args);
-    context.getBean(MainRunner.class).run(args);
+    context.getBean(MainRunner.class).run();
   }
 }

@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_downloader.services.config.parser;
+package mikufan.cx.vocadb_pv_downloader.config.parser;
 
 import org.apache.commons.cli.HelpFormatter;
 import org.junit.jupiter.api.Test;

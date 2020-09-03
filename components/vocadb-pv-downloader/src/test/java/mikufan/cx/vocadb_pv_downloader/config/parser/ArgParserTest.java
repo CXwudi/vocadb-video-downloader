@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_downloader.services.config.parser;
+package mikufan.cx.vocadb_pv_downloader.config.parser;
 
 import mikufan.cx.project_vd_common_util.exception.ThrowableSupplier;
 import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlException;

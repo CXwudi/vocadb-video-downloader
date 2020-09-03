@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_downloader.services.config.entity;
+package mikufan.cx.vocadb_pv_downloader.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
