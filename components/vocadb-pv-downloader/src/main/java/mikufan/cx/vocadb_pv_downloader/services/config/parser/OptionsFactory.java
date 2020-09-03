@@ -1,15 +1,17 @@
-package mikufan.cx.vocadb_pv_downloader.config.parser;
+package mikufan.cx.vocadb_pv_downloader.services.config.parser;
 
 import lombok.NoArgsConstructor;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
+import org.springframework.stereotype.Component;
 
-import static mikufan.cx.vocadb_pv_downloader.config.parser.OptionName.*;
+import static mikufan.cx.vocadb_pv_downloader.services.config.parser.OptionName.*;
 /**
  * A factory declaring options
  * @author CX无敌
  */
 @NoArgsConstructor
+@Component
 public class OptionsFactory {
 
   public Options createOptions(){

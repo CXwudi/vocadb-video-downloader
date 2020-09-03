@@ -1,18 +1,25 @@
-package mikufan.cx.vocadb_pv_downloader;
+package mikufan.cx.vocadb_pv_downloader.controllers;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.vocadb_pv_downloader.config.ConfigFactory;
+import mikufan.cx.vocadb_pv_downloader.services.config.ConfigFactory;
 import mikufan.cx.vocadb_pv_downloader.util.MainUtil;
 import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlException;
 import org.apache.commons.lang3.SystemUtils;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.stereotype.Controller;
 
 /**
  * @author CX无敌
  */
-@Slf4j
-public class Main extends MainUtil {
-  public static void main(String[] args) throws VocaDbPvDlException {
-    var appConfig = new ConfigFactory().getConfig(args);
+@Controller @Slf4j
+@RequiredArgsConstructor
+public class MainRunner extends MainUtil {
+  private final ObjectProvider<ConfigFactory> configFactoryOp;
+
+  public void run(String... args) throws VocaDbPvDlException {
+
+    var appConfig = configFactoryOp.getObject().getConfig(args);
     log.info("pref = {}", appConfig.userConfig.getPvPreference());
     log.info("ytdl = {}", appConfig.userConfig.getYoutubeDlFile());
     log.info("ffmpeg = {}", appConfig.userConfig.getFfmpegFile());

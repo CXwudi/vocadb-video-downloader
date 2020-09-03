@@ -1,17 +1,18 @@
-package mikufan.cx.vocadb_pv_downloader.config.validator;
+package mikufan.cx.vocadb_pv_downloader.services.config.validator;
 
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
-import mikufan.cx.vocadb_pv_downloader.config.entity.UserConfig;
+import mikufan.cx.vocadb_pv_downloader.services.config.entity.UserConfig;
 import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlException;
 import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlRCI;
+import org.springframework.stereotype.Component;
 
 /**
  * a class containing external validation for {@link UserConfig}
  * @author CX无敌
  */
-@Slf4j
+@Slf4j @Component
 public class UserConfigValidator {
 
   /**

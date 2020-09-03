@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_downloader.config.entity;
+package mikufan.cx.vocadb_pv_downloader.services.config.entity;
 
 import lombok.Builder;
 import lombok.Getter;

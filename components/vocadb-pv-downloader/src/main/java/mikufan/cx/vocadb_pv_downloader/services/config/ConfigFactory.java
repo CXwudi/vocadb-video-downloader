@@ -1,25 +1,30 @@
-package mikufan.cx.vocadb_pv_downloader.config;
+package mikufan.cx.vocadb_pv_downloader.services.config;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import mikufan.cx.vocadb_pv_downloader.config.entity.AppConfig;
-import mikufan.cx.vocadb_pv_downloader.config.parser.ArgParser;
-import mikufan.cx.vocadb_pv_downloader.config.parser.OptionsFactory;
-import mikufan.cx.vocadb_pv_downloader.config.validator.UserConfigValidator;
+import mikufan.cx.vocadb_pv_downloader.services.config.entity.AppConfig;
+import mikufan.cx.vocadb_pv_downloader.services.config.parser.ArgParser;
+import mikufan.cx.vocadb_pv_downloader.services.config.parser.OptionsFactory;
+import mikufan.cx.vocadb_pv_downloader.services.config.validator.UserConfigValidator;
 import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlException;
 import org.apache.commons.cli.CommandLine;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
 
 /**
  * main facade class to get {@link AppConfig} from command lines
  * @author CX无敌
  */
-@Slf4j
+@Slf4j @Service @Lazy
+@RequiredArgsConstructor
 public class ConfigFactory {
+  private final OptionsFactory optionsFactory;
+  private final ArgParser parser;
+  private final UserConfigValidator configValidator;
 
   public AppConfig getConfig(String[] args) throws VocaDbPvDlException{
     //construct options
-    var options = new OptionsFactory().createOptions();
-    // construct parser
-    var parser = new ArgParser();
+    var options = optionsFactory.createOptions();
 
     // real parsing, which also print help if any required options are missing
     log.debug("parsing commands");
@@ -33,7 +38,7 @@ public class ConfigFactory {
     configBuilder.outputDir(parser.getOutputDirOrThrow(cmdLine));
 
     var userConfig = parser.getUserConfigOrThrow(cmdLine);
-    new UserConfigValidator().validate(userConfig);
+    configValidator.validate(userConfig);
     configBuilder.userConfig(userConfig);
 
     return configBuilder.build();

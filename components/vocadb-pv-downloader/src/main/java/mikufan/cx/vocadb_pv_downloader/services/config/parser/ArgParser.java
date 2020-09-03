@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_downloader.config.parser;
+package mikufan.cx.vocadb_pv_downloader.services.config.parser;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,11 +7,12 @@ import mikufan.cx.project_vd_common_util.exception.ThrowableFunction;
 import mikufan.cx.project_vd_common_util.exception.ThrowableSupplier;
 import mikufan.cx.project_vd_common_util.io.JacksonPojoTransformer;
 import mikufan.cx.project_vd_common_util.jackson.YamlMapperUtil;
-import mikufan.cx.vocadb_pv_downloader.config.entity.UserConfig;
+import mikufan.cx.vocadb_pv_downloader.services.config.entity.UserConfig;
 import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlException;
 import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlRCI;
 import org.apache.commons.cli.*;
 import org.eclipse.collections.api.factory.Lists;
+import org.springframework.stereotype.Component;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,6 +22,7 @@ import java.nio.file.Path;
  */
 @Slf4j
 @NoArgsConstructor
+@Component
 public class ArgParser {
   
   /**

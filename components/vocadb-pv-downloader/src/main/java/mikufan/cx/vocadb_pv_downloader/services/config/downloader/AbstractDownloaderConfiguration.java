@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_downloader.config.downloader;
+package mikufan.cx.vocadb_pv_downloader.services.config.downloader;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_downloader.config.entity;
+package mikufan.cx.vocadb_pv_downloader.services.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
-import mikufan.cx.vocadb_pv_downloader.config.downloader.AbstractDownloaderConfiguration;
+import mikufan.cx.vocadb_pv_downloader.services.config.downloader.AbstractDownloaderConfiguration;
 import org.eclipse.collections.api.list.ImmutableList;
 import org.eclipse.collections.api.list.MutableList;
 import org.eclipse.collections.api.map.ImmutableMap;
