@@ -21,6 +21,7 @@ import org.springframework.stereotype.Controller;
 public class MainRunner extends MainRunnerUtil {
 
   private final ObjectProvider<AppConfig> appConfigOp;
+
   private final ObjectProvider<ListFetcher> listFetcherOp;
   private final ObjectProvider<ArtistFieldFixer> artistFieldFixerOp;
 
