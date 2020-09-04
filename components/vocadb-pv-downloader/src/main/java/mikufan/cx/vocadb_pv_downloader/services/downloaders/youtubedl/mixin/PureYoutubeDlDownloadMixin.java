@@ -4,7 +4,7 @@ import com.sapher.youtubedl.YoutubeDL;
 import com.sapher.youtubedl.YoutubeDLException;
 import com.sapher.youtubedl.YoutubeDLRequest;
 import com.sapher.youtubedl.YoutubeDLResponse;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.base.BaseYoutubeDlDrivenDownloader;
+import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.BaseYoutubeDlDrivenDownloader;
 
 /**
  * @author CX无敌

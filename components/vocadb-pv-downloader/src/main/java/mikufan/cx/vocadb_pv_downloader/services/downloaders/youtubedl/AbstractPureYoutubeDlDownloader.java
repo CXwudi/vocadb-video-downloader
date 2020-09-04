@@ -1,9 +1,8 @@
-package mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.preset;
+package mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl;
 
 import com.sapher.youtubedl.YoutubeDL;
 import com.sapher.youtubedl.YoutubeDLRequest;
 import com.sapher.youtubedl.callback.LineOutputCallback;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.base.BaseYoutubeDlDrivenDownloader;
 import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.mixin.DefaultStatusValidationForYoutubeDlDrivenDownloaderMixin;
 import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.mixin.PureYoutubeDlDownloadMixin;
 

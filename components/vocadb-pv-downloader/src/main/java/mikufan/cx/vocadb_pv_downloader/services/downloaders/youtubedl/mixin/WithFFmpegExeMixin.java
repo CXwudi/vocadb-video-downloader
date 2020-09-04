@@ -1,7 +1,7 @@
 package mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.mixin;
 
 import com.sapher.youtubedl.YoutubeDLRequest;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.base.BaseYoutubeDlDrivenDownloader;
+import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.BaseYoutubeDlDrivenDownloader;
 
 import java.nio.file.Path;
 

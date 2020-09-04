@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.base;
+package mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl;
 
 import com.sapher.youtubedl.YoutubeDLRequest;
 import com.sapher.youtubedl.YoutubeDLResponse;
