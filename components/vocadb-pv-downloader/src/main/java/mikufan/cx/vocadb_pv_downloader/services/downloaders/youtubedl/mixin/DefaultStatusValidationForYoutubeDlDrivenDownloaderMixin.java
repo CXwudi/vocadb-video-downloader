@@ -12,7 +12,7 @@ import java.nio.file.Path;
  * @author CX无敌
  */
 public interface DefaultStatusValidationForYoutubeDlDrivenDownloaderMixin extends BaseYoutubeDlDrivenDownloader {
-  org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(PureYoutubeDlDownloadMixin.class);
+  org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DefaultStatusValidationForYoutubeDlDrivenDownloaderMixin.class);
   String ERROR = "ERROR";
   // unfortunately we can't put private on interface
 
