@@ -1,28 +1,28 @@
 package mikufan.cx.vocadb_pv_downloader.services.downloaders.root;
 
 import mikufan.cx.vocadb_pv_downloader.entity.DownloadStatus;
-import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlException;
-import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlRCI;
+import mikufan.cx.vocadb_pv_downloader.services.downloaders.root.annotations.Mixinable;
 
 import java.nio.file.Path;
 
 /**
- * Define base behaviors of a downloader who implements
- * {@link BasePvDownloader#download(String, Path, String)} by
- * these 3 steps that subclasses are required to implement:
+ * Define base behaviors of a downloader who break down the
+ * {@link BasePvDownloader#download(String, Path, String)} method by
+ * following 3 methods that subclasses are required to implement:
  *
  * <li>{@link BaseRequestDownloadValidatePvDownloader#buildRequest(java.lang.String, java.nio.file.Path, java.lang.String)}</li>
- * to warp all info needed for downloading the PV into a request POJO
+ * to warp all info needed for downloading the PV into a {@link Req request POJO}
  * <li>{@link BaseRequestDownloadValidatePvDownloader#computeResponse(Req)}</li>
- * which is where the real downloading job done, and return a response POJO
- * <li>{@link BaseRequestDownloadValidatePvDownloader#validateStatus(String, Path, String, Rsp, Throwable)}</li>
- * check and make sure download success
+ * which is where the real downloading job done, and return a {@link Rsp response POJO}
+ * <li>{@link BaseRequestDownloadValidatePvDownloader#validateStatus(String, Path, String, Rsp, Exception)}</li>
+ * check and tell if the download success
  *
  * <h3>Implementation Notice:</h3>
  * It's not a require to be thread-safe (but we recommend to do so). <br/>
  * However all 3 methods should be <b>stateless</b>! <br/>
- * Subclasses may not purely use youtube-dl as a downloading engine,
- * they could, for example, use IDM to download the real PV url extracted from youtube-dl. <br/>
+ *
+ * @param <Req> the type of the request POJO
+ * @param <Rsp> the type of the response POJO
  * @author CX无敌
  */
 public interface BaseRequestDownloadValidatePvDownloader<Req, Rsp> extends BasePvDownloader {
@@ -31,11 +31,11 @@ public interface BaseRequestDownloadValidatePvDownloader<Req, Rsp> extends BaseP
    * Implement the skeleton code of how download is done by these 3 abstract steps:
    *
    * <li>{@link BaseRequestDownloadValidatePvDownloader#buildRequest(java.lang.String, java.nio.file.Path, java.lang.String)}</li>
-   * to warp all info needed for downloading the PV into a request POJO
+   * to warp all info needed for downloading the PV into a {@link Req request POJO}
    * <li>{@link BaseRequestDownloadValidatePvDownloader#computeResponse(Req)}</li>
-   * which is where the real downloading job done, and return a response POJO
-   * <li>{@link BaseRequestDownloadValidatePvDownloader#validateStatus(String, Path, String, Rsp, Throwable)}</li>
-   * check and make sure download success
+   * which is where the real downloading job done, and return a {@link Rsp response POJO}
+   * <li>{@link BaseRequestDownloadValidatePvDownloader#validateStatus(String, Path, String, Rsp, Exception)}</li>
+   * check and tell if the download success
    *
    * @param url the url of where to watch the PV on website
    * @param dir in which directory is the pv file saved
@@ -50,27 +50,26 @@ public interface BaseRequestDownloadValidatePvDownloader<Req, Rsp> extends BaseP
     Req request = buildRequest(url, dir, fileName);
 
     Rsp response = null;
-    Throwable throwable = null;
+    Exception expThrown = null;
     try {
       response = computeResponse(request);
     } catch (InterruptedException e){
       // if the user send an interrupt signal then we better throw the same exception and stop the program NOW
-      log.error("Ohh, an InterruptedException", e);
       throw e;
-    } catch (Throwable e) {
+    } catch (Exception e) {
       //some other things stop it from executing the request
-      log.error("Damn!! An Exception occurs", e);
+      log.error("Damn!! An Exception occurs during downloading {} from {}", fileName, url, e);
 
       if (e.getCause() instanceof InterruptedException) {
+        log.error("It's an InterruptedException wrapped inside", e.getCause());
         throw (InterruptedException) e.getCause();
       } else {
-        throwable = new VocaDbPvDlException(VocaDbPvDlRCI.MIKU_DL_301,
-            "An exception occurs during downloading " + fileName + " from " + url + ", see \"Cause by:\"", e);
+        expThrown = e;
       }
     }
     // otherwise, the download progress is finished
     // but we need to check if the file is downloaded correctly
-    return validateStatus(url, dir, fileName, response, throwable);
+    return validateStatus(url, dir, fileName, response, expThrown);
   }
 
   /**
@@ -80,6 +79,10 @@ public interface BaseRequestDownloadValidatePvDownloader<Req, Rsp> extends BaseP
    * @param fileName the file of the pv
    * @return the request obj
    */
+  @Mixinable(
+      effect = "multiple mixin should stack up all the information from multiple req pojo to one pojo",
+      orderEffect = "different order should define which information stack up first"
+  )
   Req buildRequest(String url, Path dir, String fileName);
 
   /**
@@ -90,7 +93,7 @@ public interface BaseRequestDownloadValidatePvDownloader<Req, Rsp> extends BaseP
    * @return the respond in form of a response obj, should be non-null
    * @throws Throwable if exception happened
    */
-  Rsp computeResponse(Req request) throws Throwable;
+  Rsp computeResponse(Req request) throws Exception;
 
   /**
    * Then we exam the response object and check if we really successfully complete the download.
@@ -102,10 +105,14 @@ public interface BaseRequestDownloadValidatePvDownloader<Req, Rsp> extends BaseP
    * @param fileName the file of the pv
    * @param response the response computed from {@link BaseRequestDownloadValidatePvDownloader#computeResponse(Req)}.
    *                 It could be null, especially when the computation abort abnormally.
-   * @param throwable the exception thrown from {@link BaseRequestDownloadValidatePvDownloader#computeResponse(Req)} if exist.
+   * @param exp the exception thrown from {@link BaseRequestDownloadValidatePvDownloader#computeResponse(Req)} if exist.
    * @return the status of this download process
    */
-  DownloadStatus validateStatus(String url, Path dir, String fileName, Rsp response, Throwable throwable);
+  @Mixinable(
+      effect = "multiple mixin means the validation can be success or unknown if only all mixin success, and fails if any of mixin fails",
+      orderEffect = "first mix first validation"
+  )
+  DownloadStatus validateStatus(String url, Path dir, String fileName, Rsp response, Exception exp);
 
 
 

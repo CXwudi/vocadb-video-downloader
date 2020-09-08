@@ -27,8 +27,8 @@ public interface BasePvDownloader {
    * Failing to do so will cause the program unable to find the pv downloaded. <br/>
    * Also, it's not the goal to implement retry mechanism inside downloader class.
    * Instead, the service that using this downloader should handle retry mechanism. <br/>
-   * When {@link InterruptedException} is thrown, the JVM should stop ASAP.
-   *
+   * When {@link InterruptedException} is thrown, the JVM should stop ASAP. <br/>
+   * A mixin interface should not override this method. <br/>
    *
    * @param url the url of where to watch the PV on website
    * @param dir in which directory is the pv file saved

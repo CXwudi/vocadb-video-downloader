@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 /**
+ * Default validation to check if the downloaded file exists
  * @author CX无敌
  */
 public interface DefaultFileExistenceCheckMixin<Req, Rsp> extends BaseRequestDownloadValidatePvDownloader<Req, Rsp> {

@@ -7,6 +7,7 @@ import mikufan.cx.vocadb_pv_downloader.services.downloaders.root.BaseRequestDown
 import java.nio.file.Path;
 
 /**
+ * Default check to make sure
  * @author CX无敌
  */
 public interface DefaultNullCheckMixin<Req, Rsp> extends BaseRequestDownloadValidatePvDownloader<Req, Rsp>  {
