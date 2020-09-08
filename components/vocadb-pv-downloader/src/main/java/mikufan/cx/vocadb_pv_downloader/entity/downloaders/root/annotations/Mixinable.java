@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_downloader.services.downloaders.root.annotations;
+package mikufan.cx.vocadb_pv_downloader.entity.downloaders.root.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;

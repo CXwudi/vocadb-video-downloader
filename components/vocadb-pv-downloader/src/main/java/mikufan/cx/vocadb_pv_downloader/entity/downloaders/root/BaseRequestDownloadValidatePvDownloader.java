@@ -1,7 +1,7 @@
-package mikufan.cx.vocadb_pv_downloader.services.downloaders.root;
+package mikufan.cx.vocadb_pv_downloader.entity.downloaders.root;
 
 import mikufan.cx.vocadb_pv_downloader.entity.DownloadStatus;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.root.annotations.Mixinable;
+import mikufan.cx.vocadb_pv_downloader.entity.downloaders.root.annotations.Mixinable;
 
 import java.nio.file.Path;
 
@@ -67,8 +67,8 @@ public interface BaseRequestDownloadValidatePvDownloader<Req, Rsp> extends BaseP
         expThrown = e;
       }
     }
-    // otherwise, the download progress is finished
-    // but we need to check if the file is downloaded correctly
+    // otherwise, the download progress is finished, could be abnormally
+    // so we need to check
     return validateStatus(url, dir, fileName, response, expThrown);
   }
 
@@ -91,7 +91,7 @@ public interface BaseRequestDownloadValidatePvDownloader<Req, Rsp> extends BaseP
    *
    * @param request the request
    * @return the respond in form of a response obj, should be non-null
-   * @throws Throwable if exception happened
+   * @throws Exception if exception happened
    */
   Rsp computeResponse(Req request) throws Exception;
 

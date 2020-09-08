@@ -1,8 +1,8 @@
-package mikufan.cx.vocadb_pv_downloader.services.downloaders.root.mixin;
+package mikufan.cx.vocadb_pv_downloader.entity.downloaders.root.mixin;
 
 import mikufan.cx.vocadb_pv_downloader.entity.DownloadStatus;
 import mikufan.cx.vocadb_pv_downloader.entity.DownloadStatusEnum;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.root.BaseRequestDownloadValidatePvDownloader;
+import mikufan.cx.vocadb_pv_downloader.entity.downloaders.root.BaseRequestDownloadValidatePvDownloader;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,7 +21,7 @@ public interface DefaultFileExistenceCheckMixin<Req, Rsp> extends BaseRequestDow
     if (Files.notExists(expectedFile)){
       log.warn("Oh no, can not find the downloaded PV in {}", expectedFile.toAbsolutePath());
       return new DownloadStatus(DownloadStatusEnum.UNKNOWN,
-          "download completed but can not find the downloaded PV in " + expectedFile.toAbsolutePath());
+          "Can not find the downloaded PV in " + expectedFile.toAbsolutePath());
     }
 
     return new DownloadStatus(DownloadStatusEnum.SUCCESS, "Base check from DefaultFileExistenceCheckMixin success");

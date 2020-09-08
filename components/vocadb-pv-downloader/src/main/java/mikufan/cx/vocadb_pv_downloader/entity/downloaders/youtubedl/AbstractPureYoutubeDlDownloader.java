@@ -1,16 +1,16 @@
-package mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl;
+package mikufan.cx.vocadb_pv_downloader.entity.downloaders.youtubedl;
 
 
 import com.sapher.youtubedl.YoutubeDLRequest;
 import com.sapher.youtubedl.YoutubeDLResponse;
 import mikufan.cx.vocadb_pv_downloader.entity.DownloadStatus;
 import mikufan.cx.vocadb_pv_downloader.entity.DownloadStatusSaver;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.root.BaseRequestDownloadValidatePvDownloader;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.root.mixin.DefaultFileExistenceCheckMixin;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.root.mixin.DefaultNullCheckMixin;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.mixin.PureYoutubeDlDownloadMixin;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.mixin.YoutubeDlProgressCheckOptionalMixin;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.mixin.YoutubeDlReturnCodeCheckMixin;
+import mikufan.cx.vocadb_pv_downloader.entity.downloaders.root.BaseRequestDownloadValidatePvDownloader;
+import mikufan.cx.vocadb_pv_downloader.entity.downloaders.root.mixin.DefaultFileExistenceCheckMixin;
+import mikufan.cx.vocadb_pv_downloader.entity.downloaders.root.mixin.DefaultNullCheckMixin;
+import mikufan.cx.vocadb_pv_downloader.entity.downloaders.youtubedl.mixin.PureYoutubeDlDownloadMixin;
+import mikufan.cx.vocadb_pv_downloader.entity.downloaders.youtubedl.mixin.YoutubeDlProgressCheckOptionalMixin;
+import mikufan.cx.vocadb_pv_downloader.entity.downloaders.youtubedl.mixin.YoutubeDlReturnCodeCheckMixin;
 
 import java.nio.file.Path;
 

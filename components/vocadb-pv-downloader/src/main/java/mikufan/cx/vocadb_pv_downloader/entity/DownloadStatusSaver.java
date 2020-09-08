@@ -34,6 +34,9 @@ public class DownloadStatusSaver {
     }
   }
 
+  /**
+   * @return an status with all descriptions from the same type of status
+   */
   public DownloadStatus getBestRepresentedStatus(){
     if (failList.notEmpty()){
       return new DownloadStatus(DownloadStatusEnum.FAIL_DOWNLOAD, aggregateDescriptions(failList));

@@ -1,8 +1,8 @@
-package mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl;
+package mikufan.cx.vocadb_pv_downloader.entity.downloaders.youtubedl;
 
 import com.sapher.youtubedl.YoutubeDLRequest;
 import com.sapher.youtubedl.YoutubeDLResponse;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.root.BaseRequestDownloadValidatePvDownloader;
+import mikufan.cx.vocadb_pv_downloader.entity.downloaders.root.BaseRequestDownloadValidatePvDownloader;
 
 /**
  * Base downloader that use {@link YoutubeDLRequest} and {@link YoutubeDLResponse}

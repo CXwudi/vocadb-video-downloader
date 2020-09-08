@@ -1,9 +1,9 @@
-package mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.mixin;
+package mikufan.cx.vocadb_pv_downloader.entity.downloaders.youtubedl.mixin;
 
 import com.sapher.youtubedl.YoutubeDLResponse;
 import mikufan.cx.vocadb_pv_downloader.entity.DownloadStatus;
 import mikufan.cx.vocadb_pv_downloader.entity.DownloadStatusEnum;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.BaseYoutubeDlDrivenDownloader;
+import mikufan.cx.vocadb_pv_downloader.entity.downloaders.youtubedl.BaseYoutubeDlDrivenDownloader;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.file.Path;

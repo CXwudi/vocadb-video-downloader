@@ -1,11 +1,12 @@
-package mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.mixin;
+package mikufan.cx.vocadb_pv_downloader.entity.downloaders.youtubedl.mixin;
 
 import com.sapher.youtubedl.YoutubeDLRequest;
-import mikufan.cx.vocadb_pv_downloader.services.downloaders.youtubedl.BaseYoutubeDlDrivenDownloader;
+import mikufan.cx.vocadb_pv_downloader.entity.downloaders.youtubedl.BaseYoutubeDlDrivenDownloader;
 
 import java.nio.file.Path;
 
 /**
+ * add --write-thumbnail to the youtube-dl option
  * @author CX无敌
  */
 public interface WithThumbnailRequestMixin extends BaseYoutubeDlDrivenDownloader {

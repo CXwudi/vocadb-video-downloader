@@ -1,4 +1,4 @@
-package mikufan.cx.vocadb_pv_downloader.services.downloaders.root;
+package mikufan.cx.vocadb_pv_downloader.entity.downloaders.root;
 
 
 import mikufan.cx.vocadb_pv_downloader.entity.DownloadStatus;
