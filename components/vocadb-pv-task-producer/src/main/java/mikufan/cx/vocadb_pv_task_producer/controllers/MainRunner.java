@@ -57,13 +57,10 @@ public class MainRunner extends MainRunnerUtil {
     var outputDir = appConfig.getOutputDir().toAbsolutePath();
     var errDir = outputDir.resolve(appConfig.systemConfig.getErrDir());
     createDir(errDir);
-    var threadPoolExecutor = createThreadPoolExecutor(
-        appConfig.systemConfig.getThreadCorePoolSize(),
-        appConfig.systemConfig.getThreadMaxPoolSize());
 
     log.info("start writing song info in list {} to output folder {}", listId, outputDir);
     songList.getItems()
-        .asParallel(threadPoolExecutor, appConfig.systemConfig.getBatchSize())
+        .toReversed()
         .forEach(makeThrowableProcedure(item -> {
 
           var song = item.getSong();
@@ -83,7 +80,6 @@ public class MainRunner extends MainRunnerUtil {
         }));
 
     /* == 5. all finished == */
-    threadPoolExecutor.shutdown();
     log.info("終わった。( •̀ ω •́ )y");
   }
 }
