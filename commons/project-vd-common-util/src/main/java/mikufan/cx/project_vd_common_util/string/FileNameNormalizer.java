@@ -9,7 +9,7 @@ public class FileNameNormalizer {
 
   public static String removeIllegalChars(String fileName){
     return fileName
-        .replace("/", "-")
+        .replace("/", "_")
         .replace("\\", "-")
 
         .replace("? ", " ")
