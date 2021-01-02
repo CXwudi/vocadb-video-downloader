@@ -128,9 +128,9 @@ public class ArtistFieldFixer {
    * @return a string in forms of "producers feat. vocalist"
    */
   protected String formArtistInfo(MutableList<ArtistForSongContract> artists) {
-    var vocalist = artists.select(artist -> artist.getCategories().equals("Vocalist"))
+    var vocalist = artists.select(artist -> artist.getCategories().contains("Vocalist"))
         .collect(ArtistForSongContract::getName);
-    var performers = artists.select(artist -> artist.getCategories().equals("Producer"))
+    var performers = artists.select(artist -> artist.getCategories().contains("Producer"))
         .collect(ArtistForSongContract::getName);
     return performers.makeString(", ") + " feat. " + vocalist.makeString(", ");
   }
