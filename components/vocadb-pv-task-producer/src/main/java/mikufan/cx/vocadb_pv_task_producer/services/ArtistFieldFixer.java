@@ -12,6 +12,7 @@ import mikufan.cx.project_vd_common_util.exception.ThrowableConsumer;
 import mikufan.cx.project_vd_common_util.jackson.JsonMapperUtil;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
@@ -130,7 +131,7 @@ public class ArtistFieldFixer {
   protected String formArtistInfo(MutableList<ArtistForSongContract> artists) {
     var vocalist = artists.select(artist -> artist.getCategories().contains("Vocalist"))
         .collect(ArtistForSongContract::getName);
-    var performers = artists.select(artist -> artist.getCategories().contains("Producer"))
+    var performers = artists.select(artist -> StringUtils.containsAny(artist.getCategories(), "Producer", "Circle"))
         .collect(ArtistForSongContract::getName);
     return performers.makeString(", ") + " feat. " + vocalist.makeString(", ");
   }
