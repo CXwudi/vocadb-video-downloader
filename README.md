@@ -5,6 +5,10 @@
 [![alt text](https://upload.wikimedia.org/wikipedia/de/c/ce/NicoNicoDouga-Logo-Vector.svg)](https://www.nicovideo.jp/  "ニコニコ動画")
 [![alt text](https://i.loli.net/2020/08/13/LcM7GFqzHb2WuoS.png)](https://ec.crypton.co.jp/pages/prod/vocaloid/mikuv4x "初音ミクv4x")
 
+## About this project
+
+This project has been archieved without been completed, the rest of the uncompleted part is done in [this repo](https://github.com/CXwudi/vocadb-video-downloader-new)
+
 ## Project Motivation
 
 I, am a Super Miku fan 😎 who like to check Vocaloid Daily Ranking on NicoNico or Youtube, and extract thoes songs from the PVs on Niconico or Youtube. 😁  
