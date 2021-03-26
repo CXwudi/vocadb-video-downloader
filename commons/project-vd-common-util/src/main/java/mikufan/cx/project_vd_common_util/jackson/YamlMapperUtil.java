@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class YamlMapperUtil extends ObjMapperUtil {
 
   public static YAMLMapper createDefault(){
-    return ObjMapperUtil.addDefaultFlags(YAMLMapper.builder());
+    return ObjMapperUtil.addDefaultFlagsForReadWrite(YAMLMapper.builder());
   }
 
   public static YAMLMapper createDefaultForReadOnly(){

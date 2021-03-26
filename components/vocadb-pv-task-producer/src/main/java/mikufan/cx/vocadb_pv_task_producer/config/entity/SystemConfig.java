@@ -67,4 +67,7 @@ public class SystemConfig {
   @JsonProperty
   private int batchSize = 0;
 
+  @JsonProperty
+  private String errDir;
+
 }

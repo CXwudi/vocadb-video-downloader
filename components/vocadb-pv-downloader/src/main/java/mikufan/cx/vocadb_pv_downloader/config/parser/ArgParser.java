@@ -12,6 +12,7 @@ import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlException;
 import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlRCI;
 import org.apache.commons.cli.*;
 import org.eclipse.collections.api.factory.Lists;
+import org.springframework.stereotype.Component;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,6 +22,7 @@ import java.nio.file.Path;
  */
 @Slf4j
 @NoArgsConstructor
+@Component
 public class ArgParser {
   
   /**

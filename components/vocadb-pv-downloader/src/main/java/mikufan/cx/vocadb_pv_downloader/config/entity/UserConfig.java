@@ -1,18 +1,25 @@
 package mikufan.cx.vocadb_pv_downloader.config.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import mikufan.cx.project_vd_common_util.pv_service.SupportedPvServices;
+import mikufan.cx.vocadb_pv_downloader.config.downloader.AbstractDownloaderConfiguration;
 import org.eclipse.collections.api.list.ImmutableList;
+import org.eclipse.collections.api.list.MutableList;
+import org.eclipse.collections.api.map.ImmutableMap;
 
 import java.nio.file.Path;
 
 /**
- * Store user's raw input from the yaml user config file. Allows null in optional fields.
+ * Immutable user config parsed from yaml file. Allows null in optional fields.
  * All null fields should be picked up with default value lazily.
  * @author CX无敌
  */
-@Getter
+@Getter @ToString
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserConfig {
 
   /**
@@ -25,7 +32,7 @@ public class UserConfig {
 
   /**
    * optional, user defined youtube-dl file
-   * if non, use our own youtube-dl
+   * if non, the system uses our own youtube-dl base on os type
    */
   @JsonProperty
   private Path youtubeDlFile;
@@ -37,4 +44,14 @@ public class UserConfig {
   @JsonProperty
   private Path ffmpegFile;
 
+  // using MutableList inside the map because of the bug in jackson https://github.com/FasterXML/jackson-datatypes-collections/issues/71
+  /**
+   * required, where key value is the name of the supported Pv services,
+   * and value value is the configuration
+   */
+  @JsonProperty
+  private ImmutableMap<String, MutableList<AbstractDownloaderConfiguration>> downloaderConfigs;
+
+  @JsonProperty
+  private int retryTimes;
 }

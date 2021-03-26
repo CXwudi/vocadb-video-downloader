@@ -12,6 +12,8 @@ import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskException;
 import mikufan.cx.vocadb_pv_task_producer.util.exception.VocaDbPvTaskRCI;
 import org.apache.commons.cli.*;
 import org.eclipse.collections.api.factory.Lists;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,6 +22,7 @@ import java.nio.file.Path;
  * the stateless arg parser
  * @author CX无敌
  */
+@Component @Lazy
 @Slf4j
 @NoArgsConstructor
 public final class ArgParser {

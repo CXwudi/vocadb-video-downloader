@@ -44,17 +44,10 @@
       <artifactId>commons-lang3</artifactId>
     </dependency>
 
-    <dependency> <!-- jackson -->
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
-    </dependency>
-    <dependency> <!-- and its standalone annotation, children import this to avoid jackson-databind -->
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-    </dependency>
-    <dependency> <!-- and its standalone object mapper -->
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
+
+    <dependency> <!-- jackson from spring boot -->
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-json</artifactId>
     </dependency>
     <dependency> <!-- and contains for eclipse collection -->
       <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -66,25 +59,13 @@
     </dependency>
 
     <!-- logging -->
-    <dependency> <!-- slf4j -->
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>
-    <dependency> <!-- log4j2 -->
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-    </dependency>
     <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-slf4j-impl</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-log4j2</artifactId>
     </dependency>
     <dependency> <!-- async logging support-->
       <groupId>com.lmax</groupId>
       <artifactId>disruptor</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.fusesource.jansi</groupId>
-      <artifactId>jansi</artifactId>
     </dependency>
   </dependencies>
 
@@ -104,7 +85,7 @@
               <classpathLayoutType>custom</classpathLayoutType>
               <!--suppress UnresolvedMavenProperty -->
               <customClasspathLayout>$${artifact.artifactId}$${dashClassifier?}.$${artifact.extension}</customClasspathLayout>
-              <mainClass>mikufan.cx.vocadb_pv_task_producer.Main</mainClass>
+              <mainClass>mikufan.cx.vocadb_pv_task_producer.TaskProducerApplication</mainClass>
             </manifest>
           </archive>
         </configuration>

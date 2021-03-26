@@ -28,19 +28,11 @@
       <artifactId>commons-cli</artifactId>
     </dependency>
 
-    <dependency> <!-- jackson -->
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
+    <dependency> <!-- jackson from spring boot -->
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-json</artifactId>
     </dependency>
-    <dependency> <!-- and its standalone annotation, children import this to avoid jackson-databind -->
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-    </dependency>
-    <dependency> <!-- and its standalone object mapper -->
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-    </dependency>
-    <dependency> <!-- and supports for eclipse collection -->
+    <dependency> <!-- and contains for eclipse collection -->
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <artifactId>jackson-datatype-eclipse-collections</artifactId>
     </dependency>
@@ -50,21 +42,19 @@
     </dependency>
 
     <!-- logging -->
-    <dependency> <!-- slf4j -->
+    <dependency> <!-- slf4j should be included -->
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
     </dependency>
-    <dependency> <!-- log4j2 -->
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-slf4j-impl</artifactId>
+    <dependency> <!-- but internal implementation should be excluded -->
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-log4j2</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency> <!-- async logging support-->
       <groupId>com.lmax</groupId>
       <artifactId>disruptor</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 

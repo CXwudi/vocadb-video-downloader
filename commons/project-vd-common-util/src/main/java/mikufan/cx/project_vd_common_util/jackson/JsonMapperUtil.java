@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class JsonMapperUtil extends ObjMapperUtil {
 
   public static JsonMapper createDefault(){
-    return addDefaultFlags(JsonMapper.builder());
+    return addDefaultFlagsForReadWrite(JsonMapper.builder());
   }
 
   public static JsonMapper createDefaultForReadOnly(){

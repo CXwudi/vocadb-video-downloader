@@ -3,12 +3,15 @@ package mikufan.cx.vocadb_pv_task_producer.config.parser;
 import lombok.NoArgsConstructor;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
 
 /**
  * A factory declaring options
  * @author CX无敌
  */
 @NoArgsConstructor
+@Component @Lazy
 public final class OptionsFactory {
 
   public Options createOptions(){ // leave it package private to allow testing

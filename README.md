@@ -25,23 +25,45 @@ Project VD: [VocaDB](https://vocadb.net/) Video Downloader
 A multi-module program driven by Youtube-dl, FFmpeg and Python Mutagen library,
 that can download PVs from various 二次元 websites (Niconico, Youtube, Bilibili and etc) according to a VocaDB favourite list, extract audios from PVs, and tags audios with dedicated information from VocaDB  
 
-Functionality of each module:
+### Functionality of each modules
 
 * **vocadb-pv-task-producer**:
-  * Input: An ID of a favourite list in VocaDB
-  * Output: Produce/Update a folder of json files where each json file is the detail information of a Vocaloid song
-  * Notes:
-    * The format of the json file follows GET [`https://vocadb.net/api/songs/<songId>?fields=PVs`](https://vocadb.net/swagger/ui/index#!/SongApi/SongApi_GetById "VocaDB Api Doc Page")
-    * Youtube/Niconico favourite list can be imported into VocaDB website using the import feature on the website. Therefore this module covers both Niconico and Youtube favourite list as well.
-    * If I have time, other modules for reading favourite lists directly from local file, Bilibili and writing same output can be implemented using Selenium or commons-csv
+  * Input: an ID of a favourite list in VocaDB
+    * you can transform your Youtube/Niconico favourite list into VocaDB favourite list by using the import feature on the website
+  * Output: a folder of json files representing detail information of Vocaloid songs in favourite list
+    * the format of the json file follows GET [`https://vocadb.net/api/songs/<songId>?fields=PVs`](https://vocadb.net/swagger/ui/index#!/SongApi/SongApi_GetById "VocaDB Api Doc Page")(click to see the api doc page)  
+    * if I have time, I can implement other modules for reading favourite lists directly from local file, Bilibili and writing same output
 * **vocadb-pv-downloader**:
-  * Input: The output of vocadb-pv-task-producer, which is a folder of json files where each json file is the detail information of a Vocaloid song. In this module, each json file indicate a Vocaloid PV to be downloaded
-  * Output: Contains a copy of the input, plus PV downloaded from supported websites (Youtube, Niconico, Bilibili) using youtube-dl
+  * Input: the output of vocadb-pv-task-producer
+  * Output: a copy of the input of this module + PVs and thumbnails downloaded from supported websites (Youtube, Niconico, Bilibili)
+    * powered by youtube-dl
 * **vocadb-pv-extractor**:
-  * Input: the output of vocadb-pv-downloader, which contains PVs downloaded, thumbnails of PVs, and detail information of songs in json files
-  * Output: the copy of json files, plus audio tracks extracted from PVs and embeded with thumbnail and tags information from json files using Python Mutagen library
+  * Input: the output of vocadb-pv-downloader
+  * Output: a folder with copies of json files + audio files extracted from PVs with embedded thumbnail and tags information
+    * extraction is done by ffmpeg
+    * thumbnail and tag are done by Python Mutagen library
+    * the json files provide information of tags
 
-//TODO: other explaination like easy hackable configs, easy hackable output/input, allowing using output with other program and etc.
+### General Implementation Consideration
+
+Of course, the following functional requirements are my first concern:
+
+* able to download videos from Bilibili, Youtube and Niconico
+* automatically extract audio losslessly using ffmpeg
+* since VocaDB provides useful info of Vocaloid songs, and youtube-dl can download thumbnails, why not embed tags and thumbnails using python mutagen lib
+
+Hence, we decide to make a Maven multi-module project. Each module handle one action (task perparing, downloading and extracting)
+
+However, there are some other things I concern: (non-functional requirements)
+
+* replacable binary files (youtube-dl, ffmpeg, and etc)
+* modifiable programs behaviors
+  * espacially the youtube-dl commands
+* can stop and continue
+* can inspect and modify the input/output manually, by users or by some other programs
+
+Hence, we come up with easy hackable configs, easy hackable output/input. As all modules follow the pattern of: take some input and some config files, then it produces an output.  
+Input files, output files, config files and executable files are all placed outside of the programs. So they are free to be read, edited or replaced by any ways 😁
 
 ## Current Progresses
 
@@ -52,7 +74,7 @@ The project is WIP, current progresses are:
 2. ✅ project-vd-common-util (some util classes and function that reduce spolier codes)
 3. ✅ project-vd-common-entity (some entity classes that only project-vd used)
 4. ✅ vocadb-pv-task-producer
-5. ✅ [youtubedl-java](https://github.com/CXwudi/youtubedl-java) (a wrapper of youtube in Java, forked from <https://github.com/sapher/youtubedl-java> with various useful modification to suit our need)
+5. ✅ [youtubedl-java](https://github.com/CXwudi/youtubedl-java) (a wrapper of youtube-dl in Java, forked from <https://github.com/sapher/youtubedl-java> with various useful modification to suit our need)
 6. 🔄 vocadb-pv-downloader
    * it embedds youtube-dl executables compiled from my folked repo [here](https://github.com/CXwudi/youtube-dl-niconico-enhanced)  
 7. ❌ vocadb-pv-extractor

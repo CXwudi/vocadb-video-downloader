@@ -12,8 +12,10 @@ import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlException;
 import mikufan.cx.vocadb_pv_downloader.util.exception.VocaDbPvDlRCI;
 
 import java.io.IOException;
+import java.nio.file.Path;
 
 /**
+ * Immutable system config parsed from yaml file in assets dir
  * @author CX无敌
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -34,8 +36,11 @@ public class SystemConfig {
   }
 
   @JsonProperty
-  private String youtubeDlWinPath;
+  private Path youtubeDlWinPath;
 
   @JsonProperty
-  private String youtubeDlLinuxPath;
+  private Path youtubeDlLinuxPath;
+
+  @JsonProperty
+  private int retryTimes;
 }
